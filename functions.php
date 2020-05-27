@@ -143,8 +143,14 @@ add_action( 'widgets_init', 'hounslow_intranet_widgets_init' );
  * Enqueue scripts and styles.
  */
 function hounslow_intranet_scripts() {
+
+	wp_enqueue_style( 'bootstrap-css', '//stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' );
+
 	wp_enqueue_style( 'hounslow-intranet-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'hounslow-intranet-style', 'rtl', 'replace' );
+
+	wp_enqueue_script('jquery');
+ 	wp_enqueue_script( 'bootstrap-js', '//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js', array(), _S_VERSION, true );
 
 	wp_enqueue_script( 'hounslow-intranet-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
@@ -182,4 +188,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
