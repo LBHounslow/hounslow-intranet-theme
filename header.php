@@ -54,7 +54,17 @@
 			</div>
 			<div class="row">
 				<div class="col text-sm-right">
-					UTILITIES NAV
+					<nav id="site-navigation" class="secondary-navigation">
+						<button class="menu-toggle" aria-controls="secondary-menu" aria-expanded="false"><?php esc_html_e( 'Secondary Menu', 'hounslow-intranet' ); ?></button>
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-2',
+								'menu_id'        => 'secondary-menu',
+							)
+						);
+						?>
+					</nav><!-- #site-navigation -->
 				</div>
 			</div>
 			<div class="row">
