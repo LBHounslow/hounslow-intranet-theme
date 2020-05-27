@@ -15,7 +15,8 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<section id="primary" class="content-area col-sm-12 col-lg-8">
+	<main id="main" class="site-main" role="main">
 
 		<?php
 		while ( have_posts() ) :
@@ -32,6 +33,7 @@ get_header();
 		?>
 
 	</main><!-- #main -->
+</section><!-- #primary -->
 
 <?php
 get_sidebar();
