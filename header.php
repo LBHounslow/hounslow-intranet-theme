@@ -24,64 +24,44 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'hounslow-intranet' ); ?></a>
-
 	<header id="masthead" class="site-header bg-primary">
+		<nav id="network-navigation" class="navbar  navbar-dark bg-dark">
+		  <a class="navbar-brand" href="/">@ Hounslow Intranet</a>
+			<form class="form-inline">
+		    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+		    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		  </form>
+		</nav>
 		<div class="container">
-			<div class="row">
-				<div class="col-sm-8">
-					<div class="site-branding">
-						<?php
-						the_custom_logo();
-						if ( is_front_page() && is_home() ) :
-							?>
-							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-							<?php
-						else :
-							?>
-							<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-							<?php
-						endif;
-						$hounslow_intranet_description = get_bloginfo( 'description', 'display' );
-						if ( $hounslow_intranet_description || is_customize_preview() ) :
-							?>
-							<p class="site-description"><?php echo $hounslow_intranet_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-						<?php endif; ?>
-					</div><!-- .site-branding -->
-				</div>
-				<div class="col-sm-4 text-sm-right">
-					SEARCH BOX
-				</div>
-			</div>
-			<div class="row">
-				<div class="col text-sm-right">
-					<nav id="site-navigation" class="secondary-navigation">
-						<button class="menu-toggle" aria-controls="secondary-menu" aria-expanded="false"><?php esc_html_e( 'Secondary Menu', 'hounslow-intranet' ); ?></button>
-						<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-2',
-								'menu_id'        => 'secondary-menu',
-							)
-						);
+			<nav id="site-branding" class="navbar navbar-dark bg-primary">
+			  <span class="navbar-brand site-title">
+					<?php bloginfo( 'name' ); ?>
+				</span>
+					<?php
+					$hounslow_intranet_description = get_bloginfo( 'description', 'display' );
+					if ( $hounslow_intranet_description || is_customize_preview() ) :
 						?>
-					</nav><!-- #site-navigation -->
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<nav id="site-navigation" class="main-navigation">
-						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'hounslow-intranet' ); ?></button>
-						<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-1',
-								'menu_id'        => 'primary-menu',
-							)
-						);
-						?>
-					</nav><!-- #site-navigation -->
-				</div>
-			</div>
+						<span class="navbar-text"><?php echo $hounslow_intranet_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+					<?php endif; ?>
+			</nav>
+			<nav id="site-navigation" class="navbar navbar-expand-lg navbar-dark bg-primary">
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarNav">
+					<?php
+					wp_nav_menu( array(
+							'theme_location'    => 'menu-1',
+							'depth'             => 1,
+							'container'         => 'ul',
+							'container_class'   => '',
+							'menu_class'        => 'navbar-nav',
+							'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+							'walker'            => new WP_Bootstrap_Navwalker(),
+					) );
+					?>
+				 </div>
+			</nav>
 	</div>
 	</header><!-- #masthead -->
 	<div id="content" class="site-content">
