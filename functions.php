@@ -51,7 +51,6 @@ if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'hounslow-intranet' ),
-				'menu-2' => esc_html__( 'Secondary', 'hounslow-intranet' ),
 			)
 		);
 
