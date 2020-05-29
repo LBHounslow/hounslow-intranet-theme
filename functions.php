@@ -143,8 +143,17 @@ function hounslow_intranet_scripts() {
 	wp_enqueue_style( 'hounslow-intranet-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'hounslow-intranet-style', 'rtl', 'replace' );
 
-	wp_enqueue_style( 'hounslow-intranet-custom', get_template_directory_uri() . '/hounslow.css', array(), _S_VERSION );
 
+	// Get the user's stylesheet choice from the options, default to "standard"
+	$stylesheet = get_option( 'hounslow_color_scheme', 'standard' );
+
+	// Conditionally load the appropriate stylesheet
+	if( $stylesheet == 'custom' ) {
+		wp_enqueue_style( 'hounslow-intranet-custom', get_template_directory_uri() . '/css/scheme-custom.css', array(), _S_VERSION );
+	}
+	else {
+		wp_enqueue_style( 'hounslow-intranet-standard', get_template_directory_uri() . '/css/scheme-standard.css', array(), _S_VERSION );
+	}
 
 	wp_enqueue_script('jquery');
  	wp_enqueue_script( 'bootstrap-js', '//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js', array(), _S_VERSION, true );
