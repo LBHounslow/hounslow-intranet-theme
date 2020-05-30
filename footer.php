@@ -16,14 +16,20 @@
 	<footer id="colophon" class="site-footer bg-secondary">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm">
-		      One of three columns
+				<div id="footer-column-left" class="widget-area col-sm">
+					<?php if ( is_active_sidebar( 'sidebar-fcl' ) ) {
+						dynamic_sidebar( 'sidebar-fcl' );
+					} ?>
 		    </div>
-		    <div class="col-sm">
-		      One of three columns
+				<div id="footer-column-centre" class="widget-area col-sm">
+					<?php if ( is_active_sidebar( 'sidebar-fcc' ) ) {
+						dynamic_sidebar( 'sidebar-fcc' );
+					} ?>
 		    </div>
-		    <div class="col-sm">
-		      One of three columns
+				<div id="footer-column-right" class="widget-area col-sm">
+					<?php if ( is_active_sidebar( 'sidebar-fcr' ) ) {
+						dynamic_sidebar( 'sidebar-fcr' );
+					} ?>
 		    </div>
 			</div>
 			<div class="row">
