@@ -20,9 +20,9 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class( array( 'bg-dark' ) ); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
+<div id="page" class="site bg-light">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'hounslow-intranet' ); ?></a>
 	<header id="masthead" class="site-header bg-primary">
 		<nav id="network-navigation" class="navbar  navbar-dark bg-dark">
