@@ -163,3 +163,67 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+if ( ! function_exists( 'hounslow_intranet_display_child_pages' ) ) :
+	/**
+	 * Displays the children of a page.
+	 *
+	 * Description..
+	 * ...
+	 */
+	function hounslow_intranet_display_child_pages( $post_id, $format = '' ) {
+		if ( ! is_page() ) {
+			return;
+		}
+
+		$args = array(
+        'order'          => 'ASC',
+        'post_parent'    => $post_id,
+        'post_type'      => 'page',
+    );
+
+    $childpages = get_children( $args );
+
+		if ( $format == 'media') :
+				foreach ($childpages as $child) {
+			?>
+			<div class="media">
+				<a href="<?php echo esc_url( get_permalink($child->ID) ); ?>">
+					<svg class="bi bi-file-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					  <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z"/>
+					  <path fill-rule="evenodd" d="M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
+					</svg>
+				</a>
+			  <div class="media-body ml-2">
+			    <h5 class="mt-0"><a href="<?php echo esc_url( get_permalink($child->ID) ); ?>"><?php 	echo esc_html( get_the_title($child->ID) ); ?></a></h5>
+					<?php echo apply_filters( 'the_excerpt', get_the_excerpt($child->ID) ); ?>
+			  </div>
+			</div>
+		<?php }
+		elseif ( $format == 'card' ) :
+			?>
+			<div class="row mb-3">
+				<?php foreach ($childpages as $child) { ?>
+
+			<div class="col-sm-6">
+			<div class="card mb-2">
+			  <div class="card-body">
+			    <h5 class="card-title"><?php 	echo esc_html( get_the_title($child->ID) ); ?></h5>
+			    <p class="card-text"><?php echo apply_filters( 'the_excerpt', get_the_excerpt($child->ID) ); ?></p>
+			    <a class="card-link" href="<?php echo esc_url( get_permalink($child->ID) ); ?>">Read more&hellip;</a>
+			  </div>
+			</div>
+		</div>
+
+		<?php } ?>
+	</div>
+	<?php else : ?>
+		<ul>
+			<?php foreach ($childpages as $child) {	?>
+				<li><a href="<?php echo esc_url( get_permalink($child->ID) ); ?>"><?php 	echo esc_html( get_the_title($child->ID) ); ?></a></li>
+			<?php } ?>
+		</ul>
+		<?php
+		endif;
+	}
+endif;
