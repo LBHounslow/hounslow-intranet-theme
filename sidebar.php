@@ -10,7 +10,7 @@
 
 if ( is_page() ) :
 
-	if ( is_page_template( 'page_document.php' ) ) :
+	if ( is_page_template( 'page_document.php' || 'page_document-landing.php' ) ) :
 
 		?>
 
