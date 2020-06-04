@@ -26,7 +26,12 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'hounslow-intranet' ); ?></a>
 	<header id="masthead" class="site-header bg-primary">
 		<nav id="network-navigation" class="navbar  navbar-dark bg-dark">
-		  <a class="navbar-brand" href="/">@ Hounslow Intranet</a>
+		  <a class="navbar-brand" href="/">
+				<svg class="bi bi-house-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				  <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+				  <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+				</svg> | Hounslow Intranet
+			</a>
 			<form class="form-inline">
 		    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 		    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -35,7 +40,7 @@
 		<div class="container">
 			<nav id="site-branding" class="navbar navbar-dark bg-primary">
 			  <span class="navbar-brand site-title">
-					<?php bloginfo( 'name' ); ?>
+					<a class="text-white" href="<?php echo esc_url( home_url( '/' )); ?>"><?php bloginfo( 'name' ); ?></a>
 				</span>
 					<?php
 					$hounslow_intranet_description = get_bloginfo( 'description', 'display' );
