@@ -1,3 +1,105 @@
+/* ## Standard Hounslow Colour Scheme ## */
+
+/* Background Colours */
+
 .bg-primary {
     background-color: #642F6C!important;
+}
+
+.bg-secondary {
+    background-color: #DEE0E2!important
+}
+
+/* Borders */
+
+article, #content .widget, #colophon {
+  border-top: 7px solid #502656;
+}
+
+/* Margins */
+
+#masthead {
+  margin-bottom: 1rem;
+}
+
+#colophon {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+article, .widget {
+  padding-top: 1rem;
+}
+
+.widget-area ul {
+  margin-left: 0;
+}
+
+/* Text Size */
+
+.widget-title {
+  font-size: 1.5rem;
+}
+
+/* Main Menu */
+
+#site-navigation {
+  padding-bottom: 0;
+}
+
+#menu-main  {
+	padding: 0;
+}
+#menu-main ul  {
+	margin-top: 0;
+	padding: 0;
+}
+#menu-main li  {
+	display: inline;
+	font-weight: normal;
+  background: #eaedef;
+	float: left;
+	font-size: 90%;
+	text-align: center;
+	margin-top: 1px;
+  border-bottom: 1px solid #642f6c;
+  border-top: 1px solid #642f6c;
+  border-right: 1px solid #642f6c;
+}
+#menu-main li:last-child {
+		border-right: 1px solid #61415B;
+}
+#menu-main li:first-child {
+		border-left: 1px solid #61415B;
+}
+#menu-main li a  {
+	display: block;
+	padding: 0.5em 1.25em 0.5em 1.25em;
+	color: #1E4287; color: #61415B;
+	text-decoration: none;
+}
+#menu-main li a:hover  {
+	background: #DEE0E2; // .bg-secondary
+	color: #61415B;
+}
+#menu-main li.current-menu-item,  #menu-main li.current-page-ancestor  {
+	background: #F8F9FA;
+}
+#menu-main li.current-menu-item a,  #menu-main li.current-page-ancestor a  {
+	color: #1E4287;
+}
+#menu-main li.current-menu-item,  #menu-main li.current-page-ancestor  {
+	border-bottom: 1px solid #F8F9FA;
+}
+#menu-main li ul li {
+	display: block;
+	width: 100%;
+	text-align: left;
+	border-bottom: 0;
+}
+#menu-main li ul.dropdown-menu {
+	padding: 0;
+}
+.dropdown-menu>.active>a {
+  background-color: #DEE0E2; // .bg-secondary
 }
