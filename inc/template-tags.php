@@ -204,19 +204,27 @@ if ( ! function_exists( 'hounslow_intranet_display_child_pages' ) ) :
 			?>
 			<div class="row mb-3">
 				<?php foreach ($childpages as $child) { ?>
+					<div class="col-sm-4">
+						<div class="card mb-2">
 
-			<div class="col-sm-6">
-			<div class="card mb-2">
-			  <div class="card-body">
-			    <h5 class="card-title"><?php 	echo esc_html( get_the_title($child->ID) ); ?></h5>
-			    <p class="card-text"><?php echo apply_filters( 'the_excerpt', get_the_excerpt($child->ID) ); ?></p>
-			    <a class="card-link" href="<?php echo esc_url( get_permalink($child->ID) ); ?>">Read more&hellip;</a>
-			  </div>
-			</div>
-		</div>
-
+						<?php if (has_post_thumbnail( $child->ID ) ) :	?>
+							<a class="post-thumbnail" href="<?php the_permalink($child->ID); ?>" aria-hidden="true" tabindex="-1">
+						 		<?php echo get_the_post_thumbnail( $child->ID, 'large' ); ?>
+						 	</a>
+						 <?php else : ?>
+							<a class="post-thumbnail" href="<?php the_permalink($child->ID); ?>" aria-hidden="true" tabindex="-1">
+								<svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="currentColor"></rect></svg>
+						 	</a>
+						<?php endif; ?>
+						  <div class="card-body">
+						    <h5 class="card-title"><?php 	echo esc_html( get_the_title($child->ID) ); ?></h5>
+						    <p class="card-text"><?php echo apply_filters( 'the_excerpt', get_the_excerpt($child->ID) ); ?></p>
+						    <a class="card-link" href="<?php echo esc_url( get_permalink($child->ID) ); ?>">Read more&hellip;</a>
+						  </div>
+					</div>
+				</div>
 		<?php } ?>
-	</div>
+		</div>
 	<?php else : ?>
 		<ul>
 			<?php foreach ($childpages as $child) {	?>
