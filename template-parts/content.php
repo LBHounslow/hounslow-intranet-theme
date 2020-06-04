@@ -31,7 +31,7 @@
 
 	<?php hounslow_intranet_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content clearfix">
 		<?php
 		the_content(
 			sprintf(
