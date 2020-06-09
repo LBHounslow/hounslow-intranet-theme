@@ -143,8 +143,8 @@ function hounslow_intranet_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Document Pages Sidebar', 'hounslow-intranet' ),
-			'id'            => 'sidebar-document',
+			'name'          => esc_html__( 'Guidance Pages Sidebar', 'hounslow-intranet' ),
+			'id'            => 'sidebar-guidance',
 			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',

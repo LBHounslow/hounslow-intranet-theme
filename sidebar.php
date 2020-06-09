@@ -15,7 +15,7 @@ if ( is_page() ) :
 		?>
 
 		<aside id="secondary" class="widget-area col-sm-12 col-lg-3">
-			<?php dynamic_sidebar( 'sidebar-document' ); ?>
+			<?php dynamic_sidebar( 'sidebar-guidance' ); ?>
 		</aside><!-- #secondary -->
 
 		<?php
