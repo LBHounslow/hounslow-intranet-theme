@@ -16,14 +16,17 @@
 	<footer id="colophon" class="site-footer bg-secondary">
 		<div class="container-fluid">
 			<div class="row">
-				<div id="footer-column-left" class="widget-area col-sm">
-					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fcl' ) ?>
+				<div id="footer-column-one" class="widget-area col-sm">
+					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc1' ) ?>
 		    </div>
-				<div id="footer-column-centre" class="widget-area col-sm">
-					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fcc' ) ?>
+				<div id="footer-column-two" class="widget-area col-sm">
+					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc2' ) ?>
 		    </div>
-				<div id="footer-column-right" class="widget-area col-sm">
-					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fcr' ) ?>
+				<div id="footer-column-three" class="widget-area col-sm">
+					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc3' ) ?>
+		    </div>
+				<div id="footer-column-four" class="widget-area col-sm">
+					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc4' ) ?>
 		    </div>
 			</div>
 			<div class="row">
