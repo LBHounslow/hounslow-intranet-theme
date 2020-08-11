@@ -25,25 +25,30 @@
 <div id="page" class="site bg-light">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'hounslow-intranet' ); ?></a>
 	<header id="masthead" class="site-header">
-		<nav id="network-navigation" class="navbar  navbar-dark bg-dark">
-		  <a class="navbar-brand" href="/">
-				Hounslow Intranet
-			</a>
+		<nav id="network-navigation" class="navbar navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/">Hounslow Intranet</a>
+			</div>
 		</nav>
-		<div class="container">
-			<nav id="site-branding" class="navbar">
-			  <span class="navbar-brand site-title">
-					<a href="<?php echo esc_url( home_url( '/' )); ?>"><?php bloginfo( 'name' ); ?></a>
+		<nav id="site-branding" class="navbar">
+			<div class="container-fluid">
+				<span class="navbar-brand site-title">
+					<?php bloginfo( 'name' ); ?>
 				</span>
-					<?php
-					$hounslow_intranet_description = get_bloginfo( 'description', 'display' );
-					if ( $hounslow_intranet_description || is_customize_preview() ) :
-						?>
-						<span class="navbar-text"><?php echo $hounslow_intranet_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
-					<?php endif; ?>
-			</nav>
-			<hr>
-		</div>
+				<?php
+				$hounslow_intranet_description = get_bloginfo( 'description', 'display' );
+				if ( $hounslow_intranet_description || is_customize_preview() ) :
+					?>
+					<span class="navbar-text"><?php echo $hounslow_intranet_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+				<?php endif; ?>
+			</div>
+		</nav>
+		<nav id="site-breadcrumbs" class="navbar">
+			<div class="container-fluid">
+				BREADCRUMBS
+			</div>
+		</nav>
+		<hr>
 	</header><!-- #masthead -->
 	<div id="content" class="site-content">
 		<div class="container">
