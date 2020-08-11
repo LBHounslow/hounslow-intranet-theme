@@ -26,34 +26,28 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'hounslow-intranet' ); ?></a>
 	<header id="masthead" class="site-header">
 		<nav id="network-navigation" class="navbar navbar-dark bg-dark">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="/">Hounslow Intranet</a>
-			</div>
+			<a class="navbar-brand" href="/">Hounslow Intranet</a>
 		</nav>
 		<nav id="site-branding" class="navbar">
-			<div class="container-fluid">
-				<span class="navbar-brand site-title">
-					<?php bloginfo( 'name' ); ?>
-				</span>
-				<?php
-				$hounslow_intranet_description = get_bloginfo( 'description', 'display' );
-				if ( $hounslow_intranet_description || is_customize_preview() ) :
-					?>
-					<span class="navbar-text"><?php echo $hounslow_intranet_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
-				<?php endif; ?>
-			</div>
+			<span class="navbar-brand site-title">
+				<?php bloginfo( 'name' ); ?>
+			</span>
+			<?php
+			$hounslow_intranet_description = get_bloginfo( 'description', 'display' );
+			if ( $hounslow_intranet_description || is_customize_preview() ) :
+				?>
+				<span class="navbar-text"><?php echo $hounslow_intranet_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+			<?php endif; ?>
 		</nav>
 		<?php if ( is_main_site() && is_front_page() ) { ?>
 			<!-- Front Page Navigation -->
 		<?php } else { ?>
-			<nav id="site-breadcrumbs" class="navbar" aria-label="breadcrumb">
-				<div class="container-fluid">
-					<?php hounslow_intranet_breadcrumbs(); ?>
-				</div>
-			</nav>
+		<nav id="site-breadcrumbs" class="navbar" aria-label="breadcrumb">
+			<?php hounslow_intranet_breadcrumbs(); ?>
+		</nav>
 		<?php } ?>
 		<hr>
 	</header><!-- #masthead -->
 	<div id="content" class="site-content">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
