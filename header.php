@@ -49,24 +49,6 @@
 						<span class="navbar-text"><?php echo $hounslow_intranet_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 					<?php endif; ?>
 			</nav>
-			<nav id="site-navigation" class="navbar navbar-expand-lg navbar-dark bg-primary">
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
-			  </button>
-			  <div class="collapse navbar-collapse" id="navbarNav">
-					<?php
-					wp_nav_menu( array(
-							'theme_location'    => 'menu-1',
-							'depth'             => 1,
-							'container'         => 'ul',
-							'container_class'   => '',
-							'menu_class'        => 'navbar-nav',
-							'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-							'walker'            => new WP_Bootstrap_Navwalker(),
-					) );
-					?>
-				 </div>
-			</nav>
 	</div>
 	</header><!-- #masthead -->
 	<div id="content" class="site-content">
