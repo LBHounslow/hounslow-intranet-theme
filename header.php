@@ -43,11 +43,15 @@
 				<?php endif; ?>
 			</div>
 		</nav>
-		<nav id="site-breadcrumbs" class="navbar">
-			<div class="container-fluid">
-				BREADCRUMBS
-			</div>
-		</nav>
+		<?php if ( is_main_site() && is_front_page() ) { ?>
+			<!-- Front Page Navigation -->
+		<?php } else { ?>
+			<nav id="site-breadcrumbs" class="navbar" aria-label="breadcrumb">
+				<div class="container-fluid">
+					<?php hounslow_intranet_breadcrumbs(); ?>
+				</div>
+			</nav>
+		<?php } ?>
 		<hr>
 	</header><!-- #masthead -->
 	<div id="content" class="site-content">
