@@ -14,22 +14,16 @@
 </div><!-- .container -->
 </div><!-- #content -->
 	<footer id="colophon" class="site-footer bg-secondary">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div id="footer-column-left" class="widget-area col-sm">
-					<?php if ( is_active_sidebar( 'sidebar-fcl' ) ) {
-						dynamic_sidebar( 'sidebar-fcl' );
-					} ?>
+					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fcl' ) ?>
 		    </div>
 				<div id="footer-column-centre" class="widget-area col-sm">
-					<?php if ( is_active_sidebar( 'sidebar-fcc' ) ) {
-						dynamic_sidebar( 'sidebar-fcc' );
-					} ?>
+					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fcc' ) ?>
 		    </div>
 				<div id="footer-column-right" class="widget-area col-sm">
-					<?php if ( is_active_sidebar( 'sidebar-fcr' ) ) {
-						dynamic_sidebar( 'sidebar-fcr' );
-					} ?>
+					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fcr' ) ?>
 		    </div>
 			</div>
 			<div class="row">
