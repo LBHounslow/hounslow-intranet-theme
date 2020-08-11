@@ -24,7 +24,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site bg-light">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'hounslow-intranet' ); ?></a>
-	<header id="masthead" class="site-header bg-primary">
+	<header id="masthead" class="site-header">
 		<nav id="network-navigation" class="navbar  navbar-dark bg-dark">
 		  <a class="navbar-brand" href="/">
 				<svg class="bi bi-house-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -38,9 +38,9 @@
 		  </form>
 		</nav>
 		<div class="container">
-			<nav id="site-branding" class="navbar navbar-dark bg-primary">
+			<nav id="site-branding" class="navbar">
 			  <span class="navbar-brand site-title">
-					<a class="text-white" href="<?php echo esc_url( home_url( '/' )); ?>"><?php bloginfo( 'name' ); ?></a>
+					<a href="<?php echo esc_url( home_url( '/' )); ?>"><?php bloginfo( 'name' ); ?></a>
 				</span>
 					<?php
 					$hounslow_intranet_description = get_bloginfo( 'description', 'display' );
@@ -49,7 +49,8 @@
 						<span class="navbar-text"><?php echo $hounslow_intranet_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 					<?php endif; ?>
 			</nav>
-	</div>
+			<hr>
+		</div>
 	</header><!-- #masthead -->
 	<div id="content" class="site-content">
 		<div class="container">
