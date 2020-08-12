@@ -121,8 +121,8 @@ add_action( 'after_setup_theme', 'hounslow_intranet_content_width', 0 );
 function hounslow_intranet_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'hounslow-intranet' ),
-			'id'            => 'sidebar-1',
+			'name'          => esc_html__( 'Post Sidebar', 'hounslow-intranet' ),
+			'id'            => 'sidebar-post',
 			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',

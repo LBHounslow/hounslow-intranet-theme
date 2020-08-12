@@ -37,13 +37,13 @@ if ( is_page() ) :
 
 else :
 
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	if ( ! is_active_sidebar( 'sidebar-post' ) ) {
 		return;
 	}
 	?>
 
 	<aside id="secondary" class="widget-area col-sm-12 col-lg-3 ml-lg-5">
-		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+		<?php dynamic_sidebar( 'sidebar-post' ); ?>
 	</aside><!-- #secondary -->
 
 	<?php
