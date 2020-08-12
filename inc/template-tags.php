@@ -218,11 +218,22 @@ if ( ! function_exists( 'hounslow_intranet_breadcrumbs' ) ) :
                 $post_type_archive = get_post_type_archive_link($post_type);
 
                 echo '<li class="breadcrumb-item"><a href="' . $post_type_archive . '" title="' . $post_type_object->labels->name . '">' . $post_type_object->labels->name . '</a></li>';
-
-            }
+							}
 
             $custom_tax_name = get_queried_object()->name;
             echo '<li class="breadcrumb-item active">' . $custom_tax_name . '</li>';
+        } else if ( is_home() && ! is_front_page() ) {
+
+					if ( get_query_var('paged') ) {
+
+						echo '<li class="breadcrumb-item"><a href="' . get_permalink( get_option( 'page_for_posts' ) ) . '">News</a></li>';
+						echo '<li class="breadcrumb-item active">'.__('Page') . ' ' . get_query_var('paged') . '</li>';
+
+					} else {
+
+						echo '<li class="breadcrumb-item active">News</li>';
+
+					}
 
         } else if ( is_single() ) {
 
