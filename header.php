@@ -46,7 +46,7 @@
 			<?php hounslow_intranet_breadcrumbs(); ?>
 		</nav>
 		<?php } ?>
-		<hr>
+		<hr />
 	</header><!-- #masthead -->
 	<div id="content" class="site-content">
 		<div class="container">

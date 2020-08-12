@@ -59,5 +59,6 @@
 
 	<footer class="entry-footer">
 		<?php hounslow_intranet_entry_footer(); ?>
+		<hr />
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
