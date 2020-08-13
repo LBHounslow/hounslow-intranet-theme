@@ -30,8 +30,8 @@ if ( is_page() ) {
 				&nbsp;
 			</section>
 			<?php
-			if ( is_active_sidebar( 'home-widget-area3' ) ) {
-				dynamic_sidebar( 'home-widget-area3' );
+			if ( is_active_sidebar( 'sidebar-homepage' ) ) {
+				dynamic_sidebar( 'sidebar-homepage' );
 			}
 
 			 ?>

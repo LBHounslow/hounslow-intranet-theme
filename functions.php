@@ -143,42 +143,8 @@ function hounslow_intranet_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Guidance Pages Sidebar', 'hounslow-intranet' ),
-			'id'            => 'sidebar-guidance',
-			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Homepage First Column', 'hounslow-intranet' ),
-			'id' 						=> 'home-widget-area1',
-			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Homepage Second Column', 'hounslow-intranet' ),
-			'id' 						=> 'home-widget-area2',
-			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Homepage Third Column', 'hounslow-intranet' ),
-			'id' 						=> 'home-widget-area3',
+			'name'          => esc_html__( 'Homepage Sidebar', 'hounslow-intranet' ),
+			'id' 						=> 'sidebar-homepage',
 			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
