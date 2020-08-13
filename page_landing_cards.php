@@ -1,15 +1,14 @@
 <?php
 /**
- * Template Name: Guidance
+ * Template Name:Landing Page (with cards)
  *
  * @package Hounslow_Intranet
  */
 
 get_header();
-get_sidebar();
 ?>
 
-<section id="primary" class="content-area col-sm-12 col-lg-7">
+<section id="primary" class="content-area col">
 	<main id="main" class="site-main" role="main">
 
 		<?php
@@ -17,6 +16,8 @@ get_sidebar();
 			the_post();
 
 			get_template_part( 'template-parts/content', 'page' );
+
+			hounslow_intranet_display_child_pages( $post->ID, 'card' );
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
@@ -30,4 +31,5 @@ get_sidebar();
 </section><!-- #primary -->
 
 <?php
+
 get_footer();
