@@ -30,7 +30,7 @@
 		</nav>
 		<nav id="site-branding" class="navbar">
 			<span class="navbar-brand site-title">
-				<?php bloginfo( 'name' ); ?>
+				<a href="<?php echo esc_url( home_url( '/' )); ?>"><?php bloginfo( 'name' ); ?></a>
 			</span>
 			<?php
 			$hounslow_intranet_description = get_bloginfo( 'description', 'display' );
