@@ -48,11 +48,11 @@ if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
-		/*register_nav_menus(
+		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'hounslow-intranet' ),
+				'default' => esc_html__( 'Default', 'hounslow-intranet' ),
 			)
-		);*/
+		);
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -93,11 +93,11 @@ add_action( 'after_setup_theme', 'hounslow_intranet_setup' );
 /**
  * Register Custom Navigation Walker
  */
-/*function register_navwalker(){
+function register_navwalker(){
 	require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 }
 add_action( 'after_setup_theme', 'register_navwalker' );
-*/
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *

@@ -10,7 +10,37 @@
 
 if ( is_page() ) {
 
-	if ( is_page_template( 'page_document.php' || 'page_document-landing.php' ) ) :
+	if ( is_front_page() ) {
+
+		?>
+
+		<aside id="secondary" class="widget-area col-sm-12 col-lg-3 ml-lg-5">
+			<section id="hounslow-intranet-post-meta" class="widget entry-meta hounslow-intranet-post-meta">
+				<h2 class="widget-title"><?php bloginfo( 'name' ); ?></h2>
+				<?php
+					wp_nav_menu( array(
+							'theme_location'    => 'default',
+							'depth'             => 1,
+							'container'         => 'ul',
+							'container_class'   => '',
+							'menu_class'        => 'nav flex-column',
+							'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+							'walker'            => new WP_Bootstrap_Navwalker(),
+					) );
+				?>
+				&nbsp;
+			</section>
+			<?php
+			if ( is_active_sidebar( 'home-widget-area3' ) ) {
+				dynamic_sidebar( 'home-widget-area3' );
+			}
+
+			 ?>
+		</aside><!-- #secondary -->
+
+		<?php
+
+	} else if ( is_page_template( 'page_document.php' || 'page_document-landing.php' ) ) {
 
 		?>
 
@@ -20,7 +50,7 @@ if ( is_page() ) {
 
 		<?php
 
-	else :
+	} else {
 
 		if ( ! is_active_sidebar( 'sidebar-page' ) ) {
 			return;
@@ -33,7 +63,7 @@ if ( is_page() ) {
 
 		<?php
 
-	endif;
+	}
 
 } else if ( is_single() ) {
 	?>
