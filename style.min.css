@@ -26,6 +26,7 @@ h1.entry-title,.entry-title.h1{margin-top:0}
 .widget-area ul{margin-left:0}
 .widget-title{font-size:1.5rem}
 #site-breadcrumbs ol{margin-left:0;margin-bottom:0;padding-left:0;background-color:inherit}
+ul.pagination{margin-left:0}
 *,*::before,*::after{-webkit-box-sizing:inherit;box-sizing:inherit}
 html{-webkit-box-sizing:border-box;box-sizing:border-box}
 body{background:#fff}
