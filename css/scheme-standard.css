@@ -12,23 +12,27 @@
 
 /* Borders */
 
-article, #content .widget, #colophon {
-  border-top: 7px solid #502656;
+#colophon {
+  border-top: 1px solid #ccc;
+}
+
+.entry-content, #secondary .widget {
+  border-bottom: 1px solid #ccc;
 }
 
 /* Margins */
 
-#masthead {
-  margin-bottom: 2rem;
+.entry-content, .entry-footer {
+  margin-bottom: 1.5em;
+}
+
+h1.entry-title {
+  margin-top: 0;
 }
 
 #colophon {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-article, .widget {
-  padding-top: 1rem;
 }
 
 .widget-area ul {
@@ -40,6 +44,16 @@ article, .widget {
 .widget-title {
   font-size: 1.5rem;
 }
+
+/* Breadcrumb Navigation */
+
+#site-breadcrumbs ol {
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  background-color: inherit;
+}
+
 
 /* Main Menu */
 

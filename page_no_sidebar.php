@@ -1,13 +1,13 @@
 <?php
 /**
- * Template Name: Full Width
+ * Template Name: No Sidebar
  *
  * @package Hounslow_Intranet
  */
 
 get_header();
 ?>
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
 		<section id="primary" class="content-area col">
 			<main id="main" class="site-main" role="main">

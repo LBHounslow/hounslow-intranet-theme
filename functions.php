@@ -50,7 +50,7 @@ if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'hounslow-intranet' ),
+				'default' => esc_html__( 'Default', 'hounslow-intranet' ),
 			)
 		);
 
@@ -121,8 +121,8 @@ add_action( 'after_setup_theme', 'hounslow_intranet_content_width', 0 );
 function hounslow_intranet_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'hounslow-intranet' ),
-			'id'            => 'sidebar-1',
+			'name'          => esc_html__( 'Post Sidebar', 'hounslow-intranet' ),
+			'id'            => 'sidebar-post',
 			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -143,74 +143,8 @@ function hounslow_intranet_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Guidance Pages Sidebar', 'hounslow-intranet' ),
-			'id'            => 'sidebar-guidance',
-			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer Column Left', 'hounslow-intranet' ),
-			'id'            => 'sidebar-fcl',
-			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer Column Centre', 'hounslow-intranet' ),
-			'id'            => 'sidebar-fcc',
-			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer Column Right', 'hounslow-intranet' ),
-			'id'            => 'sidebar-fcr',
-			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Homepage First Column', 'hounslow-intranet' ),
-			'id' 						=> 'home-widget-area1',
-			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Homepage Second Column', 'hounslow-intranet' ),
-			'id' 						=> 'home-widget-area2',
-			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Homepage Third Column', 'hounslow-intranet' ),
-			'id' 						=> 'home-widget-area3',
+			'name'          => esc_html__( 'Homepage Sidebar', 'hounslow-intranet' ),
+			'id' 						=> 'sidebar-homepage',
 			'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -219,7 +153,52 @@ function hounslow_intranet_widgets_init() {
 		)
 	);
 
-
+	if ( is_main_site() ) {
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Column One', 'hounslow-intranet' ),
+				'id'            => 'sidebar-fc1',
+				'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Column Two', 'hounslow-intranet' ),
+				'id'            => 'sidebar-fc2',
+				'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Column Three', 'hounslow-intranet' ),
+				'id'            => 'sidebar-fc3',
+				'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Column Four', 'hounslow-intranet' ),
+				'id'            => 'sidebar-fc4',
+				'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+	}
 
 }
 add_action( 'widgets_init', 'hounslow_intranet_widgets_init' );
@@ -247,6 +226,7 @@ function hounslow_intranet_scripts() {
 	}
 
 	wp_enqueue_script('jquery');
+	wp_enqueue_script( 'popper-js', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array(), _S_VERSION, true );
  	wp_enqueue_script( 'bootstrap-js', '//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js', array(), _S_VERSION, true );
 
 	wp_enqueue_script( 'hounslow-intranet-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
