@@ -21,6 +21,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 
 // Base Styles
+@import './base/theme';
 @import './base/bootstrap_overrides';
 @import './base/wordpress';
 @import './base/forms';

@@ -208,6 +208,8 @@ add_action( 'widgets_init', 'hounslow_intranet_widgets_init' );
  */
 function hounslow_intranet_scripts() {
 
+	wp_enqueue_style( 'hounslow-intranet-google-fonts', 'https://fonts.googleapis.com/css?family=Lato:300,400,700', false );
+
 	wp_enqueue_style( 'hounslow-intranet-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'hounslow-intranet-style', 'rtl', 'replace' );
 
