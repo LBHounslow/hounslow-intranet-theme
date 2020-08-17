@@ -25,10 +25,10 @@
 <div id="page" class="site bg-light">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'hounslow-intranet' ); ?></a>
 	<header id="masthead" class="site-header">
-		<nav id="network-navigation" class="navbar navbar-dark bg-dark">
+		<nav id="network-navigation" class="navbar navbar-dark bg-dark px-3">
 			<a class="navbar-brand" href="/">Hounslow Intranet</a>
 		</nav>
-		<nav id="site-branding" class="navbar">
+		<nav id="site-branding" class="navbar px-3">
 			<span class="navbar-brand site-title">
 				<a href="<?php echo esc_url( home_url( '/' )); ?>"><?php bloginfo( 'name' ); ?></a>
 			</span>
@@ -42,7 +42,7 @@
 		<?php if ( is_main_site() && is_front_page() ) { ?>
 			<!-- Front Page Navigation -->
 		<?php } else { ?>
-		<nav id="site-breadcrumbs" class="navbar" aria-label="breadcrumb">
+		<nav id="site-breadcrumbs" class="navbar px-3" aria-label="breadcrumb">
 			<?php hounslow_intranet_breadcrumbs(); ?>
 		</nav>
 		<?php } ?>
