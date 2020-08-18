@@ -82,7 +82,7 @@ if ( is_page() ) {
 		if ( 'post' === get_post_type() ) :
 		?>
 		<section id="hounslow-intranet-post-meta" class="widget entry-meta hounslow-intranet-post-meta">
-			<p><i class="fab fa-500px"></i><?php
+			<p><?php
 			hounslow_intranet_posted_on();
 			hounslow_intranet_posted_by();
 	    ?></p>

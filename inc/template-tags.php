@@ -31,7 +31,7 @@ if ( ! function_exists( 'hounslow_intranet_posted_on' ) ) :
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<p><i class="fas fa-calendar-day"></i> <span class="posted-on">' . $posted_on . '</span></p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;
@@ -43,11 +43,11 @@ if ( ! function_exists( 'hounslow_intranet_posted_by' ) ) :
 	function hounslow_intranet_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'hounslow-intranet' ),
+			esc_html_x( 'By %s', 'post author', 'hounslow-intranet' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<p><i class="fas fa-user"></i> <span class="byline"> ' . $byline . '</span></p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;
@@ -63,19 +63,19 @@ if ( ! function_exists( 'hounslow_intranet_entry_footer' ) ) :
 			$categories_list = get_the_category_list( esc_html__( ', ', 'hounslow-intranet' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'hounslow-intranet' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<i class="fas fa-tags"></i> <span class="cat-links">' . esc_html__( 'Posted in: %1$s', 'hounslow-intranet' ) . '</span> ', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'hounslow-intranet' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'hounslow-intranet' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<i class="fas fa-hashtag"></i> <span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'hounslow-intranet' ) . '</span> ', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
+			echo '| <i class="fas fa-comment"></i> <span class="comments-link">';
 			comments_popup_link(
 				sprintf(
 					wp_kses(
@@ -90,7 +90,7 @@ if ( ! function_exists( 'hounslow_intranet_entry_footer' ) ) :
 					wp_kses_post( get_the_title() )
 				)
 			);
-			echo '</span>';
+			echo '</span> ';
 		}
 
 		edit_post_link(
@@ -106,7 +106,7 @@ if ( ! function_exists( 'hounslow_intranet_entry_footer' ) ) :
 				),
 				wp_kses_post( get_the_title() )
 			),
-			'<span class="edit-link">',
+			'| <i class="fas fa-edit"></i> <span class="edit-link">',
 			'</span>'
 		);
 	}
