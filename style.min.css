@@ -18,10 +18,11 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
-*/#colophon{border-top:1px solid #ccc}
+*/#comments,#colophon{border-top:1px solid #ccc}
 .entry-content,#secondary .widget{border-bottom:1px solid #ccc}
 .entry-content,.entry-footer{margin-bottom:1.5em}
 h1.entry-title,.entry-title.h1{margin-top:0}
+#comments,.entry-footer{padding-top:1em}
 #colophon{padding-top:1rem;padding-bottom:1rem}
 .widget-area ul{margin-left:0}
 .widget-title{font-size:1.5rem}
