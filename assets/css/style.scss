@@ -26,6 +26,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import './base/wordpress';
 @import './base/forms';
 @import './base/navigation';
+@import './base/fontawesome_overrides';
 
 // Bootstrap Styles
 @import './bootstrap/bootstrap';
+
+// Fontawesome Icons
+@import './fontawesome/fontawesome';
+@import './fontawesome/brands';
+@import './fontawesome/regular';
+@import './fontawesome/solid';
+@import './fontawesome/v4-shims';
