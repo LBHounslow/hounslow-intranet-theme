@@ -1,6 +1,6 @@
 /* Borders */
 
-#colophon {
+#comments, #colophon {
   border-top: 1px solid #ccc;
 }
 
@@ -16,6 +16,11 @@
 
 h1.entry-title {
   margin-top: 0;
+}
+
+#comments,
+.entry-footer {
+  padding-top: 1em;
 }
 
 #colophon {
@@ -40,4 +45,10 @@ h1.entry-title {
   margin-bottom: 0;
   padding-left: 0;
   background-color: inherit;
+}
+
+/* Paginated Navigation */
+
+ul.pagination {
+  margin-left: 0;
 }

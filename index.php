@@ -43,7 +43,7 @@ get_header();
 
 					endwhile;
 
-					the_posts_navigation();
+					hounslow_intranet_paged_posts_navigation();
 
 				else :
 
