@@ -62,8 +62,18 @@ function hounslow_intranet_multisite_sidebar( $sidebar ) {
 		// If we’re not on the main site and the transient doesn’t exist, we make a call to the main site, which kicks off example_multisite_sidebar_save().
 		if ( !is_main_site() ) {
 			$url = add_query_arg( array('get_sidebar' => $sidebar), get_site_url( 1 ) );
-			$request = file_get_contents( $url );
-			echo $request;
+			$ctx = stream_context_create( array(
+				'http' => array(
+					'timeout' => 1
+					)
+				)
+			);
+			$request = file_get_contents( $url, 0, $ctx );
+			if ( $request ) {
+				echo $request;
+			} else {
+				echo '<!-- failed to open stream: HTTP request failed -->';
+			}
 
 			// display the content
 			echo get_site_transient( 'sidebar_cache_' . $sidebar );
