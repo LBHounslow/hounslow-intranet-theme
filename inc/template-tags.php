@@ -153,6 +153,27 @@ if ( ! function_exists( 'hounslow_intranet_post_thumbnail' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hounslow_intranet_news_thumbnail' ) ) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function hounslow_intranet_news_thumbnail( $news ) {
+    if ( has_post_thumbnail( $news ) ) {
+			?>
+				<a class="post-thumbnail" href="<?php echo get_the_permalink( $news ); ?>" aria-hidden="true" tabindex="-1"><?php echo get_the_post_thumbnail( $news ); ?></a>
+			<?php
+			} else {
+			?>
+				<a class="post-thumbnail" href="<?php echo get_the_permalink( $news ); ?>" aria-hidden="true" tabindex="-1"><img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/assets/img/news-thumbnail-default.jpg" /></a>
+			<?php
+			}
+	}
+endif;
+
+
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
 	 * Shim for sites older than 5.2.
@@ -513,11 +534,11 @@ if ( ! function_exists( 'hounslow_intranet_paged_posts_navigation' ) ) :
 	 * Prints a paginated navigation element.
 	 * Used on post index and archive pages.
 	 */
-	function hounslow_intranet_paged_posts_navigation( $screen_reader_text = 'Posts navigation', $aria_label = 'Posts', $class = 'posts-navigation' ) {
+	function hounslow_intranet_paged_posts_navigation( $query = null, $screen_reader_text = 'Posts navigation', $aria_label = 'Posts', $class = 'posts-navigation' ) {
 
 		?><nav class="navigation <?php echo $class ?>" role="navigation" aria-label="<?php echo $aria_label ?>">
 				<h2 class="screen-reader-text"><?php echo $screen_reader_text ?></h2>
-				<?php echo bootstrap_pagination(); ?>
+				<?php echo bootstrap_pagination( $query ); ?>
 			</nav><?php
 		}
 endif;
@@ -537,6 +558,8 @@ endif;
  *
  * SOURCE:
  * https://gist.github.com/mtx-z/f95af6cc6fb562eb1a1540ca715ed928
+ *
+ * Modified to work with custon post queries on static pages
  *
  * USAGE:
  *     <?php echo bootstrap_pagination(); ?> //uses global $wp_query
@@ -559,10 +582,16 @@ function bootstrap_pagination( \WP_Query $wp_query = null, $echo = true, $params
         $add_args[ 'sort' ] = (string)$_GET[ 'sort' ];
     }*/
 
+		if ( is_page_template() ) {
+			$current = get_query_var( 'page' );
+		} else {
+			$current = get_query_var( 'paged' );
+		}
+
     $pages = paginate_links( array_merge( [
             'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
             'format'       => '?paged=%#%',
-            'current'      => max( 1, get_query_var( 'paged' ) ),
+            'current'      => max( 1, $current ),
             'total'        => $wp_query->max_num_pages,
             'type'         => 'array',
             'show_all'     => false,

@@ -49,6 +49,16 @@ if ( is_page() ) {
 
 		<?php
 
+	} else if ( is_page_template( 'page_news.php' ) ) {
+
+		?>
+
+		<aside id="secondary" class="widget-area col-sm-12 col-lg-3 ml-lg-5">
+			<?php dynamic_sidebar( 'sidebar-post' ); ?>
+		</aside><!-- #secondary -->
+
+		<?php
+
 	} else {
 
 		if ( ! is_active_sidebar( 'sidebar-page' ) ) {
