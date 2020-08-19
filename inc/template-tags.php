@@ -31,7 +31,7 @@ if ( ! function_exists( 'hounslow_intranet_posted_on' ) ) :
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<p><i class="fas fa-calendar-day"></i> <span class="posted-on">' . $posted_on . '</span></p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;
@@ -43,11 +43,11 @@ if ( ! function_exists( 'hounslow_intranet_posted_by' ) ) :
 	function hounslow_intranet_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'hounslow-intranet' ),
+			esc_html_x( 'By %s', 'post author', 'hounslow-intranet' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<p><i class="fas fa-user"></i> <span class="byline"> ' . $byline . '</span></p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;
@@ -63,19 +63,19 @@ if ( ! function_exists( 'hounslow_intranet_entry_footer' ) ) :
 			$categories_list = get_the_category_list( esc_html__( ', ', 'hounslow-intranet' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'hounslow-intranet' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<i class="fas fa-tags"></i> <span class="cat-links">' . esc_html__( 'Posted in: %1$s', 'hounslow-intranet' ) . '</span> ', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'hounslow-intranet' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'hounslow-intranet' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<i class="fas fa-hashtag"></i> <span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'hounslow-intranet' ) . '</span> ', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
+			echo '| <i class="fas fa-comment"></i> <span class="comments-link">';
 			comments_popup_link(
 				sprintf(
 					wp_kses(
@@ -90,7 +90,7 @@ if ( ! function_exists( 'hounslow_intranet_entry_footer' ) ) :
 					wp_kses_post( get_the_title() )
 				)
 			);
-			echo '</span>';
+			echo '</span> ';
 		}
 
 		edit_post_link(
@@ -106,7 +106,7 @@ if ( ! function_exists( 'hounslow_intranet_entry_footer' ) ) :
 				),
 				wp_kses_post( get_the_title() )
 			),
-			'<span class="edit-link">',
+			'| <i class="fas fa-edit"></i> <span class="edit-link">',
 			'</span>'
 		);
 	}
@@ -152,6 +152,27 @@ if ( ! function_exists( 'hounslow_intranet_post_thumbnail' ) ) :
 		endif; // End is_singular().
 	}
 endif;
+
+if ( ! function_exists( 'hounslow_intranet_news_thumbnail' ) ) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function hounslow_intranet_news_thumbnail( $news ) {
+    if ( has_post_thumbnail( $news ) ) {
+			?>
+				<a class="post-thumbnail" href="<?php echo get_the_permalink( $news ); ?>" aria-hidden="true" tabindex="-1"><?php echo get_the_post_thumbnail( $news ); ?></a>
+			<?php
+			} else {
+			?>
+				<a class="post-thumbnail" href="<?php echo get_the_permalink( $news ); ?>" aria-hidden="true" tabindex="-1"><img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/assets/img/news-thumbnail-default.jpg" /></a>
+			<?php
+			}
+	}
+endif;
+
 
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
@@ -513,11 +534,11 @@ if ( ! function_exists( 'hounslow_intranet_paged_posts_navigation' ) ) :
 	 * Prints a paginated navigation element.
 	 * Used on post index and archive pages.
 	 */
-	function hounslow_intranet_paged_posts_navigation( $screen_reader_text = 'Posts navigation', $aria_label = 'Posts', $class = 'posts-navigation' ) {
+	function hounslow_intranet_paged_posts_navigation( $query = null, $screen_reader_text = 'Posts navigation', $aria_label = 'Posts', $class = 'posts-navigation' ) {
 
 		?><nav class="navigation <?php echo $class ?>" role="navigation" aria-label="<?php echo $aria_label ?>">
 				<h2 class="screen-reader-text"><?php echo $screen_reader_text ?></h2>
-				<?php echo bootstrap_pagination(); ?>
+				<?php echo bootstrap_pagination( $query ); ?>
 			</nav><?php
 		}
 endif;
@@ -537,6 +558,8 @@ endif;
  *
  * SOURCE:
  * https://gist.github.com/mtx-z/f95af6cc6fb562eb1a1540ca715ed928
+ *
+ * Modified to work with custon post queries on static pages
  *
  * USAGE:
  *     <?php echo bootstrap_pagination(); ?> //uses global $wp_query
@@ -559,10 +582,16 @@ function bootstrap_pagination( \WP_Query $wp_query = null, $echo = true, $params
         $add_args[ 'sort' ] = (string)$_GET[ 'sort' ];
     }*/
 
+		if ( is_page_template() ) {
+			$current = get_query_var( 'page' );
+		} else {
+			$current = get_query_var( 'paged' );
+		}
+
     $pages = paginate_links( array_merge( [
             'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
             'format'       => '?paged=%#%',
-            'current'      => max( 1, get_query_var( 'paged' ) ),
+            'current'      => max( 1, $current ),
             'total'        => $wp_query->max_num_pages,
             'type'         => 'array',
             'show_all'     => false,
