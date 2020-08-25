@@ -17,8 +17,14 @@
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
-		 ?>
-	</header><!-- .entry-header -->
+
+		if ( !is_singular() ) : ?>
+			<div class="entry-meta mb-1">
+				<?php hounslow_intranet_posted_on(); ?>
+			</div><!-- .entry-meta -->
+		<?php endif; ?>
+		
+ 	</header><!-- .entry-header -->
 
 	<?php hounslow_intranet_post_thumbnail(); ?>
 

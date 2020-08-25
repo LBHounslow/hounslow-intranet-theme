@@ -15,18 +15,19 @@
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
+			<div class="entry-meta mb-2">
 				<?php
-				//hounslow_intranet_posted_on();
+				hounslow_intranet_posted_on();
 				//hounslow_intranet_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
+		<?php hounslow_intranet_post_thumbnail(); ?>
 	</header><!-- .entry-header -->
 
-	<?php hounslow_intranet_post_thumbnail(); ?>
 
-	<div class="entry-content clearfix">
+
+	<div class="entry-content mt-2 clearfix">
 		<?php
 		the_excerpt(
 			sprintf(

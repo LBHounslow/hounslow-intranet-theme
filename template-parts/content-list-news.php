@@ -18,6 +18,12 @@
 			<?php
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 				?>
+				<div class="entry-meta mb-1">
+					<?php
+				hounslow_intranet_posted_on();
+					//hounslow_intranet_posted_by();
+					?>
+				</div><!-- .entry-meta -->
 				<?php
 				the_excerpt(
 					sprintf(

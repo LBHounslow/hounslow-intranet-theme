@@ -25,14 +25,25 @@ if ( ! function_exists( 'hounslow_intranet_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		$posted_on = sprintf(
-			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'hounslow-intranet' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
+		if ( is_single() ) {
+			$posted_on = sprintf(
+				/* translators: %s: post date. */
+				esc_html_x( 'Posted on %s', 'post date', 'hounslow-intranet' ),
+				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			);
 
-		echo '<p><i class="fas fa-calendar-day"></i> <span class="posted-on">' . $posted_on . '</span></p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<p><i class="fas fa-calendar-day"></i> <span class="posted-on">' . $posted_on . '</span></p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
+		} else {
+			$posted_on = sprintf(
+				/* translators: %s: post date. */
+				esc_html_x( ' %s', 'post date', 'hounslow-intranet' ),
+				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			);
+
+			echo '<i class="fas fa-calendar-day"></i> <span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+		}
 	}
 endif;
 
