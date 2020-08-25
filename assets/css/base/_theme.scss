@@ -55,12 +55,11 @@ ul.pagination {
 
 /* Caption */
 
-figure.wp-block-image {
+.post-thumbnail-single, figure.wp-block-image {
  position: relative;
  padding: 0;
- margin: 0;
  }
-.wp-block-image figcaption {
+.post-thumbnail-single figcaption, .wp-block-image figcaption {
  opacity: 0.9;
  position: absolute;
  width: 100%;

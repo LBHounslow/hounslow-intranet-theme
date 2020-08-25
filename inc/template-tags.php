@@ -127,8 +127,11 @@ if ( ! function_exists( 'hounslow_intranet_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
+			<div class="post-thumbnail post-thumbnail-single">
 				<?php the_post_thumbnail(); ?>
+				<?php if ( !empty( get_the_post_thumbnail_caption() ) ) { ?>
+					<figcaption><?php the_post_thumbnail_caption(); ?></figcaption>
+				<?php } ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
