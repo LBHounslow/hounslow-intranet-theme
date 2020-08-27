@@ -337,13 +337,13 @@ if ( ! function_exists( 'hounslow_intranet_breadcrumbs' ) ) :
 
             // Check if the post is in a category
             if(!empty($last_category)) {
-                echo $cat_display;
+                //echo $cat_display;
                 echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
 
             // Else if post is in a custom taxonomy
             } else if(!empty($cat_id)) {
 
-                echo '<li class="breadcrumb-item"><a href="' . $cat_link . '" title="' . $cat_name . '">' . $cat_name . '</a></li>';
+                //echo '<li class="breadcrumb-item"><a href="' . $cat_link . '" title="' . $cat_name . '">' . $cat_name . '</a></li>';
                 echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
 
             } else {
