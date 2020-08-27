@@ -82,3 +82,8 @@ ul.pagination {
    padding-right: 1rem;
    margin-bottom: 2rem;
  }
+
+ /* Fix for long words in titles */
+.entry-title {
+    word-wrap: break-word;
+}
