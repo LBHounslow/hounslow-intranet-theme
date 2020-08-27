@@ -87,3 +87,21 @@ ul.pagination {
 .entry-title {
     word-wrap: break-word;
 }
+
+ /* Styling for quotes (blocks) */
+
+.wp-block-quote {
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  border-left: 1px solid #ccc;
+
+}
+.wp-block-quote cite {
+    display: block;
+    font-size: 80%;
+    color: #6c757d;
+}
+.wp-block-quote cite::before {
+    content: "\2014 \00A0";
+}

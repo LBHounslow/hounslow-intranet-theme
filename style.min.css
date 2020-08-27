@@ -32,6 +32,9 @@ ul.pagination{margin-left:0}
 .post-thumbnail-single figcaption,.wp-block-image figcaption{opacity:.9;position:absolute;width:100%;color:#fff;left:0;bottom:0;padding:.75em 1em;margin-bottom:0;font-weight:700;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:rgba(0,0,0,0.7)}
 #news-carousel .carousel-caption{background-color:rgba(0,0,0,0.35);padding-left:1rem;padding-right:1rem;margin-bottom:2rem}
 .entry-title{word-wrap:break-word}
+.wp-block-quote{padding-left:1rem;margin-bottom:1rem;font-size:1.25rem;border-left:1px solid #ccc}
+.wp-block-quote cite{display:block;font-size:80%;color:#6c757d}
+.wp-block-quote cite::before{content:"\2014 \00A0"}
 *,*::before,*::after{-webkit-box-sizing:inherit;box-sizing:inherit}
 html{-webkit-box-sizing:border-box;box-sizing:border-box}
 body{background:#fff}
