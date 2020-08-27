@@ -20,7 +20,8 @@
 				?>
 				<div class="entry-meta mb-1">
 					<?php
-				hounslow_intranet_posted_on();
+					hounslow_intranet_posted_on();
+					hounslow_intranet_is_sticky();
 					//hounslow_intranet_posted_by();
 					?>
 				</div><!-- .entry-meta -->

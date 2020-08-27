@@ -82,10 +82,11 @@ if ( is_page() ) {
 		if ( 'post' === get_post_type() ) :
 		?>
 		<section id="hounslow-intranet-post-meta" class="widget entry-meta hounslow-intranet-post-meta">
-			<p><?php
+			<?php
+			hounslow_intranet_is_sticky();
 			hounslow_intranet_posted_on();
 			hounslow_intranet_posted_by();
-	    ?></p>
+	    ?>
 		</section>
 		<?php endif;
 		if ( is_active_sidebar( 'sidebar-post' ) ) {

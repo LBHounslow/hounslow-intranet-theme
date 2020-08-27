@@ -17,6 +17,7 @@
 		<div class="entry-meta">
 			<?php
 			hounslow_intranet_posted_on();
+			hounslow_intranet_is_sticky();
 			hounslow_intranet_posted_by();
 			?>
 		</div><!-- .entry-meta -->

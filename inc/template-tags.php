@@ -41,7 +41,7 @@ if ( ! function_exists( 'hounslow_intranet_posted_on' ) ) :
 				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 			);
 
-			echo '<i class="fas fa-calendar-day"></i> <span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<i class="fas fa-calendar-day"></i> <span class="posted-on">' . $posted_on . '</span>&nbsp; &nbsp;'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		}
 	}
@@ -60,6 +60,25 @@ if ( ! function_exists( 'hounslow_intranet_posted_by' ) ) :
 
 		echo '<p><i class="fas fa-user"></i> <span class="byline"> ' . $byline . '</span></p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
+	}
+endif;
+
+if ( ! function_exists( 'hounslow_intranet_is_sticky' ) ) :
+	/**
+	 * Indicates sticky posts.
+	 */
+	function hounslow_intranet_is_sticky() {
+
+		if ( is_sticky() ) {
+			if ( is_single() ) {
+
+				echo '<p><i class="fas fa-thumbtack"></i> <span class="is_sticky">Featured</span></p>';
+
+			} else {
+
+				echo '<i class="fas fa-thumbtack"></i> <span class="is_sticky">Featured</span>&nbsp; &nbsp;';
+			}
+		}
 	}
 endif;
 
