@@ -73,3 +73,12 @@ ul.pagination {
  box-sizing: border-box;
  background-color: rgba(0,0,0,.7);
  }
+
+ /* News Carousel */
+
+ #news-carousel .carousel-caption {
+   background-color:rgba(0, 0, 0, 0.35);
+   padding-left: 1rem;
+   padding-right: 1rem;
+   margin-bottom: 2rem;
+ }
