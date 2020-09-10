@@ -1,8 +1,8 @@
 {
-  "name": "your-project",
-  "description": "A WPGulp based project.",
+  "name": "hounslow-intranet-theme",
+  "description": "WordPress theme for the Hounslow Intranet",
   "version": "1.0.0",
-  "author": "Author Name (https://twitter.com/MrAhmadAwais/)",
+  "author": "London Borough of Hounslow",
   "repository": {
     "type": "git",
     "url": "https://github.com/ahmadawais/WPGulp"
@@ -22,7 +22,7 @@
     "gulp-cache": "^1.0.2",
     "gulp-concat": "^2.5.2",
     "gulp-filter": "^5.1.0",
-    "gulp-imagemin": "^4.1.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-line-ending-corrector": "^1.0.1",
     "gulp-merge-media-queries": "^0.2.1",
     "gulp-notify": "^3.0.0",
