@@ -455,7 +455,7 @@ if ( ! function_exists( 'hounslow_intranet_breadcrumbs' ) ) :
         } elseif ( is_404() ) {
 
             // 404 page
-            echo '<li>' . 'Error 404' . '</li>';
+            echo '<li class="breadcrumb-item active">Error 404</li>';
         }
 
         echo '</ol>';
