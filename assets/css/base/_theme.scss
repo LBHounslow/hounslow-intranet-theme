@@ -169,3 +169,17 @@ ul.pagination {
 .bsn-list .page_item+.page_item {
   border-top-width: 0;
 }
+
+.wp-block-table table {
+    @extend .table;
+}
+.wp-block-table.hounslow-table-grid table {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hounslow-table-grid table td,
+.hounslow-table-grid table th {
+  border-width: 1px;
+}
