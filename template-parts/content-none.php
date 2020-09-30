@@ -37,6 +37,15 @@
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'hounslow-intranet' ); ?></p>
 			<?php
 			get_search_form();
+			$search_query = get_search_query();
+			?>
+			<hr/>
+			<p>You could also try searching on the <a href="http://intranet2.hounslow.gov.uk" >old intranet</a> using the same keywords. To search click on the link below:</p>
+			<ul>
+				<li><a href="http://intranet2.hounslow.gov.uk/index/searchresults.htm#?cludoquery=<?php echo esc_attr( $search_query); ?>" >Search for "<?php echo esc_html( $search_query); ?>" on the old intranet.</a></li>
+			</ul>
+			<hr/>
+			<?php
 
 		else :
 			?>

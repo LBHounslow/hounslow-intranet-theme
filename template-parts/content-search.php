@@ -14,11 +14,11 @@
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
+		<div class="entry-meta mb-1">
 			<?php
 			hounslow_intranet_posted_on();
 			hounslow_intranet_is_sticky();
-			hounslow_intranet_posted_by();
+			//hounslow_intranet_posted_by();
 			?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
