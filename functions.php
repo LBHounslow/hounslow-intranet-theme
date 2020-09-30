@@ -54,6 +54,14 @@ if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
 			)
 		);
 
+		if ( is_main_site() ) {
+			register_nav_menus(
+				array(
+					'social' => esc_html__( 'Social Media', 'hounslow-intranet' ),
+				)
+			);
+		}
+
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
