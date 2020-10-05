@@ -1,0 +1,185 @@
+/* Borders */
+
+#comments, #colophon {
+  border-top: 1px solid #ccc;
+}
+
+.entry-content, #secondary .widget {
+  border-bottom: 1px solid #ccc;
+}
+
+/* Margins */
+
+.entry-content, .entry-footer {
+  margin-bottom: 1.5em;
+}
+
+h1.entry-title {
+  margin-top: 0;
+}
+
+#comments,
+.entry-footer {
+  padding-top: 1em;
+}
+
+#colophon {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.widget-area ul {
+  margin-left: 0;
+}
+
+.widget_media_image {
+  padding-bottom: 1.5em;
+}
+
+/* Text Size */
+
+.widget-title {
+  font-size: 1.5rem;
+}
+
+/* Links */
+.entry-content p a,
+.entry-content li a {
+  text-decoration: underline;
+}
+
+
+/* Breadcrumb Navigation */
+
+#site-breadcrumbs ol {
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  background-color: inherit;
+}
+
+/* Paginated Navigation */
+
+ul.pagination {
+  margin-left: 0;
+}
+
+/* Caption */
+
+.post-thumbnail-single, figure.wp-block-image {
+ position: relative;
+ padding: 0;
+ }
+.post-thumbnail-single figcaption, .wp-block-image figcaption {
+ opacity: 0.9;
+ position: absolute;
+ width: 100%;
+ color: #fff;
+ left: 0;
+ bottom: 0;
+ padding: 0.75em 1em;
+ margin-bottom: 0;
+ font-weight: 700;
+ -webkit-box-sizing: border-box;
+ box-sizing: border-box;
+ background-color: rgba(0,0,0,.7);
+ }
+
+ /* News Carousel */
+
+ #news-carousel .carousel-caption {
+   background-color:rgba(0, 0, 0, 0.55);
+   padding-left: 1rem;
+   padding-right: 1rem;
+   margin-bottom: 2rem;
+ }
+
+ .carousel-control-prev-icon,
+ .carousel-control-next-icon {
+   width: 35px !important;
+   height: 35px !important;
+ }
+
+ /* Fix for long words in titles */
+.entry-title {
+    word-wrap: break-word;
+}
+
+ /* Styling for quotes (blocks) */
+
+.wp-block-quote {
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  border-left: 1px solid #ccc;
+
+}
+.wp-block-quote cite {
+    display: block;
+    font-size: 80%;
+    color: #6c757d;
+}
+.wp-block-quote cite::before {
+    content: "\2014 \00A0";
+}
+
+ /* Styling for menus in widgets */
+
+.widget_nav_menu,
+.better-section-nav {
+  padding-bottom: 1.5em;
+}
+
+.widget_nav_menu ul,
+.bsn-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-radius: .25rem;
+}
+
+.widget_nav_menu li,
+.bsn-list li {
+  padding: .75rem 1.25rem;
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+.widget_nav_menu li li,
+.bsn-list li li {
+  border: 0;
+}
+
+.widget_nav_menu li:first-child,
+.bsn-list li:first-child {
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+
+.widget_nav_menu li:last-child,
+.bsn-list li:last-child {
+  border-bottom-left-radius: .25rem;
+  border-top-right-radius: .25em;
+}
+
+.widget_nav_menu .nav-link {
+  padding: 0;
+}
+
+.menu-item+.menu-item,
+.bsn-list .page_item+.page_item {
+  border-top-width: 0;
+}
+
+.wp-block-table table {
+    @extend .table;
+}
+.wp-block-table.hounslow-table-grid table {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hounslow-table-grid table td,
+.hounslow-table-grid table th {
+  border-width: 1px;
+}

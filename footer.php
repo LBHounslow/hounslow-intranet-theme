@@ -13,39 +13,43 @@
 </div><!-- .row -->
 </div><!-- .container -->
 </div><!-- #content -->
-	<footer id="colophon" class="site-footer bg-secondary">
-		<div class="container">
+	<footer id="colophon" class="site-footer bg-secondary px-3">
+		<div class="container-fluid">
 			<div class="row">
-				<div id="footer-column-left" class="widget-area col-sm">
-					<?php if ( is_active_sidebar( 'sidebar-fcl' ) ) {
-						dynamic_sidebar( 'sidebar-fcl' );
-					} ?>
+				<div id="footer-column-one" class="widget-area col-sm">
+					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc1' ) ?>
 		    </div>
-				<div id="footer-column-centre" class="widget-area col-sm">
-					<?php if ( is_active_sidebar( 'sidebar-fcc' ) ) {
-						dynamic_sidebar( 'sidebar-fcc' );
-					} ?>
+				<div id="footer-column-two" class="widget-area col-sm">
+					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc2' ) ?>
 		    </div>
-				<div id="footer-column-right" class="widget-area col-sm">
-					<?php if ( is_active_sidebar( 'sidebar-fcr' ) ) {
-						dynamic_sidebar( 'sidebar-fcr' );
-					} ?>
+				<div id="footer-column-three" class="widget-area col-sm">
+					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc3' ) ?>
 		    </div>
+				<div id="footer-column-four" class="widget-area col-sm">
+					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc4' ) ?>
+		    </div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col col-md-8 col-lg-6">
+					<?php
+						wp_nav_menu( array(
+								'theme_location'    => 'social',
+						    'depth'          => 1,
+						    'container'      => false,
+								'container_class'=> '',
+						    'menu_class'     => 'nav justify-content-center',
+						    'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
+						    'walker'         => new WP_Bootstrap_Navwalker(),
+						) );
+					?>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col text-center">
 					<div class="site-info">
-						<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'hounslow-intranet' ) ); ?>">
-							<?php
-							/* translators: %s: CMS name, i.e. WordPress. */
-							printf( esc_html__( 'Proudly powered by %s', 'hounslow-intranet' ), 'WordPress' );
-							?>
-						</a>
+						Hounslow Intranet &#169; Copyright London Borough of Hounslow
 						<span class="sep"> | </span>
-							<?php
-							/* translators: 1: Theme name, 2: Theme author. */
-							printf( esc_html__( 'Theme: %1$s by %2$s.', 'hounslow-intranet' ), 'hounslow-intranet', '<a href="https://hounslow.digital/">London Borough of Hounslow</a>' );
-							?>
+						<a href="/feedback/">Intranet Feeback</a>
 					</div><!-- .site-info -->
 				</div>
 			</div>

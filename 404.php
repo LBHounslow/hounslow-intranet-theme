@@ -9,52 +9,30 @@
 
 get_header();
 ?>
+<div class="container">
+	<div class="row">
+		<section id="primary" class="content-area col-sm-12 col-lg-7">
+			<main id="main" class="site-main" role="main">
+				<article id="post-error-404" class="error-404 not-found">
+					<header class="entry-header">
+						<h1 class="entry-title">Error 404</h1>
+					</header><!-- .page-header -->
 
-	<main id="primary" class="site-main">
-
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'hounslow-intranet' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'hounslow-intranet' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'hounslow-intranet' ); ?></h2>
+					<div class="page-content">
+						<p>Sorry, that page can&rsquo;t be found.</p>
+						<p>The Hounslow Intranet has recently been replaced with a new set of pages - so the content you are looking for may no longer be here.</p>
+						<p>The old intranet has been kept available at a new location on a temporary basis. So the content you are looking for may have been moved there. You can visit the old intranet by following this link:</p>
 						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
+							<li>
+								<a href="http://intranet2.hounslow.gov.uk/">intranet2.hounslow.gov.uk</a>
+							</li>
 						</ul>
-					</div><!-- .widget -->
+						<p>If you are following a specific link, you can also try adding a &lsquo;2&rsquo; after the word &lsquo;intranet&rsquo; in the URL.</p>
+						<p>&nbsp;</p>
+					</div><!-- .page-content -->
 
-					<?php
-					/* translators: %1$s: smiley */
-					$hounslow_intranet_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'hounslow-intranet' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$hounslow_intranet_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
-
+				</section><!-- .error-404 -->
+			</main><!-- #main -->
+		</section><!-- #primary -->
 <?php
 get_footer();
