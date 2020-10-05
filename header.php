@@ -27,7 +27,7 @@
 	<header id="masthead" class="site-header">
 		<nav id="network-navigation" class="navbar navbar-dark bg-dark px-3">
 			<a class="navbar-brand" href="/">HI!</a>
-			<?php get_search_form(); ?>
+			<?php //get_search_form(); ?>
 		</nav>
 		<nav id="site-branding" class="navbar px-3">
 			<span class="navbar-brand site-title">
