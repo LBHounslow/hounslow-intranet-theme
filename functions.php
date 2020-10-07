@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.a' );
+	define( '_S_VERSION', '1.0.b' );
 }
 
 if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
