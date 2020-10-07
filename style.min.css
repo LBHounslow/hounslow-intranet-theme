@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: London Borough of Hounslow
 Author URI: https://hounslow.digital/
 Description: WordPress theme for the Hounslow Intranet
-Version: 1.0.0
+Version: 1.0.b
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: hounslow-intranet
@@ -48,6 +48,7 @@ ul.pagination{margin-left:0}
 .menu-item+.menu-item,.bsn-list .page_item+.page_item{border-top-width:0}
 .wp-block-table.hounslow-table-grid table{width:80%;margin-left:auto;margin-right:auto}
 .hounslow-table-grid table td,.hounslow-table-grid table th{border-width:1px}
+.st-default-search-input{background:none !important;background-color:#fff !important;min-height:1.5rem !important}
 *,*::before,*::after{-webkit-box-sizing:inherit;box-sizing:inherit}
 html{-webkit-box-sizing:border-box;box-sizing:border-box}
 body{background:#fff}
