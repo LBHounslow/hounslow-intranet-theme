@@ -32,15 +32,16 @@
 			<div class="row justify-content-center">
 				<div class="col col-md-8 col-lg-6">
 					<?php
-						wp_nav_menu( array(
-								'theme_location'    => 'social',
-						    'depth'          => 1,
-						    'container'      => false,
-								'container_class'=> '',
-						    'menu_class'     => 'nav justify-content-center',
-						    'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
-						    'walker'         => new WP_Bootstrap_Navwalker(),
-						) );
+					$social_menu_args = array(
+							'theme_location'    => 'social',
+							'depth'          => 1,
+							'container'      => false,
+							'container_class'=> '',
+							'menu_class'     => 'nav justify-content-center',
+							'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
+							'walker'         => new WP_Bootstrap_Navwalker(),
+					);
+					hounslow_intranet_network_nav_menu( $social_menu_args );
 					?>
 				</div>
 			</div>
