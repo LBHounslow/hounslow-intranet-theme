@@ -13,7 +13,7 @@
 </div><!-- .row -->
 </div><!-- .container -->
 </div><!-- #content -->
-	<footer id="colophon" class="site-footer bg-secondary px-3">
+	<footer id="colophon" class="site-footer bg-secondary px-3" data-swiftype-index="false">
 		<div class="container-fluid">
 			<div class="row">
 				<div id="footer-column-one" class="widget-area col-sm">
