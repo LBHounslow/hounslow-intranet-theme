@@ -371,8 +371,11 @@ if ( ! function_exists( 'hounslow_intranet_breadcrumbs' ) ) :
                 // Parent page loop
                 if ( !isset( $parents ) ) $parents = null;
                 foreach ( $anc as $ancestor ) {
+									$isfp = $ancestor;
+									if ( FALSE == HounslowIntranetCustom\Util::page_is_front_page( $ancestor ) ) {
                     $parents .= '<li class="breadcrumb-item"><a href="' . get_permalink($ancestor) . '" title="' . get_the_title($ancestor) . '">' . get_the_title($ancestor) . '</a></li>';
-                }
+									}
+								}
 
                 // Display parent pages
                 echo $parents;
