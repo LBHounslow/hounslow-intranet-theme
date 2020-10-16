@@ -69,7 +69,7 @@
 
   })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
 
-  _st('install','qJax8AXPsYVWaB8y5243','2.0.0');
+	_st('install','_DkzPVuz5eyykUsibtix','2.0.0');
 
 </script>
 
