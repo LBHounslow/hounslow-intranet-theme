@@ -118,3 +118,22 @@ function hounslow_intranet_multisite_sidebar_clear_cache() {
 		delete_site_transient('sidebar_cache_' . $sidebar['id']);
 	}
 }
+
+// Branding the login page.
+function hounslow_intranet_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+					background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/img/site-login-logo.png);
+					height:85px;
+					width:320px;
+					background-size: 320px 85px;
+					background-repeat: no-repeat;
+        	padding-bottom: 5px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'hounslow_intranet_login_logo' );
+function hounslow_intranet_login_logo_url( $url ) {
+    return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'hounslow_intranet_login_logo_url' );

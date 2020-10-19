@@ -183,3 +183,16 @@ ul.pagination {
 .hounslow-table-grid table th {
   border-width: 1px;
 }
+
+ /* Styling for Swiftype search */
+.st-default-search-input {
+  background: none !important;
+  background-color: #ffffff !important;
+  min-height: 1.5rem  !important;
+}
+.st-ui-type-heading {
+  font-size: 17px !important;
+}
+.st-ui-type-detail-bold {
+  font-weight: bold !important;
+}

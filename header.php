@@ -23,11 +23,11 @@
 <body <?php body_class( array( 'bg-dark' ) ); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site bg-light">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'hounslow-intranet' ); ?></a>
-	<header id="masthead" class="site-header">
+	<a class="skip-link screen-reader-text" href="#primary" data-swiftype-index="false"><?php esc_html_e( 'Skip to content', 'hounslow-intranet' ); ?></a>
+	<header id="masthead" class="site-header" data-swiftype-index="false">
 		<nav id="network-navigation" class="navbar navbar-dark bg-dark px-3">
 			<a class="navbar-brand" href="/">HI!</a>
-			<?php //get_search_form(); ?>
+			<?php get_search_form(); ?>
 		</nav>
 		<nav id="site-branding" class="navbar px-3">
 			<span class="navbar-brand site-title">
