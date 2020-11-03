@@ -7,6 +7,16 @@
  * @package Hounslow_Intranet
  */
 
+$topics = wp_get_post_terms( $post->ID, 'guide-topic' );
+$list_of_topics = '';
+if ( $topics ) {
+    $output = array();
+    foreach ( $topics as $topic ) {
+        $output[] = '<a href="' . get_term_link( $topic->slug, 'guide-topic') .'">' . $topic->name .'</a>';
+    }
+    $list_of_topics = ' &middot; Read all guides about ' . join( ' / ', $output );
+}
+
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
@@ -16,7 +26,7 @@
 		?>
 		<div class="kb-meta">
 			<hr />
-			<p class="kb-meta-type"><i class="far fa-life-ring"></i> Guide</p>
+			<p class="kb-meta-type"><i class="far fa-life-ring"></i> Guide <?php echo $list_of_topics; ?></p>
 			<hr />
 		</div>
 	</header><!-- .entry-header -->
