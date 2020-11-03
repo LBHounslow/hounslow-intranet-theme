@@ -196,3 +196,17 @@ ul.pagination {
 .st-ui-type-detail-bold {
   font-weight: bold !important;
 }
+
+ /* Styling for Guides CPT */
+ .kb-description {
+   font-size: 1.5em;
+ }
+ .shortcode-toc ul {
+   list-style: square;
+ }
+ .guide a.anchor {
+   font-size: 18px;
+ }
+ #toc {
+   margin-top: 1.5em;
+ }
