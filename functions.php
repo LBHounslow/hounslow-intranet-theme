@@ -264,3 +264,11 @@ require get_template_directory() . '/inc/seo-functions.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+add_action('after_setup_theme', 'hounslow_remove_admin_bar');
+
+function hounslow_remove_admin_bar() {
+	if (!current_user_can('edit_posts') && !is_admin()) {
+	  show_admin_bar(false);
+	}
+}
