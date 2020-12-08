@@ -8,7 +8,6 @@
  *
  * @package Hounslow_Intranet
  */
-
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -16,7 +15,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
 </head>
 
@@ -25,28 +23,68 @@
 <div id="page" class="site bg-light">
 	<a class="skip-link screen-reader-text" href="#primary" data-swiftype-index="false"><?php esc_html_e( 'Skip to content', 'hounslow-intranet' ); ?></a>
 	<header id="masthead" class="site-header" data-swiftype-index="false">
-		<nav id="network-navigation" class="navbar navbar-dark bg-dark px-3">
-			<a class="navbar-brand" href="/">HI!</a>
-			<?php get_search_form(); ?>
+		<!-- Utility Navigation -->
+		<nav id="utility-navigation" class="container-fluid bg-dark text-light">
+			<div class="row g-2 ">
+		    <div id="utility-brand" class="col-12 col-lg">
+					<ul class="nav justify-content-left align-bottom">
+						    <li class="nav-item">
+						      <a class="nav-link link-secondary utility-brand-fs" onclick="openNav()"><i class="fas fa-th fa-lg"></i></a>
+						    </li>
+								<li class="nav-item">
+						      <a class="nav-link link-secondary utility-brand-fs" href="/">HI!</a>
+						    </li>
+						    <li class="nav-item">
+						      <a class="nav-link link-secondary utility-brand-fs" href="<?php echo esc_url( home_url( '/' )); ?>"><?php bloginfo( 'name' ); ?></a>
+						    </li>
+						  </ul>
+		    </div>
+					<?php if ( is_user_logged_in() ) {
+
+					$network_menu_args = array(
+							'theme_location'    => 'utility',
+							'depth'             => 2,
+							'container'         => 'div',
+							'container_class'   => 'col-md-6 col-lg',
+							'container_id'      => 'utility-menu',
+							'menu_class'        => 'nav justify-content-end',
+							'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+							'walker'            => new WP_Bootstrap_Navwalker()
+					);
+					hounslow_intranet_network_nav_menu( $network_menu_args );
+					} ?>
+		    <div id="utility-search" class="col-md-6 col-lg">
+					<?php get_search_form(); ?>
+		    </div>
+
+		  </div>
+
 		</nav>
-		<nav id="site-branding" class="navbar px-3">
-			<span class="navbar-brand site-title">
-				<a href="<?php echo esc_url( home_url( '/' )); ?>"><?php bloginfo( 'name' ); ?></a>
-			</span>
+		<!-- Network Navigation -->
+		<nav id="network-navigation" class="navbar navbar-expand-sm bg-light navbar-light border-bottom">
+			<button id="network-navigation-menu-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#network-navigation-menu" aria-controls="network-navigation-menu" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
 			<?php
-			$hounslow_intranet_description = get_bloginfo( 'description', 'display' );
-			if ( $hounslow_intranet_description || is_customize_preview() ) :
-				?>
-				<span class="navbar-text"><?php echo $hounslow_intranet_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
-			<?php endif; ?>
+			$network_menu_args = array(
+					'theme_location'    => 'network',
+					'depth'             => 2,
+					'container'         => 'div',
+					'container_class'   => 'collapse navbar-collapse justify-content-center',
+					'container_id'      => 'network-navigation-menu',
+					'menu_class'        => 'nav navbar-nav',
+					'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+					'walker'            => new WP_Bootstrap_Navwalker()
+			);
+			hounslow_intranet_network_nav_menu( $network_menu_args );
+			?>
 		</nav>
 		<?php if ( is_main_site() && is_front_page() ) { ?>
-			<!-- Front Page Navigation -->
+		  <!-- Front Page Navigation -->
 		<?php } else { ?>
-		<nav id="site-breadcrumbs" class="navbar px-3" aria-label="breadcrumb">
-			<?php hounslow_intranet_breadcrumbs(); ?>
+		<nav id="site-breadcrumbs" class="navbar border-bottom" aria-label="breadcrumb">
+		  <?php hounslow_intranet_breadcrumbs(); ?>
 		</nav>
 		<?php } ?>
-		<hr />
 	</header><!-- #masthead -->
 	<div id="content" class="site-content">

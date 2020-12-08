@@ -1,3 +1,5 @@
+$utility-nav-link-color: #DEE0E2;
+
 /* Borders */
 
 #comments, #colophon {
@@ -48,13 +50,41 @@ h1.entry-title {
   text-decoration: underline;
 }
 
+/* Utility Navigation */
+#utility-navigation {
+  padding-top: 1.25rem;
+  padding-bottom: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+#utility-brand ul, #utility-menu ul {
+  margin-left: 0;
+}
+.utility-brand-fs {
+  font-size: 1.25em;
+}
+.username-link a.nav-link {
+  color: $utility-nav-link-color;
+}
+.username-link a.nav-link:hover, .username-link a.nav-link:focus {
+  color: lighten($utility-nav-link-color, 15%)
+}
+
+/* Network Navigation */
+#network-navigation-menu-toggler {
+  margin-left: 3rem;
+}
+#menu-main {
+  margin-left: 0;
+}
+
 
 /* Breadcrumb Navigation */
 
 #site-breadcrumbs ol {
-  margin-left: 0;
+  margin-left: 3em;
   margin-bottom: 0;
-  padding-left: 0;
+  padding-left: 0.5rem;
   background-color: inherit;
 }
 

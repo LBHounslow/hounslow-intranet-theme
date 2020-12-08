@@ -28,7 +28,14 @@ h1.entry-title,.entry-title.h1{margin-top:0}
 .widget_media_image{padding-bottom:1.5em}
 .widget-title{font-size:1.5rem}
 .entry-content p a,.entry-content li a{text-decoration:underline}
-#site-breadcrumbs ol{margin-left:0;margin-bottom:0;padding-left:0;background-color:inherit}
+#utility-navigation{padding-top:1.25rem;padding-bottom:1rem;padding-left:2.5rem;padding-right:2.5rem}
+#utility-brand ul,#utility-menu ul{margin-left:0}
+.utility-brand-fs{font-size:1.25em}
+.username-link a.nav-link{color:#dee0e2}
+.username-link a.nav-link:hover,.username-link a.nav-link:focus{color:white}
+#network-navigation-menu-toggler{margin-left:3rem}
+#menu-main{margin-left:0}
+#site-breadcrumbs ol{margin-left:3em;margin-bottom:0;padding-left:.5rem;background-color:inherit}
 ul.pagination{margin-left:0}
 .post-thumbnail-single,figure.wp-block-image{position:relative;padding:0}
 .post-thumbnail-single figcaption,.wp-block-image figcaption{opacity:.9;position:absolute;width:100%;color:#fff;left:0;bottom:0;padding:.75em 1em;margin-bottom:0;font-weight:700;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:rgba(0,0,0,0.7)}
@@ -1127,6 +1134,11 @@ button.close{padding:0;background-color:transparent;border:0}
 .rounded-left{border-bottom-left-radius:.25rem !important;border-top-left-radius:.25rem !important}
 .visible{visibility:visible !important}
 .invisible{visibility:hidden !important}
+.sidenav{height:100%;width:0;position:fixed;z-index:1;top:0;left:0;background-color:#111;overflow-x:hidden;-webkit-transition:.5s;transition:.5s;padding-top:60px;margin-top:60px}
+.sidenav a{padding:8px 8px 8px 32px;text-decoration:none;font-size:25px;color:#818181;display:block;-webkit-transition:.3s;transition:.3s}
+.sidenav a:hover{color:#f1f1f1}
+.sidenav .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-left:50px}
+#main{-webkit-transition:margin-left .5s;transition:margin-left .5s;padding:16px}
 @media(prefers-reduced-motion:reduce){.form-control,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="search"],input[type="number"],input[type="tel"],input[type="range"],input[type="date"],input[type="month"],input[type="week"],input[type="time"],input[type="datetime"],input[type="datetime-local"],input[type="color"],textarea,input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="search"]:focus,input[type="number"]:focus,input[type="tel"]:focus,input[type="range"]:focus,input[type="date"]:focus,input[type="month"]:focus,input[type="week"]:focus,input[type="time"]:focus,input[type="datetime"]:focus,input[type="datetime-local"]:focus,input[type="color"]:focus,textarea:focus,select{-webkit-transition:none;transition:none}
 .form-check-input{-webkit-transition:none;transition:none}
 .form-range::-webkit-slider-thumb{-webkit-transition:none;transition:none}
@@ -2252,6 +2264,8 @@ legend{font-size:1.5rem}
 .modal-fullscreen-sm-down .modal-header{border-radius:0}
 .modal-fullscreen-sm-down .modal-body{overflow-y:auto}
 .modal-fullscreen-sm-down .modal-footer{border-radius:0}
+}@media screen and (max-height:450px){.sidenav{padding-top:15px}
+.sidenav a{font-size:18px}
 }@media print{.d-print-inline{display:inline !important}
 .d-print-inline-block{display:inline-block !important}
 .d-print-block{display:block !important}
