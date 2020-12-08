@@ -114,6 +114,11 @@ embed,iframe,object{max-width:100%}
 .comment-navigation .nav-links,.posts-navigation .nav-links,.post-navigation .nav-links{display:-webkit-box;display:-ms-flexbox;display:flex}
 .comment-navigation .nav-previous,.posts-navigation .nav-previous,.post-navigation .nav-previous{-webkit-box-flex:1;-ms-flex:1 0 50%;flex:1 0 50%}
 .comment-navigation .nav-next,.posts-navigation .nav-next,.post-navigation .nav-next{text-align:end;-webkit-box-flex:1;-ms-flex:1 0 50%;flex:1 0 50%}
+.sidenav{height:100%;width:0;position:fixed;z-index:1;top:0;left:0;background-color:#4b2351;overflow-x:hidden;-webkit-transition:.5s;transition:.5s;padding-top:75px}
+.sidenav a{padding:8px 8px 8px 32px;text-decoration:none;font-size:25px;color:#818181;display:block;-webkit-transition:.3s;transition:.3s}
+.sidenav a:hover{color:#f1f1f1}
+.sidenav .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-left:50px}
+#main{-webkit-transition:margin-left .5s;transition:margin-left .5s;padding:16px}
 /*! Bootstrap v5.0.0-alpha1 (https://getbootstrap.com/) Copyright 2011-2020 The Bootstrap Authors Copyright 2011-2020 Twitter, Inc. Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) */:root{--bs-blue:#0d6efd;--bs-indigo:#6610f2;--bs-purple:#6f42c1;--bs-pink:#d63384;--bs-red:#dc3545;--bs-orange:#fd7e14;--bs-yellow:#ffc107;--bs-green:#198754;--bs-teal:#20c997;--bs-cyan:#0dcaf0;--bs-white:#fff;--bs-gray:#6c757d;--bs-gray-dark:#343a40;--bs-primary:#642f6c;--bs-secondary:#dee0e2;--bs-success:#198754;--bs-info:#0dcaf0;--bs-warning:#ffc107;--bs-danger:#dc3545;--bs-light:#f8f9fa;--bs-dark:#343a40;--bs-font-sans-serif:"Lato",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--bs-font-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--bs-gradient:linear-gradient(180deg,rgba(255,255,255,0.15),rgba(255,255,255,0))}
 *,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box}
 body{margin:0;font-family:var(--bs-font-sans-serif);font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}
@@ -1134,11 +1139,6 @@ button.close{padding:0;background-color:transparent;border:0}
 .rounded-left{border-bottom-left-radius:.25rem !important;border-top-left-radius:.25rem !important}
 .visible{visibility:visible !important}
 .invisible{visibility:hidden !important}
-.sidenav{height:100%;width:0;position:fixed;z-index:1;top:0;left:0;background-color:#111;overflow-x:hidden;-webkit-transition:.5s;transition:.5s;padding-top:60px;margin-top:60px}
-.sidenav a{padding:8px 8px 8px 32px;text-decoration:none;font-size:25px;color:#818181;display:block;-webkit-transition:.3s;transition:.3s}
-.sidenav a:hover{color:#f1f1f1}
-.sidenav .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-left:50px}
-#main{-webkit-transition:margin-left .5s;transition:margin-left .5s;padding:16px}
 @media(prefers-reduced-motion:reduce){.form-control,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="search"],input[type="number"],input[type="tel"],input[type="range"],input[type="date"],input[type="month"],input[type="week"],input[type="time"],input[type="datetime"],input[type="datetime-local"],input[type="color"],textarea,input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="search"]:focus,input[type="number"]:focus,input[type="tel"]:focus,input[type="range"]:focus,input[type="date"]:focus,input[type="month"]:focus,input[type="week"]:focus,input[type="time"]:focus,input[type="datetime"]:focus,input[type="datetime-local"]:focus,input[type="color"]:focus,textarea:focus,select{-webkit-transition:none;transition:none}
 .form-check-input{-webkit-transition:none;transition:none}
 .form-range::-webkit-slider-thumb{-webkit-transition:none;transition:none}

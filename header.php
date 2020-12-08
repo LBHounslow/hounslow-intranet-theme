@@ -29,7 +29,7 @@
 		    <div id="utility-brand" class="col-12 col-lg">
 					<ul class="nav justify-content-left align-bottom">
 						    <li class="nav-item">
-						      <a class="nav-link link-secondary utility-brand-fs" onclick="openNav()"><i class="fas fa-th fa-lg"></i></a>
+						      <a class="nav-link link-secondary utility-brand-fs" style="cursor:pointer" onclick="openNav()"><i class="fas fa-th fa-lg"></i></a>
 						    </li>
 								<li class="nav-item">
 						      <a class="nav-link link-secondary utility-brand-fs" href="/">HI!</a>
@@ -67,7 +67,7 @@
 		  </div>
 		</nav>
 		<!-- Network Navigation -->
-		<nav id="network-navigation" class="navbar navbar-expand-sm bg-light navbar-light border-bottom">
+		<nav id="network-navigation" class="navbar navbar-expand-sm navbar-light border-bottom">
 			<button id="network-navigation-menu-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#network-navigation-menu" aria-controls="network-navigation-menu" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
@@ -88,9 +88,15 @@
 		<?php if ( is_main_site() && is_front_page() ) { ?>
 		  <!-- Front Page Navigation -->
 		<?php } else { ?>
-		<nav id="site-breadcrumbs" class="navbar border-bottom" aria-label="breadcrumb">
+		<nav id="site-breadcrumbs" class="navbar navbar-light border-bottom" aria-label="breadcrumb">
 		  <?php hounslow_intranet_breadcrumbs(); ?>
 		</nav>
 		<?php } ?>
 	</header><!-- #masthead -->
+	<div id="apps-bar" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#">About</a>
+		<a href="#">Services</a>
+		<a href="#">Clients</a>
+		<a href="#">Contact</a>
 	<div id="content" class="site-content">
