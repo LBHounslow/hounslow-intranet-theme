@@ -146,6 +146,11 @@ function hounslow_intranet_display_loggedin_user( $menu_items ) {
         if ( strpos($menu_item->title, '##username##') !== false) {
                 $menu_item->title =  str_replace("##username##",  'Hi, ' . wp_get_current_user()->user_nicename, $menu_item->title);
         }
+				// Add a logout link using ##logout## placeholder.
+				if ( strpos($menu_item->title, '##logout##') !== false) {
+								$menu_item->title =  str_replace("##logout##",  'Log Out', $menu_item->title);
+								$menu_item->url =  wp_logout_url( '/logged-out/' );
+				}
     }
 
     return $menu_items;
