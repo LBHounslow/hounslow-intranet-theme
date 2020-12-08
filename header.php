@@ -52,13 +52,19 @@
 							'walker'            => new WP_Bootstrap_Navwalker()
 					);
 					hounslow_intranet_network_nav_menu( $network_menu_args );
-					} ?>
-		    <div id="utility-search" class="col-md-6 col-lg">
+				} else { ?>
+					<div id="utility-menu" class="col-md-6 col-lg">
+						<ul class="nav justify-content-end">
+					    <li class="nav-item username-link">
+					      <a href="<?php echo wp_login_url(get_permalink()); ?>" class="nav-link">Log In</a>
+					    </li>
+						</ul>
+					</div>
+				<?php } ?>
+				<div id="utility-search" class="col-md-6 col-lg">
 					<?php get_search_form(); ?>
 		    </div>
-
 		  </div>
-
 		</nav>
 		<!-- Network Navigation -->
 		<nav id="network-navigation" class="navbar navbar-expand-sm bg-light navbar-light border-bottom">
