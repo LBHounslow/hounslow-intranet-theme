@@ -137,3 +137,21 @@ function hounslow_intranet_login_logo_url( $url ) {
     return get_bloginfo( 'url' );
 }
 add_filter( 'login_headerurl', 'hounslow_intranet_login_logo_url' );
+
+// Insert elements into navigation menus using placeholders.
+add_filter( 'wp_nav_menu_objects', 'hounslow_intranet_display_loggedin_user' );
+function hounslow_intranet_display_loggedin_user( $menu_items ) {
+    foreach ( $menu_items as $menu_item ) {
+				// Add the logged in user's display name to menus using ##username## placeholder.
+        if ( strpos($menu_item->title, '##username##') !== false) {
+                $menu_item->title =  str_replace("##username##",  'Hi, ' . wp_get_current_user()->user_nicename, $menu_item->title);
+        }
+				// Add a logout link using ##logout## placeholder.
+				if ( strpos($menu_item->title, '##logout##') !== false) {
+								$menu_item->title =  str_replace("##logout##",  'Log Out', $menu_item->title);
+								$menu_item->url =  wp_logout_url( '/logged-out/' );
+				}
+    }
+
+    return $menu_items;
+}

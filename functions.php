@@ -57,6 +57,8 @@ if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
 		if ( is_main_site() ) {
 			register_nav_menus(
 				array(
+					'network' => esc_html__( 'Network Navigation', 'hounslow-intranet' ),
+					'utility' => esc_html__( 'Utility Navigation', 'hounslow-intranet' ),
 					'social' => esc_html__( 'Social Media', 'hounslow-intranet' ),
 				)
 			);
