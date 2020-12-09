@@ -28,16 +28,13 @@
 			<div class="row g-2 ">
 		    <div id="utility-brand" class="col-12 col-lg">
 					<ul class="nav justify-content-left align-bottom">
-						    <li class="nav-item">
-						      <a class="nav-link link-secondary utility-brand-fs" style="cursor:pointer" onclick="openNav()"><i class="fas fa-th fa-lg"></i></a>
-						    </li>
-								<li class="nav-item">
-						      <a class="nav-link link-secondary utility-brand-fs" href="/">HI!</a>
-						    </li>
-						    <li class="nav-item">
-						      <a class="nav-link link-secondary utility-brand-fs" href="<?php echo esc_url( home_url( '/' )); ?>"><?php bloginfo( 'name' ); ?></a>
-						    </li>
-						  </ul>
+				    <li class="nav-item">
+				      <a class="nav-link link-secondary utility-brand-fs" style="cursor:pointer" onclick="openNav()"><i class="fas fa-th fa-lg"></i></a>
+				    </li>
+						<li class="nav-item">
+				      <a class="nav-link link-secondary utility-brand-fs" href="/">HI!</a>
+				    </li>
+				  </ul>
 		    </div>
 					<?php if ( is_user_logged_in() ) {
 
