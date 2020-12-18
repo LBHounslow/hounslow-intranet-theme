@@ -681,3 +681,120 @@ function bootstrap_pagination( \WP_Query $wp_query = null, $echo = true, $params
  * ...
  * 'add_args'     => $args,
  */
+
+ if ( ! function_exists( 'hounslow_intranet_apps_list' ) ) :
+ 	/**
+ 	 * Displays the list of applications.
+ 	 *
+ 	 * ...
+ 	 * ...
+ 	 */
+ 	function hounslow_intranet_apps_list() {
+		?>
+		<div class="apps-heading">Favourites</div>
+			<div class="apps-list">
+				<a href="/" class="apps-tile">
+					<div class="apps-tile-icon">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/app-icon-hounslow.png" />
+					</div>
+					<div class="apps-tile-title">
+						<span>Website</span>
+					</div>
+				</a>
+				<a href="/" class="apps-tile">
+					<div class="apps-tile-icon">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/app-icon-gmail.png" />
+					</div>
+					<div class="apps-tile-title">
+						<span>Mail</span>
+					</div>
+				</a>
+				<a href="/" class="apps-tile">
+					<div class="apps-tile-icon">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/app-icon-github.png" />
+					</div>
+					<div class="apps-tile-title">
+						<span>GitHub</span>
+					</div>
+				</a>
+				<a href="/" class="apps-tile">
+					<div class="apps-tile-icon">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/app-icon-default.png" />
+					</div>
+					<div class="apps-tile-title">
+						<span>App Name</span>
+					</div>
+				</a>
+				<a href="/" class="apps-tile">
+					<div class="apps-tile-icon">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/app-icon-default.png" />
+					</div>
+					<div class="apps-tile-title">
+						<span>Longer App Name</span>
+					</div>
+				</a>
+			</div>
+			<div class="apps-heading">Popular</div>
+			<div class="apps-list">
+
+				<a href="/" class="apps-tile">
+					<div class="apps-tile-icon">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/app-icon-bulb.png" />
+					</div>
+					<div class="apps-tile-title">
+						<span>App Name</span>
+					</div>
+				</a>
+				<a href="/" class="apps-tile">
+					<div class="apps-tile-icon">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/app-icon-puzzle.png" />
+					</div>
+					<div class="apps-tile-title">
+						<span>App Name</span>
+					</div>
+				</a>
+				<a href="/" class="apps-tile">
+					<div class="apps-tile-icon">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/app-icon-boxes.png" />
+					</div>
+					<div class="apps-tile-title">
+						<span>App Name</span>
+					</div>
+				</a>
+				<a href="/" class="apps-tile">
+					<div class="apps-tile-icon">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/app-icon-hounslow.png" />
+					</div>
+					<div class="apps-tile-title">
+						<span>App Name</span>
+					</div>
+				</a>
+				<a href="/" class="apps-tile">
+					<div class="apps-tile-icon">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/app-icon-default.png" />
+					</div>
+					<div class="apps-tile-title">
+						<span>App Name</span>
+					</div>
+				</a>
+				<a href="/" class="apps-tile">
+					<div class="apps-tile-icon">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/app-icon-default.png" />
+					</div>
+					<div class="apps-tile-title">
+						<span>App Name</span>
+					</div>
+				</a>
+				<a href="/" class="apps-tile">
+					<div class="apps-tile-icon">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/app-icon-default.png" />
+					</div>
+					<div class="apps-tile-title">
+						<span>App Name</span>
+					</div>
+				</a>
+			</div>
+
+		<?php
+ 	}
+ endif;
