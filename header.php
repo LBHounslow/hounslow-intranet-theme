@@ -93,11 +93,6 @@
 	<!-- Apps Bar -->
 	<div id="apps-bar" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<div class="list-group mx-3">
-		<a href="https://www.office.com/launch/word" class="list-group-item list-group-item-action"><i class="fas fa-file-word"></i> Word</a>
-		<a href="https://www.office.com/launch/excel" class="list-group-item list-group-item-action"><i class="fas fa-file-excel"></i> Excel</a>
-		<a href="https://outlook.office365.com/" class="list-group-item list-group-item-action"><i class="fas fa-envelope"></i> Outlook</a>
-		<a href="https://lbhouli.webitrent.com/lbhouli_ess/" class="list-group-item list-group-item-action"><i class="fas fa-users"></i> iHounslow</a>
+		<?php hounslow_intranet_apps_list(); ?>
 	</div>
-</div>
 	<div id="content" class="site-content">
