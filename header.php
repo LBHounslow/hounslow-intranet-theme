@@ -36,7 +36,7 @@
 				    </li>
 				  </ul>
 		    </div>
-					<?php if ( is_user_logged_in() ) {
+					<?php if ( function_exists('hounslow_intranet_network_nav_menu') && is_user_logged_in() ) {
 
 					$network_menu_args = array(
 							'theme_location'    => 'utility',
@@ -68,7 +68,7 @@
 			<button id="network-navigation-menu-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#network-navigation-menu" aria-controls="network-navigation-menu" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
-			<?php
+			<?php if ( function_exists('hounslow_intranet_network_nav_menu')  && is_user_logged_in() ) {
 			$network_menu_args = array(
 					'theme_location'    => 'network',
 					'depth'             => 2,
@@ -80,7 +80,7 @@
 					'walker'            => new WP_Bootstrap_Navwalker()
 			);
 			hounslow_intranet_network_nav_menu( $network_menu_args );
-			?>
+		} ?>
 		</nav>
 		<?php if ( is_main_site() && is_front_page() ) { ?>
 		  <!-- Front Page Navigation -->
