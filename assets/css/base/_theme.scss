@@ -131,7 +131,8 @@ ul.pagination {
  }
 
  /* Fix for long words in titles */
-.entry-title {
+.widget,
+.hentry {
     word-wrap: break-word;
 }
 
