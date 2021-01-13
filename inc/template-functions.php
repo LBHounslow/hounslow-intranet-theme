@@ -68,11 +68,11 @@ function hounslow_intranet_multisite_sidebar( $sidebar ) {
 					)
 				)
 			);
-			$request = file_get_contents( $url, 0, $ctx );
-			if ( $request ) {
-				echo $request;
+			$request = @file_get_contents( $url, 0, $ctx );
+			if ( $request === FALSE ) {
+				echo '<!-- failed to open stream: no widgets in sidebar -->';
 			} else {
-				echo '<!-- failed to open stream: HTTP request failed -->';
+				echo $request;
 			}
 
 			// display the content
