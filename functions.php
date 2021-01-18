@@ -208,6 +208,17 @@ function hounslow_intranet_widgets_init() {
 				'after_title'   => '</h2>',
 			)
 		);
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'BuddyPress Sidebar', 'hounslow-intranet' ),
+				'id'            => 'sidebar-buddypress',
+				'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
 	}
 
 }
