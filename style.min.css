@@ -114,8 +114,8 @@ embed,iframe,object{max-width:100%}
 .comment-navigation .nav-links,.posts-navigation .nav-links,.post-navigation .nav-links{display:-webkit-box;display:-ms-flexbox;display:flex}
 .comment-navigation .nav-previous,.posts-navigation .nav-previous,.post-navigation .nav-previous{-webkit-box-flex:1;-ms-flex:1 0 50%;flex:1 0 50%}
 .comment-navigation .nav-next,.posts-navigation .nav-next,.post-navigation .nav-next{text-align:end;-webkit-box-flex:1;-ms-flex:1 0 50%;flex:1 0 50%}
-.sidenav{height:100%;width:0;position:fixed;z-index:1;top:0;left:0;background-color:#4b2351;overflow-x:hidden;-webkit-transition:.5s;transition:.5s;padding-top:75px}
-.sidenav .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-left:50px;color:#dee0e2}
+.sidenav{height:100%;width:0;position:fixed;z-index:99;top:0;left:0;background-color:#4b2351;overflow:hidden;-webkit-transition:.5s;transition:.5s;padding-top:75px}
+.sidenav .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-top:16px;margin-left:50px;color:#dee0e2}
 .sidenav .closebtn:hover{color:#989898}
 #main{-webkit-transition:margin-left .5s;transition:margin-left .5s;padding:16px}
 .apps-list{display:block;margin-left:6px;margin-right:12px}
