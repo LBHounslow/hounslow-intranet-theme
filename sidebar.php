@@ -23,7 +23,7 @@ if ( is_page() ) {
 
 		<?php
 
-	} else if ( is_page_template( 'page_document.php' || 'page_document-landing.php' ) ) {
+	} elseif ( is_page_template( array( 'page_document.php', 'page_document-landing.php' ) ) ) {
 
 		?>
 
@@ -33,7 +33,7 @@ if ( is_page() ) {
 
 		<?php
 
-	} else if ( is_page_template( 'page_news.php' ) ) {
+	} elseif ( is_page_template( 'page_news.php' ) ) {
 
 		?>
 
@@ -58,7 +58,7 @@ if ( is_page() ) {
 
 	}
 
-} else if ( is_single() ) {
+} elseif ( is_single() ) {
 	?>
 	<aside id="secondary" class="widget-area col-sm-12 col-lg-4" data-swiftype-index="false">
 
