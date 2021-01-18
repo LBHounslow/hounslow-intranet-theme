@@ -47,13 +47,6 @@ if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus(
-			array(
-				'default' => esc_html__( 'Default', 'hounslow-intranet' ),
-			)
-		);
-
 		if ( is_main_site() ) {
 			register_nav_menus(
 				array(

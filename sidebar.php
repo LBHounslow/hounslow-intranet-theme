@@ -15,19 +15,6 @@ if ( is_page() ) {
 		?>
 
 		<aside id="secondary" class="widget-area col-sm-12 col-lg-4" data-swiftype-index="false">
-			<section id="hounslow-intranet-post-meta" class="widget widget_nav_menu">
-				<h2 class="widget-title"><?php bloginfo( 'name' ); ?></h2>
-				<?php
-					wp_nav_menu( array(
-							'theme_location'    => 'default',
-					    'depth'          => 1,
-					    'container'      => false,
-					    'menu_class'     => '',
-					    'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
-					    'walker'         => new WP_Bootstrap_Navwalker(),
-					) );
-				?>
-			</section>
 			<?php
 			if ( is_active_sidebar( 'sidebar-homepage' ) ) {
 				dynamic_sidebar( 'sidebar-homepage' );
