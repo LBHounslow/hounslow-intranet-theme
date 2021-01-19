@@ -206,6 +206,24 @@ if ( ! function_exists( 'hounslow_intranet_news_thumbnail' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hounslow_intranet_link_thumbnail' ) ) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 *
+	 */
+	function hounslow_intranet_link_thumbnail( $post ) {
+    if ( has_post_thumbnail( $post ) ) {
+			?>
+				<a class="post-thumbnail" href="<?php echo get_the_permalink( $post ); ?>" aria-hidden="true" tabindex="-1"><?php echo get_the_post_thumbnail( $post ); ?><figcaption><?php echo get_the_title($post); ?></figcaption></a>
+			<?php
+			} else {
+			?>
+				<a class="post-thumbnail" href="<?php echo get_the_permalink( $post ); ?>" aria-hidden="true" tabindex="-1"><img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/assets/img/link-thumbnail-default.jpg" /><figcaption><?php echo get_the_title($post); ?></figcaption></a>
+			<?php
+			}
+	}
+endif;
 
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
@@ -497,6 +515,11 @@ if ( ! function_exists( 'hounslow_intranet_display_child_pages' ) ) :
 				$element_footer = '</div><hr/>';
 				break;
 
+			case 'image':
+				$element_header = '<div class="row mb-3">';
+				$element_footer = '</div><hr/>';
+				break;
+
 			default:
 				$element_header = '<ul class="list-of-pages">';
 				$element_footer = '</ul><hr/>';
@@ -516,6 +539,10 @@ if ( ! function_exists( 'hounslow_intranet_display_child_pages' ) ) :
 
 				case 'card':
 					hounslow_intranet_child_page_card_item( $child );
+					break;
+
+				case 'image':
+					hounslow_intranet_child_page_image_item( $child );
 					break;
 
 				default:
@@ -598,6 +625,13 @@ function hounslow_intranet_child_page_card_item( $child ) {
 		</div>
 </div>
 </div><?php
+}
+
+function hounslow_intranet_child_page_image_item( $child ) {
+	echo '<div class="col-sm-6 col-lg-4">';
+	echo '<figure class="wp-block-image size-large">';
+	hounslow_intranet_link_thumbnail( $child );
+	echo '</figure></div>';
 }
 
 
