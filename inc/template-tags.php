@@ -604,20 +604,20 @@ function hounslow_intranet_child_page_media_item( $child ) {
 }
 
 function hounslow_intranet_child_page_card_item( $child ) {
-	?><div class="col-sm-6 col-lg-4 col-xl-3">
+	?><div class="col-sm-6 col-lg-4">
 	<div class="card mb-2">
 
-		<?php if ( $thumbnail == TRUE ) :
-			 if (has_post_thumbnail( $child->ID ) ) :	?>
+		 			<?php if (has_post_thumbnail( $child->ID ) ) :	?>
 		<a class="post-thumbnail" href="<?php the_permalink($child->ID); ?>" aria-hidden="true" tabindex="-1">
-			<?php echo get_the_post_thumbnail( $child->ID, 'large' ); ?>
+
+		<?php echo get_the_post_thumbnail( $child->ID, 'large' ); ?>
 		</a>
 	 <?php else : ?>
 		<a class="post-thumbnail" href="<?php the_permalink($child->ID); ?>" aria-hidden="true" tabindex="-1">
-			<svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="currentColor"></rect></svg>
+			<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/assets/img/link-thumbnail-default.jpg" />
+			<!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="currentColor"></rect></svg>-->
 		</a>
-	<?php endif;
-	endif; ?>
+	<?php endif; ?>
 		<div class="card-body">
 			<h5 class="card-title"><?php 	echo esc_html( get_the_title($child->ID) ); ?></h5>
 			<p class="card-text"><?php echo apply_filters( 'the_excerpt', get_the_excerpt($child->ID) ); ?></p>
