@@ -480,89 +480,125 @@ if ( ! function_exists( 'hounslow_intranet_display_child_pages' ) ) :
 			return;
 		}
 
-		if ( is_front_page() ) {
-
-			$args = array(
-				'parent' => 0,
-		    'sort_order' => 'ASC',
-		    'sort_column' => 'menu_order',
-	    );
-
-			$childpages = get_pages( $args );
-
-		} else {
-
-			$args = array(
-	        'order'          => 'ASC',
-	        'post_parent'    => $post_id,
-	        'post_type'      => 'page',
-	    );
-
-	    $childpages = get_children( $args );
-
-		}
+		$childpages = hounslow_intranet_get_child_pages( $post_id );
 
 		if ( !$childpages ) {
 			return;
 		}
 
+		switch ($format) {
+			case 'media':
+				$element_header = '';
+				$element_footer = '<hr/>';
+				break;
+
+			case 'card':
+				$element_header = '<div class="row mb-3">';
+				$element_footer = '</div><hr/>';
+				break;
+
+			default:
+				$element_header = '<ul class="list-of-pages">';
+				$element_footer = '</ul><hr/>';
+				break;
+		}
+
 		$front_page_id = get_option('page_on_front');
 
-		if ( $format == 'media') :
-				foreach ($childpages as $child) {
-			?>
-			<div class="media">
-				<a href="<?php echo esc_url( get_permalink($child->ID) ); ?>">
-					<svg class="bi bi-file-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					  <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z"/>
-					  <path fill-rule="evenodd" d="M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
-					</svg>
-				</a>
-			  <div class="media-body ml-2">
-			    <h5 class="mt-0"><a href="<?php echo esc_url( get_permalink($child->ID) ); ?>"><?php 	echo esc_html( get_the_title($child->ID) ); ?></a></h5>
-					<?php echo apply_filters( 'the_excerpt', get_the_excerpt($child->ID) ); ?>
-			  </div>
-			</div>
-		<?php }
-		elseif ( $format == 'card' ) :
-			?>
-			<div class="row mb-3">
-				<?php foreach ($childpages as $child) {
-					if ( $front_page_id == $child->ID ) { continue; }?>
+		echo $element_header;
 
-					<div class="col-sm-6 col-lg-4 col-xl-3">
-						<div class="card mb-2">
+		foreach ($childpages as $child) {
+			if ( $front_page_id == $child->ID ) { continue; }
+			switch ($format) {
+				case 'media':
+					hounslow_intranet_child_page_media_item( $child );
+					break;
 
-							<?php if ( $thumbnail == TRUE ) :
-								 if (has_post_thumbnail( $child->ID ) ) :	?>
-							<a class="post-thumbnail" href="<?php the_permalink($child->ID); ?>" aria-hidden="true" tabindex="-1">
-						 		<?php echo get_the_post_thumbnail( $child->ID, 'large' ); ?>
-						 	</a>
-						 <?php else : ?>
-							<a class="post-thumbnail" href="<?php the_permalink($child->ID); ?>" aria-hidden="true" tabindex="-1">
-								<svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="currentColor"></rect></svg>
-						 	</a>
-						<?php endif;
-						endif; ?>
-						  <div class="card-body">
-						    <h5 class="card-title"><?php 	echo esc_html( get_the_title($child->ID) ); ?></h5>
-						    <p class="card-text"><?php echo apply_filters( 'the_excerpt', get_the_excerpt($child->ID) ); ?></p>
-						    <a class="btn btn-primary" href="<?php echo esc_url( get_permalink($child->ID) ); ?>">Read more&hellip;</a>
-						  </div>
-					</div>
-				</div>
-		<?php } ?>
-		</div>
-	<?php else : ?>
-		<ul>
-			<?php foreach ($childpages as $child) {	?>
-				<li><a href="<?php echo esc_url( get_permalink($child->ID) ); ?>"><?php 	echo esc_html( get_the_title($child->ID) ); ?></a></li>
-			<?php } ?>
-		</ul>
-		<?php
-		endif;
+				case 'card':
+					hounslow_intranet_child_page_card_item( $child );
+					break;
+
+				default:
+					hounslow_intranet_child_page_list_item( $child );
+					break;
+			}
+
+		}
+
+		echo $element_footer;
 	}
 endif;
+
+function hounslow_intranet_get_child_pages( $post_id ) {
+
+	if ( is_front_page() ) {
+
+		$args = array(
+			'parent' => 0,
+			'sort_order' => 'ASC',
+			'sort_column' => 'menu_order',
+		);
+
+		$childpages = get_pages( $args );
+
+	} else {
+
+		$args = array(
+				'order'          => 'ASC',
+				'post_parent'    => $post_id,
+				'post_type'      => 'page',
+		);
+
+		$childpages = apply_filters( 'get_pages', get_children( $args ) );
+
+	}
+
+	return $childpages;
+
+}
+
+function hounslow_intranet_child_page_list_item( $child ) {
+	?><li><a href="<?php echo esc_url( get_permalink($child->ID) ); ?>"><?php echo esc_html( get_the_title($child->ID) ); ?></a></li><?php
+}
+
+function hounslow_intranet_child_page_media_item( $child ) {
+	?><div class="media">
+	<a href="<?php echo esc_url( get_permalink($child->ID) ); ?>">
+		<svg class="bi bi-file-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z"/>
+			<path fill-rule="evenodd" d="M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
+		</svg>
+	</a>
+	<div class="media-body ml-2">
+		<h5 class="mt-0"><a href="<?php echo esc_url( get_permalink($child->ID) ); ?>"><?php 	echo esc_html( get_the_title($child->ID) ); ?></a></h5>
+		<?php echo apply_filters( 'the_excerpt', get_the_excerpt($child->ID) ); ?>
+	</div>
+</div><?php
+}
+
+function hounslow_intranet_child_page_card_item( $child ) {
+	?><div class="col-sm-6 col-lg-4 col-xl-3">
+	<div class="card mb-2">
+
+		<?php if ( $thumbnail == TRUE ) :
+			 if (has_post_thumbnail( $child->ID ) ) :	?>
+		<a class="post-thumbnail" href="<?php the_permalink($child->ID); ?>" aria-hidden="true" tabindex="-1">
+			<?php echo get_the_post_thumbnail( $child->ID, 'large' ); ?>
+		</a>
+	 <?php else : ?>
+		<a class="post-thumbnail" href="<?php the_permalink($child->ID); ?>" aria-hidden="true" tabindex="-1">
+			<svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="currentColor"></rect></svg>
+		</a>
+	<?php endif;
+	endif; ?>
+		<div class="card-body">
+			<h5 class="card-title"><?php 	echo esc_html( get_the_title($child->ID) ); ?></h5>
+			<p class="card-text"><?php echo apply_filters( 'the_excerpt', get_the_excerpt($child->ID) ); ?></p>
+			<a class="btn btn-primary" href="<?php echo esc_url( get_permalink($child->ID) ); ?>">Read more&hellip;</a>
+		</div>
+</div>
+</div><?php
+}
 
 
 if ( ! function_exists( 'hounslow_intranet_paged_posts_navigation' ) ) :
