@@ -32,7 +32,7 @@ if ( $topics ) {
 	</header><!-- .entry-header -->
 
 	<div class="row">
-		<div class="col-sm-12 col-lg-7">
+		<div class="col-sm-12 col-lg-8">
 			<div class="entry-content clearfix">
 				<?php
 				hounslow_intranet_post_thumbnail();
@@ -92,7 +92,7 @@ if ( $topics ) {
 				</footer><!-- .entry-footer -->
 			<?php endif; ?>
 		</div>
-		<aside id="secondary" class="widget-area col-sm-12 col-lg-3 ml-lg-5" data-swiftype-index="false">
+		<aside id="secondary" class="widget-area col-sm-12 col-lg-4" data-swiftype-index="false">
 			<section id="toc" class="widget widget_toc">
 				<h2 class="widget-title">On this page</h2>
 				<?php echo do_shortcode( '[toc content=".entry-content" anchor-text=" #"]' ); ?>

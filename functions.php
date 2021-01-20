@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.d' );
+	define( '_S_VERSION', '1.0.e' );
 }
 
 if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
@@ -47,16 +47,17 @@ if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus(
-			array(
-				'default' => esc_html__( 'Default', 'hounslow-intranet' ),
-			)
-		);
+		/*
+		 * Enable support for Excerpts on pages.
+		 *
+		 */
+		add_post_type_support( 'page', 'excerpt' );
 
 		if ( is_main_site() ) {
 			register_nav_menus(
 				array(
+					'network' => esc_html__( 'Network Navigation', 'hounslow-intranet' ),
+					'utility' => esc_html__( 'Utility Navigation', 'hounslow-intranet' ),
 					'social' => esc_html__( 'Social Media', 'hounslow-intranet' ),
 				)
 			);
@@ -164,6 +165,18 @@ function hounslow_intranet_widgets_init() {
 	if ( is_main_site() ) {
 		register_sidebar(
 			array(
+				'name'          => esc_html__( 'Network Homepage Sidebar', 'hounslow-intranet' ),
+				'id'            => 'sidebar-network',
+				'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+
+		register_sidebar(
+			array(
 				'name'          => esc_html__( 'Footer Column One', 'hounslow-intranet' ),
 				'id'            => 'sidebar-fc1',
 				'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
@@ -199,6 +212,17 @@ function hounslow_intranet_widgets_init() {
 			array(
 				'name'          => esc_html__( 'Footer Column Four', 'hounslow-intranet' ),
 				'id'            => 'sidebar-fc4',
+				'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'BuddyPress Sidebar', 'hounslow-intranet' ),
+				'id'            => 'sidebar-buddypress',
 				'description'   => esc_html__( 'Add widgets here.', 'hounslow-intranet' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',

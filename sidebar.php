@@ -14,20 +14,7 @@ if ( is_page() ) {
 
 		?>
 
-		<aside id="secondary" class="widget-area col-sm-12 col-lg-3 ml-lg-5" data-swiftype-index="false">
-			<section id="hounslow-intranet-post-meta" class="widget widget_nav_menu">
-				<h2 class="widget-title"><?php bloginfo( 'name' ); ?></h2>
-				<?php
-					wp_nav_menu( array(
-							'theme_location'    => 'default',
-					    'depth'          => 1,
-					    'container'      => false,
-					    'menu_class'     => '',
-					    'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
-					    'walker'         => new WP_Bootstrap_Navwalker(),
-					) );
-				?>
-			</section>
+		<aside id="secondary" class="widget-area col-sm-12 col-lg-4" data-swiftype-index="false">
 			<?php
 			if ( is_active_sidebar( 'sidebar-homepage' ) ) {
 				dynamic_sidebar( 'sidebar-homepage' );
@@ -36,21 +23,21 @@ if ( is_page() ) {
 
 		<?php
 
-	} else if ( is_page_template( 'page_document.php' || 'page_document-landing.php' ) ) {
+	} elseif ( is_page_template( array( 'page_document.php', 'page_document-landing.php' ) ) ) {
 
 		?>
 
-		<aside id="secondary" class="widget-area col-sm-12 col-lg-3 ml-lg-5" data-swiftype-index="false">
+		<aside id="secondary" class="widget-area col-sm-12 col-lg-4" data-swiftype-index="false">
 			<?php dynamic_sidebar( 'sidebar-guidance' ); ?>
 		</aside><!-- #secondary -->
 
 		<?php
 
-	} else if ( is_page_template( 'page_news.php' ) ) {
+	} elseif ( is_page_template( 'page_news.php' ) ) {
 
 		?>
 
-		<aside id="secondary" class="widget-area col-sm-12 col-lg-3 ml-lg-5" data-swiftype-index="false">
+		<aside id="secondary" class="widget-area col-sm-12 col-lg-4" data-swiftype-index="false">
 			<?php dynamic_sidebar( 'sidebar-post' ); ?>
 		</aside><!-- #secondary -->
 
@@ -63,7 +50,7 @@ if ( is_page() ) {
 		}
 		?>
 
-		<aside id="secondary" class="widget-area col-sm-12 col-lg-3 ml-lg-5" data-swiftype-index="false">
+		<aside id="secondary" class="widget-area col-sm-12 col-lg-4" data-swiftype-index="false">
 			<?php dynamic_sidebar( 'sidebar-page' ); ?>
 		</aside><!-- #secondary -->
 
@@ -71,9 +58,9 @@ if ( is_page() ) {
 
 	}
 
-} else if ( is_single() ) {
+} elseif ( is_single() ) {
 	?>
-	<aside id="secondary" class="widget-area col-sm-12 col-lg-3 ml-lg-5" data-swiftype-index="false">
+	<aside id="secondary" class="widget-area col-sm-12 col-lg-4" data-swiftype-index="false">
 
 		<?php
 		if ( 'post' === get_post_type() ) :
@@ -99,7 +86,7 @@ if ( is_page() ) {
 	}
 	?>
 
-	<aside id="secondary" class="widget-area col-sm-12 col-lg-3 ml-lg-5" data-swiftype-index="false">
+	<aside id="secondary" class="widget-area col-sm-12 col-lg-4" data-swiftype-index="false">
 		<?php dynamic_sidebar( 'sidebar-post' ); ?>
 	</aside><!-- #secondary -->
 

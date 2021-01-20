@@ -1,0 +1,112 @@
+$sidenav-background: #4B2351;
+$sidenav-light: #DEE0E2;
+$sidenav-medium: #989898;
+$sidenav-dark: #343A40;
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  background-color: $sidenav-background;
+  overflow: hidden;
+  transition: 0.5s;
+  padding-top: 75px;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-top: 16px;
+  margin-left: 50px;
+  color: $sidenav-light;
+}
+.sidenav .closebtn:hover {
+  color: $sidenav-medium;
+}
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.apps-list {
+  display: block;
+  margin-left: 6px;
+  margin-right: 12px;
+}
+.apps-list a {
+  color: $sidenav-light;
+  text-decoration: none;
+}
+.apps-list a:hover {
+  background-color: $sidenav-dark;
+  color: $sidenav-light;
+}
+.apps-heading {
+  display: block;
+  clear: both;
+  color: $sidenav-light;
+  border-top: 1px solid $sidenav-light;
+  margin-top: 0.75rem;
+  padding-top: 0.25rem;
+  font-weight: bold;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.apps-tile {
+  float: left;
+  margin-left: 6px;
+  align-items: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 13px;
+  margin-top: 3px;
+  opacity: 1;
+  padding-top: 16px;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 300ms;
+  transition-property: left, top;
+  transition-timing-function: ease-in-out;
+  user-select: none;
+  width: 96px;
+}
+.apps-tile-icon {
+  align-items: center;
+  background-color: $sidenav-medium;
+  border-radius: 50%;
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+}
+.apps-tile-title {
+  align-items: center;
+  border-radius: 12px;
+  color: $sidenav-light;
+  display: flex;
+  height: 24px;
+  margin-top: 7px;
+  padding: 0 8px;
+  width: 88px;
+}
+.apps-tile-title span {
+  font-weight: 400;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  font-size: 0.85rem;
+}
