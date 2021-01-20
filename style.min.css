@@ -19,8 +19,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */#comments,#colophon{border-top:1px solid #ccc}
-.entry-content,#secondary .widget{border-bottom:1px solid #ccc}
-#secondary{padding-top:16px}
+.entry-content,#secondary .widget,#tertiary .widget{border-bottom:1px solid #ccc}
+#secondary,#tertiary{padding-top:16px}
 .entry-content,.entry-footer{margin-bottom:1.5em}
 h1.entry-title,.entry-title.h1{margin-top:0}
 #comments,.entry-footer{padding-top:1em}
