@@ -47,6 +47,12 @@ if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		/*
+		 * Enable support for Excerpts on pages.
+		 *
+		 */
+		add_post_type_support( 'page', 'excerpt' );
+
 		if ( is_main_site() ) {
 			register_nav_menus(
 				array(
