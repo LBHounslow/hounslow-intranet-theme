@@ -36,7 +36,7 @@
 				    </li>
 				  </ul>
 		    </div>
-					<?php if ( is_user_logged_in() ) {
+					<?php if ( function_exists('hounslow_intranet_network_nav_menu') && is_user_logged_in() ) {
 
 					$network_menu_args = array(
 							'theme_location'    => 'utility',
@@ -68,7 +68,7 @@
 			<button id="network-navigation-menu-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#network-navigation-menu" aria-controls="network-navigation-menu" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
-			<?php
+			<?php if ( function_exists('hounslow_intranet_network_nav_menu')  && is_user_logged_in() ) {
 			$network_menu_args = array(
 					'theme_location'    => 'network',
 					'depth'             => 2,
@@ -80,7 +80,7 @@
 					'walker'            => new WP_Bootstrap_Navwalker()
 			);
 			hounslow_intranet_network_nav_menu( $network_menu_args );
-			?>
+		} ?>
 		</nav>
 		<?php if ( is_main_site() && is_front_page() ) { ?>
 		  <!-- Front Page Navigation -->
@@ -93,11 +93,6 @@
 	<!-- Apps Bar -->
 	<div id="apps-bar" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<div class="list-group mx-3">
-		<a href="https://www.office.com/launch/word" class="list-group-item list-group-item-action"><i class="fas fa-file-word"></i> Word</a>
-		<a href="https://www.office.com/launch/excel" class="list-group-item list-group-item-action"><i class="fas fa-file-excel"></i> Excel</a>
-		<a href="https://outlook.office365.com/" class="list-group-item list-group-item-action"><i class="fas fa-envelope"></i> Outlook</a>
-		<a href="https://lbhouli.webitrent.com/lbhouli_ess/" class="list-group-item list-group-item-action"><i class="fas fa-users"></i> iHounslow</a>
+		<?php hounslow_intranet_apps_list(); ?>
 	</div>
-</div>
 	<div id="content" class="site-content">

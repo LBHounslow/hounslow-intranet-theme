@@ -19,7 +19,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */#comments,#colophon{border-top:1px solid #ccc}
-.entry-content,#secondary .widget{border-bottom:1px solid #ccc}
+.entry-content,#secondary .widget,#tertiary .widget{border-bottom:1px solid #ccc}
+#secondary,#tertiary{padding-top:16px}
 .entry-content,.entry-footer{margin-bottom:1.5em}
 h1.entry-title,.entry-title.h1{margin-top:0}
 #comments,.entry-footer{padding-top:1em}
@@ -41,7 +42,7 @@ ul.pagination{margin-left:0}
 .post-thumbnail-single figcaption,.wp-block-image figcaption{opacity:.9;position:absolute;width:100%;color:#fff;left:0;bottom:0;padding:.75em 1em;margin-bottom:0;font-weight:700;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:rgba(0,0,0,0.7)}
 #news-carousel .carousel-caption{background-color:rgba(0,0,0,0.55);padding-left:1rem;padding-right:1rem;margin-bottom:2rem}
 .carousel-control-prev-icon,.carousel-control-next-icon{width:35px !important;height:35px !important}
-.entry-title{word-wrap:break-word}
+.widget,.hentry{word-wrap:break-word}
 .wp-block-quote{padding-left:1rem;margin-bottom:1rem;font-size:1.25rem;border-left:1px solid #ccc}
 .wp-block-quote cite{display:block;font-size:80%;color:#6c757d}
 .wp-block-quote cite::before{content:"\2014 \00A0"}
@@ -114,9 +115,18 @@ embed,iframe,object{max-width:100%}
 .comment-navigation .nav-links,.posts-navigation .nav-links,.post-navigation .nav-links{display:-webkit-box;display:-ms-flexbox;display:flex}
 .comment-navigation .nav-previous,.posts-navigation .nav-previous,.post-navigation .nav-previous{-webkit-box-flex:1;-ms-flex:1 0 50%;flex:1 0 50%}
 .comment-navigation .nav-next,.posts-navigation .nav-next,.post-navigation .nav-next{text-align:end;-webkit-box-flex:1;-ms-flex:1 0 50%;flex:1 0 50%}
-.sidenav{height:100%;width:0;position:fixed;z-index:1;top:0;left:0;background-color:#4b2351;overflow-x:hidden;-webkit-transition:.5s;transition:.5s;padding-top:75px}
-.sidenav .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-left:50px}
+.sidenav{height:100%;width:0;position:fixed;z-index:99;top:0;left:0;background-color:#4b2351;overflow:hidden;-webkit-transition:.5s;transition:.5s;padding-top:75px}
+.sidenav .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-top:16px;margin-left:50px;color:#dee0e2}
+.sidenav .closebtn:hover{color:#989898}
 #main{-webkit-transition:margin-left .5s;transition:margin-left .5s;padding:16px}
+.apps-list{display:block;margin-left:6px;margin-right:12px}
+.apps-list a{color:#dee0e2;text-decoration:none}
+.apps-list a:hover{background-color:#343a40;color:#dee0e2}
+.apps-heading{display:block;clear:both;color:#dee0e2;border-top:1px solid #dee0e2;margin-top:.75rem;padding-top:.25rem;font-weight:bold;margin-left:12px;margin-right:12px}
+.apps-tile{float:left;margin-left:6px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;border-radius:4px;-webkit-box-sizing:border-box;box-sizing:border-box;cursor:pointer;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;margin-bottom:13px;margin-top:3px;opacity:1;padding-top:16px;position:relative;text-decoration:none;-webkit-transition-duration:300ms;transition-duration:300ms;-webkit-transition-property:left,top;transition-property:left,top;-webkit-transition-timing-function:ease-in-out;transition-timing-function:ease-in-out;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:96px}
+.apps-tile-icon{-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:#989898;border-radius:50%;display:-webkit-box;display:-ms-flexbox;display:flex;height:48px;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:48px}
+.apps-tile-title{-webkit-box-align:center;-ms-flex-align:center;align-items:center;border-radius:12px;color:#dee0e2;display:-webkit-box;display:-ms-flexbox;display:flex;height:24px;margin-top:7px;padding:0 8px;width:88px}
+.apps-tile-title span{font-weight:400;overflow:hidden;text-align:center;text-overflow:ellipsis;white-space:nowrap;width:100%;font-size:.85rem}
 /*! Bootstrap v5.0.0-alpha1 (https://getbootstrap.com/) Copyright 2011-2020 The Bootstrap Authors Copyright 2011-2020 Twitter, Inc. Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) */:root{--bs-blue:#0d6efd;--bs-indigo:#6610f2;--bs-purple:#6f42c1;--bs-pink:#d63384;--bs-red:#dc3545;--bs-orange:#fd7e14;--bs-yellow:#ffc107;--bs-green:#198754;--bs-teal:#20c997;--bs-cyan:#0dcaf0;--bs-white:#fff;--bs-gray:#6c757d;--bs-gray-dark:#343a40;--bs-primary:#642f6c;--bs-secondary:#dee0e2;--bs-success:#198754;--bs-info:#0dcaf0;--bs-warning:#ffc107;--bs-danger:#dc3545;--bs-light:#f8f9fa;--bs-dark:#343a40;--bs-font-sans-serif:"Lato",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--bs-font-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--bs-gradient:linear-gradient(180deg,rgba(255,255,255,0.15),rgba(255,255,255,0))}
 *,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box}
 body{margin:0;font-family:var(--bs-font-sans-serif);font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}

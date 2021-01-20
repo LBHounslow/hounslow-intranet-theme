@@ -31,7 +31,7 @@
 			</div>
 			<div class="row justify-content-center">
 				<div class="col col-md-8 col-lg-6">
-					<?php
+					<?php if ( function_exists('hounslow_intranet_network_nav_menu') && is_user_logged_in() ) {
 					$social_menu_args = array(
 							'theme_location'    => 'social',
 							'depth'          => 1,
@@ -42,7 +42,7 @@
 							'walker'         => new WP_Bootstrap_Navwalker(),
 					);
 					hounslow_intranet_network_nav_menu( $social_menu_args );
-					?>
+				} ?>
 				</div>
 			</div>
 			<div class="row">

@@ -68,11 +68,11 @@ function hounslow_intranet_multisite_sidebar( $sidebar ) {
 					)
 				)
 			);
-			$request = file_get_contents( $url, 0, $ctx );
-			if ( $request ) {
-				echo $request;
+			$request = @file_get_contents( $url, 0, $ctx );
+			if ( $request === FALSE ) {
+				echo '<!-- failed to open stream: no widgets in sidebar -->';
 			} else {
-				echo '<!-- failed to open stream: HTTP request failed -->';
+				echo $request;
 			}
 
 			// display the content
@@ -145,6 +145,11 @@ function hounslow_intranet_display_loggedin_user( $menu_items ) {
 				// Add the logged in user's display name to menus using ##username## placeholder.
         if ( strpos($menu_item->title, '##username##') !== false) {
                 $menu_item->title =  str_replace("##username##",  'Hi, ' . wp_get_current_user()->user_nicename, $menu_item->title);
+        }
+				// Add a profile link using ##profilelink## placeholder
+				if ( strpos($menu_item->title, '##profilelink##') !== false) {
+                $menu_item->title =  str_replace("##profilelink##",  'Your Profile', $menu_item->title);
+								$menu_item->url =  '/members/' . wp_get_current_user()->user_login ;
         }
 				// Add a logout link using ##logout## placeholder.
 				if ( strpos($menu_item->title, '##logout##') !== false) {

@@ -17,7 +17,7 @@
 	<hr />
 	<?php hounslow_intranet_post_thumbnail(); ?>
 
-	<?php hounslow_intranet_display_child_pages( $post->ID, 'card', FALSE ); ?>
+	<?php hounslow_intranet_display_child_pages( $post->ID, 'image', FALSE ); ?>
 
 	<div class="entry-content clearfix">
 		<?php
