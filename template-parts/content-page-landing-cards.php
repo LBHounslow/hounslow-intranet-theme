@@ -11,10 +11,8 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php if ( !is_front_page() ) {
-			the_title( '<h1 class="entry-title">', '</h1>' );
-			echo '<p class="kb-description">'. get_the_excerpt() . '</p>';
-		} ?>
+		<?php the_title( '<h1 class="entry-title">', '</h1>' );
+			echo '<p class="kb-description">'. get_the_excerpt() . '</p>'; ?>
 	</header><!-- .entry-header -->
 	<hr />
 	<?php hounslow_intranet_post_thumbnail(); ?>
