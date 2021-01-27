@@ -28,9 +28,7 @@
 			<div class="row g-2 ">
 		    <div id="utility-brand" class="col-12 col-lg">
 					<ul class="nav justify-content-left align-bottom">
-				    <li class="nav-item">
-				      <a class="nav-link link-secondary utility-brand-fs" style="cursor:pointer" onclick="openNav()"><i class="fas fa-th fa-lg"></i></a>
-				    </li>
+						<!-- hounslow_intranet_utility_brand_nav_item -->
 						<li class="nav-item">
 				      <a class="nav-link link-secondary utility-brand-fs" href="/">HI!</a>
 				    </li>
@@ -90,9 +88,5 @@
 		</nav>
 		<?php } ?>
 	</header><!-- #masthead -->
-	<!-- Apps Bar -->
-	<div id="apps-bar" class="sidenav">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<?php hounslow_intranet_apps_list(); ?>
-	</div>
+		<!-- hounslow_intranet_apps_bar -->
 	<div id="content" class="site-content">
