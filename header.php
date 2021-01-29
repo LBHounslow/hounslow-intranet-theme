@@ -8,6 +8,7 @@
  *
  * @package Hounslow_Intranet
  */
+ $appsBar = hounslow_intranet_get_apps_bar();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -29,6 +30,7 @@
 		    <div id="utility-brand" class="col-12 col-lg">
 					<ul class="nav justify-content-left align-bottom">
 						<!-- hounslow_intranet_utility_brand_nav_item -->
+            <?php echo $appsBar['nav_item']; ?>
 						<li class="nav-item">
 				      <a class="nav-link link-secondary utility-brand-fs" href="/">HI!</a>
 				    </li>
@@ -89,4 +91,5 @@
 		<?php } ?>
 	</header><!-- #masthead -->
 		<!-- hounslow_intranet_apps_bar -->
+    <?php echo $appsBar['apps_list']; ?>
 	<div id="content" class="site-content">
