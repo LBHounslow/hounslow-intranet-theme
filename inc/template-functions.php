@@ -178,7 +178,8 @@ function hounslow_intranet_display_loggedin_user( $menu_items ) {
 				// Add a profile link using ##profilelink## placeholder
 				if ( strpos($menu_item->title, '##profilelink##') !== false) {
                 $menu_item->title =  str_replace("##profilelink##",  'Your Profile', $menu_item->title);
-								$menu_item->url =  '/members/' . wp_get_current_user()->user_login ;
+								//$menu_item->url =  '/members/' . wp_get_current_user()->user_login ;
+								$menu_item->url =  '/user-profile/';
         }
 				// Add a logout link using ##logout## placeholder.
 				if ( strpos($menu_item->title, '##logout##') !== false) {
