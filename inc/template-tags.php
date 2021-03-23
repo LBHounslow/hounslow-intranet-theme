@@ -260,6 +260,16 @@ if ( ! function_exists( 'hounslow_intranet_breadcrumbs' ) ) :
 			$blog_title = get_bloginfo( 'name' );
 			echo '<li class="breadcrumb-item active">' . $blog_title . '</li>';
 
+		} else if ( is_singular( array( 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz' ) ) ) {
+
+			// Build the breadcrums
+			echo '<ol class="breadcrumb">';
+
+			// Network Home
+			echo '<li class="breadcrumb-item"><a href="' . network_site_url() . '">Home</a></li>';
+
+			echo '<li class="breadcrumb-item"><a href="/courses">Courses</a></li>';
+
 		} else {
 
         // Build the breadcrums
