@@ -1,10 +1,4 @@
 <?php
-/**
- * Template Name: No Sidebar
- *
- * @package Hounslow_Intranet
- */
-
 get_header();
 ?>
 <div class="container">
