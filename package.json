@@ -6,10 +6,10 @@
 	"license": "GNU GPL v2.0",
 	"devDependencies": {
 		"@babel/core": "^7.0.0",
-		"@babel/register": "^7.0.0",
 		"@babel/preset-env": "^7.12.1",
+		"@babel/register": "^7.0.0",
 		"beepbeep": "^1.2.2",
-		"browser-sync": "^2.11.1",
+		"browser-sync": "^2.26.14",
 		"eslint": "^7.12.0",
 		"eslint-config-wordpress": "^2.0.0",
 		"gulp": "^4.0.0",
@@ -44,5 +44,8 @@
 		"translate": "gulp translate",
 		"styles-rtl": "gulp stylesRTL",
 		"cache-clear": "gulp clearCache"
+	},
+	"dependencies": {
+		"node-notifier": ">=8.0.1"
 	}
 }
