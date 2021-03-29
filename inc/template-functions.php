@@ -36,6 +36,35 @@ function hounslow_intranet_pingback_header() {
 }
 add_action( 'wp_head', 'hounslow_intranet_pingback_header' );
 
+/**
+ * Handles the construction of the elements needed for the Apps Bar.
+ *
+ */
+function hounslow_intranet_get_apps_bar() {
+	$output = array();
+	$nav_item = '';
+	$apps_list = '';
+	if ( function_exists( 'HounslowIntranetCustom\hounslow_intranet_is_apps_bar_active' ) ) {
+		$appsBarActive = HounslowIntranetCustom\hounslow_intranet_is_apps_bar_active();
+	} else {
+		$appsBarActive = false;
+	}
+
+	if ( true == $appsBarActive ) {
+		$appsOutput = new HounslowIntranetCustom\AppsBar();
+		ob_start();
+		$appsOutput->output_nav_item();
+		$nav_item = ob_get_clean();
+		ob_start();
+		$appsOutput->output_apps_bar();
+		$apps_list = ob_get_clean();
+	}
+	$output['active'] = $appsBarActive;
+	$output['nav_item'] = $nav_item;
+	$output['apps_list'] = $apps_list;
+
+	return $output;
+}
 
 /**
  * Display sidebars managed from the main site on other sites.
@@ -149,7 +178,8 @@ function hounslow_intranet_display_loggedin_user( $menu_items ) {
 				// Add a profile link using ##profilelink## placeholder
 				if ( strpos($menu_item->title, '##profilelink##') !== false) {
                 $menu_item->title =  str_replace("##profilelink##",  'Your Profile', $menu_item->title);
-								$menu_item->url =  '/members/' . wp_get_current_user()->user_login ;
+								//$menu_item->url =  '/members/' . wp_get_current_user()->user_login ;
+								$menu_item->url =  '/user-profile/';
         }
 				// Add a logout link using ##logout## placeholder.
 				if ( strpos($menu_item->title, '##logout##') !== false) {
