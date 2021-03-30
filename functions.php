@@ -57,6 +57,9 @@ if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
 			register_nav_menus(
 				array(
 					'network' => esc_html__( 'Network Navigation', 'hounslow-intranet' ),
+					'popular' => esc_html__( 'Popular Links', 'hounslow-intranet' ),
+					'support' => esc_html__( 'Support Links', 'hounslow-intranet' ),
+					'external' => esc_html__( 'External Links', 'hounslow-intranet' ),
 					'utility' => esc_html__( 'Utility Navigation', 'hounslow-intranet' ),
 					'social' => esc_html__( 'Social Media', 'hounslow-intranet' ),
 				)
@@ -310,9 +313,9 @@ function themename_custom_logo_setup() {
         'flex-height'          => true,
         'flex-width'           => true,
         'header-text'          => array( 'site-title', 'site-description' ),
-        'unlink-homepage-logo' => true, 
+        'unlink-homepage-logo' => true,
     );
- 
+
     add_theme_support( 'custom-logo', $defaults );
 }
 
@@ -345,5 +348,5 @@ function post_type_tags_fix($request) {
     if ( isset($request['tag']) && !isset($request['post_type']) )
     $request['post_type'] = 'any';
     return $request;
-} 
+}
 add_filter('request', 'post_type_tags_fix');

@@ -1,11 +1,17 @@
 
-
+<?php if ( function_exists('hounslow_intranet_network_nav_menu')  && is_user_logged_in() ) { ?>
 			<div class="sidebar-header">
 				<h5>Topics</h5>
 			</div>
 
 			<nav id="side-bar" class="side-bar-menu">
-			<?php wp_nav_menu( array( 'menu' => 'resources' ) ); ?>
+			<?php
+				$network_menu_args = array(
+						'theme_location'    => 'network',
+						'fallback_cb'				=> false,
+				);
+				hounslow_intranet_network_nav_menu( $network_menu_args );
+			?>
 			</nav><!-- #site-navigation -->
 
 			<div class="sidebar-header">
@@ -13,7 +19,13 @@
 			</div>
 
 			<nav id="side-bar" class="side-bar-menu">
-				<?php wp_nav_menu( array( 'menu' => 'popular links' ) ); ?>
+			<?php
+				$network_menu_args = array(
+						'theme_location'    => 'popular',
+						'fallback_cb'				=> false,
+				);
+				hounslow_intranet_network_nav_menu( $network_menu_args );
+			?>
 			</nav><!-- #site-navigation -->
 
 			<div class="sidebar-header">
@@ -21,12 +33,24 @@
 			</div>
 
 			<nav id="side-bar" class="side-bar-menu">
-                <?php wp_nav_menu( array( 'menu' => 'support' ) ); ?>
+			<?php
+				$network_menu_args = array(
+						'theme_location'    => 'support',
+						'fallback_cb'				=> false,
+				);
+				hounslow_intranet_network_nav_menu( $network_menu_args );
+			?>
 			</nav><!-- #site-navigation -->
 
 <div class="sidebar-out-links">
 					<nav id="side-bar" class="side-bar-menu">
-				<?php wp_nav_menu( array( 'menu' => 'external' ) ); ?>
+						<?php
+							$network_menu_args = array(
+									'theme_location'    => 'external',
+									'fallback_cb'				=> false,
+							);
+							hounslow_intranet_network_nav_menu( $network_menu_args );
+						?>
 			</nav><!-- #site-navigation -->
 			</div>
-           
+<?php } ?>
