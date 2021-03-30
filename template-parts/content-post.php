@@ -9,7 +9,7 @@
 
 ?>
 <div class="row" >
-<div class="col-lg-7" style="background:white;">
+<div class="col-lg-7" style="background:white;">[content-post]
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
@@ -24,14 +24,16 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				lbh_intranet_v1_posted_on();
-				lbh_intranet_v1_posted_by();
+				//lbh_intranet_v1_posted_on();
+				hounslow_intranet_posted_on();
+				//lbh_intranet_v1_posted_by();
+				hounslow_intranet_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	
+
 
 	<div class="entry-content">
 		<?php
@@ -65,7 +67,7 @@
 $posttags = get_the_tags();
 if ($posttags) {
   foreach($posttags as $tag) {
-    echo '<button class="btn btn-dark tag"> <a style="color:white;" href="/tags/'.$tag->slug.'">'.$tag->name . '</a></button> '; 
+    echo '<button class="btn btn-dark tag"> <a style="color:white;" href="/tags/'.$tag->slug.'">'.$tag->name . '</a></button> ';
   }
 }
 ?>
