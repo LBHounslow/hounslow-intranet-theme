@@ -9,7 +9,7 @@
 
 ?>
 <div class="row" >
-<div class="col-lg-7" style="background:white;">[content-post]
+<div class="col-lg-7" style="background:white;">
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">

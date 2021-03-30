@@ -14,50 +14,37 @@
 </div><!-- .container -->
 </div><!-- #content -->
 	<footer id="colophon" class="site-footer bg-secondary2 px-3" data-swiftype-index="false">
-
-		
-		
 		<div class="container-fluid">
-
-		
-				<div class="row justify-content-center">
-				<div class="col col-md-8 col-lg-6">
-					<ul id="menu-social-media" class="nav justify-content-center"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93 nav-item"><a title="Facebook" href="https://en-gb.facebook.com/hounslowcouncil/" class="nav-link"><i class="fab fa-facebook-square fa-lg" aria-hidden="true"></i> Facebook</a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-94" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-94 nav-item"><a title="Twitter" href="https://twitter.com/LBofHounslow" class="nav-link"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-99" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-99 nav-item"><a title="Instagram" href="https://www.instagram.com/hounslowcouncil/" class="nav-link"><i class="fab fa-instagram fa-lg" aria-hidden="true"></i> Instagram</a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-100" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-100 nav-item"><a title="LinkedIn" href="https://www.linkedin.com/company/london-borough-of-hounslow" class="nav-link"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i> LinkedIn</a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-101 nav-item"><a title="YouTube" href="https://www.youtube.com/user/LBHounslow/" class="nav-link"><i class="fab fa-youtube fa-lg" aria-hidden="true"></i> YouTube</a></li>
-</ul>				</div>
-
-			<div class="row">
-				<div id="footer-column-one" class="widget-area col-sm">
-					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc1' ) ?>
-		    </div>
-				<div id="footer-column-two" class="widget-area col-sm">
-					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc2' ) ?>
-		    </div>
-				<div id="footer-column-three" class="widget-area col-sm">
-					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc3' ) ?>
-		    </div>
-				<div id="footer-column-four" class="widget-area col-sm">
-					<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc4' ) ?>
-		    </div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col col-md-8 col-lg-6">
-					<?php if ( function_exists('hounslow_intranet_network_nav_menu') && is_user_logged_in() ) {
-					$social_menu_args = array(
-							'theme_location'    => 'social',
-							'depth'          => 1,
-							'container'      => false,
-							'container_class'=> '',
-							'menu_class'     => 'nav justify-content-center',
-							'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
-							'walker'         => new WP_Bootstrap_Navwalker(),
-					);
-					hounslow_intranet_network_nav_menu( $social_menu_args );
-				} ?>
+
+				<div class="row">
+					<div id="footer-column-one" class="widget-area col-sm">
+						<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc1' ) ?>
+			    </div>
+					<div id="footer-column-two" class="widget-area col-sm">
+						<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc2' ) ?>
+			    </div>
+					<div id="footer-column-three" class="widget-area col-sm">
+						<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc3' ) ?>
+			    </div>
+					<div id="footer-column-four" class="widget-area col-sm">
+						<?php hounslow_intranet_multisite_sidebar( 'sidebar-fc4' ) ?>
+			    </div>
 				</div>
+				<div class="row justify-content-center">
+					<div class="col col-md-8 col-lg-6">
+						<?php if ( function_exists('hounslow_intranet_network_nav_menu') && is_user_logged_in() ) {
+						$social_menu_args = array(
+								'theme_location'    => 'social',
+								'depth'          => 1,
+								'container'      => false,
+								'container_class'=> '',
+								'menu_class'     => 'nav justify-content-center',
+								'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
+								'walker'         => new WP_Bootstrap_Navwalker(),
+						);
+						hounslow_intranet_network_nav_menu( $social_menu_args );
+					} ?>
+					</div>
 			</div>
 			<div class="row">
 				<div class="col text-center">
@@ -74,7 +61,7 @@
 
 <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-   
+
  <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {

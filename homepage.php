@@ -23,22 +23,22 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
-        
+
 <?php get_template_part('templates/navigation', 'menu'); ?>
-           
+
         </nav>
 
         <!-- Page Content  -->
         <div id="content">
 
-        
+
             <?php get_template_part('templates/homepage-template', 'homepage'); ?>
 
 
         </div>
-   
 
-    </div> 
+
+    </div>
 </body>
 
 <?php
