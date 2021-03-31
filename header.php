@@ -36,30 +36,52 @@
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
 				?>
-				
+
 				<?php
 			else :
 				?>
-				
+
 				<?php
 			endif;
 			$test_description = get_bloginfo( 'description', 'display' );
 			if ( $test_description || is_customize_preview() ) :
 				?>
-				
+
 			<?php endif; ?>
-	<p style="color:grey; font-size:15px;text-transform:lowercase;font-weight:200!important;" class="site-description text-right"><?php echo get_bloginfo('description'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>		
+	<p style="color:grey; font-size:15px;text-transform:lowercase;font-weight:200!important;" class="site-description text-right"><?php echo get_bloginfo('description'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 		</div><!-- .site-branding -->
 	</div>
 	<div class="col-lg-10">
 		    <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
-
+
                     <button type="button" id="sidebarCollapse" class="btn btn-dark text-sidebar ">
                         <i class="fas fa-align-left"></i>
                         <span></span>
                     </button>
-                  
+
+                    <?php if ( function_exists('hounslow_intranet_network_nav_menu') && is_user_logged_in() ) {
+
+          					$network_menu_args = array(
+          							'theme_location'    => 'utility',
+          							'depth'             => 2,
+          							'container'         => 'div',
+          							'container_class'   => 'col-md-6 col-lg',
+          							'container_id'      => 'utility-menu',
+          							'menu_class'        => 'nav justify-content-end',
+          							'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+          							'walker'            => new WP_Bootstrap_Navwalker()
+          					);
+          					hounslow_intranet_network_nav_menu( $network_menu_args );
+          				} else { ?>
+          					<div id="utility-menu" class="col-md-6 col-lg">
+          						<ul class="nav justify-content-end">
+          					    <li class="nav-item username-link">
+          					      <a href="<?php echo wp_login_url(get_permalink()); ?>" class="nav-link">Log In</a>
+          					    </li>
+          						</ul>
+          					</div>
+          				<?php } ?>
 
                    <?php get_search_form(); ?>
                 </div>
@@ -68,5 +90,5 @@
 	</div>
 </div>
 </header><!-- #masthead -->
-            </div>	
-	
+            </div>
+
