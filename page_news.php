@@ -7,11 +7,20 @@
 
 get_header();
 ?>
-<div class="container">
-	<div class="row">
-		<section id="primary" class="content-area col-sm-12 col-lg-8">
-			<main id="main" class="site-main" role="main">
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
 
+<?php get_template_part('templates/navigation', 'menu'); ?>
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+
+					<main id="primary" class="site-main">
 				<?php
 				//New WP Query to get news
 				$paged = ( get_query_var('page') ) ? get_query_var('page') : 1;
@@ -43,9 +52,14 @@ get_header();
 				wp_reset_postdata();
 
 				?>
-
 			</main><!-- #main -->
-		</section><!-- #primary -->
+
+
+		        </div>
+
+
+		    </div>
+		</body>
 <?php
 get_sidebar();
 get_footer();
