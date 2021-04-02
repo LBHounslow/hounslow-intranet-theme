@@ -1,11 +1,10 @@
 
-
     <?php
 
 
 
 $cat_args = array (
-    'taxonomy' => 'pol_category',  
+    'taxonomy' => 'wow_category',  
 );
 $categories = get_categories ( $cat_args );
 
@@ -15,8 +14,8 @@ foreach ( $categories as $category ) {
         'order' => 'ASC',
         'orderby' => 'menu_order',
         'posts_per_page' => 7,
-        'post_type' =>  'pol_cpt',
-        'taxonomy' => 'pol_category',
+        'post_type' =>  'wow_cpt',
+        'taxonomy' => 'wow_category',
         'term' => $category->slug,
 
 
@@ -25,22 +24,22 @@ foreach ( $categories as $category ) {
     $cat_query = new WP_Query( $args );
 
     if ( $cat_query->have_posts() ) {
-        echo '<div class="row  '. $category->slug .' " style="margin-top:20px;">';
+        echo '<div class="row  '. $category->slug .' ">';
         echo "<h4>". $category->name ."</h4>";
         
         while ( $cat_query->have_posts() ) {
             $cat_query->the_post();
             ?>
-            <div class="col-lg-12 outer">
-            <div class="row">
-            
-			<div class="col-lg-6">	
-            <div class="inner">
+            <div class="col-lg-3 outer">
+			<div class="blog-img" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;">
+					</div>
+			<div class="inner">
+				
                 <h5><?php the_title(); ?></h5>
-                <?php the_excerpt(); ?>
 				<button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
+			
 			</div>
-                        <div class="tag-box">
+            <div class="tag-box">
             <?php
 $posttags = get_the_tags();
 if ($posttags) {
@@ -51,8 +50,6 @@ if ($posttags) {
 ?>
 
 </div>
-			</div>
-            </div>
 
 
 
@@ -63,7 +60,7 @@ if ($posttags) {
 
             <?php
         }
-        echo '<div class="col-lg-6 text-center"><div class="inner"><h4>There are <span style="color:#D70787">'.$category->count .'</span> articles in this topic</h4> <button class="btn btn-dark"><a style="color:white;" href="'. $category->slug .'">view all</a></button></div></div>';
+        echo '<div class="col-lg-3 text-center" style="padding-top:120px;padding-bottom:120px;"><div class="inner"><h4>There are <span style="color:#D70787">'.$category->count .'</span> articles in this topic</h4> <button class="btn btn-dark"><a style="color:white;" href="'. $category->slug .'">view all</a></button></div></div>';
         echo '</div>';
         
     }
