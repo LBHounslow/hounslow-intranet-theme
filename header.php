@@ -25,13 +25,12 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'hounslow-intranet-theme' ); ?></a>
-
-		<header id="masthead" class="site-header">
-	<div class="container-fluid" >
-<div class="row align-items-center">
-	<div class="col-lg-2 align-self-center site-branding">
-		<div class="logo-inner">
+	<a class="skip-link screen-reader-text" href="#primary" data-swiftype-index="false"><?php esc_html_e( 'Skip to content', 'hounslow-intranet-theme' ); ?></a>
+  <header id="masthead" class="site-header" data-swiftype-index="false">
+    <div class="container-fluid" >
+      <div class="row align-items-center">
+        <div class="col-lg-2 align-self-center site-branding">
+          <div class="logo-inner">
 			<?php
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) :

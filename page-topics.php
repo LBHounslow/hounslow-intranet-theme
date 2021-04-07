@@ -22,22 +22,22 @@
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
+        <nav id="sidebar" data-swiftype-index="false">
 <?php get_template_part('templates/navigation', 'menu'); ?>
-			
+
         </nav>
 
         <!-- Page Content  -->
         <div id="content">
 
-         
+
             <?php get_template_part('templates/topic-inner', 'topic inner'); ?>
 
 
         </div>
-   
 
-    </div> 
+
+    </div>
 </body>
 
 
