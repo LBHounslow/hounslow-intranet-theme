@@ -12,10 +12,10 @@ get_header();
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
-		
+        <nav id="sidebar" data-swiftype-index="false">
+
 <?php get_template_part('templates/navigation', 'menu'); ?>
-           
+
         </nav>
 
         <!-- Page Content  -->
@@ -70,12 +70,12 @@ get_header();
 
 
         </div>
-   
 
-    </div> 
+
+    </div>
 </body>
 
-	
+
 
 <?php
 get_sidebar();
