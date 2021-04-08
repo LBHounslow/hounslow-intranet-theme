@@ -102,10 +102,10 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 
 
               </div>
-              </div>
+          
                       <div class="col-lg-6 inner">
   					 <h5><?php the_title(); ?></h5>
-                       <p><?php the_date(); ?></p>
+                       <p><?php the_time(get_option('date_format')); ?></p>
                        <?php the_excerpt(); ?>
                        <button class="btn btn-dark"><a style="color:white;"href="<?php echo $news_post_permalink; ?>">Read More<i class="fas fa-arrow-right"></i></a></button>
   					</div>
@@ -143,7 +143,7 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
                     </div>
 				</div>
 
-			</div>
+		
 
 
 <div class="row">
@@ -183,7 +183,7 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
                     <div class="inner-body">
 					 <h5><?php the_title(); ?></h5>
            		</div>
-                       <p><?php the_date(); ?></p>
+                       <p><?php the_time(get_option('date_format')); ?></p>
                        <?php the_excerpt(); ?>
                        <button class="btn btn-dark"><a style="color:white;"href="<?php echo $news_post_permalink; ?>">Read More<i class="fas fa-arrow-right"></i></a></button>
   					</div>
