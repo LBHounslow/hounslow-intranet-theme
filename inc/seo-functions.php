@@ -36,14 +36,12 @@ function hounslow_intranet_hide_duplicate_content() {
 		echo '<meta name="robots" content="' . $robot_tag . '" />';
 	}
 }
-endif; // hounslow_intranet_hide_duplicate_content
-
+endif; // oystershell_hide_duplicate_content
 add_action( 'wp_head', 'hounslow_intranet_hide_duplicate_content' );
-
 //------------------------------------------------------------------------------------
 if ( ! function_exists( 'hounslow_intranet_swiftype_meta_tags' ) ):
 /**
- * Insert Swiftype meta tags
+ * Hide duplicate content from search engines
  */
 function hounslow_intranet_swiftype_meta_tags() {
   $site_name = get_bloginfo( 'name' );
@@ -52,6 +50,5 @@ function hounslow_intranet_swiftype_meta_tags() {
 <meta class="swiftype" name="site" data-type="string" content="<?php echo $site_name; ?>" />
 <?php
 }
-endif; // hounslow_intranet_swiftype_meta_tags
-
+endif; // oystershell_hide_duplicate_content
 add_action( 'wp_head', 'hounslow_intranet_swiftype_meta_tags' );

@@ -17,7 +17,7 @@ get_header();
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar" data-swiftype-index="false">
+        <nav id="sidebar">
 
 <?php get_template_part('templates/navigation', 'menu'); ?>
 

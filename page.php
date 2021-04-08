@@ -18,16 +18,16 @@ get_header();
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar" data-swiftype-index="false">
-
+        <nav id="sidebar">
+		
 <?php get_template_part('templates/navigation', 'menu'); ?>
-
+           
         </nav>
 
         <!-- Page Content  -->
         <div id="content">
 
-
+        
             <main id="primary" class="site-main">
 
 		<?php
@@ -48,12 +48,12 @@ get_header();
 
 
         </div>
+   
 
-
-    </div>
+    </div> 
 </body>
 
-
+	
 
 <?php
 get_sidebar();
