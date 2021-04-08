@@ -1,73 +1,115 @@
-
-
-    <?php
-
-
-
-$cat_args = array (
-    'taxonomy' => 'pol_category',  
-);
-$categories = get_categories ( $cat_args );
-
-foreach ( $categories as $category ) {
-    $cat_query = null;
-    $args = array (
-        'order' => 'ASC',
-        'orderby' => 'menu_order',
-        'posts_per_page' => 7,
-        'post_type' =>  'pol_cpt',
-        'taxonomy' => 'pol_category',
-        'term' => $category->slug,
-
-
-    );
-
-    $cat_query = new WP_Query( $args );
-
-    if ( $cat_query->have_posts() ) {
-        echo '<div class="row  '. $category->slug .' " style="margin-top:20px;">';
-        echo "<h4>". $category->name ."</h4>";
-        
-        while ( $cat_query->have_posts() ) {
-            $cat_query->the_post();
-            ?>
-            <div class="col-lg-12 outer">
-            <div class="row">
-            
-			<div class="col-lg-6">	
-            <div class="inner">
-                <h5><?php the_title(); ?></h5>
-                <?php the_excerpt(); ?>
-				<button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
-			</div>
-                        <div class="tag-box">
-            <?php
-$posttags = get_the_tags();
-if ($posttags) {
-  foreach($posttags as $tag) {
-    echo ' <a class="tag" href="/tags/'.$tag->slug.'">'.$tag->name . '</a>, '; 
-  }
+<style>
+.bubbleb {
+    margin-top:30px;
 }
+</style>
+
+<div class="row">
+
+<div class="col-md-6 order-md-2 text-center">
+
+<div class="sticky-top a-z">
+<h4> Search by A-Z</h4>
+<a style="color:white;" href="#A"><button class="btn btn-dark topic-btn">A</button></a>
+<a style="color:white;" href="#B"><button class="btn btn-dark topic-btn">B</button></a>
+<a style="color:white;" href="#C"><button class="btn btn-dark topic-btn">C</button></a>
+<a style="color:white;" href="#D"><button class="btn btn-dark topic-btn">D</button></a>
+<a style="color:white;" href="#E"><button class="btn btn-dark topic-btn">E</button></a>
+<a style="color:white;" href="#F"><button class="btn btn-dark topic-btn">F</button></a>
+<a style="color:white;" href="#G"><button class="btn btn-dark topic-btn">G</button></a>
+<a style="color:white;" href="#H"><button class="btn btn-dark topic-btn">H</button></a>
+<a style="color:white;" href="#I"><button class="btn btn-dark topic-btn">I</button></a>
+<a style="color:white;" href="#J"><button class="btn btn-dark topic-btn">J</button></a>
+<a style="color:white;" href="#K"><button class="btn btn-dark topic-btn">K</button></a>
+<a style="color:white;" href="#L"><button class="btn btn-dark topic-btn">L</button></a>
+<a style="color:white;" href="#M"><button class="btn btn-dark topic-btn">M</button></a>
+<a style="color:white;" href="#N"><button class="btn btn-dark topic-btn">N</button></a>
+<a style="color:white;" href="#O"><button class="btn btn-dark topic-btn">O</button></a>
+<a style="color:white;" href="#P"><button class="btn btn-dark topic-btn">P</button></a>
+<a style="color:white;" href="#Q"><button class="btn btn-dark topic-btn">Q</button></a>
+<a style="color:white;" href="#R"><button class="btn btn-dark topic-btn">R</button></a>
+<a style="color:white;" href="#S"><button class="btn btn-dark topic-btn">S</button></a>
+<a style="color:white;" href="#T"><button class="btn btn-dark topic-btn">T</button></a>
+<a style="color:white;" href="#U"><button class="btn btn-dark topic-btn">U</button></a>
+<a style="color:white;" href="#V"><button class="btn btn-dark topic-btn">V</button></a>
+<a style="color:white;" href="#W"><button class="btn btn-dark topic-btn">W</button></a>
+<a style="color:white;" href="#X"><button class="btn btn-dark topic-btn">X</button></a>
+<a style="color:white;" href="#Y"><button class="btn btn-dark topic-btn">Y</button></a>
+<a style="color:white;" href="#Z"><button class="btn btn-dark topic-btn">Z</button></a>
+<div class="spacer"></div>
+<h4>Filter by Topic</h4>
+ <?php
+
+$terms = get_terms( 'pol_category', array( 
+                        'orderby' => 'name',
+                        'order'   => 'ASC',
+                        
+) );
+$exclude = array("new starter");
+$new_the_category = '';
+foreach ( $terms as $term ) {
+if (!in_array($term->name, $exclude)) {
+$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/corporate-policies/'.$term->slug .'">'.$term->name.'</a></button>';
+}
+}
+echo substr($new_the_category, 0);
+
+
 ?>
 
 </div>
-			</div>
-            </div>
+</div>
 
+<div class="col-md-6 order-md-1">
+       
+<?php
+$urls = rwmb_meta( 'lbh_draft_sharepoint' );
+$series = new WP_Query(array(
+    'posts_per_page'        => -1,
+    'post_type'             => 'pol_cpt',
+    'orderby'               => 'title',
+    'order'                 => 'asc'
+));
+if($series->have_posts())
+{
+    $letter = '';
+    while($series->have_posts())
+    {
+        $series->the_post();
 
+        // Check the current letter is the same that the first of the title
+        if($letter != strtoupper(get_the_title()[0]))
+        {
+            echo ($letter != '') ? '' : '';
+            $letter = strtoupper(get_the_title()[0]);
+            echo '<div id="'.strtoupper(get_the_title()[0]).'"></div>';
+            echo '<div class="bubbleb"><div class="bubbleb-inner"><h4>'.strtoupper(get_the_title()[0]).'</h4></div></div>';            
+        }?>
 
-			</div>
-
-
-
-
-            <?php
-        }
-        echo '<div class="col-lg-6 text-center"><div class="inner"><h4>There are <span style="color:#D70787">'.$category->count .'</span> articles in this topic</h4> <button class="btn btn-dark"><a style="color:white;" href="'. $category->slug .'">view all</a></button></div></div>';
-        echo '</div>';
+        <div class="col-lg-12 outer-top">
+		<div class="inner">
+		<h5><?php the_title(); ?></h5>
+		<?php the_excerpt(); ?>
         
-    }
-    wp_reset_postdata();
+		<?php if ( rwmb_meta( 'lbh_draft_sharepoint' ) ): ?>
+
+<button class="btn btn-dark"><a style="color:white;" href="<?php echo rwmb_meta( 'lbh_draft_sharepoint' ); ?>">Download File</a></button>
+
+<?php else: // field_name returned false ?>
+
+
+
+
+<?php endif; // end of if field_name logic ?>
+
+		</div>
+		</div>
+    
+	<?php }
 }
 
 ?>
+</div>
+
+
+</div>

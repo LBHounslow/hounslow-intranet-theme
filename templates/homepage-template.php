@@ -85,8 +85,17 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
   			<div class="col-lg-6" style="padding:0px;">
                   <div class="inner">
 
+<?php if ( rwmb_meta( 'lbh_draft_video' ) ): ?>
 
-    <div style="background:url('<?php echo $news_post_thumbnail_url; ?>');height:298px;background-size:cover;background-position:center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo rwmb_meta( 'lbh_draft_video' ); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<?php else: ?>
+
+ <div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:300px;background-size:cover;background-position:center;">
+                </div>
+
+<?php endif; ?>
+                      
                   </div>
 
 
@@ -159,12 +168,21 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
      <div class="col-lg-4 outer">
   			<div class="inner-post blog">
 
-    <div style="background:url('<?php echo $news_post_thumbnail_url; ?>');height:200px;background-size:cover;background-position:center;">
-                  </div>
+<?php if ( rwmb_meta( 'lbh_draft_video' ) ): ?>
+
+<iframe width="560" height="200" src="https://www.youtube.com/embed/<?php echo rwmb_meta( 'lbh_draft_video' ); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<?php else: ?>
+
+ <div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;background-position:center;">
+                </div>
+
+<?php endif; ?>
 
 
-
-  					 <h5><?php the_title(); ?></h5>
+                    <div class="inner-body">
+					 <h5><?php the_title(); ?></h5>
+           		</div>
                        <p><?php the_date(); ?></p>
                        <?php the_excerpt(); ?>
                        <button class="btn btn-dark"><a style="color:white;"href="<?php echo $news_post_permalink; ?>">Read More<i class="fas fa-arrow-right"></i></a></button>

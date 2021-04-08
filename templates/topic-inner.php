@@ -20,7 +20,12 @@ endwhile; else: ?>
 <?php endif; ?>
 </div>
 <div class="col-lg-3">
+<?php $images = rwmb_meta( 'second_image', array( 'size' => 'full' ) );
+foreach ( $images as $image ) {
+    echo '<a href="', $image['full_url'], '"><img src="', $image['url'], '"></a>';
+}
 
+?>
 </div>
 </div>
 </div>
