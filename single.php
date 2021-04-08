@@ -15,16 +15,16 @@ get_header();
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
-          
+        <nav id="sidebar" data-swiftype-index="false">
+
 <?php get_template_part('templates/navigation', 'menu'); ?>
-           
+
         </nav>
 
         <!-- Page Content  -->
         <div id="content">
 
-        
+
             <main id="primary" class="site-main">
 
 		<?php
@@ -33,10 +33,10 @@ get_header();
 
 			get_template_part( 'template-parts/content-post', get_post_type() );
 
-			
+
 
 			// If comments are open or we have at least one comment, load up the comment template.
-			
+
 
 		endwhile; // End of the loop.
 		?>
@@ -45,9 +45,9 @@ get_header();
 
 
         </div>
-   
 
-    </div> 
+
+    </div>
 </body>
 <style>
 #content {
@@ -55,7 +55,7 @@ get_header();
 }
 </style>
 
-	
+
 
 <?php
 get_sidebar();
