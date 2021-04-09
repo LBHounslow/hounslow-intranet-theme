@@ -370,12 +370,10 @@ function second_image_meta_boxes( $meta_boxes ) {
 
     $meta_boxes[] = [
         'title'   => esc_html__( 'Untitled Field Group', 'online-generator' ),
-        'id'      => 'untitled',
+        'id'      => 'second_image',
         'post_types' => 'page',
         'context' => 'normal',
         'fields'  => [
-
-
             [
                 'type' => 'image_advanced',
                 'name' => esc_html__( 'second image', 'online-generator' ),
@@ -387,6 +385,8 @@ function second_image_meta_boxes( $meta_boxes ) {
     return $meta_boxes;
 }
 
+add_filter( 'rwmb_meta_boxes', 'second_image_meta_boxes' );
+
 /** add video topic oembed does not work nicely with if/else so this is a temp workaround  */
 
 add_filter( 'rwmb_meta_boxes', 'video_meta_boxes' );
@@ -396,7 +396,7 @@ function video_meta_boxes( $meta_boxes ) {
 
     $meta_boxes[] = [
         'title'   => esc_html__( 'Youtube ID', 'online-generator' ),
-        'id'      => 'untitled',
+        'id'      => 'youtube_video',
         'post_types' => array ( 'post', 'news_cpt', 'dal_cpt', 'hdi_cpt', 'wt_cpt', 'haw_cpt', 'nth_cpt', 'gi_cpt', 'wow_cpt' ),
         'context' => 'normal',
         'fields'  => [
