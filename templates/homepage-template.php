@@ -146,6 +146,7 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 
 
 
+</div>
 
 <div class="row">
 <div class="col-lg-9">
