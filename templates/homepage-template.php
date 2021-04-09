@@ -78,7 +78,8 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
       switch_to_blog( $news_site_id );
       $news_post_thumbnail_url = get_the_post_thumbnail_url( $news_post->ID );
       $news_post_permalink = get_the_permalink( $news_post->ID );
-      $news_post_video = rwmb_meta( 'lbh_draft_video' );
+      $news_post_video = rwmb_meta( 'lbh_featured_video' );
+      $news_post_video_value = rwmb_get_value( 'lbh_featured_video' );
       restore_current_blog();
       ?>
 
@@ -86,9 +87,9 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
   			<div class="col-lg-6" style="padding:0px;">
                   <div class="inner">
 
-<?php if ( $news_post_video ): ?>
+<?php if ( $news_post_video_value ): ?>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $news_post_video; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <?php echo $news_post_video; ?>
 
 <?php else: ?>
 
@@ -164,16 +165,17 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
       switch_to_blog( $news_site_id );
       $news_post_thumbnail_url = get_the_post_thumbnail_url( $news_post->ID );
       $news_post_permalink = get_the_permalink( $news_post->ID );
-      $news_post_video = rwmb_meta( 'lbh_draft_video' );
+      $news_post_video = rwmb_meta( 'lbh_featured_video' );
+      $news_post_video_value = rwmb_get_value( 'lbh_featured_video' );
       restore_current_blog();
       ?>
 
      <div class="col-lg-4 outer">
   			<div class="inner-post blog">
 
-<?php if ( $news_post_video ): ?>
+<?php if ( $news_post_video_value ): ?>
 
-<iframe width="560" height="200" src="https://www.youtube.com/embed/<?php echo $news_post_video; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <?php echo $news_post_video; ?>
 
 <?php else: ?>
 
