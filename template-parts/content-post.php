@@ -14,23 +14,19 @@
 
  */
 
-
-
 ?>
 
 <div class="row" >
 
 <div class="col-lg-7" style="background:white;">
 
-<?php if ( rwmb_meta( 'lbh_draft_video' ) ): ?>
+<?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
 
-<iframe width="100%" height="500px" src="https://www.youtube.com/embed/<?php echo rwmb_meta( 'lbh_draft_video' ); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<?php echo rwmb_meta( 'lbh_featured_video' ); ?>
 
 <?php else: ?>
 
-
 <?php endif; ?>
-
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -192,4 +188,3 @@ if ($posttags) {
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-<?php the_ID(); ?> -->
-
