@@ -397,7 +397,7 @@ function video_meta_boxes( $meta_boxes ) {
     $meta_boxes[] = [
         'title'   => esc_html__( 'Youtube ID', 'online-generator' ),
         'id'      => 'untitled',
-        'post_types' => array ('posts', 'news_cpt', 'dal_cpt', 'hdi_cpt', 'wt_cpt', 'haw_cpt', 'nth_cpt', 'gi_cpt', 'wow_cpt' ),
+        'post_types' => array ( 'post', 'news_cpt', 'dal_cpt', 'hdi_cpt', 'wt_cpt', 'haw_cpt', 'nth_cpt', 'gi_cpt', 'wow_cpt' ),
         'context' => 'normal',
         'fields'  => [
 
@@ -407,7 +407,7 @@ function video_meta_boxes( $meta_boxes ) {
                 'id'   => $prefix . 'lbh_draft_video',
             ],
 
-          
+
         ],
     ];
 
