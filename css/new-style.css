@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .outer-top {
     margin-top:10px;
     margin-bottom:10px
