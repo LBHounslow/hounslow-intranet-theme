@@ -18,9 +18,20 @@ get_header();
 
         <!-- Page Content  -->
         <div id="content">
-
-
 					<main id="primary" class="site-main">
+
+            <div class="col-lg-12" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');min-height:200px;background-size:cover;background-position:center;">
+            <div class="bubble-outer">
+            <div class="bubble">
+            <h3><?php the_title(); ?></h3>
+            </div>
+            </div>
+            </div>
+
+            <hr />
+
+
+
 				<?php
 				//New WP Query to get news
 				$paged = ( get_query_var('page') ) ? get_query_var('page') : 1;
