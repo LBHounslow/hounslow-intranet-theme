@@ -43,6 +43,9 @@
 			</nav><!-- #site-navigation -->
 
 <div class="sidebar-out-links">
+    <div class="sidebar-header">
+				<h5>External Websites</h5>
+			</div>
 					<nav id="side-bar" class="side-bar-menu">
 						<?php
 							$network_menu_args = array(
