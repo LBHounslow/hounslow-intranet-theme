@@ -386,30 +386,3 @@ function second_image_meta_boxes( $meta_boxes ) {
 }
 
 add_filter( 'rwmb_meta_boxes', 'second_image_meta_boxes' );
-
-/** add video topic oembed does not work nicely with if/else so this is a temp workaround  */
-
-add_filter( 'rwmb_meta_boxes', 'video_meta_boxes' );
-
-function video_meta_boxes( $meta_boxes ) {
-    $prefix = '';
-
-    $meta_boxes[] = [
-        'title'   => esc_html__( 'Youtube ID', 'online-generator' ),
-        'id'      => 'youtube_video',
-        'post_types' => array ( 'post', 'news_cpt', 'dal_cpt', 'hdi_cpt', 'wt_cpt', 'haw_cpt', 'nth_cpt', 'gi_cpt', 'wow_cpt' ),
-        'context' => 'normal',
-        'fields'  => [
-
-            [
-                'type' => 'text',
-                'name' => esc_html__( 'delete the first part of the URL "https://youtu.be/"', 'online-generator' ),
-                'id'   => $prefix . 'lbh_draft_video',
-            ],
-
-
-        ],
-    ];
-
-    return $meta_boxes;
-}
