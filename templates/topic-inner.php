@@ -67,6 +67,10 @@ if (strpos($url,'working-together') !== false) {?>
     
     <?php get_template_part('templates/topics/corp-policy-archive', 'p'); ?>
 
+<?php } else if (strpos($url,'world-of-work') !== false) {?>
+    
+    <?php get_template_part('templates/topics/world-of-work-archive', 'p'); ?>
+
 <?php }?>  
 	</main><!-- #main -->
 

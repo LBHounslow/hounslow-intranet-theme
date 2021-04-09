@@ -122,10 +122,21 @@
 
 		?>
 
+		<?php if ( rwmb_meta( 'lbh_draft_sharepoint' ) ): ?>
+<div class="row" style="background:#fafafa;padding:20px;">
+<div class="col-lg-12">
+<h5>Sharepoint download</h5>
+<button class="btn btn-dark"><a style="color:white;" href="<?php echo rwmb_meta( 'lbh_draft_sharepoint' ); ?>">Download File</a></button>
+</div>
+
+</div>
+<?php else: // field_name returned false ?>
+<?php endif; // end of if field_name logic ?>
 	</div><!-- .entry-content -->
 
 
-<h1>
+    </div><!-- .entry-content -->
+
 
 <?php
 

@@ -73,7 +73,24 @@ echo substr($new_the_category, 0);
 
 <?php }else if (strpos($url,'corporate-policies') !== false) {?>
 
+ <?php
 
+$terms = get_terms( 'pol_category', array( 
+                        'orderby' => 'name',
+                        'order'   => 'ASC',
+                        'exclude'  => array(),
+) );
+$exclude = array("new starter");
+$new_the_category = '';
+foreach ( $terms as $term ) {
+if (!in_array($term->name, $exclude)) {
+$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/corporate-policies/'.$term->slug .'">'.$term->name.'</a></button>';
+}
+}
+echo substr($new_the_category, 0);
+
+
+?>
 
 <?php }else if (strpos($url,'how-do-i') !== false) {?>
 
@@ -138,6 +155,27 @@ echo substr($new_the_category, 0);
 
 ?>
 
+<?php }else if (strpos($url,'world-of-work') !== false) {?>
+ 
+ <?php
+
+$terms = get_terms( 'wow_category', array( 
+                        'orderby' => 'name',
+                        'order'   => 'ASC',
+                        'exclude'  => array(),
+) );
+$exclude = array("new starter");
+$new_the_category = '';
+foreach ( $terms as $term ) {
+if (!in_array($term->name, $exclude)) {
+$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/world-of-work/'.$term->slug .'">'.$term->name.'</a></button>';
+}
+}
+echo substr($new_the_category, 0);
+
+
+?>
+
 <?php
    
 }
@@ -145,7 +183,6 @@ echo substr($new_the_category, 0);
 ?>
 </div>
 </div>
-
 
 
 
