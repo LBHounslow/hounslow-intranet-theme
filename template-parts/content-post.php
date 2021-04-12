@@ -139,8 +139,6 @@
 	</div><!-- .entry-content -->
 
 
-<h1>
-
 <?php
 
 $posttags = get_the_tags();
