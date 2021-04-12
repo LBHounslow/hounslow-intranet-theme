@@ -1,6 +1,6 @@
 
 <div class="row outer justify-content-end align-items-center">
-<?php $value = rwmb_meta( 'status_radio', $post_id );
+<?php $value = rwmb_meta( 'lbh_status_radio');
 if ( 'working' == $value ) { ?>
 
 
