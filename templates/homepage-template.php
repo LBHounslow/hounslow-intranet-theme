@@ -1,4 +1,35 @@
 
+<div class="row outer justify-content-end align-items-center">
+<?php $value = rwmb_meta( 'status_radio', $post_id );
+if ( 'working' == $value ) { ?>
+
+
+<div class="col-lg-2 text-right ">
+    <p class="status">Everything is working!</p>
+ </div>
+ <div class="col-lg-1">
+    <button class="btn btn-success"><a style="color:white" href="/system-status"><strong>See Status</strong></a></button>
+</div>
+
+
+<?php } elseif ( 'issues' == $value ) { ?>
+<div class="col-lg-2 text-right ">
+    <p class="status">There are some issues on the Network!</p>
+ </div>
+ <div class="col-lg-1">
+    <button class="btn btn-warning"><a style="color:white" href="/system-status"><strong>See Status</strong></a></button>
+</div>
+<?php } elseif ( 'down' == $value ) { ?>
+<div class="col-lg-2 text-right ">
+    <p class="status">Some Services are down</p>
+ </div>
+ <div class="col-lg-1">
+    <button class="btn btn-danger"><a style="color:white" href="/system-status"><strong>See Status</strong></a></button>
+</div>
+<?php } ?>
+
+</div>
+
 <?php
 $news_site_id = 2;
 
