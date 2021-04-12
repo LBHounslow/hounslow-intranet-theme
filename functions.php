@@ -361,28 +361,3 @@ wp_enqueue_script( 'jquery-ui-sortable', array( 'jquery' ) );
 }
 
 add_action( 'wp_enqueue_scripts', 'datepicker_fix' );
-
-
-/** add secondary image to topic pages */
-
-function second_image_meta_boxes( $meta_boxes ) {
-    $prefix = '';
-
-    $meta_boxes[] = [
-        'title'   => esc_html__( 'Untitled Field Group', 'online-generator' ),
-        'id'      => 'second_image',
-        'post_types' => 'page',
-        'context' => 'normal',
-        'fields'  => [
-            [
-                'type' => 'image_advanced',
-                'name' => esc_html__( 'second image', 'online-generator' ),
-                'id'   => $prefix . 'second_image',
-            ],
-        ],
-    ];
-
-    return $meta_boxes;
-}
-
-add_filter( 'rwmb_meta_boxes', 'second_image_meta_boxes' );
