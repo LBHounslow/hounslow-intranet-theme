@@ -28,6 +28,7 @@
 
 <?php endif; ?>
 
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header">
@@ -121,7 +122,6 @@
 		);
 
 		?>
-
 		<?php if ( rwmb_meta( 'lbh_draft_sharepoint' ) ): ?>
 <div class="row" style="background:#fafafa;padding:20px;">
 <div class="col-lg-12">
@@ -131,12 +131,15 @@
 
 </div>
 <?php else: // field_name returned false ?>
+
+
+
+
 <?php endif; // end of if field_name logic ?>
 	</div><!-- .entry-content -->
 
 
-    </div><!-- .entry-content -->
-
+<h1>
 
 <?php
 
@@ -199,3 +202,4 @@ if ($posttags) {
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-<?php the_ID(); ?> -->
+
