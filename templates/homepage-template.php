@@ -60,7 +60,7 @@ if ( function_exists('hounslow_intranet_network_news_query_banner')  ) {
                           </div>
                           <div class="col-lg-6">
                               <h5 style="color:white;"><?php the_excerpt(); ?></h5>
-                              <div id="button" class="btn btn-dark"><a style="color:white;" href="<?php echo $news_post_permalink; ?>">Read More <i class="fas fa-arrow-right"></i></a></div>
+                              <div id="button" class="btn btn-dark"><a style="color:white;" href="<?php echo $news_post_permalink; ?>">Read More </a></div>
 
   </a></button>
                           </div>
@@ -140,7 +140,7 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
   					 <h5><?php the_title(); ?></h5>
                        <p><?php the_time(get_option('date_format')); ?></p>
                        <?php the_excerpt(); ?>
-                       <button class="btn btn-dark"><a style="color:white;"href="<?php echo $news_post_permalink; ?>">Read More<i class="fas fa-arrow-right"></i></a></button>
+                       <button class="btn btn-dark"><a style="color:white;"href="<?php echo $news_post_permalink; ?>">Read More</a></button>
   					</div>
 
               <?php
@@ -227,7 +227,7 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
            		</div>
                        <p><?php the_time(get_option('date_format')); ?></p>
                        <?php the_excerpt(); ?>
-                       <button class="btn btn-dark"><a style="color:white;"href="<?php echo $news_post_permalink; ?>">Read More<i class="fas fa-arrow-right"></i></a></button>
+                       <button class="btn btn-dark"><a style="color:white;"href="<?php echo $news_post_permalink; ?>">Read More</a></button>
   					</div>
 
   			</div>
