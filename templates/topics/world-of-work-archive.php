@@ -4,7 +4,7 @@
 
 
 $cat_args = array (
-    'taxonomy' => 'wow_category',  
+    'taxonomy' => 'wow_category',
 );
 $categories = get_categories ( $cat_args );
 
@@ -26,18 +26,21 @@ foreach ( $categories as $category ) {
     if ( $cat_query->have_posts() ) {
         echo '<div class="row  '. $category->slug .' ">';
         echo '<div class="bubbleb-outer"><div class="bubbleb"><h5>'. $category->name .'</h5></div></div>';
-        
+
         while ( $cat_query->have_posts() ) {
             $cat_query->the_post();
             ?>
             <div class="col-lg-3 outer">
-			
+
 			<div class="inner">
-<?php if ( rwmb_meta( 'lbh_draft_video' ) ): ?>
+        <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
 
-<iframe width="560" height="200" src="https://www.youtube.com/embed/<?php echo rwmb_meta( 'lbh_draft_video' ); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="lbh-featured-video">
 
+          <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
 
+        </div>
+        
 <?php elseif ( has_post_thumbnail() ): ?>
 
 <div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;background-position:center;">
@@ -55,14 +58,14 @@ foreach ( $categories as $category ) {
 					 <h6><?php the_title(); ?></h6>
 </div>
 				<button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
-			
+
 			</div>
             <div class="tag-box">
             <?php
 $posttags = get_the_tags();
 if ($posttags) {
   foreach($posttags as $tag) {
-    echo ' <a class="tag" href="/tags/'.$tag->slug.'">'.$tag->name . '</a>, '; 
+    echo ' <a class="tag" href="/tags/'.$tag->slug.'">'.$tag->name . '</a>, ';
   }
 }
 ?>
@@ -80,7 +83,7 @@ if ($posttags) {
         }
         echo '<div class="col-lg-3 outer text-center" style="padding-bottom:120px;"><div class="inner"><h4>There are <span style="color:#D70787">'.$category->count .'</span> articles in this topic</h4> <button class="btn btn-dark"><a style="color:white;" href="'. $category->slug .'">view all</a></button></div></div>';
         echo '</div>';
-        
+
     }
     wp_reset_postdata();
 }

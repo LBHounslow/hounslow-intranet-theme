@@ -59,7 +59,7 @@ min-height:30px;
 input[type="submit"] {
 	background:#343a40!important;
 }
- 
+
 .button {
 	margin-top:20px;
 }
@@ -361,7 +361,7 @@ body {
 }
 
 .menu a {
-	
+
 }
 
 
@@ -379,7 +379,9 @@ body {
 	padding:10px 0px 10px 0px;
 }
 
-
+.lbh-featured-video iframe {
+  max-height: 200px;
+}
 
 
 .bg-turbo-yellow {
@@ -551,4 +553,3 @@ a[data-toggle=collapse] {
 
 
 .avatar {border-radius:100px;}
-

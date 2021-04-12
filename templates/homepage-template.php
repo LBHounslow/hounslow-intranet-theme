@@ -175,7 +175,11 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
 
 <?php if ( $news_post_video_value ): ?>
 
+  <div class="lbh-featured-video">
+
   <?php echo $news_post_video; ?>
+
+  </div>
 
 <?php else: ?>
 
