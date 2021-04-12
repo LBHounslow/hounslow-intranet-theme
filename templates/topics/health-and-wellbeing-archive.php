@@ -10,7 +10,7 @@
 
 $cat_args = array (
 
-    'taxonomy' => 'haw_category',  
+    'taxonomy' => 'haw_category',
 
 );
 
@@ -54,7 +54,7 @@ foreach ( $categories as $category ) {
 
        echo '<div class="bubbleb-outer"><div class="bubbleb"><h5>'. $category->name .'</h5></div></div>';
 
-        
+
 
         while ( $cat_query->have_posts() ) {
 
@@ -66,10 +66,13 @@ foreach ( $categories as $category ) {
 
 			<div class="inner">
 
-<?php if ( rwmb_meta( 'lbh_draft_video' ) ): ?>
+        <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
 
-<iframe width="560" height="200" src="https://www.youtube.com/embed/<?php echo rwmb_meta( 'lbh_draft_video' ); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="lbh-featured-video">
 
+          <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
+
+        </div>
 
 <?php elseif ( has_post_thumbnail() ): ?>
 
@@ -83,15 +86,15 @@ foreach ( $categories as $category ) {
 
 
 <?php endif; ?>
-				
+
 
 <div class="post-title" style="padding-top:10px;">
 					 <h6><?php the_title(); ?></h6>
-</div>   
+</div>
 
 				<button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
 
-			
+
 
 			</div>
 
@@ -105,7 +108,7 @@ if ($posttags) {
 
   foreach($posttags as $tag) {
 
-    echo ' <a class="tag" href="/tags/'.$tag->slug.'">'.$tag->name . '</a>, '; 
+    echo ' <a class="tag" href="/tags/'.$tag->slug.'">'.$tag->name . '</a>, ';
 
   }
 
@@ -141,7 +144,7 @@ if ($posttags) {
 
         echo '</div>';
 
-        
+
 
     }
 
@@ -152,4 +155,3 @@ if ($posttags) {
 
 
 ?>
-
