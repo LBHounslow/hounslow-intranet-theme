@@ -7,10 +7,30 @@
 
 get_header();
 ?>
-<div class="container">
-	<div class="row">
-		<section id="primary" class="content-area col-sm-12 col-lg-8">
-			<main id="main" class="site-main" role="main">
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar" data-swiftype-index="false">
+
+<?php get_template_part('templates/navigation', 'menu'); ?>
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+					<main id="primary" class="site-main">
+
+            <div class="col-lg-12" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');min-height:200px;background-size:cover;background-position:center;">
+            <div class="bubble-outer">
+            <div class="bubble">
+            <h3><?php the_title(); ?></h3>
+            </div>
+            </div>
+            </div>
+
+            <hr />
+
+
 
 				<?php
 				//New WP Query to get news
@@ -43,9 +63,14 @@ get_header();
 				wp_reset_postdata();
 
 				?>
-
 			</main><!-- #main -->
-		</section><!-- #primary -->
+
+
+		        </div>
+
+
+		    </div>
+		</body>
 <?php
 get_sidebar();
 get_footer();

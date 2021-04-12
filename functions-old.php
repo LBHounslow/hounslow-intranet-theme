@@ -57,9 +57,6 @@ if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
 			register_nav_menus(
 				array(
 					'network' => esc_html__( 'Network Navigation', 'hounslow-intranet' ),
-					'popular' => esc_html__( 'Popular Links', 'hounslow-intranet' ),
-					'support' => esc_html__( 'Support Links', 'hounslow-intranet' ),
-					'external' => esc_html__( 'External Links', 'hounslow-intranet' ),
 					'utility' => esc_html__( 'Utility Navigation', 'hounslow-intranet' ),
 					'social' => esc_html__( 'Social Media', 'hounslow-intranet' ),
 				)
@@ -299,90 +296,3 @@ function hounslow_remove_admin_bar() {
 	  show_admin_bar(false);
 	}
 }
-
-
-
-/** add logo support */
-
-add_theme_support( 'custom-logo' );
-
-function themename_custom_logo_setup() {
-    $defaults = array(
-        'height'               => 100,
-        'width'                => 400,
-        'flex-height'          => true,
-        'flex-width'           => true,
-        'header-text'          => array( 'site-title', 'site-description' ),
-        'unlink-homepage-logo' => true,
-    );
-
-    add_theme_support( 'custom-logo', $defaults );
-}
-
-
-/** Change excerpt length*/
-
-
-add_filter( 'excerpt_length', function($length) {
-    return 30;
-} );
-
-function new_excerpt_more( $more ) {
-    return '...';
-}
-add_filter('excerpt_more', 'new_excerpt_more');
-
-
-/** show template for admin */
-
-function show_template() {
-  global $template;
-  global $current_user;
-  get_currentuserinfo();
-  if ($current_user->user_level == 10 ) print_r($template);
-}
-
-/** include CPT tags in archive */
-
-function post_type_tags_fix($request) {
-    if ( isset($request['tag']) && !isset($request['post_type']) )
-    $request['post_type'] = 'any';
-    return $request;
-}
-add_filter('request', 'post_type_tags_fix');
-
-/** Enqueue wp-indlude jquery */
-
-function datepicker_fix() {
-
-wp_enqueue_script( 'jquery-ui-datepicker', array( 'jquery' ) );
-wp_enqueue_script( 'jquery-ui-sortable', array( 'jquery' ) );
-
-}
-
-add_action( 'wp_enqueue_scripts', 'datepicker_fix' );
-
-
-/** add secondary image to topic pages */
-
-function second_image_meta_boxes( $meta_boxes ) {
-    $prefix = '';
-
-    $meta_boxes[] = [
-        'title'   => esc_html__( 'Untitled Field Group', 'online-generator' ),
-        'id'      => 'second_image',
-        'post_types' => 'page',
-        'context' => 'normal',
-        'fields'  => [
-            [
-                'type' => 'image_advanced',
-                'name' => esc_html__( 'second image', 'online-generator' ),
-                'id'   => $prefix . 'second_image',
-            ],
-        ],
-    ];
-
-    return $meta_boxes;
-}
-
-add_filter( 'rwmb_meta_boxes', 'second_image_meta_boxes' );

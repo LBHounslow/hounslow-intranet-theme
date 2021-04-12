@@ -32,8 +32,8 @@ h1.entry-title,.entry-title.h1{margin-top:0}
 #utility-navigation{padding-top:1.25rem;padding-bottom:1rem;padding-left:2.5rem;padding-right:2.5rem}
 #utility-brand ul,#utility-menu ul{margin-left:0}
 .utility-brand-fs{font-size:1.25em}
-.username-link a.nav-link{color:#dee0e2}
-.username-link a.nav-link:hover,.username-link a.nav-link:focus{color:white}
+.username-link a.nav-link{color:grey}
+.username-link a.nav-link:hover,.username-link a.nav-link:focus{color:#a6a6a6}
 #network-navigation-menu-toggler{margin-left:3rem}
 #menu-main{margin-left:0}
 #site-breadcrumbs ol{margin-left:3em;margin-bottom:0;padding-left:.5rem;background-color:inherit}

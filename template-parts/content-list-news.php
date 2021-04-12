@@ -12,7 +12,16 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="row">
 		<div class="col-sm-4">
-			<a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark"><?php hounslow_intranet_news_thumbnail( $post ); ?></a>
+			<?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
+
+				<?php echo rwmb_meta( 'lbh_featured_video' ); ?>
+
+			<?php else: ?>
+
+				<a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark"><?php hounslow_intranet_news_thumbnail( $post ); ?></a>
+
+			<?php endif; ?>
+		
 		</div>
 		<div class="col-sm-8">
 			<?php
