@@ -4,6 +4,8 @@
 
 <div class="row">
 
+<?php get_template_part('templates/new-starter/corporate-policy-new-start', 'pol'); ?>    
+    
 <?php get_template_part('templates/new-starter/develop-and-learn-new-start', 'dal'); ?>
 
 <?php get_template_part('templates/new-starter/get-involved-new-start', 'gi'); ?>
@@ -15,6 +17,7 @@
 <?php get_template_part('templates/new-starter/working-together-new-start', 'wt'); ?>
 
 <?php get_template_part('templates/new-starter/world-of-work-new-start', 'wt'); ?>
+    
 
 
 
