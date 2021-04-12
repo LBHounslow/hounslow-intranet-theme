@@ -153,6 +153,8 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 }
 
 ?>
+ <div class="featured-border">
+</div>                 
                 </div>
 				</div>
 
@@ -170,7 +172,7 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 
                     </div>
                     <div class="inner-feature shadow">
-                    <button class="btn btn-dark"><a style="color:white" href="/events"><strong>See All Events</strong></a></button>
+                    <button class="btn btn-dark"><a style="color:white" href="/events">See All Events</a></button>
 
                     </div>
                     </div>
