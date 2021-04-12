@@ -1,3 +1,13 @@
+.status {
+  margin:0px;
+}
+
+.sharepoint {
+  background:#fafafa;
+  padding:20px;
+}
+
+
 html {
   scroll-behavior: smooth;
 }

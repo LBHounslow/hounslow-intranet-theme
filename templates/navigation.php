@@ -1,7 +1,7 @@
 
 <?php if ( function_exists('hounslow_intranet_network_nav_menu')  && is_user_logged_in() ) { ?>
 			<div class="sidebar-header">
-				<h5>Connect</h5>
+				<h5>Engage</h5>
 			</div>
 
 			<nav id="side-bar" class="side-bar-menu">
@@ -29,7 +29,7 @@
 			</nav><!-- #site-navigation -->
 
 			<div class="sidebar-header">
-				<h5>Engage</h5>
+				<h5>Connect</h5>
 			</div>
 
 			<nav id="side-bar" class="side-bar-menu">

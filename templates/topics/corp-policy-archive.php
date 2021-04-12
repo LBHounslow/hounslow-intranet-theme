@@ -36,26 +36,7 @@
 <a style="color:white;" href="#X"><button class="btn btn-dark topic-btn">X</button></a>
 <a style="color:white;" href="#Y"><button class="btn btn-dark topic-btn">Y</button></a>
 <a style="color:white;" href="#Z"><button class="btn btn-dark topic-btn">Z</button></a>
-<div class="spacer"></div>
-<h4>Filter by Topic</h4>
- <?php
 
-$terms = get_terms( 'pol_category', array( 
-                        'orderby' => 'name',
-                        'order'   => 'ASC',
-                        
-) );
-$exclude = array("new starter");
-$new_the_category = '';
-foreach ( $terms as $term ) {
-if (!in_array($term->name, $exclude)) {
-$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/corporate-policies/'.$term->slug .'">'.$term->name.'</a></button>';
-}
-}
-echo substr($new_the_category, 0);
-
-
-?>
 
 </div>
 </div>
