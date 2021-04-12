@@ -21,14 +21,7 @@ get_header();
 					<div class="page-content">
 						<p>Sorry, that page can&rsquo;t be found.</p>
 						<p>The Hounslow Intranet has recently been replaced with a new set of pages - so the content you are looking for may no longer be here.</p>
-						<p>The old intranet has been kept available at a new location on a temporary basis. So the content you are looking for may have been moved there. You can visit the old intranet by following this link:</p>
-						<ul>
-							<li>
-								<a href="http://intranet2.hounslow.gov.uk/">intranet2.hounslow.gov.uk</a>
-							</li>
-						</ul>
-						<p>If you have reached this page after following a specific link please try again by adding a &lsquo;2&rsquo; after the word &lsquo;intranet&rsquo; in the address bar above. Also make sure that there is no <strong>S</strong> in the "http://" part of the URL.</p>
-						<p>For example:<br /><code>https://intranet.hounslow.gov.uk/index/p/pay_scales.htm</code><br />becomes:<br /><code>http://intranet2.hounslow.gov.uk/index/p/pay_scales.htm</code></p>
+						<a href="/" class="btn btn-primary">Back To Home</a>
 						<p>&nbsp;</p>
 					</div><!-- .page-content -->
 
