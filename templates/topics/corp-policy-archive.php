@@ -73,7 +73,7 @@ if($series->have_posts())
 		<?php the_excerpt(); ?>
 
         <div class="row justify-content-between">
-        <div class="col-lg-2">
+        <div class="col-lg-3">
 <button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
         </div>
         <div class="col-lg-3">
