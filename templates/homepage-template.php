@@ -1,6 +1,6 @@
 
 <div class="row outer justify-content-end align-items-center">
-<?php $value = rwmb_meta( 'status_radio', $post_id );
+<?php $value = rwmb_meta( 'lbh_status_radio');
 if ( 'working' == $value ) { ?>
 
 
@@ -60,9 +60,9 @@ if ( function_exists('hounslow_intranet_network_news_query_banner')  ) {
                           </div>
                           <div class="col-lg-6">
                               <h5 style="color:white;"><?php the_excerpt(); ?></h5>
-                              <div id="button" class="btn btn-dark"><a style="color:white;" href="<?php echo $news_post_permalink; ?>">Read More </a></div>
 
-  </a></button>
+                              <div id="button" class="btn btn-dark"><a style="color:white;" href="<?php echo $news_post_permalink; ?>">Read More</a></div>
+
                           </div>
 
                        </div>

@@ -5,12 +5,12 @@
 	"repository": "LBHounslow/hounslow-intranet-theme",
 	"license": "GNU GPL v2.0",
 	"devDependencies": {
-		"@babel/core": "^7.0.0",
-		"@babel/preset-env": "^7.12.1",
-		"@babel/register": "^7.0.0",
+		"@babel/core": "^7.14.0",
+		"@babel/preset-env": "^7.14.1",
+		"@babel/register": "^7.13.16",
 		"beepbeep": "^1.2.2",
 		"browser-sync": "^2.26.14",
-		"eslint": "^7.12.0",
+		"eslint": "^7.26.0",
 		"eslint-config-wordpress": "^2.0.0",
 		"gulp": "^4.0.0",
 		"gulp-autoprefixer": "^7.0.1",
@@ -32,7 +32,7 @@
 		"gulp-uglify": "^3.0.0",
 		"gulp-uglifycss": "^1.0.6",
 		"gulp-wp-pot": "^2.0.7",
-		"gulp-zip": "^5.0.2"
+		"gulp-zip": "^5.1.0"
 	},
 	"scripts": {
 		"start": "gulp",
@@ -46,6 +46,9 @@
 		"cache-clear": "gulp clearCache"
 	},
 	"dependencies": {
-		"node-notifier": ">=8.0.1"
+		"node-notifier": ">=8.0.1",
+		"xmlhttprequest-ssl": ">=1.6.2",
+		"lodash": ">=4.17.21",
+		"hosted-git-info": ">=2.8.9"
 	}
 }
