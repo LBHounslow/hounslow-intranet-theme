@@ -69,7 +69,11 @@ if (strpos($url,'working-together') !== false) {?>
 
 <?php } else if (strpos($url,'world-of-work') !== false) {?>
     
-    <?php get_template_part('templates/topics/world-of-work-archive', 'p'); ?>
+    <?php get_template_part('templates/topics/world-of-work-archive', 'wow'); ?>
+
+<?php } else if (strpos($url,'one-hounslow') !== false) {?>
+    
+    <?php get_template_part('templates/topics/one-hounslow-archive', 'oh'); ?>
 
 <?php }?>  
 	</main><!-- #main -->

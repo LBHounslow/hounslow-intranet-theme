@@ -176,6 +176,27 @@ echo substr($new_the_category, 0);
 
 ?>
 
+<?php }else if (strpos($url,'one-hounslow') !== false) {?>
+ 
+ <?php
+
+$terms = get_terms( 'oh_category', array( 
+                        'orderby' => 'name',
+                        'order'   => 'ASC',
+                        'exclude'  => array(),
+) );
+$exclude = array("new starter");
+$new_the_category = '';
+foreach ( $terms as $term ) {
+if (!in_array($term->name, $exclude)) {
+$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/one-hounslow/'.$term->slug .'">'.$term->name.'</a></button>';
+}
+}
+echo substr($new_the_category, 0);
+
+
+?>
+
 <?php
    
 }
