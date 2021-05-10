@@ -60,9 +60,9 @@ if ( function_exists('hounslow_intranet_network_news_query_banner')  ) {
                           </div>
                           <div class="col-lg-6">
                               <h5 style="color:white;"><?php the_excerpt(); ?></h5>
+
                               <div id="button" class="btn btn-dark"><a style="color:white;" href="<?php echo $news_post_permalink; ?>">Read More</a></div>
 
-  </a></button>
                           </div>
 
                        </div>
@@ -153,6 +153,8 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 }
 
 ?>
+ <div class="featured-border">
+</div>                 
                 </div>
 				</div>
 
@@ -170,7 +172,7 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 
                     </div>
                     <div class="inner-feature shadow">
-                    <button class="btn btn-dark"><a style="color:white" href="/events"><strong>See All Events</strong></a></button>
+                    <button class="btn btn-dark"><a style="color:white" href="/events">See All Events</a></button>
 
                     </div>
                     </div>
