@@ -1,11 +1,15 @@
 <?php
 get_header();
 ?>
-<div class="container">
-	<div class="row">
-		<section id="primary" class="content-area col">
-			<main id="main" class="site-main" role="main">
-
+<body>
+	<div class="wrapper">
+		<!-- Sidebar  -->
+		<nav id="sidebar" data-swiftype-index="false">
+			<?php get_template_part('templates/navigation', 'menu'); ?>
+		</nav>
+		<!-- Page Content  -->
+		<div id="content">
+			<main id="primary" class="site-main">
 				<?php
 				while ( have_posts() ) :
 					the_post();
@@ -19,8 +23,15 @@ get_header();
 
 				endwhile; // End of the loop.
 				?>
-
 			</main><!-- #main -->
-		</section><!-- #primary -->
+		</div>
+	</div>
+</body>
+<style>
+#content {
+	background:white;
+}
+</style>
 <?php
+get_sidebar();
 get_footer();
