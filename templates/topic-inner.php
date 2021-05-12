@@ -36,42 +36,46 @@ foreach ( $images as $image ) {
 $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 if (strpos($url,'working-together') !== false) {?>
-    
+
     <?php get_template_part('templates/topics/working-together-archive', 'wt'); ?>
 
 <?php } else if (strpos($url,'health-and-wellbeing') !== false) {?>
-    
-	 <?php get_template_part('templates/topics/health-and-wellbeing-archive', 'haw'); ?> 
+
+	 <?php get_template_part('templates/topics/health-and-wellbeing-archive', 'haw'); ?>
 
 <?php } else if (strpos($url,'new-to-lbh') !== false) {?>
-    
+
     <?php get_template_part('templates/topics/new-to-hounslow-archive', 'ns'); ?>
 
 <?php } else if (strpos($url,'get-involved') !== false) {?>
-    
-    <?php get_template_part('templates/topics/get-involved-archive', 'gi'); ?>    
+
+    <?php get_template_part('templates/topics/get-involved-archive', 'gi'); ?>
 
 <?php } else if (strpos($url,'events') !== false) {?>
-    
+
     <?php get_template_part('templates/topics/events-archive', 'es'); ?>
 
 <?php } else if (strpos($url,'develop-and-learn') !== false) {?>
-    
+
     <?php get_template_part('templates/topics/develop-and-learn-archive', 'es'); ?>
 
 <?php } else if (strpos($url,'how-do-i') !== false) {?>
-    
+
     <?php get_template_part('templates/topics/how-do-i-archive', 'hdi'); ?>
 
 <?php } else if (strpos($url,'corporate-policies') !== false) {?>
-    
+
     <?php get_template_part('templates/topics/corp-policy-archive', 'p'); ?>
 
 <?php } else if (strpos($url,'world-of-work') !== false) {?>
-    
-    <?php get_template_part('templates/topics/world-of-work-archive', 'p'); ?>
 
-<?php }?>  
+	<?php get_template_part('templates/topics/world-of-work-archive', 'wow'); ?>
+
+<?php } else if (strpos($url,'one-hounslow') !== false) {?>
+
+	<?php get_template_part('templates/topics/one-hounslow-archive', 'oh'); ?>
+
+<?php }?>
 	</main><!-- #main -->
 
 <style>
