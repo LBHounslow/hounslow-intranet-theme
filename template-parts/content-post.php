@@ -47,26 +47,14 @@
 
 
 
-		if ( 'post' === get_post_type() ) :
+
 
 			?>
 
-			<div class="entry-meta">
 
-				<?php
 
-				//lbh_intranet_v1_posted_on();
-
-				hounslow_intranet_posted_on();
-				//lbh_intranet_v1_posted_by();
-
-				hounslow_intranet_posted_by();
-				?>
-
-			</div><!-- .entry-meta -->
-
-		<?php endif; ?>
-
+<p><i class="fas fa-calendar-day"></i> <span class="posted-on">Posted on <?php the_time(get_option('date_format')); ?></p>
+<p><i class="fas fa-user"></i> <span class="byline"> By  <?php the_author_link(); ?></p>
 	</header><!-- .entry-header -->
 
 
@@ -122,6 +110,15 @@
 		);
 
 		?>
+
+<?php
+// If comments are open or we have at least one comment, load up the comment template.
+ if ( comments_open() || get_comments_number() ) :
+     comments_template();
+ endif;
+
+?>
+
 		<?php if ( rwmb_meta( 'lbh_draft_sharepoint' ) ): ?>
 <div class="row" style="background:#fafafa;padding:20px;">
 <div class="col-lg-12">
@@ -154,6 +151,8 @@ if ($posttags) {
 }
 
 ?>
+
+
 
 </div>
 
@@ -190,9 +189,6 @@ if ($posttags) {
 
 
 
-
-
-
 	<footer class="entry-footer">
 
 		<?php Hounslow_Intranet_entry_footer(); ?>
@@ -200,4 +196,3 @@ if ($posttags) {
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-<?php the_ID(); ?> -->
-
