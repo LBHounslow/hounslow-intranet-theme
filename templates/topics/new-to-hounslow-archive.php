@@ -66,7 +66,7 @@ foreach ( $categories as $category ) {
 			<div class="blog-img" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;">
 					</div>
                 <h5><?php the_title(); ?></h5>
-				<button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
+				<a style="color:white;" href="<?php echo get_permalink(); ?>"><button class="btn btn-dark">Read More</button></a>
 
 			</div>
             <div class="tag-box">

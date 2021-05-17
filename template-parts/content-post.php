@@ -123,7 +123,7 @@
 <div class="row" style="background:#fafafa;padding:20px;">
 <div class="col-lg-12">
 <h5>Sharepoint download</h5>
-<button class="btn btn-dark"><a style="color:white;" href="<?php echo rwmb_meta( 'lbh_draft_sharepoint' ); ?>">Download File</a></button>
+<a style="color:white;" href="<?php echo rwmb_meta( 'lbh_draft_sharepoint' ); ?>"><button class="btn btn-dark">Download File</button></a>
 </div>
 
 </div>

@@ -74,13 +74,13 @@ if($series->have_posts())
 
         <div class="row justify-content-between">
         <div class="col-lg-3">
-<button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
+        <a style="color:white;" href="<?php echo get_permalink(); ?>"><button class="btn btn-dark">Read More</button></a>
         </div>
         <div class="col-lg-3">
         
 		<?php if ( rwmb_meta( 'lbh_draft_sharepoint' ) ): ?>
 
-<button class="btn btn-dark"><a style="color:white;" href="<?php echo rwmb_meta( 'lbh_draft_sharepoint' ); ?>">Download File</a></button>
+            <a style="color:white;" href="<?php echo rwmb_meta( 'lbh_draft_sharepoint' ); ?>"><button class="btn btn-dark">Download File</button></a>
 </div>
 <?php else: // field_name returned false ?>
 <?php endif; // end of if field_name logic ?>
