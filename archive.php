@@ -48,14 +48,14 @@ if (strpos($url,'corporate-policies') !== false) {?>
 
 <div class="col-lg-3">
 
-     <?php // TAXONOMY IMAGE GOES HERE ?>  
+     <?php // TAXONOMY IMAGE GOES HERE ?>
 </div>
 </div>
 </div>
 <div class="bubble-outer">
         <?php get_template_part('templates/topics-tabs', 'topics-dropdown'); ?>
 </div>
-      
+
 
             <main id="primary" class="site-main">
 <div class="row">
@@ -65,7 +65,7 @@ if (strpos($url,'corporate-policies') !== false) {?>
         while ( have_posts() ) :
           the_post();
 
-          get_template_part( 'template-parts/content-topics-policy', get_post_type() );
+          get_template_part( 'template-parts/content-post-policy', get_post_type() );
 
 
 
