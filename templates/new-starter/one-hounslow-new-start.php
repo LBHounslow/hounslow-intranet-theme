@@ -34,12 +34,6 @@ if ($loop->have_posts()) :
 
     while ($loop->have_posts()) : $loop->the_post(); ?>
 
-
-
-
-
-
-
  <div class="col-lg-3 outer">
 
 
@@ -58,6 +52,7 @@ if ($loop->have_posts()) :
 <?php endif; ?>
 
 
+
 <div class="post-title" style="padding-top:10px;">
 					 <h6><?php the_title(); ?></h6>
 </div>
@@ -70,25 +65,21 @@ if ($loop->have_posts()) :
 
 
 
-			</div>
-
-
-
-
-
-
-
-
 
 			</div>
 
+
+
+
+
+
+
+
+
+			</div>
 
 
             <?php
-
-
-
-
 
 
 
@@ -97,7 +88,6 @@ if ($loop->have_posts()) :
 endif;
 
 wp_reset_postdata();
-
 
 
 ?>
