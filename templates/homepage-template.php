@@ -8,7 +8,7 @@ if ( 'working' == $value ) { ?>
     <p class="status">Everything is working!</p>
  </div>
  <div class="col-lg-1">
-    <button class="btn btn-success"><a style="color:white" href="/system-status"><strong>See Status</strong></a></button>
+ <a style="color:white" href="/system-status"><button class="btn btn-success"><strong>See Status</strong></button></a>
 </div>
 
 
@@ -17,14 +17,14 @@ if ( 'working' == $value ) { ?>
     <p class="status">There are some issues on the Network!</p>
  </div>
  <div class="col-lg-1">
-    <button class="btn btn-warning"><a style="color:white" href="/system-status"><strong>See Status</strong></a></button>
+ <a style="color:white" href="/system-status"><button class="btn btn-warning"><strong>See Status</strong></button></a>
 </div>
 <?php } elseif ( 'down' == $value ) { ?>
 <div class="col-lg-2 text-right ">
     <p class="status">Some Services are down</p>
  </div>
  <div class="col-lg-1">
-    <button class="btn btn-danger"><a style="color:white" href="/system-status"><strong>See Status</strong></a></button>
+ <a style="color:white" href="/system-status"><button class="btn btn-danger"><strong>See Status</strong></button></a>
 </div>
 <?php } ?>
 
@@ -61,7 +61,7 @@ if ( function_exists('hounslow_intranet_network_news_query_banner')  ) {
                           <div class="col-lg-6">
                               <h5 style="color:white;"><?php the_excerpt(); ?></h5>
 
-                              <div id="button" class="btn btn-dark"><a style="color:white;" href="<?php echo $news_post_permalink; ?>">Read More</a></div>
+                              <a style="color:white;" href="<?php echo $news_post_permalink; ?>"><button id="button" class="btn btn-dark">Read More</button></a>
 
                           </div>
 
@@ -140,7 +140,7 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
   					 <h5><?php the_title(); ?></h5>
                        <p><?php the_time(get_option('date_format')); ?></p>
                        <?php the_excerpt(); ?>
-                       <button class="btn btn-dark"><a style="color:white;"href="<?php echo $news_post_permalink; ?>">Read More</a></button>
+                       <a style="color:white;"href="<?php echo $news_post_permalink; ?>"><button class="btn btn-dark">Read More</button></a>
   					</div>
 
               <?php
@@ -172,7 +172,7 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 
                     </div>
                     <div class="inner-feature shadow">
-                    <button class="btn btn-dark"><a style="color:white" href="/events">See All Events</a></button>
+                    <a style="color:white" href="/events"><button class="btn btn-dark">See All Events</button></a>
 
                     </div>
                     </div>
@@ -227,7 +227,7 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
            		</div>
                        <p><?php the_time(get_option('date_format')); ?></p>
                        <?php the_excerpt(); ?>
-                       <button class="btn btn-dark"><a style="color:white;"href="<?php echo $news_post_permalink; ?>">Read More</a></button>
+                       <a style="color:white;"href="<?php echo $news_post_permalink; ?>"><button class="btn btn-dark">Read More</button></a>
   					</div>
 
   			</div>
@@ -264,7 +264,7 @@ foreach ( $EM_Events as $EM_Event ){
                 <h5>#_EVENTNAME</h5>
 <h6>#_EVENTDATES|#_12HSTARTTIME</h6>
 <div>
-				<button class="btn btn-dark"><a style="color:white;"href="#_EVENTURL">Read More</a></button>
+<a style="color:white;"href="#_EVENTURL"><button class="btn btn-dark">Read More</button></a>
 	</div>
 			</div>
             </div>

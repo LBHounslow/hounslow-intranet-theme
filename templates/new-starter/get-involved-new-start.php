@@ -66,7 +66,7 @@ if ($loop->have_posts()) :
               <small style="color:hotpink">Get Involved</small> 
            		</div>
 
-				<button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
+                   <a style="color:white;" href="<?php echo get_permalink(); ?>"><button class="btn btn-dark">Read More</button></a>
 
 			
 

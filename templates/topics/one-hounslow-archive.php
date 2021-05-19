@@ -40,7 +40,7 @@ foreach ( $categories as $category ) {
           <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
 
         </div>
-        
+
 <?php elseif ( has_post_thumbnail() ): ?>
 
 <div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;background-position:center;">
@@ -57,7 +57,7 @@ foreach ( $categories as $category ) {
 <div class="post-title" style="padding-top:10px;">
 					 <h6><?php the_title(); ?></h6>
 </div>
-				<button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
+<a style="color:white;" href="<?php echo get_permalink(); ?>"><button class="btn btn-dark">Read More</button></a>
 
 			</div>
             <div class="tag-box">

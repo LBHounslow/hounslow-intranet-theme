@@ -12,7 +12,7 @@ if (strpos($url,'working-together') !== false) { ?>
 
  <?php
 
-$terms = get_terms( 'wt_category', array( 
+$terms = get_terms( 'wt_category', array(
                         'orderby' => 'name',
                         'order'   => 'ASC',
                         'exclude'  => array(),
@@ -21,7 +21,7 @@ $exclude = array("new starter");
 $new_the_category = '';
 foreach ( $terms as $term ) {
 if (!in_array($term->name, $exclude)) {
-$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href=/working-together/'.$term->slug .'">'.$term->name.'</a></button>';
+$new_the_category .= '<a style="color:white;" href=/working-together/'.$term->slug .'"><button class="btn btn-dark topic-btn">'.$term->name.'</button></a>';
 }
 }
 echo substr($new_the_category, 0);
@@ -33,7 +33,7 @@ echo substr($new_the_category, 0);
 
  <?php
 
-$terms = get_terms( 'haw_category', array( 
+$terms = get_terms( 'haw_category', array(
                         'orderby' => 'name',
                         'order'   => 'ASC',
                         'exclude'  => array(),
@@ -42,7 +42,7 @@ $exclude = array("new starter");
 $new_the_category = '';
 foreach ( $terms as $term ) {
 if (!in_array($term->name, $exclude)) {
-$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/health-and-wellbeing/'.$term->slug .'">'.$term->name.'</a></button>';
+$new_the_category .= '<a style="color:white;" href="/health-and-wellbeing/'.$term->slug .'"><button class="btn btn-dark topic-btn">'.$term->name.'</button></a>';
 }
 }
 echo substr($new_the_category, 0);
@@ -54,7 +54,7 @@ echo substr($new_the_category, 0);
 
   <?php
 
-$terms = get_terms( 'nth_category', array( 
+$terms = get_terms( 'nth_category', array(
                         'orderby' => 'name',
                         'order'   => 'ASC',
                         'exclude'  => array(),
@@ -63,7 +63,7 @@ $exclude = array("new starter");
 $new_the_category = '';
 foreach ( $terms as $term ) {
 if (!in_array($term->name, $exclude)) {
-$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/new-to-lbh/'.$term->slug .'">'.$term->name.'</a></button>';
+$new_the_category .= '<a style="color:white;" href="/new-to-lbh/'.$term->slug .'"><button class="btn btn-dark topic-btn">'.$term->name.'</button></a>';
 }
 }
 echo substr($new_the_category, 0);
@@ -75,7 +75,7 @@ echo substr($new_the_category, 0);
 
  <?php
 
-$terms = get_terms( 'pol_category', array( 
+$terms = get_terms( 'pol_category', array(
                         'orderby' => 'name',
                         'order'   => 'ASC',
                         'exclude'  => array(),
@@ -84,7 +84,7 @@ $exclude = array("new starter");
 $new_the_category = '';
 foreach ( $terms as $term ) {
 if (!in_array($term->name, $exclude)) {
-$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/corporate-policies/'.$term->slug .'">'.$term->name.'</a></button>';
+$new_the_category .= '<a style="color:white;" href="/corporate-policies/'.$term->slug .'"><button class="btn btn-dark topic-btn">'.$term->name.'</button></a>';
 }
 }
 echo substr($new_the_category, 0);
@@ -96,7 +96,7 @@ echo substr($new_the_category, 0);
 
  <?php
 
-$terms = get_terms( 'hdi_category', array( 
+$terms = get_terms( 'hdi_category', array(
                         'orderby' => 'name',
                         'order'   => 'ASC',
                         'exclude'  => array(),
@@ -105,7 +105,7 @@ $exclude = array("new starter");
 $new_the_category = '';
 foreach ( $terms as $term ) {
 if (!in_array($term->name, $exclude)) {
-$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/how-do-i/'.$term->slug .'">'.$term->name.'</a></button>';
+$new_the_category .= '<a style="color:white;" href="/how-do-i/'.$term->slug .'"><button class="btn btn-dark topic-btn">'.$term->name.'</button></a>';
 }
 }
 echo substr($new_the_category, 0);
@@ -114,10 +114,10 @@ echo substr($new_the_category, 0);
 ?>
 
 <?php }else if (strpos($url,'get-involved') !== false) {?>
- 
+
  <?php
 
-$terms = get_terms( 'gi_category', array( 
+$terms = get_terms( 'gi_category', array(
                         'orderby' => 'name',
                         'order'   => 'ASC',
                         'exclude'  => array(),
@@ -126,7 +126,7 @@ $exclude = array("new starter");
 $new_the_category = '';
 foreach ( $terms as $term ) {
 if (!in_array($term->name, $exclude)) {
-$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/get-involved/'.$term->slug .'">'.$term->name.'</a></button>';
+$new_the_category .= '<a style="color:white;" href="/get-involved/'.$term->slug .'"><button class="btn btn-dark topic-btn">'.$term->name.'</button></a>';
 }
 }
 echo substr($new_the_category, 0);
@@ -135,10 +135,10 @@ echo substr($new_the_category, 0);
 ?>
 
 <?php }else if (strpos($url,'develop-and-learn') !== false) {?>
- 
+
  <?php
 
-$terms = get_terms( 'dal_category', array( 
+$terms = get_terms( 'dal_category', array(
                         'orderby' => 'name',
                         'order'   => 'ASC',
                         'exclude'  => array(),
@@ -147,7 +147,7 @@ $exclude = array("new starter");
 $new_the_category = '';
 foreach ( $terms as $term ) {
 if (!in_array($term->name, $exclude)) {
-$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/develop-and-learn/'.$term->slug .'">'.$term->name.'</a></button>';
+$new_the_category .= '<a style="color:white;" href="/develop-and-learn/'.$term->slug .'"><button class="btn btn-dark topic-btn">'.$term->name.'</button></a>';
 }
 }
 echo substr($new_the_category, 0);
@@ -156,10 +156,10 @@ echo substr($new_the_category, 0);
 ?>
 
 <?php }else if (strpos($url,'world-of-work') !== false) {?>
- 
+
  <?php
 
-$terms = get_terms( 'wow_category', array( 
+$terms = get_terms( 'wow_category', array(
                         'orderby' => 'name',
                         'order'   => 'ASC',
                         'exclude'  => array(),
@@ -168,7 +168,7 @@ $exclude = array("new starter");
 $new_the_category = '';
 foreach ( $terms as $term ) {
 if (!in_array($term->name, $exclude)) {
-$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/world-of-work/'.$term->slug .'">'.$term->name.'</a></button>';
+$new_the_category .= '<a style="color:white;" href="/world-of-work/'.$term->slug .'"><button class="btn btn-dark topic-btn">'.$term->name.'</button></a>';
 }
 }
 echo substr($new_the_category, 0);
@@ -177,10 +177,10 @@ echo substr($new_the_category, 0);
 ?>
 
 <?php }else if (strpos($url,'one-hounslow') !== false) {?>
- 
+
  <?php
 
-$terms = get_terms( 'oh_category', array( 
+$terms = get_terms( 'oh_category', array(
                         'orderby' => 'name',
                         'order'   => 'ASC',
                         'exclude'  => array(),
@@ -189,21 +189,17 @@ $exclude = array("new starter");
 $new_the_category = '';
 foreach ( $terms as $term ) {
 if (!in_array($term->name, $exclude)) {
-$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/one-hounslow/'.$term->slug .'">'.$term->name.'</a></button>';
+$new_the_category .= '<a style="color:white;" href="/one-hounslow/'.$term->slug .'"><button class="btn btn-dark topic-btn">'.$term->name.'</button></a>';
 }
 }
 echo substr($new_the_category, 0);
 
-
 ?>
 
 <?php
-   
+
 }
 
 ?>
 </div>
 </div>
-
-
-

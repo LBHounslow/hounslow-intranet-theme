@@ -34,12 +34,6 @@ if ($loop->have_posts()) :
 
     while ($loop->have_posts()) : $loop->the_post(); ?>
 
-    
-
- 
-
-			
-
  <div class="col-lg-3 outer">
 
 
@@ -56,48 +50,44 @@ if ($loop->have_posts()) :
 
 
 <?php endif; ?>
-				
+
+
 
 <div class="post-title" style="padding-top:10px;">
 					 <h6><?php the_title(); ?></h6>
-</div> 
+</div>
 
                    <div class="inner-body">
-                   <small style="color:hotpink">One Hounslow</small> 
+                   <small style="color:hotpink">One Hounslow</small>
            		</div>
 
-				<button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
-
-			
-
-			</div>
-
-
-
-
-
+                   <a style="color:white;" href="<?php echo get_permalink(); ?>"><button class="btn btn-dark">Read More</button></a>
 
 
 
 
 			</div>
 
-		
+
+
+
+
+
+
+
+
+			</div>
+
 
             <?php
 
-        
 
-
-
-        
 
     endwhile;
 
 endif;
 
 wp_reset_postdata();
-
 
 
 ?>
