@@ -45,23 +45,15 @@
 
 		endif;
 
-
-
-
-
+		if ( 'post' === get_post_type() ) :	?>
+		<div class="entry-meta">
+			<?php
+			hounslow_intranet_posted_on();
+			hounslow_intranet_posted_by();
 			?>
-
-
-
-<p><i class="fas fa-calendar-day"></i> <span class="posted-on">Posted on <?php the_time(get_option('date_format')); ?></p>
-<p><i class="fas fa-user"></i> <span class="byline"> By  <?php the_author_link(); ?></p>
+		</div><!-- .entry-meta -->
+		<?php endif; ?>
 	</header><!-- .entry-header -->
-
-
-
-
-
-
 
 	<div class="entry-content">
 
