@@ -173,7 +173,11 @@ function hounslow_intranet_display_loggedin_user( $menu_items ) {
     foreach ( $menu_items as $menu_item ) {
 				// Add the logged in user's display name to menus using ##username## placeholder.
         if ( strpos($menu_item->title, '##username##') !== false) {
-                $menu_item->title =  str_replace("##username##",  'Hi, ' . wp_get_current_user()->user_nicename, $menu_item->title);
+								$greeting = wp_get_current_user()->user_firstname;
+								if(empty($greeting)) {
+									$greeting = wp_get_current_user()->user_nicename;
+								}
+                $menu_item->title =  str_replace("##username##",  'Hi, ' . $greeting, $menu_item->title);
         }
 				// Add a profile link using ##profilelink## placeholder
 				if ( strpos($menu_item->title, '##profilelink##') !== false) {
