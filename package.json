@@ -49,6 +49,7 @@
 		"node-notifier": ">=8.0.1",
 		"xmlhttprequest-ssl": ">=1.6.2",
 		"lodash": ">=4.17.21",
-		"hosted-git-info": ">=2.8.9"
+		"hosted-git-info": ">=2.8.9",
+		"trim-newlines": ">=3.0.1"
 	}
 }

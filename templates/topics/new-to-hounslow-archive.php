@@ -1,5 +1,88 @@
 
+<div class="row">
+<div class="bubbleb-outer"><div class="bubbleb"><h5>Featured Articles</h5></div></div>
+<?php
+$the_query = new WP_Query( array(
+'post_type' => 'nth_cpt',
+ 'posts_per_page' => 4,
+'tax_query' => array(
+    array (
+        'taxonomy' => 'nth_category',
+        'field' => 'slug',
+        'terms' => 'featured-content'
+    )
+),
 
+    ) );
+while ( $the_query->have_posts() ) :
+
+    $the_query->the_post(); ?>
+
+   <div class="col-lg-3 outer">
+
+			<div class="inner">
+
+                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
+
+                 <div class="lbh-featured-video">
+
+                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
+
+                 </div>
+
+<?php elseif ( has_post_thumbnail() ): ?>
+
+<div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;background-position:center;">
+</div>
+
+<?php else: ?>
+
+<div style="background:url(/wp-content/uploads/2021/04/health-and-wellbeing.png);height:200px;background-size:cover;background-position:center;">
+                </div>
+
+
+<?php endif; ?>
+
+
+<div class="post-title" style="padding-top:10px;">
+					 <h6><?php the_title(); ?></h6>
+</div>
+
+				<button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
+
+
+
+			</div>
+
+            <div class="tag-box">
+
+                            <?php
+
+                $posttags = get_the_tags();
+
+                if ($posttags) {
+
+                foreach($posttags as $tag) {
+
+                    echo ' <a class="tag" href="/tags/'.$tag->slug.'">'.$tag->name . '</a>, ';
+
+                }
+
+                }
+
+                ?>
+
+
+
+            </div>
+</div>
+
+
+
+<?php endwhile;
+
+?>
+</div>
 
 
 <div class="row">
