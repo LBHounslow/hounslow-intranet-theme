@@ -1,6 +1,4 @@
-
 <div class="row">
-<div class="bubbleb-outer"><div class="bubbleb"><h5>Featured Articles</h5></div></div>
 <?php
 $the_query = new WP_Query( array(
 'post_type' => 'dal_cpt',
@@ -14,6 +12,10 @@ $the_query = new WP_Query( array(
 ),
 
     ) );
+
+if ( $the_query->have_posts() ) { ?>
+<div class="bubbleb-outer"><div class="bubbleb"><h5>Featured Articles</h5></div></div>
+<?php }
 while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
