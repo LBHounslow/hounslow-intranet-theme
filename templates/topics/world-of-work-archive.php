@@ -1,5 +1,4 @@
 <div class="row">
-<div class="bubbleb-outer"><div class="bubbleb"><h5>Featured Articles</h5></div></div>
 <?php
 $the_query = new WP_Query( array(
 'post_type' => 'wow_cpt',
@@ -13,6 +12,9 @@ $the_query = new WP_Query( array(
 ),
 
     ) );
+if ( $the_query->have_posts() ) { ?>
+<div class="bubbleb-outer"><div class="bubbleb"><h5>Featured Articles</h5></div></div>
+<?php }
 while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
@@ -125,7 +127,7 @@ foreach ( $categories as $category ) {
           <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
 
         </div>
-        
+
 <?php elseif ( has_post_thumbnail() ): ?>
 
 <div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;background-position:center;">

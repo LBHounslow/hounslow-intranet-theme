@@ -1,6 +1,4 @@
-
 <div class="row">
-<div class="bubbleb-outer"><div class="bubbleb"><h5>Featured Articles</h5></div></div>
 <?php
 $the_query = new WP_Query( array(
 'post_type' => 'nth_cpt',
@@ -14,6 +12,9 @@ $the_query = new WP_Query( array(
 ),
 
     ) );
+if ( $the_query->have_posts() ) { ?>
+<div class="bubbleb-outer"><div class="bubbleb"><h5>Featured Articles</h5></div></div>
+<?php }
 while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
@@ -96,7 +97,7 @@ while ( $the_query->have_posts() ) :
 <?php get_template_part('templates/new-starter/health-wellbeing-new-start', 'haw'); ?>
 
 <?php get_template_part('templates/new-starter/how-do-i-new-start', 'hdi'); ?>
-    
+
 <?php get_template_part('templates/new-starter/one-hounslow-new-start', 'oh'); ?>
 
 <?php get_template_part('templates/new-starter/one-hounslow-new-start', 'oh'); ?>
