@@ -1,3 +1,5 @@
+<?php get_template_part('templates/top-banner', 'menu'); ?>
+
 <?php
 /**
  * The header for our theme
