@@ -1,27 +1,29 @@
 <div class="row">
-<?php
-$the_query = new WP_Query( array(
-'post_type' => 'oh_cpt',
- 'posts_per_page' => 4,
-'tax_query' => array(
-    array (
+
+<div class="col-md-4">
+    <div class="row">
+        <?php
+        $the_query = new WP_Query( array(
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'post_type' => 'oh_cpt',
+        'posts_per_page' => 1,
+        'tax_query' => array(
+         array (
         'taxonomy' => 'oh_category',
         'field' => 'slug',
         'terms' => 'featured-content'
-    )
-),
+         )
+        ),
 
     ) );
-if ( $the_query->have_posts() ) { ?>
-<div class="bubbleb-outer"><div class="bubbleb"><h5>Featured Articles</h5></div></div>
-<?php }
 while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
 
-   <div class="col-lg-3 outer">
+   <div class="col-md-12 outer">
 
-			<div class="inner">
+			<div class="">
 
                  <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
 
@@ -32,50 +34,23 @@ while ( $the_query->have_posts() ) :
                  </div>
 
 <?php elseif ( has_post_thumbnail() ): ?>
-
-<div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;background-position:center;">
+<a href="<?php the_permalink(); ?>">
+<div class="tall-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;">
 </div>
-
-<?php else: ?>
-
-<div style="background:url(/wp-content/uploads/2021/04/health-and-wellbeing.png);height:200px;background-size:cover;background-position:center;">
-                </div>
+<div class="featured-tab"><h5><?php the_title(); ?></h5></div>
+</a>
 
 
 <?php endif; ?>
 
 
-<div class="post-title" style="padding-top:10px;">
-					 <h6><?php the_title(); ?></h6>
-</div>
 
-				<button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
 
 
 
 			</div>
 
-            <div class="tag-box">
-
-                            <?php
-
-                $posttags = get_the_tags();
-
-                if ($posttags) {
-
-                foreach($posttags as $tag) {
-
-                    echo ' <a class="tag" href="/tags/'.$tag->slug.'">'.$tag->name . '</a>, ';
-
-                }
-
-                }
-
-                ?>
-
-
-
-            </div>
+         
 </div>
 
 
@@ -83,6 +58,139 @@ while ( $the_query->have_posts() ) :
 <?php endwhile;
 
 ?>
+     
+    </div>
+</div>
+
+<div class="col-md-4">
+<div class="row">
+        <?php
+        $the_query = new WP_Query( array(
+         'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'post_type' => 'oh_cpt',
+        'offset' => 1,
+        'posts_per_page' => 2,
+        'tax_query' => array(
+         array (
+        'taxonomy' => 'oh_category',
+        'field' => 'slug',
+        'terms' => 'featured-content'
+         )
+        ),
+
+    ) );
+while ( $the_query->have_posts() ) :
+
+    $the_query->the_post(); ?>
+
+   <div class="col-lg-12 outer">
+
+			<div class="">
+
+                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
+
+                 <div class="lbh-featured-video">
+
+                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
+
+                 </div>
+
+<?php elseif ( has_post_thumbnail() ): ?>
+<a href="<?php the_permalink(); ?>">
+  <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');background-size:cover;background-position:center;">
+  </div>
+  <div class="featured-tab"><h5><?php the_title(); ?></h5>
+  </div>
+</a>
+
+
+
+<?php endif; ?>
+
+
+
+
+
+
+			</div>
+
+         
+</div>
+
+
+
+<?php endwhile;
+
+?>
+     
+    </div>
+</div>
+
+<div class="col-md-4">
+<div class="row">
+        <?php
+        $the_query = new WP_Query( array(
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'post_type' => 'oh_cpt',
+        'offset' => 3,
+        'posts_per_page' => 2,
+        'tax_query' => array(
+         array (
+        'taxonomy' => 'oh_category',
+        'field' => 'slug',
+        'terms' => 'featured-content'
+         )
+        ),
+
+    ) );
+while ( $the_query->have_posts() ) :
+
+    $the_query->the_post(); ?>
+
+   <div class="col-lg-12 outer">
+
+			<div class="">
+
+                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
+
+                 <div class="lbh-featured-video">
+
+                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
+
+                 </div>
+
+<?php elseif ( has_post_thumbnail() ): ?>
+<a href="<?php the_permalink(); ?>">
+  <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');background-size:cover;background-position:center;">
+  </div>
+  <div class="featured-tab"><h5><?php the_title(); ?></h5>
+  </div>
+</a>
+
+
+
+<?php endif; ?>
+
+
+
+
+
+
+			</div>
+
+         
+</div>
+
+
+
+<?php endwhile;
+
+?>
+     
+    </div>
+</div>
 </div>
 
 
