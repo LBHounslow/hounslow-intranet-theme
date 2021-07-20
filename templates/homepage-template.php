@@ -243,9 +243,11 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
 ?>
 
 </div>
-<button class="btn btn-dark">
-<a style=" color:white;" href="/news">View all news</a>
-</button>
+<form id="category-select" class="category-select" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+    <?php wp_dropdown_categories( 'show_count=1&hierarchical=1' ); ?>
+    <input type="submit" name="submit" value="view" /> 
+<a class="btn btn-dark" style="color:white;" href="/news">View all news</a>
+</form>
 </div>
 
 <div class="col-lg-3">

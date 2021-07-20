@@ -1,27 +1,30 @@
+
+
 <div class="row">
-<?php
-$the_query = new WP_Query( array(
-'post_type' => 'nth_cpt',
- 'posts_per_page' => 4,
-'tax_query' => array(
-    array (
+<div class="col-md-4">
+    <div class="row">
+        <?php
+        $the_query = new WP_Query( array(
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'post_type' => 'nth_cpt',
+        'posts_per_page' => 2,
+        'tax_query' => array(
+         array (
         'taxonomy' => 'nth_category',
         'field' => 'slug',
         'terms' => 'featured-content'
-    )
-),
+         )
+        ),
 
     ) );
-if ( $the_query->have_posts() ) { ?>
-<div class="bubbleb-outer"><div class="bubbleb"><h5>Featured Articles</h5></div></div>
-<?php }
 while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
 
-   <div class="col-lg-3 outer">
+   <div class="col-md-12 outer">
 
-			<div class="inner">
+			<div class="">
 
                  <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
 
@@ -32,50 +35,28 @@ while ( $the_query->have_posts() ) :
                  </div>
 
 <?php elseif ( has_post_thumbnail() ): ?>
+<a href="<?php the_permalink(); ?>">
+  <div style="background:#84D6CA">
+  <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>')background-repeat:no-repeat;background-size:contain;background-position:center;">
+  </div>
+  </div>
+  <div class="featured-tab-w"><h5><?php the_title(); ?></h5>
+  </div>
+</a>
 
-<div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;background-position:center;">
-</div>
 
-<?php else: ?>
-
-<div style="background:url(/wp-content/uploads/2021/04/health-and-wellbeing.png);height:200px;background-size:cover;background-position:center;">
-                </div>
 
 
 <?php endif; ?>
 
 
-<div class="post-title" style="padding-top:10px;">
-					 <h6><?php the_title(); ?></h6>
-</div>
 
-				<button class="btn btn-dark"><a style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a></button>
 
 
 
 			</div>
 
-            <div class="tag-box">
-
-                            <?php
-
-                $posttags = get_the_tags();
-
-                if ($posttags) {
-
-                foreach($posttags as $tag) {
-
-                    echo ' <a class="tag" href="/tags/'.$tag->slug.'">'.$tag->name . '</a>, ';
-
-                }
-
-                }
-
-                ?>
-
-
-
-            </div>
+         
 </div>
 
 
@@ -83,37 +64,144 @@ while ( $the_query->have_posts() ) :
 <?php endwhile;
 
 ?>
+     
+    </div>
 </div>
 
-
+<div class="col-md-4">
 <div class="row">
+        <?php
+        $the_query = new WP_Query( array(
+         'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'post_type' => 'nth_cpt',
+        'offset' => 2,
+        'posts_per_page' => 1,
+        'tax_query' => array(
+         array (
+        'taxonomy' => 'nth_category',
+        'field' => 'slug',
+        'terms' => 'featured-content'
+         )
+        ),
 
-<?php get_template_part('templates/new-starter/corporate-policy-new-start', 'pol'); ?>
+    ) );
+while ( $the_query->have_posts() ) :
 
-<?php get_template_part('templates/new-starter/develop-and-learn-new-start', 'dal'); ?>
+    $the_query->the_post(); ?>
 
-<?php get_template_part('templates/new-starter/get-involved-new-start', 'gi'); ?>
+   <div class="col-lg-12 outer">
 
-<?php get_template_part('templates/new-starter/health-wellbeing-new-start', 'haw'); ?>
+			<div class="">
 
-<?php get_template_part('templates/new-starter/how-do-i-new-start', 'hdi'); ?>
+                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
 
-<?php get_template_part('templates/new-starter/one-hounslow-new-start', 'oh'); ?>
+                 <div class="lbh-featured-video">
 
-<?php get_template_part('templates/new-starter/one-hounslow-new-start', 'oh'); ?>
+                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
 
-<?php get_template_part('templates/new-starter/working-together-new-start', 'wt'); ?>
+                 </div>
 
-<?php get_template_part('templates/new-starter/world-of-work-new-start', 'wt'); ?>
+<?php elseif ( has_post_thumbnail() ): ?>
+<a href="<?php the_permalink(); ?>">
+  <div style="background:#84D6CA">
+  <div class="tall-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');background-repeat:no-repeat;background-size:contain;background-position:center;">
+  </div>
+  </div>
+  <div class="featured-tab-w"><h5><?php the_title(); ?></h5>
+  </div>
+</a>
+
+
+<?php endif; ?>
 
 
 
 
 
 
+			</div>
 
-
+         
 </div>
+
+
+
+<?php endwhile;
+
+?>
+     
+    </div>
+</div>
+
+<div class="col-md-4">
+<div class="row">
+        <?php
+        $the_query = new WP_Query( array(
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'post_type' => 'nth_cpt',
+        'offset' => 3,
+        'posts_per_page' => 2,
+        'tax_query' => array(
+         array (
+        'taxonomy' => 'nth_category',
+        'field' => 'slug',
+        'terms' => 'featured-content'
+         )
+        ),
+
+    ) );
+while ( $the_query->have_posts() ) :
+
+    $the_query->the_post(); ?>
+
+   <div class="col-lg-12 outer">
+
+			<div class="">
+
+                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
+
+                 <div class="lbh-featured-video">
+
+                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
+
+                 </div>
+
+<?php elseif ( has_post_thumbnail() ): ?>
+<a href="<?php the_permalink(); ?>">
+  <div style="background:#84D6CA">
+  <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');background-size:contain;background-repeat:no-repeat;background-position:center;">
+  </div>
+  </div>
+  <div class="featured-tab-w"><h5><?php the_title(); ?></h5>
+  </div>
+</a>
+
+
+<?php endif; ?>
+
+
+
+
+
+
+			</div>
+
+         
+</div>
+
+
+
+<?php endwhile;
+
+?>
+     
+    </div>
+</div>
+</div>
+
+
 
    <?php
 
@@ -184,3 +272,33 @@ if ($posttags) {
 }
 
 ?>
+
+
+<div class="row">
+
+<?php get_template_part('templates/new-starter/corporate-policy-new-start', 'pol'); ?>
+
+<?php get_template_part('templates/new-starter/develop-and-learn-new-start', 'dal'); ?>
+
+<?php get_template_part('templates/new-starter/get-involved-new-start', 'gi'); ?>
+
+<?php get_template_part('templates/new-starter/health-wellbeing-new-start', 'haw'); ?>
+
+<?php get_template_part('templates/new-starter/how-do-i-new-start', 'hdi'); ?>
+
+<?php get_template_part('templates/new-starter/one-hounslow-new-start', 'oh'); ?>
+
+<?php get_template_part('templates/new-starter/one-hounslow-new-start', 'oh'); ?>
+
+<?php get_template_part('templates/new-starter/working-together-new-start', 'wt'); ?>
+
+<?php get_template_part('templates/new-starter/world-of-work-new-start', 'wt'); ?>
+
+
+
+
+
+
+
+
+</div>

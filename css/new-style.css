@@ -1,8 +1,226 @@
-.featured-border {
-    height:10px;
-    background:#83D6C9;
+/*Y O U Z I F Y  O V E R I D E S - create function that priorities this over default to remove !importants */
+
+.youzify .activity-comments li {
+  clear: both;
+  border: none;
+  padding: 0px!important;
 }
 
+.youzify .activity-comments {
+  background-color: white!important;
+}
+
+.youzify .activity-comments>ul {
+padding:0px!important;
+}
+
+#whats-new {
+font-size:20px!important;
+}
+
+label.youzify-wall-form-show-all {
+display:none!important;
+}
+
+label.youzify-wall-add-activity_slideshow.youzify-btn {
+display:none!important;
+}
+
+.youzify-left-sidebar-layout, .youzify-right-sidebar-layout {
+
+  grid-gap: 10px!important;
+
+}
+.youzify-sidebar .widget-content {
+  margin-bottom: 10px!important;
+}
+
+#youzify .activity-meta a {
+padding:0px!important;
+}
+
+.youzify .activity-header {
+  padding: 5px!important;
+}
+.youzify-directory-filter {
+padding:0px!important;
+margin: 0 0 10px!important;
+
+}
+
+.youzify-hdr-v2 .youzify-header-content {
+min-height:50px!important;
+}
+
+.activity-inner {
+padding:10px;
+}
+
+.youzify .activity-inner p {
+padding:10px!important;
+  font-size: 16px!important;
+
+}
+
+.activity-content .youzify-post-attachments img {
+  height: 350px!important;
+  margin:auto;
+  display: block;
+  max-width: 100%;
+}
+
+.youzify-post-attachments {
+background:black;
+}
+
+#buddypress.youzify .activity-list li.load-more, #buddypress.youzify .activity-list>li, .youzify .activity-list>li {
+margin:0 0 10px!important;
+}
+
+.youzify-page-main-content {
+ 
+  padding: 10px 0 0!important;
+
+}
+
+.youzify div.item-list-tabs {
+  padding: 10px 10px!important;
+  margin: 0 0 10px!important;
+
+}
+
+.youzify #youzify-wall-form {
+  margin: 0 0 10px!important;
+}
+
+.youzify-hdr-v1 .youzify-cover-content .youzify-inner-content {
+max-width:1000px!important;
+}
+
+#youzify-profile-navmenu {
+  max-width:100%!important;
+}
+
+.youzify-hdr-v2 {
+margin-bottom:0px!important;
+}
+
+.youzify li {
+padding:10px!important;
+}
+
+
+.has-comments li ul {
+ margin-left: 0px!important; 
+}
+
+
+/* G E N E R A L  S T Y L E S */
+
+
+.post-title {
+  padding-top:10px;
+}
+
+ .tall-item {
+  height:672px;
+}
+
+
+@media (max-width: 768px) { 
+
+.tall-item {
+
+  height:300px;
+}
+ }
+
+
+
+.reg-item {
+  height:300px;
+}
+
+
+.featured-tab {
+    z-index:200;
+    color:black;
+    background:#83D6C9;
+    padding:15px 15px 5px 15px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    clear: both;
+}
+
+.featured-tab-w {
+    z-index:200;
+    color:black;
+    background:white;
+    padding:15px 15px 5px 15px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    clear: both;
+}      
+
+
+.status-1 {
+    margin:20px;
+    background:#fafafa;
+    padding:10px;
+  
+}
+
+.green {
+ background:green;
+ height:50px;
+ width:50px;
+ border-radius:200px;
+}
+
+.orange {
+ background:orange;
+ height:50px;
+ width:50px;
+ border-radius:200px;
+
+}
+
+.red {
+ background:red;
+ height:50px;
+ width:50px;
+ border-radius:200px;
+
+}
+
+.selector {
+margin:2px -8px -8px -8px;
+}
+
+.status-bar {
+  background:#652F6C;
+   padding: 0px 10px 10px 10px;
+   text-align:right;
+}
+
+ .status-btn {
+   margin-top:10px;
+   margin-left:5px;
+   margin-right:5px;
+ }
+
+
+
+.about {
+  padding:20px;
+  background:#fafafa;
+}
+
+.about p {
+  margin:0px;
+}
 
 .status {
   margin:0px;
@@ -124,8 +342,7 @@ div.css-search div.em-search-main .em-search-submit {
 #menu-social-media {margin-left:0px;}
 
 .tag-box {
-  padding:5px;
-  background:#FFD940;
+ display:none;
 }
 
 #sidebar a {color:black;}
@@ -205,9 +422,6 @@ left: 225px;
   padding:20px;
 }
 
-
-
-
 .bubbleb
 {
 position: relative;
@@ -241,11 +455,6 @@ left: 190px;
 .bubbleb-outer {
   padding:20px;
 }
-
-
-
-
-
 
 
 
@@ -525,7 +734,7 @@ a[data-toggle=collapse] {
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
-@media (max-width: 994px) {
+@media (max-width: 922px) {
 #sidebar {
   min-width: 350px;
   max-width: 350px;
@@ -541,7 +750,7 @@ a[data-toggle=collapse] {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 922px) {
   #sidebar {
     margin-left: -350px;
   }
