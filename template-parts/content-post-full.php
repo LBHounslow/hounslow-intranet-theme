@@ -153,7 +153,11 @@ if ($posttags) {
 
 
 
+<div class="suggested">
 
+<?php get_template_part('templates/suggested-posts'); ?> 
+
+</div>
 
 
 
