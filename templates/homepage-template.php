@@ -1,34 +1,6 @@
 
-<div class="row outer justify-content-end align-items-center">
-<?php $value = rwmb_meta( 'lbh_status_radio');
-if ( 'working' == $value ) { ?>
 
 
-<div class="col-lg-2 text-right ">
-    <p class="status">Everything is working!</p>
- </div>
- <div class="col-lg-1">
- <a style="color:white" href="/system-status"><button class="btn btn-success"><strong>See Status</strong></button></a>
-</div>
-
-
-<?php } elseif ( 'issues' == $value ) { ?>
-<div class="col-lg-2 text-right ">
-    <p class="status">There are some issues on the Network!</p>
- </div>
- <div class="col-lg-1">
- <a style="color:white" href="/system-status"><button class="btn btn-warning"><strong>See Status</strong></button></a>
-</div>
-<?php } elseif ( 'down' == $value ) { ?>
-<div class="col-lg-2 text-right ">
-    <p class="status">Some Services are down</p>
- </div>
- <div class="col-lg-1">
- <a style="color:white" href="/system-status"><button class="btn btn-danger"><strong>See Status</strong></button></a>
-</div>
-<?php } ?>
-
-</div>
 
 <?php
 $news_site_id = 2;
