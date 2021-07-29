@@ -2,6 +2,7 @@
 <btn class="btn selector"><?php echo do_shortcode('[gtranslate]'); ?></btn>
 <a id="desktop" class="btn btn-light status-btn"  href="/feedback">Leave Feedback</a>
 <a id="desktop" class="btn btn-light status-btn"  href="/submit-a-new-intranet-page">Add a Page</a>
+<a id="desktop" class="btn btn-light status-btn"  href="/event-submission-form/?action=edit">Add an Event</a>
 <?php
 $my_query = new WP_Query('p=2463');
 while($my_query->have_posts()){
