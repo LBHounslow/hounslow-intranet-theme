@@ -172,14 +172,14 @@ padding:10px!important;
   
 }
 
-.green {
+.green-status {
  background:green;
  height:50px;
  width:50px;
  border-radius:200px;
 }
 
-.orange {
+.orange-status {
  background:orange;
  height:50px;
  width:50px;
@@ -187,7 +187,7 @@ padding:10px!important;
 
 }
 
-.red {
+.red-status {
  background:red;
  height:50px;
  width:50px;
