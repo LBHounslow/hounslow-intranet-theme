@@ -25,45 +25,19 @@ while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
 
-   <div class="col-md-3 outer">
+    <div class="col-md-3 outer">
+        <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+                <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;"></div>
+            </a>
 
-			<div class="inner">
+            <div class="post-title"><h6><?php the_title(); ?></h6></div>
+                <a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
+            </div>       
+        </div>
 
-                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
-
-                 <div class="lbh-featured-video">
-
-                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
-
-                 </div>
-
-<?php elseif ( has_post_thumbnail() ): ?>
-<a href="<?php the_permalink(); ?>">
-<div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;">
-</div>
-</a>
-<div class="post-title"><h6><?php the_title(); ?></h6></div>
-<a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
-
-
-<?php endif; ?>
-
-
-
-
-
-
-			</div>
-
-         
-</div>
-
-
-
-<?php endwhile;
-
-?>
-     
+        <?php endwhile; ?>
+        
     </div>
 
 
@@ -85,49 +59,23 @@ while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
 
-   <div class="col-md-3 outer">
+    <div class="col-md-3 outer">
+        <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+                <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;"></div>
+            </a>
 
-			<div class="inner">
+            <div class="post-title"><h6><?php the_title(); ?></h6></div>
+                <a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
+            </div>       
+        </div>
 
-                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
-
-                 <div class="lbh-featured-video">
-
-                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
-
-                 </div>
-
-<?php elseif ( has_post_thumbnail() ): ?>
-<a href="<?php the_permalink(); ?>">
-<div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;">
-</div>
-</a>
-<div class="post-title"><h6><?php the_title(); ?></h6></div>
-<a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
-
-
-<?php endif; ?>
-
-
-
-
-
-
-			</div>
-
-         
-</div>
-
-
-
-<?php endwhile;
-
-?>
-     
+        <?php endwhile; ?>
+        
     </div>
 
 
-<?php }else if (strpos($url,'new-to-lbh') !== false) {?>
+<?php } else if (strpos($url,'new-to-lbh') !== false) {?>
 
 
     <div class="row">
@@ -144,48 +92,22 @@ while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
 
-   <div class="col-md-3 outer">
+    <div class="col-md-3 outer">
+        <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+                <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;"></div>
+            </a>
 
-			<div class="inner">
+            <div class="post-title"><h6><?php the_title(); ?></h6></div>
+                <a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
+            </div>       
+        </div>
 
-                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
-
-                 <div class="lbh-featured-video">
-
-                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
-
-                 </div>
-
-<?php elseif ( has_post_thumbnail() ): ?>
-<a href="<?php the_permalink(); ?>">
-<div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;">
-</div>
-</a>
-<div class="post-title"><h6><?php the_title(); ?></h6></div>
-<a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
-
-
-<?php endif; ?>
-
-
-
-
-
-
-			</div>
-
-         
-</div>
-
-
-
-<?php endwhile;
-
-?>
-     
+        <?php endwhile; ?>
+        
     </div>
 
-<?php }else if (strpos($url,'corporate-policies') !== false) {?>
+<?php } else if (strpos($url,'corporate-policies') !== false) {?>
 
 
     <div class="row">
@@ -202,48 +124,22 @@ while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
 
-   <div class="col-md-3 outer">
+    <div class="col-md-3 outer">
+        <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+                <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;"></div>
+            </a>
 
-			<div class="inner">
+            <div class="post-title"><h6><?php the_title(); ?></h6></div>
+                <a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
+            </div>       
+        </div>
 
-                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
-
-                 <div class="lbh-featured-video">
-
-                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
-
-                 </div>
-
-<?php elseif ( has_post_thumbnail() ): ?>
-<a href="<?php the_permalink(); ?>">
-<div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;">
-</div>
-</a>
-<div class="post-title"><h6><?php the_title(); ?></h6></div>
-<a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
-
-
-<?php endif; ?>
-
-
-
-
-
-
-			</div>
-
-         
-</div>
-
-
-
-<?php endwhile;
-
-?>
-     
+        <?php endwhile; ?>
+        
     </div>
 
-<?php }else if (strpos($url,'how-do-i') !== false) {?>
+<?php } else if (strpos($url,'how-do-i') !== false) {?>
 
 
     <div class="row">
@@ -260,48 +156,22 @@ while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
 
-   <div class="col-md-3 outer">
+    <div class="col-md-3 outer">
+        <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+                <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;"></div>
+            </a>
 
-			<div class="inner">
+            <div class="post-title"><h6><?php the_title(); ?></h6></div>
+                <a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
+            </div>       
+        </div>
 
-                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
-
-                 <div class="lbh-featured-video">
-
-                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
-
-                 </div>
-
-<?php elseif ( has_post_thumbnail() ): ?>
-<a href="<?php the_permalink(); ?>">
-<div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;">
-</div>
-</a>
-<div class="post-title"><h6><?php the_title(); ?></h6></div>
-<a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
-
-
-<?php endif; ?>
-
-
-
-
-
-
-			</div>
-
-         
-</div>
-
-
-
-<?php endwhile;
-
-?>
-     
+        <?php endwhile; ?>
+        
     </div>
 
-<?php }else if (strpos($url,'get-involved') !== false) {?>
+<?php } else if (strpos($url,'get-involved') !== false) {?>
  
 
     <div class="row">
@@ -318,48 +188,22 @@ while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
 
-   <div class="col-md-3 outer">
+<div class="col-md-3 outer">
+        <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+                <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;"></div>
+            </a>
 
-			<div class="inner">
+            <div class="post-title"><h6><?php the_title(); ?></h6></div>
+                <a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
+            </div>       
+        </div>
 
-                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
-
-                 <div class="lbh-featured-video">
-
-                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
-
-                 </div>
-
-<?php elseif ( has_post_thumbnail() ): ?>
-<a href="<?php the_permalink(); ?>">
-<div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;">
-</div>
-</a>
-<div class="post-title"><h6><?php the_title(); ?></h6></div>
-<a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
-
-
-<?php endif; ?>
-
-
-
-
-
-
-			</div>
-
-         
-</div>
-
-
-
-<?php endwhile;
-
-?>
-     
+        <?php endwhile; ?>
+        
     </div>
 
-<?php }else if (strpos($url,'develop-and-learn') !== false) {?>
+<?php } else if (strpos($url,'develop-and-learn') !== false) {?>
 
 
     <div class="row">
@@ -376,48 +220,22 @@ while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
 
-   <div class="col-md-3 outer">
+<div class="col-md-3 outer">
+        <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+                <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;"></div>
+            </a>
 
-			<div class="inner">
+            <div class="post-title"><h6><?php the_title(); ?></h6></div>
+                <a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
+            </div>       
+        </div>
 
-                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
-
-                 <div class="lbh-featured-video">
-
-                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
-
-                 </div>
-
-<?php elseif ( has_post_thumbnail() ): ?>
-<a href="<?php the_permalink(); ?>">
-<div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;">
-</div>
-</a>
-<div class="post-title"><h6><?php the_title(); ?></h6></div>
-<a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
-
-
-<?php endif; ?>
-
-
-
-
-
-
-			</div>
-
-         
-</div>
-
-
-
-<?php endwhile;
-
-?>
-     
+        <?php endwhile; ?>
+        
     </div>
 
-<?php }else if (strpos($url,'world-of-work') !== false) {?>
+<?php } else if (strpos($url,'world-of-work') !== false) {?>
  
 
     <div class="row">
@@ -434,46 +252,56 @@ while ( $the_query->have_posts() ) :
 
     $the_query->the_post(); ?>
 
-   <div class="col-md-3 outer">
+<div class="col-md-3 outer">
+        <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+                <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;"></div>
+            </a>
 
-			<div class="inner">
+            <div class="post-title"><h6><?php the_title(); ?></h6></div>
+                <a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
+            </div>       
+        </div>
 
-                 <?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
-
-                 <div class="lbh-featured-video">
-
-                 <?php echo rwmb_meta( 'lbh_featured_video' ); ?>
-
-                 </div>
-
-<?php elseif ( has_post_thumbnail() ): ?>
-<a href="<?php the_permalink(); ?>">
-<div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;">
-</div>
-</a>
-<div class="post-title"><h6><?php the_title(); ?></h6></div>
-<a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
-
-
-<?php endif; ?>
-
-
-
-
-
-
-			</div>
-
-         
-</div>
-
-
-
-<?php endwhile;
-
-?>
-     
+        <?php endwhile; ?>
+        
     </div>
+
+    <?php } else if (strpos($url,'one-hounslow') !== false) {?>
+ 
+
+ <div class="row">
+     <?php
+     $the_query = new WP_Query( array(
+     'orderby' => 'rand',
+     'order' => 'ASC',
+     'post_type' => 'oh_cpt',
+     'posts_per_page' => 4,
+    
+
+ ) );
+while ( $the_query->have_posts() ) :
+
+ $the_query->the_post(); ?>
+
+<div class="col-md-3 outer">
+     <div class="inner">
+         <a href="<?php the_permalink(); ?>">
+             <div class="reg-item" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>') center; background-size:cover;"></div>
+         </a>
+
+         <div class="post-title"><h6><?php the_title(); ?></h6></div>
+             <a class="btn btn-dark" style="color:white;" href="<?php echo get_permalink(); ?>">Read More</a>
+         </div>       
+     </div>
+
+     <?php endwhile; ?>
+     
+ </div>
+
+
+
+
 
 <?php
    
