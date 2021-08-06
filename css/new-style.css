@@ -1,3 +1,67 @@
+
+/* Carousel */
+
+
+.indicator-pad {
+  padding:20px;
+}
+.carousel-control-prev {
+  position:relative;
+  float:right;
+}
+
+.carousel-control-next {
+  position:relative;
+}
+
+.col-md-3{
+display: inline-block;
+}
+.col-md-3 img{
+width:100%;
+height:auto;
+}
+
+body .carousel-indicators-hidden li{
+background-color:transparant;
+}
+body .carousel-indicators li{
+background-color:black;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+background-color:black;
+}
+body .no-padding{
+padding-left: 0;
+padding-right: 0;
+}
+
+
+.hoverfx {
+position: relative;
+display: block;
+overflow: hidden;
+text-align: center;
+}
+
+.hoverfx img {
+position: absolute;
+left: 0;
+width: 100%;
+}
+
+.hoverfx:before {
+display: inline-block;
+padding-top: 60%;
+content: '';
+vertical-align: middle;
+}
+
+
+
+
+
 /*Y O U Z I F Y  O V E R I D E S - create function that priorities this over default to remove !importants */
 
 .youzify .activity-comments li {

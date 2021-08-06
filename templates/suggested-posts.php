@@ -303,7 +303,7 @@ while ( $the_query->have_posts() ) :
 
 
 
-<?php
+<?php 
    
 }
 
