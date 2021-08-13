@@ -1,17 +1,30 @@
 
 /* Carousel */
 
+.topic-title {
+  padding-bottom: 10px;
+}
+.topic-title a {
+  color:hotpink;
+  font-weight:bold;
+
+}
+
+.post-title-carousel {
+  padding-top:10px;
+  height:60px;
+}
 
 .indicator-pad {
   padding:20px;
 }
 .carousel-control-prev {
-  position:relative;
+  position:relative!important;
   float:right;
 }
 
 .carousel-control-next {
-  position:relative;
+  position:relative!important;
 }
 
 .col-md-3{
@@ -185,6 +198,8 @@ padding:10px!important;
 .post-title {
   padding-top:10px;
 }
+
+
 
  .tall-item {
   height:672px;
@@ -788,6 +803,13 @@ a[data-toggle=collapse] {
   width: 100%;
   padding: 20px;
   transition: all 0.3s;
+}
+
+#content-page {
+  width: 100%;
+  padding: 20px;
+  transition: all 0.3s;
+  background:white;
 }
 
 

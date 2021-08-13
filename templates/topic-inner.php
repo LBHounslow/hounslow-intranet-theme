@@ -81,4 +81,5 @@ if (strpos($url,'working-together') !== false) {?>
 <style>
 .new-starter {display:none;}
 .featured-content {display:none;}
+.featured-content-home {display:none;}
 </style>

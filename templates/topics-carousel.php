@@ -13,6 +13,9 @@
       <div class="col-md-3 outer">
         
     <div class="inner">
+    <div class="topic-title">
+    <a href="/develop-and-learn/"><small>Develop and Learn</small></a>
+    </div>
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -23,7 +26,7 @@
           array (
           'taxonomy' => 'dal_category',
           'field' => 'slug',
-          'terms' => 'featured-content'
+          'terms' => 'featured-content-home'
           )
           ),
 
@@ -37,7 +40,7 @@
 </a>
 
     <div class="pads">
-      <div class="post-title">
+      <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
       <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
@@ -50,6 +53,9 @@
       <div class="col-md-3 outer">
      
     <div class="inner">
+    <div class="topic-title">
+    <a href="/get-involved/"><small>Get Involved</small></a>
+    </div>
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -60,7 +66,7 @@
           array (
           'taxonomy' => 'gi_category',
           'field' => 'slug',
-          'terms' => 'featured-content'
+          'terms' => 'featured-content-home'
           )
           ),
 
@@ -74,7 +80,7 @@
 </a>
 
     <div class="pads">
-      <div class="post-title">
+      <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
       <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
@@ -87,6 +93,9 @@
       <div class="col-md-3 outer">
         
     <div class="inner">
+    <div class="topic-title">
+    <a href="/health-and-wellbeing/"><small>Health and Wellbeing</small></a>
+    </div>
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -97,7 +106,7 @@
           array (
           'taxonomy' => 'haw_category',
           'field' => 'slug',
-          'terms' => 'featured-content'
+          'terms' => 'featured-content-home'
           )
           ),
 
@@ -111,7 +120,7 @@
 </a>
 
     <div class="pads">
-      <div class="post-title">
+      <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
       <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
@@ -124,6 +133,9 @@
       <div class="col-md-3 outer">
        
     <div class="inner">
+    <div class="topic-title">
+    <a href="/how-do-i/"><small>How Do I?</small></a>
+    </div>
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -134,7 +146,7 @@
           array (
           'taxonomy' => 'hdi_category',
           'field' => 'slug',
-          'terms' => 'featured-content'
+          'terms' => 'featured-content-home'
           )
           ),
 
@@ -148,7 +160,7 @@
 </a>
 
     <div class="pads">
-      <div class="post-title">
+      <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
       <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
@@ -166,6 +178,9 @@
       <div class="col-md-3 outer">
         
     <div class="inner">
+    <div class="topic-title">
+    <a href="/new-to-lbh/"><small>New to Hounslow?</small></a>
+    </div>
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -176,7 +191,7 @@
           array (
           'taxonomy' => 'nth_category',
           'field' => 'slug',
-          'terms' => 'featured-content'
+          'terms' => 'featured-content-home'
           )
           ),
 
@@ -190,7 +205,7 @@
 </a>
 
     <div class="pads">
-      <div class="post-title">
+      <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
       <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
@@ -203,6 +218,9 @@
       <div class="col-md-3 outer">
         
     <div class="inner">
+    <div class="topic-title">
+    <a href="/working-together/"><small>Working Together</small></a>
+    </div>
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -213,7 +231,7 @@
           array (
           'taxonomy' => 'wt_category',
           'field' => 'slug',
-          'terms' => 'featured-content'
+          'terms' => 'featured-content-home'
           )
           ),
 
@@ -227,7 +245,7 @@
 </a>
 
     <div class="pads">
-      <div class="post-title">
+      <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
       <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
@@ -240,6 +258,9 @@
       <div class="col-md-3 outer">
         
     <div class="inner">
+    <div class="topic-title">
+    <a href="/one-hounslow/"><small>One Hounslow</small></a>
+    </div>
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -250,7 +271,7 @@
           array (
           'taxonomy' => 'oh_category',
           'field' => 'slug',
-          'terms' => 'featured-content'
+          'terms' => 'featured-content-home'
           )
           ),
 
@@ -264,7 +285,7 @@
 </a>
 
     <div class="pads">
-      <div class="post-title">
+      <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
       <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
@@ -276,6 +297,9 @@
       </div>   
       <div class="col-md-3 outer-end">
            <div class=" inner">
+           <div class="topic-title">
+    <a href="/world-of-work/"><small>World of Work</small></a>
+    </div>
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -286,7 +310,7 @@
           array (
           'taxonomy' => 'wow_category',
           'field' => 'slug',
-          'terms' => 'featured-content'
+          'terms' => 'featured-content-home'
           )
           ),
 
@@ -300,7 +324,7 @@
 </a>
 
     <div class="pads">
-      <div class="post-title">
+      <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
       <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
