@@ -1,34 +1,6 @@
 
-<div class="row outer justify-content-end align-items-center">
-<?php $value = rwmb_meta( 'lbh_status_radio');
-if ( 'working' == $value ) { ?>
 
 
-<div class="col-lg-2 text-right ">
-    <p class="status">Everything is working!</p>
- </div>
- <div class="col-lg-1">
- <a style="color:white" href="/system-status"><button class="btn btn-success"><strong>See Status</strong></button></a>
-</div>
-
-
-<?php } elseif ( 'issues' == $value ) { ?>
-<div class="col-lg-2 text-right ">
-    <p class="status">There are some issues on the Network!</p>
- </div>
- <div class="col-lg-1">
- <a style="color:white" href="/system-status"><button class="btn btn-warning"><strong>See Status</strong></button></a>
-</div>
-<?php } elseif ( 'down' == $value ) { ?>
-<div class="col-lg-2 text-right ">
-    <p class="status">Some Services are down</p>
- </div>
- <div class="col-lg-1">
- <a style="color:white" href="/system-status"><button class="btn btn-danger"><strong>See Status</strong></button></a>
-</div>
-<?php } ?>
-
-</div>
 
 <?php
 $news_site_id = 2;
@@ -154,7 +126,7 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 
 ?>
  <div class="featured-border">
-</div>                 
+</div>
                 </div>
 				</div>
 
@@ -181,10 +153,11 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 
 
 </div>
+<?php get_template_part('templates/topics-carousel'); ?>
 
 <div class="row">
 <div class="col-lg-9">
-
+<h4>News</h4>
 
                     <div class="row">
 <?php
@@ -243,14 +216,11 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
 ?>
 
 </div>
-<form id="category-select" class="category-select" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
-    <?php wp_dropdown_categories( 'show_count=1&hierarchical=1' ); ?>
-    <input type="submit" name="submit" value="view" /> 
 <a class="btn btn-dark" style="color:white;" href="/news">View all news</a>
-</form>
 </div>
 
 <div class="col-lg-3">
+<h4>Events</h4>
 <div class="row">
  					<?php $EM_Events = EM_Events::get( array('limit'=>4, 'scope' => 'future' ) );
 

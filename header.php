@@ -1,4 +1,4 @@
-<?php get_template_part('templates/top-banner', 'menu'); ?>
+
 
 <?php
 /**
@@ -26,6 +26,7 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<?php get_template_part('templates/top-banner', 'menu'); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary" data-swiftype-index="false"><?php esc_html_e( 'Skip to content', 'hounslow-intranet-theme' ); ?></a>
 

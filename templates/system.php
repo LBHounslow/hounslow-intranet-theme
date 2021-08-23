@@ -62,16 +62,16 @@
     <?php $value = rwmb_meta( 'intranet_site');
     if ( 'working' == $value ) { ?>
 
-        <div class="green"></div>
+        <div class="green-status"></div>
 
 
     <?php } elseif ( 'issues' == $value ) { ?>
 
-        <div class="orange"></div>
+        <div class="orange-status"></div>
 
 
     <?php } elseif ( 'down' == $value ) { ?>
-      <div class="red"></div>
+      <div class="red-status"></div>
 
 
     <?php } ?>
@@ -92,16 +92,16 @@
     <?php $value = rwmb_meta( 'ohms');
     if ( 'working' == $value ) { ?>
 
-        <div class="green"></div>
+        <div class="green-status"></div>
 
 
     <?php } elseif ( 'issues' == $value ) { ?>
 
-      <div class="orange"></div>
+      <div class="orange-status"></div>
 
 
     <?php } elseif ( 'down' == $value ) { ?>
-       <div class="red"></div>
+       <div class="red-status"></div>
 
 
     <?php } ?>
@@ -123,16 +123,16 @@
     <?php $value = rwmb_meta( 'business_world');
     if ( 'working' == $value ) { ?>
 
-        <div class="green"></div>
+        <div class="green-status"></div>
 
 
     <?php } elseif ( 'issues' == $value ) { ?>
 
-      <div class="orange"></div>
+      <div class="orange-status"></div>
 
 
     <?php } elseif ( 'down' == $value ) { ?>
-       <div class="red"></div>
+       <div class="red-status"></div>
 
 
     <?php } ?>
@@ -155,16 +155,16 @@
     <?php $value = rwmb_meta( 'corporate_website');
     if ( 'working' == $value ) { ?>
 
-        <div class="green"></div>
+        <div class="green-status"></div>
 
 
     <?php } elseif ( 'issues' == $value ) { ?>
 
-      <div class="orange"></div>
+      <div class="orange-status"></div>
 
 
     <?php } elseif ( 'down' == $value ) { ?>
-       <div class="red"></div>
+       <div class="red-status"></div>
 
 
     <?php } ?>
@@ -186,16 +186,16 @@
     <?php $value = rwmb_meta( 'imanage');
     if ( 'working' == $value ) { ?>
 
-        <div class="green"></div>
+        <div class="green-status"></div>
 
 
     <?php } elseif ( 'issues' == $value ) { ?>
 
-      <div class="orange"></div>
+      <div class="orange-status"></div>
 
 
     <?php } elseif ( 'down' == $value ) { ?>
-       <div class="red"></div>
+       <div class="red-status"></div>
 
 
     <?php } ?>

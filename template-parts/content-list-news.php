@@ -9,9 +9,10 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="row">
-		<div class="col-sm-4">
+		<div class="col-md-6 outer">
+        <div class="inner">
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
 			<?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
 
 				<?php echo rwmb_meta( 'lbh_featured_video' ); ?>
@@ -21,11 +22,9 @@
 				<a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark"><?php hounslow_intranet_news_thumbnail( $post ); ?></a>
 
 			<?php endif; ?>
-		
-		</div>
-		<div class="col-sm-8">
+            <div class="post-title">
 			<?php
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+				the_title( '<h4 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' );
 				?>
 				<div class="entry-meta mb-1">
 					<?php
@@ -34,7 +33,9 @@
 					//hounslow_intranet_posted_by();
 					?>
 				</div><!-- .entry-meta -->
+                </div>
 				<?php
+                
 				the_excerpt(
 					sprintf(
 						wp_kses(
@@ -51,7 +52,11 @@
 				);
 
 				?>
+                <a class="btn btn-dark" style="color:white;" href="<?php echo the_permalink(); ?>">Read More</a>
+		</article><!-- #post-<?php the_ID(); ?> -->
+        </div>
 		</div>
-	<div>
-	<hr />
-</article><!-- #post-<?php the_ID(); ?> -->
+
+
+
+
