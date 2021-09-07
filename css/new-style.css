@@ -1,4 +1,21 @@
 
+.em-categories-list li {
+  list-style:none;
+}
+
+.dropdown-toggle {
+  width:100%;
+}
+
+.dropdown-menu {
+
+  width:93%;
+}
+
+.the-excerpt {
+  min-height: 88px;
+}
+
 /* Carousel */
 
 .topic-title {
