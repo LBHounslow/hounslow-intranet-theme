@@ -216,17 +216,15 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
 ?>
 
 </div>
-<form id="category-select" class="category-select" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
-    <?php
-  
-    switch_to_blog(2); 
-    
-     wp_dropdown_categories( 'show_count=1&hierarchical=1' ); ?>
-    <input type="submit" name="submit" value="view" />
-    <button class="btn btn-dark"> 
-<a style=" color:white;" href="/news">View all news</a>
-</button>
+<form id="category-select" class="category-select" action="<?php echo esc_url( home_url( '/news/' ) ); ?>" method="get">
+<?php
+  switch_to_blog(2);
+  wp_dropdown_categories( 'show_count=1&hierarchical=1' ); ?>
+<input type="submit" name="submit" value="View" />
 </form>
+<button class="btn btn-dark">
+  <a style="color:white;" href="/news">View all news</a>
+</button>
 </div>
 
 <div class="col-lg-3">
