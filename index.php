@@ -28,6 +28,7 @@ get_header();
 
 
 					<main id="primary" class="site-main">
+                        <div class="row">
 				<?php
 				if ( have_posts() ) :
 
@@ -36,6 +37,8 @@ get_header();
 						<header>
 							<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 						</header>
+						
+						
 						<?php
 					endif;
 
@@ -60,6 +63,7 @@ get_header();
 
 				endif;
 				?>
+				</div>
 			</main><!-- #main -->
 
 

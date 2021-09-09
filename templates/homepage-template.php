@@ -216,6 +216,12 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
 ?>
 
 </div>
+<form id="category-select" class="category-select" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+    <?php
+    switch_to_blog(2);
+    wp_dropdown_categories( 'show_count=1&hierarchical=1' ); ?>
+    <input type="submit" name="submit" value="View" /> 
+  </form>
 <a class="btn btn-dark" style="color:white;" href="/news">View all news</a>
 </div>
 
@@ -244,6 +250,15 @@ foreach ( $EM_Events as $EM_Event ){
 
 	  ');
 }?>
+
+<div class="dropdown">
+  <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+    Event Categories
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ;>
+ <?php echo do_shortcode('[categories_list]'); ?>
+  </div>
+</div>
 </div>
 </div>
 
