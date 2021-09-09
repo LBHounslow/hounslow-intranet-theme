@@ -62,11 +62,6 @@ get_header();
 
                 ?>
 
-
-
-    <p><i class="fas fa-calendar-day"></i> <span class="posted-on">Posted on <?php the_time(get_option('date_format')); ?></p>
-    <p><i class="fas fa-user"></i> <span class="byline"> By  <?php the_author_link(); ?></p>
-    <?php wpfp_link(); ?>
         </header><!-- .entry-header -->
 
 

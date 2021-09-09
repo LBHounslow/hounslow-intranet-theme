@@ -2,20 +2,16 @@
 
 
 <div id="demo" class="carousel slide" data-interval="false" data-ride="carousel">
-<h4>Top Articles</h4>
+<h4>Featured Engage Posts</h4>
 
-
-  
   <!-- The slideshow -->
-  <div class=" carousel-inner no-padding">
+  <div class="carousel-inner no-padding">
     <div class="carousel-item active">
     <div class="row">
       <div class="col-md-3 outer">
-        
-    <div class="inner">
-    <div class="topic-title">
-    <a href="/develop-and-learn/"><small>Develop and Learn</small></a>
-    </div>
+
+    <div class="inner-post">
+
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -43,19 +39,20 @@
       <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
-      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
+      <div class="topic-title">
+      <a href="/develop-and-learn/"><small>Develop and Learn</small></a>
+      </div>
+      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Read More</a>
     </div>
 
   <?php endwhile; ?>
-  
+
   </div>
-      </div>    
+      </div>
       <div class="col-md-3 outer">
-     
-    <div class="inner">
-    <div class="topic-title">
-    <a href="/get-involved/"><small>Get Involved</small></a>
-    </div>
+
+    <div class="inner-post">
+
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -83,19 +80,20 @@
       <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
-      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
+      <div class="topic-title">
+      <a href="/get-involved/"><small>Get Involved</small></a>
+      </div>
+      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Read More</a>
     </div>
 
   <?php endwhile; ?>
-  
+
   </div>
-      </div>   
+      </div>
       <div class="col-md-3 outer">
-        
-    <div class="inner">
-    <div class="topic-title">
-    <a href="/health-and-wellbeing/"><small>Health and Wellbeing</small></a>
-    </div>
+
+    <div class="inner-post">
+
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -123,19 +121,20 @@
       <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
-      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
+      <div class="topic-title">
+      <a href="/health-and-wellbeing/"><small>Health and Wellbeing</small></a>
+      </div>
+      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Read More</a>
     </div>
 
   <?php endwhile; ?>
-  
+
   </div>
-      </div>   
+      </div>
       <div class="col-md-3 outer">
-       
-    <div class="inner">
-    <div class="topic-title">
-    <a href="/how-do-i/"><small>How Do I?</small></a>
-    </div>
+
+    <div class="inner-post">
+
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -163,24 +162,25 @@
       <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
-      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
+      <div class="topic-title">
+      <a href="/how-do-i/"><small>How Do I?</small></a>
+      </div>
+      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Read More</a>
     </div>
 
   <?php endwhile; ?>
-  
+
   </div>
-      </div>   
+      </div>
 
       </div>
     </div><!---row --->
     <div class="carousel-item">
     <div class="row">
       <div class="col-md-3 outer">
-        
-    <div class="inner">
-    <div class="topic-title">
-    <a href="/new-to-lbh/"><small>New to Hounslow?</small></a>
-    </div>
+
+    <div class="inner-post">
+
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -208,19 +208,19 @@
       <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
-      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
+      <div class="topic-title">
+      <a href="/new-to-lbh/"><small>New to Hounslow?</small></a>
+      </div>
+      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Read More</a>
     </div>
 
   <?php endwhile; ?>
-  
+
   </div>
-      </div>    
+      </div>
       <div class="col-md-3 outer">
-        
-    <div class="inner">
-    <div class="topic-title">
-    <a href="/working-together/"><small>Working Together</small></a>
-    </div>
+
+    <div class="inner-post">
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -248,19 +248,19 @@
       <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
-      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
+      <div class="topic-title">
+      <a href="/working-together/"><small>Working Together</small></a>
+      </div>
+      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Read More</a>
     </div>
 
   <?php endwhile; ?>
-  
+
   </div>
-      </div>   
+      </div>
       <div class="col-md-3 outer">
-        
-    <div class="inner">
-    <div class="topic-title">
-    <a href="/one-hounslow/"><small>One Hounslow</small></a>
-    </div>
+
+    <div class="inner-post">
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -288,18 +288,18 @@
       <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
-      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
+      <div class="topic-title">
+      <a href="/one-hounslow/"><small>One Hounslow</small></a>
+      </div>
+      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Read More</a>
     </div>
 
   <?php endwhile; ?>
-  
+
   </div>
-      </div>   
-      <div class="col-md-3 outer-end">
-           <div class=" inner">
-           <div class="topic-title">
-    <a href="/world-of-work/"><small>World of Work</small></a>
-    </div>
+      </div>
+      <div class="col-md-3 outer">
+           <div class="inner-post">
   <?php
           $the_query = new WP_Query( array(
           'orderby' => 'menu_order',
@@ -327,19 +327,22 @@
       <div class="post-title-carousel">
         <h6><?php the_title(); ?></h6>
       </div>
-      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Learn More</a>
+      <div class="topic-title">
+        <a href="/world-of-work/"><small>World of Work</small></a>
+      </div>
+      <a class="btn btn-dark" style="color:white;" href="<?php the_permalink(); ?>">Read More</a>
     </div>
 
   <?php endwhile; ?>
-  
+
   </div>
-      </div> 
+      </div>
 </div><!---row --->
     </div>
 
   </div>
-  
- 
+
+
 <div class="row indicator-pad">
 <div class="col-6">
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
