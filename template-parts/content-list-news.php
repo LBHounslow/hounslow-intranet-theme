@@ -9,7 +9,7 @@
 
 ?>
 
-		<div class="col-md-6 outer">
+		<div class="col-md-3 outer">
         <div class="inner">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -34,6 +34,7 @@
 					?>
 				</div><!-- .entry-meta -->
                 </div>
+				<div class="the-excerpt">
 				<?php
                 
 				the_excerpt(
@@ -52,6 +53,7 @@
 				);
 
 				?>
+				</div>
                 <a class="btn btn-dark" style="color:white;" href="<?php echo the_permalink(); ?>">Read More</a>
 		</article><!-- #post-<?php the_ID(); ?> -->
         </div>
