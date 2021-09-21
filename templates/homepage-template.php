@@ -157,7 +157,8 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 
 <div class="row">
 <div class="col-lg-9">
-<h4>News</h4>
+<h4 class="float-left">News</h4>
+  <a class="btn btn-dark" style="color:white; margin-left:20px;" href="/news">View all News</a>
 
                     <div class="row">
 <?php
@@ -216,19 +217,13 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
 ?>
 
 </div>
-<form id="category-select" class="category-select" action="<?php echo esc_url( home_url( '/news/' ) ); ?>" method="get">
-<?php
-  switch_to_blog(2);
-  wp_dropdown_categories( 'show_count=1&hierarchical=1' ); ?>
-<input type="submit" name="submit" value="View" />
-</form>
-<button class="btn btn-dark">
-  <a style="color:white;" href="/news">View all news</a>
-</button>
+
+
 </div>
 
 <div class="col-lg-3">
-<h4>Events</h4>
+<h4 class="float-left">Events</h4>
+  <a class="btn btn-dark" style="color:white; margin-left:20px;" href="/news">View all Events</a>
 <div class="row">
  					<?php $EM_Events = EM_Events::get( array('limit'=>4, 'scope' => 'future' ) );
 
