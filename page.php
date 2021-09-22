@@ -42,6 +42,44 @@ if (strpos($url,'events/categories/') !== false) { ?>
 
     <div class="col-lg-12" >
 
+<div class="row justify-content-center text-center">
+    <div class="col-lg-2">
+      <button class="btn btn-dark"><a style="color:white;" href="/event-submission-form">Manage Your Events</a></button>
+    </div>
+    <div class="col-lg-2">
+           <button class="btn btn-dark"><a style="color:white;" href="/event-submission-form/?action=edit">Submit An Event</a></button>
+    </div>
+	<div class="col-lg-2">
+    <button class="btn btn-dark"><a style="color:white;" href="/manage-bookings">Manage Attendees</a></button>
+    </div>
+  </div>
+
+ <div class="row text-center">
+
+<div class="col-lg-12 news-categories">    
+ <?php
+
+
+$terms = get_terms( 'event-categories', array( 
+                        'orderby' => 'name',
+                        'order'   => 'ASC',
+                        'exclude'  => array(),
+) );
+$exclude = array();
+$new_the_category = '';
+foreach ( $terms as $term ) {
+if (!in_array($term->name, $exclude)) {
+$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/events//category/'.$term->slug .'">'.$term->name.'</a></button>';
+}
+}
+echo substr($new_the_category, 0);
+      /* Restore original Post Data */
+              
+
+?>
+</div>
+</div>
+
    
 
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
