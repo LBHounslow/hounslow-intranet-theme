@@ -40,7 +40,7 @@ foreach ( $images as $image ) {
 </div>
             <div class="row text-center">
 
-<div class="col-lg-12news-categories">    
+<div class="col-lg-12 news-categories">    
  <?php
 
 
@@ -53,7 +53,7 @@ $exclude = array();
 $new_the_category = '';
 foreach ( $terms as $term ) {
 if (!in_array($term->name, $exclude)) {
-$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href=/news/category/'.$term->slug .'">'.$term->name.'</a></button>';
+$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/news/category/'.$term->slug .'">'.$term->name.'</a></button>';
 }
 }
 echo substr($new_the_category, 0);
@@ -80,7 +80,7 @@ echo substr($new_the_category, 0);
                       array(
                           'taxonomy' => 'category',
                           'field'    => 'slug',
-                          'terms'    => 'featured-content',
+                          'terms'    => 'featured',
                       ),
                   ),
                   );
@@ -165,7 +165,7 @@ echo substr($new_the_category, 0);
                             array(
                                 'taxonomy' => 'category',
                                 'field'    => 'slug',
-                                'terms'    => 'featured-content',
+                                'terms'    => 'featured',
                             ),
                         ),
                         );
