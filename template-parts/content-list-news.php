@@ -19,12 +19,12 @@
 
 			<?php else: ?>
 
-				<a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark"><?php hounslow_intranet_news_thumbnail( $post ); ?></a>
+				<a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark"><div class="news-featured-img" style="background:url(<?php echo get_the_post_thumbnail_url(); ?>);height:200px;background-size:cover;"></div></a>
 
 			<?php endif; ?>
-            <div class="post-title">
+            <div class="post-title-list">
 			<?php
-				the_title( '<h4 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' );
+				the_title( '<h5 class="entry-title post-title-list"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h5>' );
 				?>
 				<div class="entry-meta mb-1">
 					<?php
@@ -34,7 +34,7 @@
 					?>
 				</div><!-- .entry-meta -->
                 </div>
-				<div class="the-excerpt">
+				<div class="the-excerpt-list">
 				<?php
                 
 				the_excerpt(
@@ -58,7 +58,6 @@
 		</article><!-- #post-<?php the_ID(); ?> -->
         </div>
 		</div>
-
-
+		
 
 
