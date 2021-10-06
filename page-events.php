@@ -32,7 +32,7 @@ get_header();
 <div style="padding:20px;background:#83d6c9;margin-bottom:20px;">
 <div class="row align-items-center justify-content-around">
 <div class="col-lg-6">
-<h4>Find out what’s happening at the Council, including events and social opportunities.</h4>
+<p><strong>Find out what’s happening at the Council, including events and social opportunities.</strong></p>
 </div>
 <div class="col-lg-3">
 <?php $images = rwmb_meta( 'second_image', array( 'size' => 'full' ) );
@@ -56,6 +56,33 @@ foreach ( $images as $image ) {
     <button class="btn btn-dark"><a style="color:white;" href="/manage-bookings">Manage Attendees</a></button>
     </div>
   </div>
+
+  
+  <div class="row text-center">
+
+<div class="col-lg-12 news-categories">    
+ <?php
+
+
+$terms = get_terms( 'event-categories', array( 
+                        'orderby' => 'name',
+                        'order'   => 'ASC',
+                        'exclude'  => array(),
+) );
+$exclude = array();
+$new_the_category = '';
+foreach ( $terms as $term ) {
+if (!in_array($term->name, $exclude)) {
+$new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:white;" href="/events//category/'.$term->slug .'">'.$term->name.'</a></button>';
+}
+}
+echo substr($new_the_category, 0);
+      /* Restore original Post Data */
+              
+
+?>
+</div>
+</div>
 
             <main id="primary" class="site-main">
 
