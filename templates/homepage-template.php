@@ -157,10 +157,15 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 
 <div class="row">
 <div class="col-lg-9">
-<h4 class="float-left">News</h4>
-  <a class="btn btn-dark" style="color:white; margin-left:20px;" href="/news">View all News</a>
-
-                    <div class="row">
+  <div class="row">
+    <div class="col">
+      <h4>News</h4>
+    </div>
+    <div class="col">
+      <a class="btn btn-dark float-right" style="color:white;" href="/news">View all News</a>
+    </div>
+  </div>
+  <div class="row">
 <?php
 
 $loop = false;
@@ -222,8 +227,14 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
 </div>
 
 <div class="col-lg-3">
-<h4 class="float-left">Events</h4>
-  <a class="btn btn-dark" style="color:white; margin-left:20px;" href="/events">View all Events</a>
+  <div class="row">
+    <div class="col">
+      <h4>Events</h4>
+    </div>
+    <div class="col">
+      <a class="btn btn-dark float-right" style="color:white;" href="/events">View all Events</a>
+    </div>
+  </div>
 <div class="row">
  					<?php $EM_Events = EM_Events::get( array('limit'=>4, 'scope' => 'future' ) );
 
