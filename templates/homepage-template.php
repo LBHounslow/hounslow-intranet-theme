@@ -223,7 +223,7 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
 
 <div class="col-lg-3">
 <h4 class="float-left">Events</h4>
-  <a class="btn btn-dark" style="color:white; margin-left:20px;" href="/news">View all Events</a>
+  <a class="btn btn-dark" style="color:white; margin-left:20px;" href="/events">View all Events</a>
 <div class="row">
  					<?php $EM_Events = EM_Events::get( array('limit'=>4, 'scope' => 'future' ) );
 
