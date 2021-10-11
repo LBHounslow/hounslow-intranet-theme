@@ -44,23 +44,23 @@ if (strpos($url,'events/categories/') !== false) { ?>
 
 <div class="row justify-content-center text-center">
     <div class="col-lg-2">
-      <button class="btn btn-dark"><a style="color:white;" href="/event-submission-form">Manage Your Events</a></button>
+      <button class="btn btn-primary"><a style="color:white;" href="/event-submission-form">Manage Your Events</a></button>
     </div>
     <div class="col-lg-2">
-           <button class="btn btn-dark"><a style="color:white;" href="/event-submission-form/?action=edit">Submit An Event</a></button>
+           <button class="btn btn-primary"><a style="color:white;" href="/event-submission-form/?action=edit">Submit An Event</a></button>
     </div>
 	<div class="col-lg-2">
-    <button class="btn btn-dark"><a style="color:white;" href="/manage-bookings">Manage Attendees</a></button>
+    <button class="btn btn-primary"><a style="color:white;" href="/manage-bookings">Manage Attendees</a></button>
     </div>
   </div>
 
  <div class="row text-center">
 
-<div class="col-lg-12 news-categories">    
+<div class="col-lg-12 news-categories">
  <?php
 
 
-$terms = get_terms( 'event-categories', array( 
+$terms = get_terms( 'event-categories', array(
                         'orderby' => 'name',
                         'order'   => 'ASC',
                         'exclude'  => array(),
@@ -74,13 +74,13 @@ $new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:whi
 }
 echo substr($new_the_category, 0);
       /* Restore original Post Data */
-              
+
 
 ?>
 </div>
 </div>
 
-   
+
 
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -104,7 +104,7 @@ echo substr($new_the_category, 0);
 
                 ?>
 
-    
+
         </header><!-- .entry-header -->
 
 
@@ -241,11 +241,6 @@ echo substr($new_the_category, 0);
 
                 ?>
 
-
-
-    <p><i class="fas fa-calendar-day"></i> <span class="posted-on">Posted on <?php the_time(get_option('date_format')); ?></p>
-    <p><i class="fas fa-user"></i> <span class="byline"> By  <?php the_author_link(); ?></p>
-    
         </header><!-- .entry-header -->
 
 
