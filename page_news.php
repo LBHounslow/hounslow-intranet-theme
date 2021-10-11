@@ -4,7 +4,7 @@
     *
     * @package Hounslow_Intranet
     */
-   
+
    get_header();
    ?>
 <body>
@@ -24,15 +24,28 @@
                </div>
             </div>
    <div style="padding:20px;background:#83d6c9;margin-bottom:20px;">
-<h4>All the latest news and updates</h4>
+
+     <div class="row align-items-center justify-content-around">
+ 			<div class="col-lg-6">
+ 				<h4>All the latest news and updates</h4>
+ 			</div>
+ 			<div class="col-lg-3">
+ 				<?php $images = rwmb_meta( 'second_image', array( 'size' => 'full' ) );
+ 				foreach ( $images as $image ) {
+     			echo '<a href="', $image['full_url'], '"><img src="', $image['url'], '"></a>';
+ 				} ?>
+ 			</div>
+ 		</div>
    </div>
+
+
             <div class="row text-center">
 
-<div class="col-lg-12 news-categories">    
+<div class="col-lg-12 news-categories">
  <?php
 
 
-$terms = get_terms( 'category', array( 
+$terms = get_terms( 'category', array(
                         'orderby' => 'name',
                         'order'   => 'ASC',
                         'exclude'  => array(),
@@ -46,7 +59,7 @@ $new_the_category .= '<button class="btn btn-dark topic-btn"><a style="color:whi
 }
 echo substr($new_the_category, 0);
       /* Restore original Post Data */
-              
+
 
 ?>
 </div>
@@ -103,7 +116,7 @@ while ( $the_query->have_posts() ) :
 
 			</div>
 
-         
+
 </div>
 
 
@@ -111,7 +124,7 @@ while ( $the_query->have_posts() ) :
 <?php endwhile;
 
 ?>
-     
+
     </div>
 </div>
 
@@ -168,7 +181,7 @@ while ( $the_query->have_posts() ) :
 
 			</div>
 
-         
+
 </div>
 
 
@@ -176,7 +189,7 @@ while ( $the_query->have_posts() ) :
 <?php endwhile;
 
 ?>
-     
+
     </div>
 </div>
 
@@ -233,7 +246,7 @@ while ( $the_query->have_posts() ) :
 
 			</div>
 
-         
+
 </div>
 
 
@@ -241,7 +254,7 @@ while ( $the_query->have_posts() ) :
 <?php endwhile;
 
 ?>
-     
+
     </div>
 </div>
 </div>
@@ -262,28 +275,28 @@ while ( $the_query->have_posts() ) :
                   	'paged' => $paged,
                   );
                   $news = new WP_Query( $news_query_args );
-                  
+
                   // The Loop
                   if ( $news->have_posts() ) {
-                  
+
                   	while ( $news->have_posts() ) {
                   		$news->the_post();
-                  
+
                   			get_template_part( 'template-parts/content-list', 'news' );
-                  
+
                   		}
-                  
+
                   		hounslow_intranet_paged_posts_navigation( $news, 'News navigation', $aria_label = 'News' );
-                  
+
                   } else {
-                  
+
                   	get_template_part( 'template-parts/content', 'none' );
-                  
+
                   }
-                  
+
                   /* Restore original Post Data */
                   wp_reset_postdata();
-                  
+
                   ?>
             </div>
          </main>
