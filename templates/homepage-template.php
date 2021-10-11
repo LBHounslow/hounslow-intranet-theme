@@ -157,9 +157,15 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 
 <div class="row">
 <div class="col-lg-9">
-<h4>News</h4>
-
-                    <div class="row">
+  <div class="row">
+    <div class="col">
+      <h4 class="mt-2">News</h4>
+    </div>
+    <div class="col">
+      <a class="btn btn-dark float-right" style="color:white;" href="/news">View all News</a>
+    </div>
+  </div>
+  <div class="row">
 <?php
 
 $loop = false;
@@ -216,11 +222,19 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
 ?>
 
 </div>
-<a class="btn btn-dark" style="color:white;" href="/news">View all news</a>
+
+
 </div>
 
 <div class="col-lg-3">
-<h4>Events</h4>
+  <div class="row">
+    <div class="col">
+      <h4 class="mt-2">Events</h4>
+    </div>
+    <div class="col">
+      <a class="btn btn-dark float-right" style="color:white;" href="/events">View all Events</a>
+    </div>
+  </div>
 <div class="row">
  					<?php $EM_Events = EM_Events::get( array('limit'=>4, 'scope' => 'future' ) );
 
@@ -244,6 +258,14 @@ foreach ( $EM_Events as $EM_Event ){
 
 	  ');
 }?>
+<div class="dropdown">
+  <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+    Event Categories
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ;>
+ <?php echo do_shortcode('[categories_list]'); ?>
+  </div>
+</div>
 </div>
 </div>
 

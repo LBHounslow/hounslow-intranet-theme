@@ -1,13 +1,9 @@
 {
 	"name": "hounslow-intranet-theme",
-	"description": "WordPress theme for the Hounslow Intranet.",
-	"version": "0.0.1",
-	"repository": "LBHounslow/hounslow-intranet-theme",
-	"license": "GNU GPL v2.0",
 	"description": " WordPress theme for the Hounslow Intranet.",
-	"version": "1.1.4",
+	"version": "1.1.5",
 	"repository": "LBHounslow/hounslow-intranet-theme/",
-	"license": "MIT",
+	"license": "GNU GPL v2.0",
 	"devDependencies": {
 		"@babel/core": "^7.14.0",
 		"@babel/preset-env": "^7.14.1",
