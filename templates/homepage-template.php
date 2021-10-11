@@ -159,7 +159,7 @@ if ( function_exists('hounslow_intranet_network_news_query_featured')  ) {
 <div class="col-lg-9">
   <div class="row">
     <div class="col">
-      <h4>News</h4>
+      <h4 class="mt-2">News</h4>
     </div>
     <div class="col">
       <a class="btn btn-dark float-right" style="color:white;" href="/news">View all News</a>
@@ -229,7 +229,7 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
 <div class="col-lg-3">
   <div class="row">
     <div class="col">
-      <h4>Events</h4>
+      <h4 class="mt-2">Events</h4>
     </div>
     <div class="col">
       <a class="btn btn-dark float-right" style="color:white;" href="/events">View all Events</a>
