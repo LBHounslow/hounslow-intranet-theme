@@ -27,7 +27,7 @@
 
      <div class="row align-items-center justify-content-around">
  			<div class="col-lg-6">
- 				<h4>All the latest news and updates</h4>
+ 				<?php the_excerpt(); ?>
  			</div>
  			<div class="col-lg-3">
  				<?php $images = rwmb_meta( 'second_image', array( 'size' => 'full' ) );
