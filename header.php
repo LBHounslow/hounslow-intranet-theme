@@ -19,8 +19,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" id="custom-css" href="/wp-content/themes/hounslow-intranet-theme/css/new-style.css?ver=4" type="text/css" media="all">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Nunito+Sans">
 	<?php wp_head(); ?>
 </head>
 
