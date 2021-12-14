@@ -17,7 +17,6 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" id="custom-css" href="/wp-content/themes/hounslow-intranet-theme/css/new-style.css?ver=4" type="text/css" media="all">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
 </head>
