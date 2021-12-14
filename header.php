@@ -54,7 +54,7 @@
 		    <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-dark text-sidebar ">
+                    <button type="button" id="sidebarCollapse" class="btn btn-dark">
                         <i class="fas fa-align-left"></i>
                         <span></span>
                     </button>
