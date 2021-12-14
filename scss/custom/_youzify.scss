@@ -1,0 +1,110 @@
+/*Y O U Z I F Y  O V E R I D E S - create function that priorities this over default to remove !importants */
+
+.youzify .activity-comments li {
+  clear: both;
+  border: none;
+  padding: 0px!important;
+}
+
+.youzify .activity-comments {
+  background-color: white!important;
+}
+
+.youzify .activity-comments>ul {
+padding:0px!important;
+}
+
+#whats-new {
+font-size:20px!important;
+}
+
+label.youzify-wall-form-show-all {
+display:none!important;
+}
+
+label.youzify-wall-add-activity_slideshow.youzify-btn {
+display:none!important;
+}
+
+.youzify-left-sidebar-layout, .youzify-right-sidebar-layout {
+
+  grid-gap: 10px!important;
+
+}
+.youzify-sidebar .widget-content {
+  margin-bottom: 10px!important;
+}
+
+#youzify .activity-meta a {
+padding:0px!important;
+}
+
+.youzify .activity-header {
+  padding: 5px!important;
+}
+.youzify-directory-filter {
+padding:0px!important;
+margin: 0 0 10px!important;
+
+}
+
+.youzify-hdr-v2 .youzify-header-content {
+min-height:50px!important;
+}
+
+.activity-inner {
+padding:10px;
+}
+
+.youzify .activity-inner p {
+padding:10px!important;
+  font-size: 16px!important;
+
+}
+
+.activity-content .youzify-post-attachments img {
+  height: 350px!important;
+  margin:auto;
+  display: block;
+  max-width: 100%;
+}
+
+.youzify-post-attachments {
+background:black;
+}
+
+#buddypress.youzify .activity-list li.load-more, #buddypress.youzify .activity-list>li, .youzify .activity-list>li {
+margin:0 0 10px!important;
+}
+
+.youzify-page-main-content {
+
+  padding: 10px 0 0!important;
+
+}
+
+.youzify div.item-list-tabs {
+  padding: 10px 10px!important;
+  margin: 0 0 10px!important;
+
+}
+
+.youzify #youzify-wall-form {
+  margin: 0 0 10px!important;
+}
+
+.youzify-hdr-v1 .youzify-cover-content .youzify-inner-content {
+max-width:1000px!important;
+}
+
+#youzify-profile-navmenu {
+  max-width:100%!important;
+}
+
+.youzify-hdr-v2 {
+margin-bottom:0px!important;
+}
+
+.youzify li {
+padding:10px!important;
+}

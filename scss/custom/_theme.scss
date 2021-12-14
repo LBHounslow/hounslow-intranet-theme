@@ -85,23 +85,6 @@ h1.entry-title {
   color: lighten($utility-nav-link-color, 15%)
 }
 
-/* Network Navigation */
-#network-navigation-menu-toggler {
-  margin-left: 3rem;
-}
-#menu-main {
-  margin-left: 0;
-}
-
-
-/* Breadcrumb Navigation */
-
-#site-breadcrumbs ol {
-  margin-left: 3em;
-  margin-bottom: 0;
-  padding-left: 0.5rem;
-  background-color: inherit;
-}
 
 /* Paginated Navigation */
 
@@ -130,20 +113,7 @@ ul.pagination {
  background-color: rgba(0,0,0,.7);
  }
 
- /* News Carousel */
 
- #news-carousel .carousel-caption {
-   background-color:rgba(0, 0, 0, 0.55);
-   padding-left: 1rem;
-   padding-right: 1rem;
-   margin-bottom: 2rem;
- }
-
- .carousel-control-prev-icon,
- .carousel-control-next-icon {
-   width: 35px !important;
-   height: 35px !important;
- }
 
  /* Fix for long words in titles */
 .widget,
@@ -242,17 +212,3 @@ ul.pagination {
 .st-ui-type-detail-bold {
   font-weight: bold !important;
 }
-
- /* Styling for Guides CPT */
- .kb-description {
-   font-size: 1.5em;
- }
- .shortcode-toc ul {
-   list-style: square;
- }
- .guide a.anchor {
-   font-size: 18px;
- }
- #toc {
-   margin-top: 1.5em;
- }
