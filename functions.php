@@ -7,9 +7,9 @@
  * @package Hounslow_Intranet
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if ( ! defined( 'HOUNSLOW_INTRANET_THEME_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.2.0' );
+	define( 'HOUNSLOW_INTRANET_THEME_VERSION', '1.2.0' );
 }
 
 if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
@@ -245,10 +245,10 @@ function hounslow_intranet_scripts() {
 
 	wp_enqueue_style( 'hounslow-intranet-google-fonts', 'https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700', false );
 
-	wp_enqueue_style( 'hounslow-intranet-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'hounslow-intranet-style', get_stylesheet_uri(), array(), HOUNSLOW_INTRANET_THEME_VERSION );
 	wp_style_add_data( 'hounslow-intranet-style', 'rtl', 'replace' );
-	wp_enqueue_script( 'hounslow-intranet-bootstrap', get_template_directory_uri() . '/js/bootstrap.bundle.min.js', array(), _S_VERSION, true );
-	//wp_enqueue_script( 'hounslow-intranet-custom-scripts', get_template_directory_uri() . '/js/custom.js', array('customize-preview'), _S_VERSION, true );
+	wp_enqueue_script( 'hounslow-intranet-bootstrap', get_template_directory_uri() . '/js/bootstrap.bundle.min.js', array(), HOUNSLOW_INTRANET_THEME_VERSION, true );
+	//wp_enqueue_script( 'hounslow-intranet-custom-scripts', get_template_directory_uri() . '/js/custom.js', array('customize-preview'), HOUNSLOW_INTRANET_THEME_VERSION, true );
 	wp_enqueue_script( 'hounslow-intranet-fontawesome', 'https://kit.fontawesome.com/b97fd955b7.js');
 	wp_script_add_data( 'hounslow-intranet-fontawesome', 'crossorigin' , 'anonymous' );
 
