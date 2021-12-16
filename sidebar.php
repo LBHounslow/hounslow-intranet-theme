@@ -9,5 +9,5 @@
  ?>
  <!-- Sidebar  -->
  <nav id="sidebar" data-swiftype-index="false">
-   <?php get_template_part('templates/navigation', 'menu'); ?>
+   <?php get_template_part('template-parts/navigation', 'menu'); ?>
  </nav>
