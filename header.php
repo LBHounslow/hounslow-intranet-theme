@@ -1,5 +1,3 @@
-
-
 <?php
 /**
  * The header for our theme
@@ -10,7 +8,6 @@
  *
  * @package Hounslow_Intranet
  */
- $appsBar = hounslow_intranet_get_apps_bar();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
