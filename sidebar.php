@@ -7,4 +7,7 @@
  * @package Hounslow_Intranet
  */
  ?>
- <!-- SIDEBAR -->
+ <!-- Sidebar  -->
+ <nav id="sidebar" data-swiftype-index="false">
+   <?php get_template_part('templates/navigation', 'menu'); ?>
+ </nav>

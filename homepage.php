@@ -16,14 +16,8 @@
 
 get_header();
 get_sidebar();
+?>
 
-?>
-        <!-- Sidebar  -->
-        <nav id="sidebar" data-swiftype-index="false">
-
-<?php get_template_part('templates/navigation', 'menu'); ?>
-
-        </nav>
 
         <!-- Page Content  -->
         <div id="content">

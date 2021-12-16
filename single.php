@@ -10,22 +10,9 @@
 get_header();
 get_sidebar();
 ?>
-
-
-
-
-        <!-- Sidebar  -->
-        <nav id="sidebar" data-swiftype-index="false">
-
-<?php get_template_part('templates/navigation', 'menu'); ?>
-
-        </nav>
-
-        <!-- Page Content  -->
-        <div id="content">
-
-
-            <main id="primary" class="site-main">
+<!-- Page Content  -->
+<div id="content">
+  <main id="primary" class="site-main">
 
 		<?php
 		while ( have_posts() ) :

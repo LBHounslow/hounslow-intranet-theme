@@ -9,15 +9,7 @@
 
 get_header();
 get_sidebar();
-?>
-        <!-- Sidebar  -->
-        <nav id="sidebar" data-swiftype-index="false">
 
-<?php get_template_part('templates/navigation', 'menu'); ?>
-
-        </nav>
-
-	<?php
 $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 if (strpos($url,'corporate-policies') !== false) {?>
