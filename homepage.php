@@ -13,15 +13,12 @@
  *
  * @package LBH_Intranet
  */
-
-
- get_header();
+
+get_header();
+get_sidebar();
 
 ?>
-
-<body>
-    <div class="wrapper">
-        <!-- Sidebar  -->
+        <!-- Sidebar  -->
         <nav id="sidebar" data-swiftype-index="false">
 
 <?php get_template_part('templates/navigation', 'menu'); ?>
@@ -37,10 +34,7 @@
 
         </div>
 
-
+
     </div>
-</body>
-
-<?php
-get_sidebar();
+</body><?php
 get_footer();

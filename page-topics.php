@@ -33,17 +33,10 @@
 
 
  get_header();
-
+get_sidebar();
 
 
 ?>
-
-
-
-<body>
-
-    <div class="wrapper">
-
         <!-- Sidebar  -->
 
         <nav id="sidebar" data-swiftype-index="false">
@@ -88,7 +81,4 @@
 
 <?php
 
-get_sidebar();
-
 get_footer();
-

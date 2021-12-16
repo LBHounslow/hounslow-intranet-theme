@@ -86,4 +86,6 @@
 	</div>
 </div>
 </header><!-- #masthead -->
-            </div>
+</div>
+<body>
+	<div class="wrapper">

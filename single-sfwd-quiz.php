@@ -1,8 +1,7 @@
 <?php
 get_header();
+get_sidebar();
 ?>
-<body>
-	<div class="wrapper">
 		<!-- Sidebar  -->
 		<nav id="sidebar" data-swiftype-index="false">
 			<?php get_template_part('templates/navigation', 'menu'); ?>
@@ -33,5 +32,4 @@ get_header();
 }
 </style>
 <?php
-get_sidebar();
 get_footer();

@@ -13,9 +13,8 @@
  */
 
 get_header();
+get_sidebar();
 ?>
-<body>
-    <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar" data-swiftype-index="false">
 
@@ -37,8 +36,8 @@ get_header();
 						<header>
 							<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 						</header>
-						
-						
+
+
 						<?php
 					endif;
 
@@ -74,5 +73,4 @@ get_header();
 		</body>
 
 <?php
-get_sidebar();
 get_footer();

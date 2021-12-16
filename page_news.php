@@ -6,9 +6,8 @@
     */
 
    get_header();
+   get_sidebar();
    ?>
-<body>
-   <div class="wrapper">
       <!-- Sidebar  -->
       <nav id="sidebar" data-swiftype-index="false">
          <?php get_template_part('templates/navigation', 'menu'); ?>
@@ -305,5 +304,4 @@ while ( $the_query->have_posts() ) :
    </div>
 </body>
 <?php
-get_sidebar();
 get_footer();
