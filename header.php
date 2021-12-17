@@ -19,44 +19,29 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<?php get_template_part('template-parts/header-banner', 'menu'); ?>
-<div id="page" class="site">
-	<a class="visually-hidden-focusable" href="#primary" data-swiftype-index="false"><?php esc_html_e( 'Skip to content', 'hounslow-intranet-theme' ); ?></a>
-
+	<?php wp_body_open(); ?>
+	<?php get_template_part('template-parts/header-banner', 'menu'); ?>
+	<div id="page" class="site">
+		<a class="visually-hidden-focusable" href="#primary" data-swiftype-index="false"><?php esc_html_e( 'Skip to content', 'hounslow-intranet-theme' ); ?></a>
 		<header id="masthead" class="site-header">
-	<div class="container-fluid" >
-<div class="row align-items-center">
-	<div class="col-lg-2 align-self-center site-branding">
-		<div class="logo-inner">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-
-				<?php
-			else :
-				?>
-
-				<?php
-			endif;
-			$test_description = get_bloginfo( 'description', 'display' );
-			if ( $test_description || is_customize_preview() ) :
-				?>
-
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-	</div>
-	<div class="col-lg-10">
-		    <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="btn btn-dark">
-                        <i class="fas fa-align-left"></i>
-                        <span></span>
-                    </button>
-
-                    <?php if ( function_exists('hounslow_intranet_network_nav_menu') && is_user_logged_in() ) {
+			<div class="container-fluid" >
+				<div class="row align-items-center">
+					<div class="col-lg-2 align-self-center site-branding">
+						<div class="logo-inner">
+							<?php	the_custom_logo();
+							if ( is_front_page() && is_home() ) :
+							else :
+							endif;
+							$test_description = get_bloginfo( 'description', 'display' );
+							if ( $test_description || is_customize_preview() ) :
+							endif; ?>
+						</div><!-- .logo-inner -->
+					</div><!-- .site-branding -->
+					<div class="col-lg-10">
+						<nav class="navbar navbar-expand-lg navbar-dark">
+							<div class="container-fluid">
+								<button type="button" id="sidebarCollapse" class="btn btn-dark"><i class="fas fa-align-left"></i><span></span></button>
+								<?php if ( function_exists('hounslow_intranet_network_nav_menu') && is_user_logged_in() ) :
 
           					$network_menu_args = array(
           							'theme_location'    => 'utility',
@@ -69,23 +54,20 @@
           							'walker'            => new WP_Bootstrap_Navwalker()
           					);
           					hounslow_intranet_network_nav_menu( $network_menu_args );
-          				} else { ?>
-          					<div id="utility-menu" class="col-md-6 col-lg">
-          						<ul class="nav justify-content-end">
-          					    <li class="nav-item username-link">
-          					      <a href="<?php echo wp_login_url(get_permalink()); ?>" class="nav-link">Log In</a>
-          					    </li>
-          						</ul>
-          					</div>
-          				<?php } ?>
-
-                   <?php get_search_form(); ?>
-                </div>
-            </nav>
-	</div>
-	</div>
-</div>
-</header><!-- #masthead -->
-</div>
-<body>
-	<div class="wrapper">
+          				else : ?>
+									<div id="utility-menu" class="col-md-6 col-lg">
+										<ul class="nav justify-content-end">
+											<li class="nav-item username-link">
+												<a href="<?php echo wp_login_url(get_permalink()); ?>" class="nav-link">Log In</a>
+											</li>
+										</ul>
+									</div><!-- .utility-menu -->
+								<?php	endif;
+								get_search_form(); ?>
+              </div>
+						</nav>
+					</div>
+				</div><!-- .row -->
+			</div><!-- .container -->
+		</header><!-- #masthead -->
+		<div class="wrapper">
