@@ -17,14 +17,11 @@ get_sidebar();
 		while ( have_posts() ) :
       the_post();
       get_template_part( 'template-parts/content-post', get_post_type() );
-
-      // If comments are open or we have at least one comment, load up the comment template.
-      if ( comments_open() || get_comments_number() ) :
-        comments_template();
-      endif;
-
     endwhile; // End of the loop.
 		?>
+    <div class="suggested">
+    	<?php get_template_part('templates/suggested-posts'); ?>
+    </div>
   </main><!-- #primary .site-main -->
 </div><!-- #content -->
 <?php
