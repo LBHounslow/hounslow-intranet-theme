@@ -9,20 +9,25 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package LBH_Intranet_v1
+ * @package LBH_Intranet
  */
 get_header();
 get_sidebar();
+$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 ?>
 <!-- Page Content  -->
 <div id="content">
   <main id="primary" class="site-main">
-    <?php $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-    if (strpos($url,'events/categories/') !== false) { ?>
-      <?php get_template_part( 'template-parts/content-page', 'event' ); ?>
-    <?php } else {?>
-      <?php get_template_part( 'template-parts/content-page', 'page' ); ?>
-    <?php } ?>
+    <?php
+    while ( have_posts() ) :
+    	the_post();
+      if (strpos($url,'events/categories/') !== false) {
+        get_template_part( 'template-parts/content-page', 'event' );
+      } else {
+        get_template_part( 'template-parts/content', 'page' );
+      }
+    endwhile; // End of the loop.
+    ?>
   </main><!-- #primary .site-main -->
 </div><!-- #content -->
 <?php
