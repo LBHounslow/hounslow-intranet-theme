@@ -13,6 +13,7 @@
  */
 
  get_header();
+ get_sidebar();
  ?>
  <!-- Page Content  -->
  <div id="content">
@@ -52,5 +53,4 @@
   </main><!-- #primary .site-main -->
 </div><!-- #content -->
 <?php
-get_sidebar();
 get_footer();
