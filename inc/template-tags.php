@@ -7,6 +7,24 @@
  * @package Hounslow_Intranet
  */
 
+/* ENTRY TAGS */
+
+
+if ( ! function_exists( 'hounslow_intranet_entry_featured_video' ) ) :
+	/**
+	 * Outputs the featured video.
+	 */
+	function hounslow_intranet_entry_featured_video() {
+
+		if ( rwmb_get_value( 'lbh_featured_video' ) ):
+			echo rwmb_meta( 'lbh_featured_video' );
+		else:
+
+		endif;
+	}
+endif;
+
+
 if ( ! function_exists( 'hounslow_intranet_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
@@ -60,6 +78,22 @@ if ( ! function_exists( 'hounslow_intranet_posted_by' ) ) :
 
 		echo '<p><i class="fas fa-user"></i> <span class="byline"> ' . $byline . '</span></p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
+	}
+endif;
+
+if ( ! function_exists( 'hounslow_intranet_entry_related_links' ) ) :
+	/**
+	 * Outputs related links.
+	 */
+	function hounslow_intranet_entry_related_links() {
+		if ( rwmb_meta( 'lbh_draft_sharepoint' ) ): ?>
+		<div class="row" style="background:#fafafa;padding:20px;">
+			<div class="col-lg-12">
+				<h5>Sharepoint download</h5>
+				<a style="color:white;" href="<?php echo rwmb_meta( 'lbh_draft_sharepoint' ); ?>"><button class="btn btn-dark">Download File</button></a>
+			</div>
+		</div>
+	<?php endif; // end of if field_name logic
 	}
 endif;
 
