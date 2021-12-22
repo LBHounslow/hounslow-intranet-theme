@@ -16,7 +16,7 @@ get_sidebar();
     <?php
 		while ( have_posts() ) :
       the_post();
-      get_template_part( 'template-parts/content-post', get_post_type() );
+      get_template_part( 'template-parts/content', hounslow_intranet_get_post_type() );
     endwhile; // End of the loop.
 		?>
     <div class="suggested">
