@@ -13,7 +13,7 @@
 
     $post_type = get_post_type();
     $output = $post_type;
-    $item_post_types = array('dal_cpt', );
+    $item_post_types = array('dal_cpt', 'gi_cpt', 'haw_cpt', 'hdi_cpt', 'nth_cpt', 'wt_cpt', 'wow_cpt', 'pol_cpt', 'oh_cpt',  );
 
     if ( in_array( $post_type, $item_post_types ) ):
       $output = 'item';
