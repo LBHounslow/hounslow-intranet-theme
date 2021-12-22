@@ -203,6 +203,11 @@ function hounslow_intranet_scripts() {
 add_action( 'wp_enqueue_scripts', 'hounslow_intranet_scripts' );
 
 /**
+ * Utility functions for this theme.
+ */
+require get_template_directory() . '/inc/utility-functions.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
