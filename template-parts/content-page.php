@@ -52,26 +52,8 @@
 				 ?>
 			 </div><!-- .entry-content -->
 			 <footer class="entry-footer">
-				<?php if ( get_edit_post_link() ) : ?>
-
-						<?php
-						edit_post_link(
-							sprintf(
-								wp_kses(
-									/* translators: %s: Name of current post. Only visible to screen readers */
-									__( 'Edit <span class="screen-reader-text">%s</span>', 'hounslow-intranet' ),
-									array(
-										'span' => array(
-											'class' => array(),
-										),
-									)
-								),
-								wp_kses_post( get_the_title() )
-							),
-							'<span class="edit-link">',
-							'</span>'
-						);
-					endif;?>
+				 <p><?php hounslow_intranet_entry_footer(); ?></p>
+				 <?php hounslow_intranet_entry_meta(); ?>
 			</footer><!-- .entry-footer -->
 		</div>
 		<div class="col-lg-5">

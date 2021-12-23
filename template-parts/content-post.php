@@ -61,7 +61,8 @@
 					 ?>
 				 </div><!-- .entry-content -->
 				 <footer class="entry-footer">
-			 		<?php hounslow_intranet_entry_footer(); ?>
+					 <p><?php hounslow_intranet_entry_footer(); ?></p>
+					 <?php hounslow_intranet_entry_meta(); ?>
 			 	 </footer><!-- .entry-footer -->
 			 </div>
 			 <div class="col-lg-5">

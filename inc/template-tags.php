@@ -122,7 +122,7 @@ if ( ! function_exists( 'hounslow_intranet_entry_footer' ) ) :
 	 */
 	function hounslow_intranet_entry_footer() {
 		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
+		if ( 'post' === get_post_type() || 'item' === hounslow_intranet_get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'hounslow-intranet' ) );
 			if ( $categories_list ) {
@@ -173,6 +173,69 @@ if ( ! function_exists( 'hounslow_intranet_entry_footer' ) ) :
 			'| <i class="fas fa-edit"></i> <span class="edit-link">',
 			'</span>'
 		);
+	}
+endif;
+
+if ( ! function_exists( 'hounslow_intranet_entry_meta' ) ) :
+	/**
+	 * Prints HTML with meta information for the publication date, last updated date, and author. Inludes link to report issues with content.
+	 */
+	function hounslow_intranet_entry_meta() {
+
+		if ( is_single() ) :
+			echo '<p class="entry-footer-meta">';
+			$time_string_published = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+			$time_string_updated = '';
+			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+				$time_string_published = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+				$time_string_updated = '<time class="entry-date" datetime="%1$s">%2$s</time>';
+			}
+
+			$time_string_published = sprintf(
+				$time_string_published,
+				esc_attr( get_the_date( DATE_W3C ) ),
+				esc_html( get_the_date() ),
+			);
+
+			if ( '' !== $time_string_updated ) {
+				$time_string_updated = sprintf(
+					$time_string_updated,
+					esc_attr( get_the_modified_date( DATE_W3C ) ),
+					esc_html( get_the_modified_date() )
+				);
+			}
+
+			$posted_on = sprintf(
+				/* translators: %s: post date. */
+				esc_html_x( 'First published %s', 'post date', 'hounslow-intranet' ),
+					'' . $time_string_published . ''
+				);
+
+			echo '<span class="posted-on">' . $posted_on . '.</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+			if ( '' !== $time_string_updated ) {
+
+				$updated_on = sprintf(
+					/* translators: %s: post date. */
+					esc_html_x( 'Last updated %s', 'post date', 'hounslow-intranet' ),
+						'' . $time_string_updated . ''
+					);
+
+		 		echo '&nbsp;<span class="updated-on">' . $updated_on . '.</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+
+			$owner = sprintf(
+				/* translators: %s: post author. */
+				esc_html_x( 'Owned by %s', 'post author', 'hounslow-intranet' ),
+				'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			);
+
+			echo '&nbsp;<span class="owner">' . $owner . '.</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+			echo ' &ndash; Problem with this page? <a href="">Report it</a>.';
+
+			echo '</p>';
+		endif;
 	}
 endif;
 

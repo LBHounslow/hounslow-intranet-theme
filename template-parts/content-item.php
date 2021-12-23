@@ -55,25 +55,8 @@
 					 ?>
 				 </div><!-- .entry-content -->
 				 <footer class="entry-footer">
-
-					 <?php
-
-					 $posttags = get_the_tags();
-
-					 if ($posttags) {
-
-					   foreach($posttags as $tag) {
-
-					     echo '<button class="btn btn-dark tag"> <a style="color:white;" href="/tags/'.$tag->slug.'">'.$tag->name . '</a></button> ';
-
-					   }
-
-					 }
-
-					 ?>
-
-			 		<?php Hounslow_Intranet_entry_footer(); ?>
-
+					 <p><?php hounslow_intranet_entry_footer(); ?></p>
+					 <?php hounslow_intranet_entry_meta(); ?>
 			 	 </footer><!-- .entry-footer -->
 			 </div>
 			 <div class="col-lg-5">
