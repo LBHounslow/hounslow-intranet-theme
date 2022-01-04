@@ -239,6 +239,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Gravity Forms functions for this theme.
+ */
+require get_template_directory() . '/inc/gravity-forms-functions.php';
+
 add_action('after_setup_theme', 'hounslow_remove_admin_bar');
 
 function hounslow_remove_admin_bar() {

@@ -232,7 +232,7 @@ if ( ! function_exists( 'hounslow_intranet_entry_meta' ) ) :
 
 			echo '&nbsp;<span class="owner">' . $owner . '.</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-			echo ' &ndash; Problem with this page? <a href="">Report it</a>.';
+			echo ' &ndash; Problem with this page? <a href="/problem-report/?blog_id=' . get_current_blog_id() . '&post_id=' . get_the_ID() . '">Report it</a>.';
 
 			echo '</p>';
 		endif;
