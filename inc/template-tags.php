@@ -231,7 +231,8 @@ if ( ! function_exists( 'hounslow_intranet_entry_meta' ) ) :
 			$owner = sprintf(
 				/* translators: %s: post author. */
 				esc_html_x( 'Owned by %s', 'post author', 'hounslow-intranet' ),
-				'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+				//'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+				'<span class="author">' . esc_html( get_the_author() ) . '</span>'
 			);
 
 			echo '&nbsp;<span class="owner">' . $owner . '.</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
