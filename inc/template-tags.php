@@ -186,7 +186,11 @@ if ( ! function_exists( 'hounslow_intranet_entry_meta' ) ) :
 			echo '<p class="entry-footer-meta">';
 			$time_string_published = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 			$time_string_updated = '';
-			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_published_plus1day = new DateTime( get_the_date() );
+			$time_published_plus1day->add(new DateInterval('P1D'));
+			$time_updated = new DateTime( get_the_modified_date() );
+
+			if ( $time_updated > $time_published_plus1day ) {
 				$time_string_published = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 				$time_string_updated = '<time class="entry-date" datetime="%1$s">%2$s</time>';
 			}
