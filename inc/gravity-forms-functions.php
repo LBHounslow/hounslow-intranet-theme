@@ -1,15 +1,18 @@
 <?php
 
 function gf_reported_blog_id() {
-  $blog_id = $_GET['blog_id'];
-  if ( empty($blog_id) ) {
-    $blog_id = '1';
+  $blog_id = '1';
+  if( isset( $_GET['blog_id'] ) ) {
+    $blog_id = $_GET['blog_id'];
   }
   return $blog_id;
 }
 
 function gf_reported_post_id() {
-  $post_id = $_GET['post_id'];
+  $post_id = '';
+  if( isset( $_GET['post_id'] ) ) {
+    $post_id = $_GET['post_id'];
+  }
   return $post_id;
 }
 
