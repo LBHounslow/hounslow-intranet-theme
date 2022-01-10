@@ -24,6 +24,11 @@ function gf_reported_post_author_id() {
   return $author_id;
 }
 
+add_filter( 'gform_field_value_gf_reported_blog_id', 'gf_reported_blog_id_population_function' );
+function gf_reported_blog_id_population_function( $value ) {
+    return gf_reported_blog_id();
+}
+
 add_filter( 'gform_field_value_gf_reported_post_id', 'gf_reported_post_id_population_function' );
 function gf_reported_post_id_population_function( $value ) {
     return gf_reported_post_id();
