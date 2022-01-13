@@ -6,10 +6,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $font-weight-bold;
 }
 
-.entry-footer-meta {
-  font-size: small;
+.entry-footer-meta a {
+  text-decoration: underline;
 }
-
 
 /* --------------------------------------------------- */
 /* Borders */
