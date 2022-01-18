@@ -23,6 +23,32 @@
  	}
  endif;
 
+/**
+* Functions to handle Undefined Function Error when MetaBox plugin is disabled
+*
+*/
+if ( ! function_exists( 'rwmb_meta' ) ) {
+    function rwmb_meta( $key, $args = '', $post_id = null ) {
+        return false;
+    }
+}
+if ( ! function_exists( 'rwmb_get_value' ) ) {
+    function rwmb_get_value( $key, $args = '', $post_id = null ) {
+        return false;
+    }
+}
+if ( ! function_exists( 'rwmb_the_value' ) ) {
+    function rwmb_the_value( $key, $args = '', $post_id = null, $echo = true ) {
+        return false;
+    }
+}
+
+
+
+
+
+
+
 
 //DEVELOPMENT FUNCTIONS - REMOVE IN PRODUCTION
 
