@@ -8,6 +8,7 @@
  */
 
 get_header();
+get_sidebar();
 ?>
 <div class="container">
 	<div class="row">
@@ -51,5 +52,4 @@ get_header();
 			</main><!-- #main -->
 		</section><!-- #primary -->
 <?php
-get_sidebar();
 get_footer();

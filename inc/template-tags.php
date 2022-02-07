@@ -7,6 +7,24 @@
  * @package Hounslow_Intranet
  */
 
+/* ENTRY TAGS */
+
+
+if ( ! function_exists( 'hounslow_intranet_entry_featured_video' ) ) :
+	/**
+	 * Outputs the featured video.
+	 */
+	function hounslow_intranet_entry_featured_video() {
+
+		if ( rwmb_get_value( 'lbh_featured_video' ) ):
+			echo rwmb_meta( 'lbh_featured_video' );
+		else:
+
+		endif;
+	}
+endif;
+
+
 if ( ! function_exists( 'hounslow_intranet_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
@@ -63,6 +81,22 @@ if ( ! function_exists( 'hounslow_intranet_posted_by' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hounslow_intranet_entry_related_links' ) ) :
+	/**
+	 * Outputs related links.
+	 */
+	function hounslow_intranet_entry_related_links() {
+		if ( rwmb_meta( 'lbh_draft_sharepoint' ) ): ?>
+		<div class="row" style="background:#fafafa;padding:20px;">
+			<div class="col-lg-12">
+				<h5>Sharepoint download</h5>
+				<a style="color:white;" href="<?php echo rwmb_meta( 'lbh_draft_sharepoint' ); ?>"><button class="btn btn-dark">Download File</button></a>
+			</div>
+		</div>
+	<?php endif; // end of if field_name logic
+	}
+endif;
+
 if ( ! function_exists( 'hounslow_intranet_is_sticky' ) ) :
 	/**
 	 * Indicates sticky posts.
@@ -88,7 +122,7 @@ if ( ! function_exists( 'hounslow_intranet_entry_footer' ) ) :
 	 */
 	function hounslow_intranet_entry_footer() {
 		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
+		if ( 'post' === get_post_type() || 'item' === hounslow_intranet_get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'hounslow-intranet' ) );
 			if ( $categories_list ) {
@@ -139,6 +173,74 @@ if ( ! function_exists( 'hounslow_intranet_entry_footer' ) ) :
 			'| <i class="fas fa-edit"></i> <span class="edit-link">',
 			'</span>'
 		);
+	}
+endif;
+
+if ( ! function_exists( 'hounslow_intranet_entry_meta' ) ) :
+	/**
+	 * Prints HTML with meta information for the publication date, last updated date, and author. Inludes link to report issues with content.
+	 */
+	function hounslow_intranet_entry_meta() {
+
+		if ( is_single() ) :
+			echo '<p class="entry-footer-meta">';
+			$time_string_published = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+			$time_string_updated = '';
+			$time_published_plus1day = new DateTime( get_the_date() );
+			$time_published_plus1day->add(new DateInterval('P1D'));
+			$time_updated = new DateTime( get_the_modified_date() );
+
+			if ( $time_updated > $time_published_plus1day ) {
+				$time_string_published = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+				$time_string_updated = '<time class="entry-date" datetime="%1$s">%2$s</time>';
+			}
+
+			$time_string_published = sprintf(
+				$time_string_published,
+				esc_attr( get_the_date( DATE_W3C ) ),
+				esc_html( get_the_date() ),
+			);
+
+			if ( '' !== $time_string_updated ) {
+				$time_string_updated = sprintf(
+					$time_string_updated,
+					esc_attr( get_the_modified_date( DATE_W3C ) ),
+					esc_html( get_the_modified_date() )
+				);
+			}
+
+			$posted_on = sprintf(
+				/* translators: %s: post date. */
+				esc_html_x( 'First published %s', 'post date', 'hounslow-intranet' ),
+					'' . $time_string_published . ''
+				);
+
+			echo '<span class="posted-on">' . $posted_on . '.</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+			if ( '' !== $time_string_updated ) {
+
+				$updated_on = sprintf(
+					/* translators: %s: post date. */
+					esc_html_x( 'Last updated %s', 'post date', 'hounslow-intranet' ),
+						'' . $time_string_updated . ''
+					);
+
+		 		echo '&nbsp;<span class="updated-on">' . $updated_on . '.</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+
+			$owner = sprintf(
+				/* translators: %s: post author. */
+				esc_html_x( 'Owned by %s', 'post author', 'hounslow-intranet' ),
+				//'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+				'<span class="author">' . esc_html( get_the_author() ) . '</span>'
+			);
+
+			echo '&nbsp;<span class="owner">' . $owner . '.</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+			echo ' <a href="/problem-report/?blog_id=' . get_current_blog_id() . '&post_id=' . get_the_ID() . '">Report a problem with this page.</a>';
+
+			echo '</p>';
+		endif;
 	}
 endif;
 

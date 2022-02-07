@@ -11,6 +11,7 @@
  */
 
 get_header();
+get_sidebar();
 ?>
 <div class="container-fluid">
 	<div class="row">
