@@ -8,55 +8,21 @@
  */
 
 get_header();
-?>
-
-
-
-<body>
-    <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar" data-swiftype-index="false">
-
-<?php get_template_part('templates/navigation', 'menu'); ?>
-
-        </nav>
-
-        <!-- Page Content  -->
-        <div id="content">
-
-
-            <main id="primary" class="site-main">
-
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content-post', get_post_type() );
-
-
-
-			// If comments are open or we have at least one comment, load up the comment template.
-
-
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
-
-
-        </div>
-
-
-    </div>
-</body>
-<style>
-#content {
-	background:white;
-}
-</style>
-
-
-
-<?php
 get_sidebar();
+?>
+<!-- Page Content  -->
+<div id="content">
+  <main id="primary" class="site-main">
+    <?php
+		while ( have_posts() ) :
+      the_post();
+      get_template_part( 'template-parts/content', hounslow_intranet_get_post_type() );
+    endwhile; // End of the loop.
+		?>
+    <div class="suggested">
+    	<?php get_template_part('templates/suggested-posts'); ?>
+    </div>
+  </main><!-- #primary .site-main -->
+</div><!-- #content -->
+<?php
 get_footer();

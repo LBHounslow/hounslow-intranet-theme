@@ -8,20 +8,8 @@
  */
 
 get_header();
-?>
+get_sidebar();
 
-
-
-<body>
-    <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar" data-swiftype-index="false">
-
-<?php get_template_part('templates/navigation', 'menu'); ?>
-
-        </nav>
-
-	<?php
 $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 if (strpos($url,'corporate-policies') !== false) {?>
@@ -131,5 +119,4 @@ if (strpos($url,'corporate-policies') !== false) {?>
 
 
 <?php
-get_sidebar();
 get_footer();
