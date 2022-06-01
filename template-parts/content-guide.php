@@ -19,32 +19,106 @@ if ( $topics ) {
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-			the_title( '<h1 class="entry-title">', '</h1>' );
-			echo '<p class="kb-description">'. get_the_excerpt() . '</p>';
-		?>
-		<div class="kb-meta">
-			<hr />
-			<p class="kb-meta-type"><i class="far fa-life-ring"></i> Guide <?php echo $list_of_topics; ?></p>
-			<hr />
-		</div>
-	</header><!-- .entry-header -->
+	<div class="row" >
+		<div id="entry-container" class="col-lg-7" style="background:white;">
+	    <header class="entry-header">
+    		<?php
+    			the_title( '<h1 class="entry-title">', '</h1>' );
+    		?>
+        <p class="kb-description"><?php rwmb_the_value( 'lbh_guide_summary' ) ?></p>
+    		<div class="kb-meta">
+    			<hr />
+    			<p class="kb-meta-type"><i class="far fa-life-ring"></i> Guide <?php echo $list_of_topics; ?></p>
+    			<hr />
+    		</div>
+	    </header><!-- .entry-header -->
+			<div class="entry-content">
 
-	<div class="row">
-		<div class="col-sm-12 col-lg-8">
-			<div class="entry-content clearfix">
-				<?php
-				hounslow_intranet_post_thumbnail();
+        <?php //hounslow_intranet_post_thumbnail(); ?>
 
-				the_content();
 
-				wp_link_pages(
-					array(
-						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'hounslow-intranet' ),
-						'after'  => '</div>',
-					)
-				);
+        <?php
+        if ( rwmb_get_value( 'lbh_guide_oembed_url' ) ):
+          echo '<div class="kb-oembed">';
+          if ( rwmb_get_value( 'lbh_guide_oembed_heading' ) ):
+            echo '<h2>' . rwmb_meta( 'lbh_guide_oembed_heading' ) . '</h2>';
+          else:
+          endif;
+          ?>
+
+          <?php rwmb_the_value( 'lbh_guide_oembed_url' ) ?>
+          <p class="kb-caption"><?php rwmb_the_value( 'lbh_guide_oembed_caption' ) ?></p>
+        <?php
+        echo '</div>';
+        else:
+        endif;
+
+        if ( rwmb_get_value( 'lbh_guide_content_heading' ) ):
+          echo '<h2>' . rwmb_meta( 'lbh_guide_content_heading' ) . '</h2>';
+        else:
+          echo '<h2>' . get_the_title() . '</h2>';
+        endif;
+
+        if ( rwmb_get_value( 'lbh_guide_content' ) ):
+          $value = rwmb_meta( 'lbh_guide_content' );
+          echo do_shortcode( wpautop( $value ) );
+        else:
+        endif;
+
+        if ( rwmb_get_value( 'lbh_guide_section_one_heading' ) ):
+          echo '<h3>' . rwmb_meta( 'lbh_guide_section_one_heading' ) . '</h3>';
+        else:
+        endif;
+
+        if ( rwmb_get_value( 'lbh_guide_section_one_content' ) ):
+          $value = rwmb_meta( 'lbh_guide_section_one_content' );
+          echo do_shortcode( wpautop( $value ) );
+        else:
+        endif;
+
+        if ( rwmb_get_value( 'lbh_guide_section_two_heading' ) ):
+          echo '<h3>' . rwmb_meta( 'lbh_guide_section_two_heading' ) . '</h3>';
+        else:
+        endif;
+
+        if ( rwmb_get_value( 'lbh_guide_section_two_content' ) ):
+          $value = rwmb_meta( 'lbh_guide_section_two_content' );
+          echo do_shortcode( wpautop( $value ) );
+        else:
+        endif;
+
+        if ( rwmb_get_value( 'lbh_guide_section_three_heading' ) ):
+          echo '<h3>' . rwmb_meta( 'lbh_guide_section_three_heading' ) . '</h3>';
+        else:
+        endif;
+
+        if ( rwmb_get_value( 'lbh_guide_section_three_content' ) ):
+          $value = rwmb_meta( 'lbh_guide_section_three_content' );
+          echo do_shortcode( wpautop( $value ) );
+        else:
+        endif;
+
+        if ( rwmb_get_value( 'lbh_guide_section_four_heading' ) ):
+          echo '<h3>' . rwmb_meta( 'lbh_guide_section_four_heading' ) . '</h3>';
+        else:
+        endif;
+
+        if ( rwmb_get_value( 'lbh_guide_section_four_content' ) ):
+          $value = rwmb_meta( 'lbh_guide_section_four_content' );
+          echo do_shortcode( wpautop( $value ) );
+        else:
+        endif;
+
+        if ( rwmb_get_value( 'lbh_guide_section_five_heading' ) ):
+          echo '<h3>' . rwmb_meta( 'lbh_guide_section_five_heading' ) . '</h3>';
+        else:
+        endif;
+
+        if ( rwmb_get_value( 'lbh_guide_section_five_content' ) ):
+          $value = rwmb_meta( 'lbh_guide_section_five_content' );
+          echo do_shortcode( wpautop( $value ) );
+        else:
+        endif;
 
 				$connected = new WP_Query( [
 				    'relationship' => [
@@ -68,36 +142,15 @@ if ( $topics ) {
 				}
 			?>
 			</div><!-- .entry-content -->
-
-			<?php if ( get_edit_post_link() ) : ?>
-				<footer class="entry-footer">
-					<?php
-					edit_post_link(
-						sprintf(
-							wp_kses(
-								/* translators: %s: Name of current post. Only visible to screen readers */
-								__( 'Edit <span class="screen-reader-text">%s</span>', 'hounslow-intranet' ),
-								array(
-									'span' => array(
-										'class' => array(),
-									),
-								)
-							),
-							wp_kses_post( get_the_title() )
-						),
-						'<span class="edit-link">',
-						'</span>'
-					);
-					?>
-				</footer><!-- .entry-footer -->
-			<?php endif; ?>
+      <footer class="entry-footer">
+        <p><?php hounslow_intranet_entry_footer(); ?></p>
+        <?php hounslow_intranet_entry_meta(); ?>
+      </footer><!-- .entry-footer -->
 		</div>
-		<aside id="secondary" class="widget-area col-sm-12 col-lg-4" data-swiftype-index="false">
-			<section id="toc" class="widget widget_toc">
-				<h2 class="widget-title">On this page</h2>
-				<?php echo do_shortcode( '[toc content=".entry-content" anchor-text=" #"]' ); ?>
-			</section>
-			<?php dynamic_sidebar( 'sidebar-page' ); ?>
-		</aside><!-- #secondary -->
+    <div class="col-lg-5">
+      <div class="sticky-top">
+        <div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');min-height:100vh;background-size:cover;background-position:center;"></div>
+      </div>
+    </div>
 	</div><!-- row -->
 </article><!-- #post-<?php the_ID(); ?> -->

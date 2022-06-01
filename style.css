@@ -9588,3 +9588,11 @@ a[data-toggle=collapse] {
 
 .avatar {
   border-radius: 100px; }
+
+.kb-caption {
+  text-align: center;
+  font-style: italic; }
+
+div.kb-oembed iframe {
+  width: 100%;
+  max-height: 360px; }
