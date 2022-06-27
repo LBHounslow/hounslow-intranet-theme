@@ -1,5 +1,5 @@
 
-
+<!-- Used by templates/homepage-template.php - currently commented out -->
 
 <div id="demo" class="carousel slide" data-interval="false" data-ride="carousel">
 <h4>Featured Engage Posts</h4>

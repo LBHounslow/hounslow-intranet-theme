@@ -9,7 +9,7 @@
 
 if ( ! defined( 'HOUNSLOW_INTRANET_THEME_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'HOUNSLOW_INTRANET_THEME_VERSION', '1.2.0' );
+	define( 'HOUNSLOW_INTRANET_THEME_VERSION', '1.2.1' );
 }
 
 if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
@@ -118,9 +118,6 @@ add_action( 'after_setup_theme', 'register_navwalker' );
  * @global int $content_width
  */
 function hounslow_intranet_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	$GLOBALS['content_width'] = apply_filters( 'hounslow_intranet_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'hounslow_intranet_content_width', 0 );
