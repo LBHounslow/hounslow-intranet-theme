@@ -108,7 +108,9 @@ if ( function_exists('hounslow_intranet_network_news_query_banner')  ) {
     </div>
     <div class="">
       <div class="inner">
-  				<?php echo EM_Calendar::output(array('full'=>0, 'long_events'=>1)); ?>
+  			<?php if (class_exists('EM_Calendar')) {
+          echo EM_Calendar::output(array('full'=>0, 'long_events'=>1));
+        } ?>
       </div>
       <div class="inner-feature shadow">
         <a style="color:white" href="/events"><button class="btn btn-dark">See All Events</button></a>
@@ -200,28 +202,30 @@ if ( function_exists('hounslow_intranet_network_news_query_all')  ) {
     </div>
   </div>
 <div class="row">
- 					<?php $EM_Events = EM_Events::get( array('limit'=>4, 'scope' => 'future' ) );
+ 					<?php if (class_exists('EM_Events')) {
+            $EM_Events = EM_Events::get( array('limit'=>4, 'scope' => 'future' ) );
 
-foreach ( $EM_Events as $EM_Event ){
-  echo $EM_Event->output(
-	  '    <div class="col-lg-12 outer">
+            foreach ( $EM_Events as $EM_Event ){
+              echo $EM_Event->output(
+            	  '    <div class="col-lg-12 outer">
 
-	  <div class="inner event ">
-			<div class="blog-img" style="background:url(#_EVENTIMAGEURL);height:200px;background-size:cover;">
-					</div>
-			<div class="">
+            	  <div class="inner event ">
+            			<div class="blog-img" style="background:url(#_EVENTIMAGEURL);height:200px;background-size:cover;">
+            					</div>
+            			<div class="">
 
-                <h5>#_EVENTNAME</h5>
-<h6>#_EVENTDATES|#_12HSTARTTIME</h6>
-<div>
-<a style="color:white;"href="#_EVENTURL"><button class="btn btn-dark">Read More</button></a>
-	</div>
-			</div>
-            </div>
-			</div>
+                            <h5>#_EVENTNAME</h5>
+            <h6>#_EVENTDATES|#_12HSTARTTIME</h6>
+            <div>
+            <a style="color:white;"href="#_EVENTURL"><button class="btn btn-dark">Read More</button></a>
+            	</div>
+            			</div>
+                        </div>
+            			</div>
 
-	  ');
-}?>
+            	  ');
+              } 
+            } ?>
 <div class="dropdown">
   <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
     Event Categories
