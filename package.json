@@ -19,7 +19,7 @@
   "devDependencies": {
     "@wordpress/scripts": "^23.3.0",
     "dir-archiver": "^1.1.1",
-    "node-sass": "^7.0.1",
+    "node-sass": "^7.0.3",
     "rtlcss": "^3.5.0"
   },
   "rtlcssConfig": {
