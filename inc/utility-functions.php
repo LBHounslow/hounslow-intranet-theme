@@ -13,7 +13,17 @@
 
     $post_type = get_post_type();
     $output = $post_type;
-    $item_post_types = array('dal_cpt', 'gi_cpt', 'haw_cpt', 'hdi_cpt', 'nth_cpt', 'wt_cpt', 'wow_cpt', 'pol_cpt', 'oh_cpt',  );
+    $engage_post_types = array('dal_cpt', 'gi_cpt', 'haw_cpt', 'hdi_cpt', 'nth_cpt', 'wt_cpt', 'wow_cpt', 'pol_cpt', 'oh_cpt' );
+    $topic_post_types = array('topic_item' );
+    $item_post_types = array('item' );
+
+    if ( in_array( $post_type, $engage_post_types ) ):
+      $output = 'engage';
+ 		endif;
+
+    if ( in_array( $post_type, $topic_post_types ) ):
+      $output = 'topic';
+ 		endif;
 
     if ( in_array( $post_type, $item_post_types ) ):
       $output = 'item';
