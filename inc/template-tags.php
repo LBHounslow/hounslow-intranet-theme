@@ -327,6 +327,39 @@ if ( ! function_exists( 'hounslow_intranet_link_thumbnail' ) ) :
 	}
 endif;
 
+
+if ( ! function_exists( 'hounslow_intranet_post_type_identifier' ) ) :
+	/**
+	 * Prints HTML with an icon and text to identify the post type.
+	 */
+	function hounslow_intranet_post_type_identifier() {
+
+		$post_type = get_post_type();
+		$output = '';
+
+		switch( $post_type )
+		{
+		    case 'post':
+		         $output = '';
+		    break;
+		    case 'page':
+		         $output = '';
+		    break;
+				case 'topic_item':
+		         $output = '';
+		    break;
+				case 'item':
+		         $output = '<i class="fas fa-paperclip"></i> Item';
+		    break;
+				case 'guide':
+		         $output = '<i class="far fa-life-ring"></i> Guide';
+		    break;
+		}
+
+		echo $output;
+	}
+endif;
+
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
 	 * Shim for sites older than 5.2.
