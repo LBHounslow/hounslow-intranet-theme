@@ -354,6 +354,10 @@ if ( ! function_exists( 'hounslow_intranet_post_type_identifier' ) ) :
 				case 'guide':
 		         $output = '<i class="far fa-life-ring"></i> Guide';
 		    break;
+				case 'training_course':
+		         $output = '<i class="fas fa-user-graduate"></i> Training Course';
+		    break;
+
 		}
 
 		echo $output;
@@ -378,6 +382,30 @@ if ( ! function_exists( 'hounslow_intranet_topic_link' ) ) :
 		}
 
 		echo $list_of_topics;
+	}
+endif;
+
+
+if ( ! function_exists( 'hounslow_intranet_section_link' ) ) :
+	/**
+	 * Prints HTML with a link to the related section page.
+	 */
+	function hounslow_intranet_section_link() {
+
+		$sections = wp_get_post_terms( get_the_ID(), 'section' );
+		$list_of_sections = '';
+
+		if ( $sections ) {
+		    $output = array();
+		    foreach ( $sections as $section) {
+		        $output[] = '<a href="/engage/' . $section->slug .'/">' . $section->name .'</a>';
+		    }
+		    $list_of_sections = '' . join( ' / ', $output );
+
+				$list_of_sections = '<i class="fa fa-tag"></i> Part of ' . $list_of_sections;
+		}
+
+		echo $list_of_sections;
 	}
 endif;
 
