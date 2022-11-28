@@ -98,7 +98,7 @@ $connected = new WP_Query( $args );
 							    <div class="card h-100">
 							      <div class="card-body">
 							        <h5 class="card-title"><?php the_title(); ?></h5>
-							        <p class="card-text"><?php the_excerpt(); ?></p>
+							        <p class="card-text"><?php hounslow_intranet_excerpt(); ?></p>
 											<a href="<?php the_permalink(); ?>" class="btn btn-primary">Read more&hellip;</a>
 							      </div>
 										<div class="card-footer">

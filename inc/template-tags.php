@@ -398,7 +398,7 @@ if ( ! function_exists( 'hounslow_intranet_section_link' ) ) :
 		if ( $sections ) {
 		    $output = array();
 		    foreach ( $sections as $section) {
-		        $output[] = '<a href="/engage/' . $section->slug .'/">' . $section->name .'</a>';
+		        $output[] = '<a href="/' . $section->slug .'/">' . $section->name .'</a>';
 		    }
 		    $list_of_sections = '' . join( ' / ', $output );
 
@@ -408,6 +408,35 @@ if ( ! function_exists( 'hounslow_intranet_section_link' ) ) :
 		echo $list_of_sections;
 	}
 endif;
+
+if ( ! function_exists( 'hounslow_intranet_excerpt' ) ) :
+	/**
+	 * Prints HTML with a link to the related section page.
+	 */
+	function hounslow_intranet_excerpt() {
+
+		$post = get_post( $post );
+		if ( empty( $post ) ) {
+			$output = '';
+		} else if ( post_password_required( $post ) ) {
+			$output = 'A password is required to view this post.';
+		} else if ( empty( $post->post_excerpt ) ) {
+			if ( rwmb_get_value( 'lbh_entry_summary' ) ) {
+				$output = rwmb_get_value( 'lbh_entry_summary', '', get_the_ID() );
+			} else {
+				$output = get_the_excerpt();
+			}
+		} else {
+			$output = get_the_excerpt();
+		}
+
+		echo apply_filters( 'the_excerpt', $output );
+	}
+endif;
+
+
+
+
 
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
