@@ -21,6 +21,14 @@
 						the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 					endif;
 				?>
+				<div class="entry-lead">
+					<p><?php echo rwmb_get_value( 'lbh_entry_summary' ) ?></p>
+				</div>
+				<div >
+    			<hr />
+    			<p><?php hounslow_intranet_post_type_identifier(); ?>&nbsp;<?php hounslow_intranet_topic_link(); ?></p>
+    			<hr />
+    		</div>
 			</header><!-- .entry-header -->
 			<div class="entry-content">
 				<?php

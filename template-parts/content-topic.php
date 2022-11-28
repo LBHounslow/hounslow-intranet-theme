@@ -21,7 +21,7 @@
 			</header><!-- .entry-header -->
 			<div class="entry-content">
 				<div class="entry-lead">
-					<p><?php echo rwmb_get_value( 'lbh_item_topic_summary' ) ?></p>
+					<p><?php echo rwmb_get_value( 'lbh_entry_summary' ) ?></p>
 				</div>
 					<?php if ( rwmb_get_value( 'lbh_item_oembed_url' ) ):
 						echo '<div class="kb-oembed">';
@@ -68,7 +68,9 @@
 <?php
 
 $args = array(
-	'post_type' => 'item',
+	'post_type' => array('item', 'guide' ),
+	'orderby' => 'menu_order post_title',
+	'order'   => 'ASC',
 	'tax_query' => array(
 		array(
 			'taxonomy' => 'item-topic',
@@ -95,7 +97,7 @@ $connected = new WP_Query( $args );
 											<a href="<?php the_permalink(); ?>" class="btn btn-primary">Read more&hellip;</a>
 							      </div>
 										<div class="card-footer">
-								       <small class="text-muted"><i class="fas fa-paperclip"></i> Item</small>
+								       <small class="text-muted"><?php hounslow_intranet_post_type_identifier(); ?></small>
 								    </div>
 							    </div>
 							  </div>

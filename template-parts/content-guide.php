@@ -7,15 +7,7 @@
  * @package Hounslow_Intranet
  */
 
-$topics = wp_get_post_terms( $post->ID, 'guide-topic' );
-$list_of_topics = '';
-if ( $topics ) {
-    $output = array();
-    foreach ( $topics as $topic ) {
-        $output[] = '<a href="' . get_term_link( $topic->slug, 'guide-topic') .'">' . $topic->name .'</a>';
-    }
-    $list_of_topics = ' &middot; Read all guides about ' . join( ' / ', $output );
-}
+
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -25,10 +17,12 @@ if ( $topics ) {
     		<?php
     			the_title( '<h1 class="entry-title">', '</h1>' );
     		?>
-        <p class="kb-description"><?php rwmb_the_value( 'lbh_guide_summary' ) ?></p>
-    		<div class="kb-meta">
+				<div class="entry-lead">
+					<p><?php rwmb_the_value( 'lbh_entry_summary' ) ?></p>
+				</div>
+    		<div >
     			<hr />
-    			<p class="kb-meta-type"><i class="far fa-life-ring"></i> Guide <?php echo $list_of_topics; ?></p>
+    			<p><?php hounslow_intranet_post_type_identifier(); ?>&nbsp;<?php hounslow_intranet_topic_link(); ?></p>
     			<hr />
     		</div>
 	    </header><!-- .entry-header -->
