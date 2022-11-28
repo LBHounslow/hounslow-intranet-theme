@@ -23,6 +23,11 @@
 				<div class="entry-lead">
 					<p><?php echo rwmb_get_value( 'lbh_entry_summary' ) ?></p>
 				</div>
+				<div>
+					<hr />
+					<p><?php hounslow_intranet_section_link(); ?></p>
+					<hr />
+				</div>
 					<?php if ( rwmb_get_value( 'lbh_item_oembed_url' ) ):
 						echo '<div class="kb-oembed">';
 						if ( rwmb_get_value( 'lbh_item_oembed_heading' ) ):
@@ -68,7 +73,7 @@
 <?php
 
 $args = array(
-	'post_type' => array('item', 'guide' ),
+	'post_type' => array('item', 'guide', 'training_course' ),
 	'orderby' => 'menu_order post_title',
 	'order'   => 'ASC',
 	'tax_query' => array(
@@ -107,7 +112,6 @@ $connected = new WP_Query( $args );
 						echo '</div></div>';
 					}
 ?>
-
 			 </div><!-- .entry-content -->
 				 <footer class="entry-footer">
 					 <p><?php hounslow_intranet_entry_footer(); ?></p>
