@@ -10,66 +10,71 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="row" >
 		<div id="entry-container" class="col-lg-7" style="background:white;">
-			<div id="entry-featured-video" >
-				<?php hounslow_intranet_entry_featured_video(); ?>
-			</div>
 			<header class="entry-header">
 				<?php
 					if ( is_singular() ) :
-					  the_title( '<h1 class="entry-title">Course: ', '</h1>' );
+					  the_title( '<h1 class="entry-title">', '</h1>' );
 					else :
-						the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">Course: ', '</a></h2>' );
+						the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 					endif;
 				?>
+				<div class="entry-lead">
+					<p><?php rwmb_the_value( 'lbh_entry_summary' ) ?></p>
+				</div>
+    		<div >
+    			<hr />
+    			<p><?php hounslow_intranet_post_type_identifier(); ?>&nbsp;<?php hounslow_intranet_topic_link(); ?></p>
+    			<hr />
+    		</div>
 			</header><!-- .entry-header -->
 			<div class="entry-content">
 				<?php
-				if ( rwmb_meta( 'hi_training_course_description' )) {
-					$value_description = rwmb_meta( 'hi_training_course_description' );
+				if ( rwmb_meta( 'lbh_description' )) {
+					$value_description = rwmb_meta( 'lbh_description' );
 					echo '<h3>Description</h3>';
 					echo do_shortcode( wpautop( $value_description ) );
 				}
-				if ( rwmb_meta( 'hi_training_course_learning_outcomes' )) {
-					$value_learning_outcomes = rwmb_meta( 'hi_training_course_learning_outcomes' );
+				if ( rwmb_meta( 'lbh_learning_outcomes' )) {
+					$value_learning_outcomes = rwmb_meta( 'lbh_learning_outcomes' );
 					echo '<h3>Learning Outcomes</h3>';
 					echo do_shortcode( wpautop( $value_learning_outcomes ) );
 				}
-				if ( rwmb_meta( 'hi_training_course_provider' )) {
-					$value_provider = rwmb_meta( 'hi_training_course_provider' );
+				if ( rwmb_meta( 'lbh_provider' )) {
+					$value_provider = rwmb_meta( 'lbh_provider' );
 					echo '<p>Provided by ';
 					echo $value_provider ;
 					echo '</p>';
 				}
-				if ( rwmb_meta( 'hi_training_course_level' )) {
-					$value_level = rwmb_meta( 'hi_training_course_level' );
+				if ( rwmb_meta( 'lbh_level' )) {
+					$value_level = rwmb_meta( 'lbh_level' );
 					echo '<p>Level: ';
 					echo $value_level ;
 					echo '</p>';
 				}
-				if ( rwmb_meta( 'hi_training_course_study_time' )) {
-					$value_study_time = rwmb_meta( 'hi_training_course_study_time' );
+				if ( rwmb_meta( 'lbh_study_time' )) {
+					$value_study_time = rwmb_meta( 'lbh_study_time' );
 					echo '<p>Study time: ';
 					echo $value_study_time ;
 					echo ' (hrs:mins)</p>';
 				}
-				if ( rwmb_meta( 'hi_training_course_platform' )) {
-					$value_platform = rwmb_meta( 'hi_training_course_platform' );
+				if ( rwmb_meta( 'lbh_platform' )) {
+					$value_platform = rwmb_meta( 'lbh_platform' );
 					echo '<p>Platform: ';
 					echo $value_platform ;
 					echo '</p>';
 				}
-				if ( rwmb_meta( 'hi_training_course_url' )) {
-					$value_url = rwmb_meta( 'hi_training_course_url' );
+				if ( rwmb_meta( 'lbh_url' )) {
+					$value_url = rwmb_meta( 'lbh_url' );
 					echo '<p><a href="' . $value_url . '" target="_blank">Link to Course</a></p>';
 				}
-				if ( rwmb_meta( 'hi_training_course_audience' )) {
-					$term_audience = rwmb_meta( 'hi_training_course_audience' );
+				if ( rwmb_meta( 'lbh_audience' )) {
+					$term_audience = rwmb_meta( 'lbh_audience' );
 					echo '<p>Audience: ';
 					echo $term_audience->name;
 					echo '</p>';
 				}
 
-				$value_mandatory_for_audience = rwmb_meta( 'hi_training_course_mandatory_for_audience' );
+				$value_mandatory_for_audience = rwmb_meta( 'lbh_mandatory_for_audience' );
 				// If field is checked.
 				if ($value_mandatory_for_audience ) {
 				    echo '<p>Required</p>';
