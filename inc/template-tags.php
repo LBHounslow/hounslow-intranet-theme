@@ -328,45 +328,6 @@ if ( ! function_exists( 'hounslow_intranet_link_thumbnail' ) ) :
 endif;
 
 
-if ( ! function_exists( 'hounslow_intranet_post_type_identifier' ) ) :
-	/**
-	 * Prints HTML with an icon and text to identify the post type.
-	 */
-	function hounslow_intranet_post_type_identifier() {
-
-		$post_type = get_post_type();
-		$output = '';
-
-		switch( $post_type )
-		{
-		    case 'post':
-		         $output = '';
-		    break;
-		    case 'page':
-		         $output = '';
-		    break;
-				case 'topic_item':
-		         $output = '';
-		    break;
-				case 'item':
-		         $output = '<i class="fas fa-paperclip"></i> Item';
-		    break;
-				case 'guide':
-		         $output = '<i class="far fa-life-ring"></i> Guide';
-		    break;
-				case 'training_course':
-		         $output = '<i class="fas fa-user-graduate"></i> Training Course';
-		    break;
-				case 'resource':
-						 $output = '<i class="fas fa-file"></i> Resource';
-				break;
-
-		}
-
-		echo $output;
-	}
-endif;
-
 if ( ! function_exists( 'hounslow_intranet_topic_link' ) ) :
 	/**
 	 * Prints HTML with a link to the posts related topic.
@@ -389,53 +350,6 @@ if ( ! function_exists( 'hounslow_intranet_topic_link' ) ) :
 endif;
 
 
-if ( ! function_exists( 'hounslow_intranet_section_link' ) ) :
-	/**
-	 * Prints HTML with a link to the related section page.
-	 */
-	function hounslow_intranet_section_link() {
-
-		$sections = wp_get_post_terms( get_the_ID(), 'section' );
-		$list_of_sections = '';
-
-		if ( $sections ) {
-		    $output = array();
-		    foreach ( $sections as $section) {
-		        $output[] = '<a href="/' . $section->slug .'/">' . $section->name .'</a>';
-		    }
-		    $list_of_sections = '' . join( ' / ', $output );
-
-				$list_of_sections = '<i class="fa fa-tag"></i> Part of ' . $list_of_sections;
-		}
-
-		echo $list_of_sections;
-	}
-endif;
-
-if ( ! function_exists( 'hounslow_intranet_excerpt' ) ) :
-	/**
-	 * Prints HTML with a link to the related section page.
-	 */
-	function hounslow_intranet_excerpt() {
-
-		$post = get_post( $post );
-		if ( empty( $post ) ) {
-			$output = '';
-		} else if ( post_password_required( $post ) ) {
-			$output = 'A password is required to view this post.';
-		} else if ( empty( $post->post_excerpt ) ) {
-			if ( rwmb_get_value( 'lbh_entry_summary' ) ) {
-				$output = rwmb_get_value( 'lbh_entry_summary', '', get_the_ID() );
-			} else {
-				$output = get_the_excerpt();
-			}
-		} else {
-			$output = get_the_excerpt();
-		}
-
-		echo apply_filters( 'the_excerpt', $output );
-	}
-endif;
 
 
 
