@@ -111,7 +111,65 @@ $connected = new WP_Query( $args );
 						wp_reset_postdata();
 						echo '</div></div>';
 					}
-?>
+
+
+					$connected2 = new WP_Query( [
+					    'relationship' => [
+					        'id'   => 'topics_to_resources',
+					        'from' => get_the_ID(), // You can pass object ID or full object
+					    ],
+					    'nopaging'     => true,
+					] );
+
+				if ( $connected2->have_posts() ) {
+
+						echo '<div class="entry-related-items"><hr />';
+						echo '<h2>Related Resources</h2>';
+						echo '<div class="row"><div class="col"><ol class="list-group list-group-numbered">';
+
+						while ( $connected2->have_posts() ) : $connected2->the_post();
+								?>
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+							    <div class="ms-2 me-auto">
+							      <div class="fw-bold"><a href="<?php rwmb_the_value( 'lbh_resource_url' ) ?>"><?php the_title(); ?></a></div>
+							      <?php hounslow_intranet_excerpt(); ?>
+							    </div>
+							    <span class="badge bg-primary rounded-pill"><?php hounslow_intranet_post_type_identifier(); ?></span>
+							  </li>
+								<?php
+						endwhile;
+						wp_reset_postdata();
+						echo '</ol></div></div></div>';
+					}
+
+					$connected3 = new WP_Query( [
+					    'relationship' => [
+					        'id'   => 'topics_to_contacts',
+					        'from' => get_the_ID(), // You can pass object ID or full object
+					    ],
+					    'nopaging'     => true,
+					] );
+
+				if ( $connected3->have_posts() ) {
+
+						echo '<div class="entry-related-items"><hr />';
+						echo '<h2>Contact</h2>';
+						echo '<div class="row"><div class="col">';
+
+						while ( $connected3->have_posts() ) : $connected3->the_post();
+								?>
+								<div class="card">
+								  <div class="card-body">
+								    <h5 class="card-title"><?php the_title(); ?></h5>
+								    <?php rwmb_the_value( 'lbh_contact_info' ) ?>
+								  </div>
+								</div>
+								<?php
+						endwhile;
+						wp_reset_postdata();
+						echo '</div></div></div>';
+					}
+					?>
 			 </div><!-- .entry-content -->
 				 <footer class="entry-footer">
 					 <p><?php hounslow_intranet_entry_footer(); ?></p>

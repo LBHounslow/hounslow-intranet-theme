@@ -357,6 +357,9 @@ if ( ! function_exists( 'hounslow_intranet_post_type_identifier' ) ) :
 				case 'training_course':
 		         $output = '<i class="fas fa-user-graduate"></i> Training Course';
 		    break;
+				case 'resource':
+						 $output = '<i class="fas fa-file"></i> Resource';
+				break;
 
 		}
 
