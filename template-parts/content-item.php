@@ -10,9 +10,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="row" >
 		<div id="entry-container" class="col-lg-7" style="background:white;">
-			<div id="entry-featured-video" >
-				<?php hounslow_intranet_entry_featured_video(); ?>
-			</div>
 			<header class="entry-header">
 				<?php
 					if ( is_singular() ) :
@@ -21,16 +18,15 @@
 						the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 					endif;
 				?>
-				<div class="entry-lead">
-					<p><?php echo rwmb_get_value( 'lbh_entry_summary' ) ?></p>
-				</div>
-				<div >
-    			<hr />
-    			<p><?php hounslow_intranet_post_type_identifier(); ?>&nbsp;<?php hounslow_intranet_topic_link(); ?></p>
-    			<hr />
-    		</div>
 			</header><!-- .entry-header -->
-			<div class="entry-content">
+			<div id="entry-content" class="entry-content">
+				<div id="entry-lead" class="entry-lead">
+					<?php hounslow_intranet_entry_lead(); ?>
+				</div>
+				<div id="entry-navigation">
+					<?php hounslow_intranet_entry_navigation(); ?>
+				</div>
+				<div id="entry-body" class="entry-body">
 				<?php
 				 the_content(
 					 sprintf(
@@ -54,13 +50,15 @@
 						 )
 					 );
 
-					 hounslow_intranet_entry_related_links();
-
 					 // If comments are open or we have at least one comment, load up the comment template.
 					 if ( comments_open() || get_comments_number() ) :
 						 comments_template();
 					 endif;
 					 ?>
+	 				 </div><!-- .entry-body -->
+					 <?php
+						hounslow_intranet_entry_related_resources();
+						?>
 				 </div><!-- .entry-content -->
 				 <footer class="entry-footer">
 					 <p><?php hounslow_intranet_entry_footer(); ?></p>
