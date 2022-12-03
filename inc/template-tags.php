@@ -328,26 +328,7 @@ if ( ! function_exists( 'hounslow_intranet_link_thumbnail' ) ) :
 endif;
 
 
-if ( ! function_exists( 'hounslow_intranet_topic_link' ) ) :
-	/**
-	 * Prints HTML with a link to the posts related topic.
-	 */
-	function hounslow_intranet_topic_link() {
 
-		$topics = wp_get_post_terms( get_the_ID(), 'item-topic' );
-		$list_of_topics = '';
-
-		if ( $topics ) {
-		    $output = array();
-		    foreach ( $topics as $topic ) {
-		        $output[] = '<a href="/topics/' . $topic->slug .'/">' . $topic->name .'</a>';
-		    }
-		    $list_of_topics = '&middot; ' . join( ' / ', $output );
-		}
-
-		echo $list_of_topics;
-	}
-endif;
 
 
 

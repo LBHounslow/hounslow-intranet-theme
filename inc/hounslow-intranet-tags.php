@@ -23,12 +23,19 @@
  	 * Outputs the content for the in entry navigation - the link to the site section.
  	 */
  	function hounslow_intranet_entry_navigation() {
+    $post_type = get_post_type();
+    $output = '';
 
-     $list_of_sections = hounslow_intranet_section_link();
-     if ( $list_of_sections ) :
-       $output = '<hr><p><i class="fa fa-tag"></i> Part of ' . $list_of_sections . '<hr></p>';
-       echo $output;
- 		endif;
+    if ( 'topic_item' == $post_type ) :
+      $list_of_sections = hounslow_intranet_section_link();
+       if ( $list_of_sections ) :
+         $output = '<hr><p><i class="fa fa-tag"></i> Part of ' . $list_of_sections . '<hr></p>';
+   		endif;
+    else :
+      $output = '<hr><p>' . hounslow_intranet_post_type_identifier() . '&nbsp;' . hounslow_intranet_topic_link() . '</p><hr>';
+    endif;
+
+    echo $output;
  	}
  endif;
 
@@ -95,13 +102,23 @@
  	function hounslow_intranet_entry_related_resources() {
     global $post;
 
-    $relatedResources = new WP_Query( [
-        'relationship' => [
-            'id'   => 'topics_to_resources',
-            'from' => $post->ID, // You can pass object ID or full object
-        ],
-        'nopaging'     => true,
-    ] );
+    if ( 'topic_item' == $post->post_type ) :
+      $relatedResources = new WP_Query( [
+          'relationship' => [
+              'id'   => 'topics_to_resources',
+              'from' => $post->ID, // You can pass object ID or full object
+          ],
+          'nopaging'     => true,
+      ] );
+    elseif ( 'item' == $post->post_type ) :
+      $relatedResources = new WP_Query( [
+          'relationship' => [
+              'id'   => 'items_to_resources',
+              'from' => $post->ID, // You can pass object ID or full object
+          ],
+          'nopaging'     => true,
+      ] );
+    endif;
 
     if ( $relatedResources->have_posts() ) :
       echo '<div id="entry-related-resources" class="entry-related-items"><hr />';
@@ -165,44 +182,5 @@
  		}
 
  		echo apply_filters( 'the_excerpt', $output );
- 	}
- endif;
-
- if ( ! function_exists( 'hounslow_intranet_post_type_identifier' ) ) :
- 	/**
- 	 * Prints HTML with an icon and text to identify the post type.
- 	 */
- 	function hounslow_intranet_post_type_identifier() {
-
- 		$post_type = get_post_type();
- 		$output = '';
-
- 		switch( $post_type )
- 		{
- 		    case 'post':
- 		         $output = '';
- 		    break;
- 		    case 'page':
- 		         $output = '';
- 		    break;
- 				case 'topic_item':
- 		         $output = '';
- 		    break;
- 				case 'item':
- 		         $output = '<i class="fas fa-paperclip"></i> Item';
- 		    break;
- 				case 'guide':
- 		         $output = '<i class="far fa-life-ring"></i> Guide';
- 		    break;
- 				case 'training_course':
- 		         $output = '<i class="fas fa-user-graduate"></i> Training Course';
- 		    break;
- 				case 'resource':
- 						 $output = '<i class="fas fa-file"></i> Resource';
- 				break;
-
- 		}
-
- 		echo $output;
  	}
  endif;

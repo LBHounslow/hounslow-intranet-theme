@@ -164,22 +164,3 @@ function hounslow_intranet_display_loggedin_user( $menu_items ) {
 
     return $menu_items;
 }
-
-/**
- * Prints HTML with a link to the related section page.
- */
-function hounslow_intranet_section_link() {
-
-	$sections = wp_get_post_terms( get_the_ID(), 'section' );
-	$list_of_sections = '';
-
-	if ( $sections ) {
-	    $output = array();
-	    foreach ( $sections as $section) {
-	        $output[] = '<a href="/' . $section->slug .'/">' . $section->name .'</a>';
-	    }
-	    $list_of_sections = '' . join( ' / ', $output );
-	}
-
-	return $list_of_sections;
-}
