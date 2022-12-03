@@ -18,73 +18,98 @@
 						the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 					endif;
 				?>
-				<div class="entry-lead">
-					<p><?php rwmb_the_value( 'lbh_entry_summary' ) ?></p>
-				</div>
-    		<div >
-    			<hr />
-    			<p><?php hounslow_intranet_post_type_identifier(); ?>&nbsp;<?php hounslow_intranet_topic_link(); ?></p>
-    			<hr />
-    		</div>
 			</header><!-- .entry-header -->
-			<div class="entry-content">
+				<div id="entry-content" class="entry-content">
+					<div id="entry-lead" class="entry-lead">
+						<?php hounslow_intranet_entry_lead(); ?>
+					</div>
+					<div id="entry-navigation">
+						<?php hounslow_intranet_entry_navigation(); ?>
+					</div>
+				<div id="entry-body" class="entry-body">
 				<?php
-				if ( rwmb_meta( 'lbh_description' )) {
-					$value_description = rwmb_meta( 'lbh_description' );
-					echo '<h3>Description</h3>';
-					echo do_shortcode( wpautop( $value_description ) );
-				}
-				if ( rwmb_meta( 'lbh_learning_outcomes' )) {
-					$value_learning_outcomes = rwmb_meta( 'lbh_learning_outcomes' );
-					echo '<h3>Learning Outcomes</h3>';
-					echo do_shortcode( wpautop( $value_learning_outcomes ) );
-				}
-				if ( rwmb_meta( 'lbh_provider' )) {
-					$value_provider = rwmb_meta( 'lbh_provider' );
-					echo '<p>Provided by ';
-					echo $value_provider ;
-					echo '</p>';
-				}
-				if ( rwmb_meta( 'lbh_level' )) {
-					$value_level = rwmb_meta( 'lbh_level' );
-					echo '<p>Level: ';
-					echo $value_level ;
-					echo '</p>';
-				}
-				if ( rwmb_meta( 'lbh_study_time' )) {
-					$value_study_time = rwmb_meta( 'lbh_study_time' );
-					echo '<p>Study time: ';
-					echo $value_study_time ;
-					echo ' (hrs:mins)</p>';
-				}
-				if ( rwmb_meta( 'lbh_platform' )) {
-					$value_platform = rwmb_meta( 'lbh_platform' );
-					echo '<p>Platform: ';
-					echo $value_platform ;
-					echo '</p>';
-				}
-				if ( rwmb_meta( 'lbh_url' )) {
-					$value_url = rwmb_meta( 'lbh_url' );
-					echo '<p><a href="' . $value_url . '" target="_blank">Link to Course</a></p>';
-				}
-				if ( rwmb_meta( 'lbh_audience' )) {
-					$term_audience = rwmb_meta( 'lbh_audience' );
-					echo '<p>Audience: ';
-					echo $term_audience->name;
-					echo '</p>';
-				}
+					if ( rwmb_meta( 'lbh_course_description' )) {
+						$value_description = rwmb_meta( 'lbh_course_description' );
+						echo do_shortcode( wpautop( $value_description ) );
+					}
 
-				$value_mandatory_for_audience = rwmb_meta( 'lbh_mandatory_for_audience' );
-				// If field is checked.
-				if ($value_mandatory_for_audience ) {
-				    echo '<p>Required</p>';
-				}
-				// If field is unchecked.
-				else {
-				    echo '';
-				}
-				?>
-				 </div><!-- .entry-content -->
+					if ( rwmb_meta( 'lbh_course_url' )) :
+						$value_url = rwmb_meta( 'lbh_course_url' );
+						?>
+						<div class="d-grid gap-2 col-6 mx-auto mb-3">
+						  <a href="<?php echo $value_url; ?>" class="btn btn-primary" role="button" target="_blank"><i class="fas fa-external-link-alt"></i> Link to this course</a>
+						</div>
+					<?php
+						if ( rwmb_meta( 'lbh_course_platform' )) {
+							$value_platform = rwmb_meta( 'lbh_course_platform' );
+							echo '<p class="text-center"><em>Note this course is available on ' . $value_platform . '.</em></p>';
+						}
+					endif; ?>
+				<hr />
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="list-group list-group-flush">
+								<h3>Course Details</h3>
+								<?php
+								if ( rwmb_meta( 'lbh_course_level' )) {
+									$value_level = rwmb_meta( 'lbh_course_level' );
+									switch ($value_level) {
+										case '1':
+											echo '<li class="list-group-item"><span class="badge bg-dark text-light">1</span> Introductory</li>';
+											break;
+										case '2':
+											echo '<li class="list-group-item"><span class="badge bg-dark text-light">2</span> Intermediate</li>';
+											break;
+										case '3':
+											echo '<li class="list-group-item"><span class="badge bg-dark text-light">3</span> Advanced</li>';
+											break;
+										default:
+											// code...
+											break;
+									}
+								}
+
+								if ( rwmb_meta( 'lbh_course_study_time' )) {
+									$value_study_time = rwmb_meta( 'lbh_course_study_time' );
+									echo '<li class="list-group-item"><i class="far fa-clock"></i> ' . $value_study_time . ' (hrs:mins)</li>';
+								}
+
+								$value_mandatory_for_audience = rwmb_meta( 'lbh_course_mandatory_for_audience' );
+								// If field is checked.
+								if ($value_mandatory_for_audience ) {
+									if ( rwmb_meta( 'lbh_course_audience' )) {
+										$term_audience = rwmb_meta( 'lbh_course_audience' );
+										echo '<li class="list-group-item list-group-item-warning"><i class="fas fa-exclamation-circle"></i> Mandatory course for ' . $term_audience->name . '</li>';
+									}
+								}
+								// If field is unchecked.
+								else {
+									if ( rwmb_meta( 'lbh_course_audience' )) {
+										$term_audience = rwmb_meta( 'lbh_course_audience' );
+										echo '<li class="list-group-item"><i class="fas fa-users"></i> ' . $term_audience->name . '</li>';
+									}
+								}
+
+								if ( rwmb_meta( 'lbh_course_provider' )) {
+									$value_provider = rwmb_meta( 'lbh_course_provider' );
+									echo '<li class="list-group-item">Provided by ' . $value_provider . '</li>';
+								}
+								?>
+							</ul>
+
+						</div>
+						<div class="col-md-6">
+						<?php
+							if ( rwmb_meta( 'lbh_course_learning_outcomes' )) {
+								$value_learning_outcomes = rwmb_meta( 'lbh_course_learning_outcomes' );
+								echo '<h3>Learning Outcomes</h3>';
+								echo do_shortcode( wpautop( $value_learning_outcomes ) );
+							}
+						?>
+						</div>
+					</div>
+				</div><!-- .entry-body -->
+			</div><!-- .entry-content -->
 				 <footer class="entry-footer">
 					 <p><?php hounslow_intranet_entry_footer(); ?></p>
 					 <?php hounslow_intranet_entry_meta(); ?>
