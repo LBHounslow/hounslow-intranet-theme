@@ -56,7 +56,7 @@
 						 comments_template();
 					 endif;
 					 ?>
-				 </div>
+				 </div><!-- .entry-body -->
 				 <?php
 				 	hounslow_intranet_entry_related_items();
 					hounslow_intranet_entry_related_resources();

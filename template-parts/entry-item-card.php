@@ -15,7 +15,7 @@
       <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read more&hellip;</a>
     </div>
     <div class="card-footer">
-       <small class="text-muted"><?php hounslow_intranet_post_type_identifier(); ?></small>
+       <small class="text-muted"><?php echo hounslow_intranet_post_type_identifier(); ?></small>
     </div>
   </div>
 </div>

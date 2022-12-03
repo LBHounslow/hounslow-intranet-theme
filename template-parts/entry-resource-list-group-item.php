@@ -12,5 +12,5 @@
     <div class="fw-bold"><a href="<?php rwmb_the_value( 'lbh_resource_url' ) ?>"><?php the_title(); ?></a></div>
     <?php hounslow_intranet_excerpt(); ?>
   </div>
-  <span class="badge bg-primary rounded-pill"><?php hounslow_intranet_post_type_identifier(); ?></span>
+  <span class="badge bg-primary rounded-pill"><?php echo hounslow_intranet_post_type_identifier(); ?></span>
 </li>
