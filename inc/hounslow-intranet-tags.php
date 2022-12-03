@@ -118,17 +118,27 @@
           ],
           'nopaging'     => true,
       ] );
+    elseif ( 'guide' == $post->post_type ) :
+      $relatedResources = new WP_Query( [
+          'relationship' => [
+              'id'   => 'guides_to_resources',
+              'from' => $post->ID, // You can pass object ID or full object
+          ],
+          'nopaging'     => true,
+      ] );
     endif;
 
-    if ( $relatedResources->have_posts() ) :
-      echo '<div id="entry-related-resources" class="entry-related-items"><hr />';
-      echo '<h2>Related Resources</h2>';
-      echo '<div class="row"><div class="col"><ol class="list-group list-group-numbered">';
-      while ( $relatedResources->have_posts() ) : $relatedResources->the_post();
-        get_template_part( 'template-parts/entry', 'resource-list-group-item' );
-      endwhile;
-      wp_reset_postdata();
-      echo '</ol></div></div></div>';
+    if ( $relatedResources ) :
+      if ( $relatedResources->have_posts() ) :
+        echo '<div id="entry-related-resources" class="entry-related-items"><hr />';
+        echo '<h2>Related Resources</h2>';
+        echo '<div class="row"><div class="col"><ol class="list-group list-group-numbered">';
+        while ( $relatedResources->have_posts() ) : $relatedResources->the_post();
+          get_template_part( 'template-parts/entry', 'resource-list-group-item' );
+        endwhile;
+        wp_reset_postdata();
+        echo '</ol></div></div></div>';
+      endif;
     endif;
  	}
  endif;
