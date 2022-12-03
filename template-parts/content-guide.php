@@ -6,47 +6,29 @@
  *
  * @package Hounslow_Intranet
  */
-
-
-
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="row" >
 		<div id="entry-container" class="col-lg-7" style="background:white;">
 	    <header class="entry-header">
-    		<?php
-    			the_title( '<h1 class="entry-title">', '</h1>' );
-    		?>
-				<div class="entry-lead">
-					<p><?php rwmb_the_value( 'lbh_entry_summary' ) ?></p>
+				<?php
+					if ( is_singular() ) :
+					  the_title( '<h1 class="entry-title">', '</h1>' );
+					else :
+						the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+					endif;
+				?>
+			</header>
+			<div id="entry-content" class="entry-content">
+				<div id="entry-lead" class="entry-lead">
+					<?php hounslow_intranet_entry_lead(); ?>
 				</div>
-    		<div >
-    			<hr />
-    			<p><?php hounslow_intranet_post_type_identifier(); ?>&nbsp;<?php hounslow_intranet_topic_link(); ?></p>
-    			<hr />
-    		</div>
-	    </header><!-- .entry-header -->
-			<div class="entry-content">
-
-        <?php //hounslow_intranet_post_thumbnail(); ?>
-
-
-        <?php
-        if ( rwmb_get_value( 'lbh_guide_oembed_url' ) ):
-          echo '<div class="kb-oembed">';
-          if ( rwmb_get_value( 'lbh_guide_oembed_heading' ) ):
-            echo '<h2>' . rwmb_meta( 'lbh_guide_oembed_heading' ) . '</h2>';
-          else:
-          endif;
-          ?>
-
-          <?php rwmb_the_value( 'lbh_guide_oembed_url' ) ?>
-          <p class="kb-caption"><?php rwmb_the_value( 'lbh_guide_oembed_caption' ) ?></p>
-        <?php
-        echo '</div>';
-        else:
-        endif;
-
+				<div id="entry-navigation">
+					<?php hounslow_intranet_entry_navigation(); ?>
+				</div>
+				<?php hounslow_intranet_entry_oembed(); ?>
+				<div id="entry-body" class="entry-body">
+				<?php
         if ( rwmb_get_value( 'lbh_guide_content_heading' ) ):
           echo '<h2>' . rwmb_meta( 'lbh_guide_content_heading' ) . '</h2>';
         else:
@@ -113,6 +95,15 @@
           echo do_shortcode( wpautop( $value ) );
         else:
         endif;
+
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
+				?>
+				 </div><!-- .entry-body -->
+				<?php
+				hounslow_intranet_entry_related_resources();
 
 				$connected = new WP_Query( [
 				    'relationship' => [
