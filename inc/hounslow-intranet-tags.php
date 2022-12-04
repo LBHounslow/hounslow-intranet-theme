@@ -31,6 +31,9 @@
        if ( $list_of_sections ) :
          $output = '<hr><p><i class="fa fa-tag"></i> Part of ' . $list_of_sections . '<hr></p>';
    		endif;
+    elseif ( 'resource' == $post_type ) :
+      $term_type = rwmb_meta( 'lbh_resource_type' );
+      $output = '<hr><p><i class="fas fa-paperclip"></i>&nbsp;' . $term_type->name . '&nbsp;' . hounslow_intranet_topic_link() . '</p><hr>';
     else :
       $output = '<hr><p>' . hounslow_intranet_post_type_identifier() . '&nbsp;' . hounslow_intranet_topic_link() . '</p><hr>';
     endif;
