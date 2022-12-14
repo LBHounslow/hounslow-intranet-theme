@@ -178,6 +178,7 @@
  	 * Prints HTML with a link to the related section page.
  	 */
  	function hounslow_intranet_excerpt() {
+    global $post;
 
  		$post = get_post( $post );
  		if ( empty( $post ) ) {
