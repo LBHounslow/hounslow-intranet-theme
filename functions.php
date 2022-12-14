@@ -53,7 +53,7 @@ if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
 		 */
 		add_post_type_support( 'page', 'excerpt' );
 
-		if ( is_main_site() ) {
+		if ( is_main_site() && function_exists('hounslow_intranet_network_nav_menu')  ) :
 			register_nav_menus(
 				array(
 					'network' => esc_html__( 'Network Navigation', 'hounslow-intranet' ),
@@ -64,7 +64,13 @@ if ( ! function_exists( 'hounslow_intranet_setup' ) ) :
 					'social' => esc_html__( 'Social Media', 'hounslow-intranet' ),
 				)
 			);
-		}
+		else :
+			register_nav_menus(
+				array(
+					'main' => esc_html__( 'Main Navigation', 'hounslow-intranet' ),
+				)
+			);
+		endif;
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
