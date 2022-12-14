@@ -33,7 +33,11 @@
    		endif;
     elseif ( 'resource' == $post_type ) :
       $term_type = rwmb_meta( 'lbh_resource_type' );
-      $output = '<hr><p><i class="fas fa-paperclip"></i>&nbsp;' . $term_type->name . '&nbsp;' . hounslow_intranet_topic_link() . '</p><hr>';
+      if ( $term_type ) :
+        $output = '<hr><p><i class="fas fa-paperclip"></i>&nbsp;' . $term_type->name . '&nbsp;' . hounslow_intranet_topic_link() . '</p><hr>';
+      else :
+        $output = '<hr><p><i class="fas fa-paperclip"></i>&nbsp;Resource&nbsp;' . hounslow_intranet_topic_link() . '</p><hr>';
+      endif;       
     else :
       $output = '<hr><p>' . hounslow_intranet_post_type_identifier() . '&nbsp;' . hounslow_intranet_topic_link() . '</p><hr>';
     endif;
@@ -49,6 +53,8 @@
  	function hounslow_intranet_entry_oembed() {
 
     if ( rwmb_get_value( 'lbh_entry_oembed_url' ) ):
+      $heading = '';
+      $caption = '';
       if ( rwmb_get_value( 'lbh_entry_oembed_heading' ) ):
           $heading = '<h2>' . rwmb_get_value( 'lbh_entry_oembed_heading' ) . '</h2>';
       endif;
@@ -103,7 +109,9 @@
    *
  	 */
  	function hounslow_intranet_entry_related_resources() {
+    if ( ! class_exists( 'MB_Relationships_API' ) ) { return; }
     global $post;
+    $relatedResources = '';
 
     if ( 'topic_item' == $post->post_type ) :
       $relatedResources = new WP_Query( [
@@ -151,6 +159,7 @@
  	 *
  	 */
  	function hounslow_intranet_entry_related_contacts() {
+    if ( ! class_exists( 'MB_Relationships_API' ) ) { return; }
     global $post;
 
     $relatedContacts = new WP_Query( [

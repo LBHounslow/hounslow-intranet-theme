@@ -104,27 +104,28 @@
 				 </div><!-- .entry-body -->
 				<?php
 				hounslow_intranet_entry_related_resources();
+        if ( class_exists( 'MB_Relationships_API' ) ) { 
+            $connected = new WP_Query( [
+              'relationship' => [
+                  'id'   => 'guides_to_guides',
+                  'from' => get_the_ID(), // You can pass object ID or full object
+              ],
+              'nopaging'     => true,
+          ] );
 
-				$connected = new WP_Query( [
-				    'relationship' => [
-				        'id'   => 'guides_to_guides',
-				        'from' => get_the_ID(), // You can pass object ID or full object
-				    ],
-				    'nopaging'     => true,
-				] );
+          if ( $connected->have_posts() ) {
 
-				if ( $connected->have_posts() ) {
-
-					echo '<div class="related-guides"><hr />';
-					echo '<h2>Related Guides</h2>';
-					while ( $connected->have_posts() ) : $connected->the_post();
-							?>
-							<p><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong></p>
-							<?php the_excerpt();
-					endwhile;
-					wp_reset_postdata();
-					echo '</div>';
-				}
+            echo '<div class="related-guides"><hr />';
+            echo '<h2>Related Guides</h2>';
+            while ( $connected->have_posts() ) : $connected->the_post();
+                ?>
+                <p><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong></p>
+                <?php the_excerpt();
+            endwhile;
+            wp_reset_postdata();
+            echo '</div>';
+          }
+        }
 			?>
 			</div><!-- .entry-content -->
       <footer class="entry-footer">
