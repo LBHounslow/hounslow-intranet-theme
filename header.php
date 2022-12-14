@@ -54,7 +54,18 @@
           							'walker'            => new WP_Bootstrap_Navwalker()
           					);
           					hounslow_intranet_network_nav_menu( $network_menu_args );
-          				else : ?>
+							elseif ( is_user_logged_in() ) :
+								$current_user_ID = get_current_user_id();
+								$userdata = get_userdata( $current_user_ID );
+								$profile_link = '<a href="'. get_edit_user_link( $current_user_ID ) .'" class="nav-link" >Welcome, '. esc_attr( $userdata->user_nicename ) .'</a>'; ?>
+							<div id="utility-menu" class="col-md-6 col-lg">
+								<ul class="nav justify-content-end">
+									<li class="nav-item username-link">
+										<?php echo $profile_link; ?>
+									</li>
+								</ul>
+							</div><!-- .utility-menu -->
+							<?php else : ?>
 									<div id="utility-menu" class="col-md-6 col-lg">
 										<ul class="nav justify-content-end">
 											<li class="nav-item username-link">
