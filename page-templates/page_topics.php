@@ -1,14 +1,11 @@
 <?php
-/**
- * The template for displaying the list of all topics.
- *
- * Applied to a page where the slug is 'topics'.
- *
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Hounslow_Intranet
- */
+
+ /**
+  * TEMPLATE NAME: Topics
+  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+  *
+  * @package LBH_Intranet
+  */
 get_header();
 get_sidebar();
 ?>
