@@ -14,7 +14,7 @@ get_sidebar();
 ?>
 <div id="content">
   <main id="primary" class="site-main">
-    <?php get_template_part('template-parts/page-template', 'topics'); ?>
+    <?php get_template_part('template-parts/content-page', 'topics-atoz'); ?>
   </main><!-- #primary .site-main -->
 </div><!-- #content -->
 <?php
