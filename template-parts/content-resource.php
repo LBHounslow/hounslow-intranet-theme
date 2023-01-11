@@ -29,33 +29,17 @@
 				</div>
 				<div id="entry-body" class="entry-body">
 					<?php
-					the_content(
-						sprintf(
-							wp_kses(
-								/* translators: %s: Name of current post. Only visible to screen readers */
-								__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'lbh-intranet'),
-								array(
-									'span' => array(
-										'class' => array(),
-									),
-								)
-							),
-							wp_kses_post(get_the_title())
-						)
-					);
-
-					wp_link_pages(
-						array(
-							'before' => '<div class="page-links">' . esc_html__('Pages:', 'lbh-intranet'),
-							'after'  => '</div>',
-						)
-					);
-
-					// If comments are open or we have at least one comment, load up the comment template.
-					if (comments_open() || get_comments_number()) :
-						comments_template();
-					endif;
+					if (rwmb_meta('lbh_resource_description')) {
+						$value_description = rwmb_meta('lbh_resource_description');
+						echo do_shortcode(wpautop($value_description));
+					}
+					if (rwmb_meta('lbh_resource_url')) :
+						$value_url = rwmb_meta('lbh_resource_url');
 					?>
+						<div class="d-grid gap-2 col-6 mx-auto mb-3">
+							<a href="<?php echo $value_url; ?>" class="btn btn-primary" role="button" target="_blank"><i class="fas fa-external-link-alt"></i> Link to this resource</a>
+						</div>
+					<?php endif; ?>
 				</div><!-- .entry-body -->
 				<?php
 				hounslow_intranet_entry_related_resources();

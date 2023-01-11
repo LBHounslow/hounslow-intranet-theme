@@ -327,6 +327,15 @@ if ( ! function_exists( 'hounslow_intranet_link_thumbnail' ) ) :
 	}
 endif;
 
+
+
+
+
+
+
+
+
+
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
 	 * Shim for sites older than 5.2.

@@ -9016,6 +9016,13 @@ ul.pagination {
 .the-excerpt {
   min-height: 88px; }
 
+/* Item CPT */
+.entry-lead {
+  font-size: 1.5em; }
+
+.entry-related-items {
+  margin-bottom: 1.75em; }
+
 /* Carousel */
 .topic-title {
   padding-bottom: 10px; }
