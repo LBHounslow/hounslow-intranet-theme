@@ -27,6 +27,7 @@
 				<div id="entry-navigation">
 					<?php hounslow_intranet_entry_navigation(); ?>
 				</div>
+				<?php hounslow_intranet_entry_oembed(); ?>
 				<div id="entry-body" class="entry-body">
 					<?php
 					the_content(
@@ -58,7 +59,9 @@
 					?>
 				</div><!-- .entry-body -->
 				<?php
+				hounslow_intranet_entry_related_items();
 				hounslow_intranet_entry_related_resources();
+				hounslow_intranet_entry_related_contacts();
 				?>
 			</div><!-- .entry-content -->
 			<footer class="entry-footer">
