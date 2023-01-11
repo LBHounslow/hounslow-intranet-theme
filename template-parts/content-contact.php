@@ -29,37 +29,11 @@
 				</div>
 				<div id="entry-body" class="entry-body">
 					<?php
-					the_content(
-						sprintf(
-							wp_kses(
-								/* translators: %s: Name of current post. Only visible to screen readers */
-								__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'lbh-intranet'),
-								array(
-									'span' => array(
-										'class' => array(),
-									),
-								)
-							),
-							wp_kses_post(get_the_title())
-						)
-					);
-
-					wp_link_pages(
-						array(
-							'before' => '<div class="page-links">' . esc_html__('Pages:', 'lbh-intranet'),
-							'after'  => '</div>',
-						)
-					);
-
-					// If comments are open or we have at least one comment, load up the comment template.
-					if (comments_open() || get_comments_number()) :
-						comments_template();
-					endif;
-					?>
+					if (rwmb_meta('lbh_contact_info')) {
+						$value_description = rwmb_meta('lbh_contact_info');
+						echo do_shortcode(wpautop($value_description));
+					} ?>
 				</div><!-- .entry-body -->
-				<?php
-				hounslow_intranet_entry_related_resources();
-				?>
 			</div><!-- .entry-content -->
 			<footer class="entry-footer">
 				<p><?php hounslow_intranet_entry_footer(); ?></p>
@@ -67,7 +41,9 @@
 			</footer><!-- .entry-footer -->
 		</div>
 		<div class="col-lg-5">
-			<div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');min-height:100vh;background-size:cover;background-position:center;"></div>
+			<div>
+				<div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');min-height:100vh;background-size:cover;background-position:center;"></div>
+			</div>
 		</div>
 	</div>
 </article><!-- #post-<?php the_ID(); ?> -->
