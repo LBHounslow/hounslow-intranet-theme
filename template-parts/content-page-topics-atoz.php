@@ -51,62 +51,9 @@
 					comments_template();
 				endif;
 
+				echo do_shortcode('[topicatoz]');
 
-				$terms = get_terms(array(
-					'taxonomy' => 'topic-alpha',
-					'hide_empty' => false
-				));
-
-				if (!empty($terms) && !is_wp_error($terms)) {
-					$count = count($terms);
-					$i = 0;
-					$term_tabs = '<ul class="nav nav-tabs" id="myTab" role="tablist">';
-					foreach ($terms as $term) {
-						$i++;
-						if ($i == 1) {
-							$tab_class = ' active';
-							$tab_aria = 'aria-selected="true"';
-						} else {
-							$tab_class = '';
-							$tab_aria = 'aria-selected="false"';
-						};
-						$term_tabs .= '<li class="nav-item" role="presentation"><button class="nav-link' . $tab_class . '" id="' . $term->slug . '-tab" data-bs-toggle="tab" data-bs-target="#' . $term->slug . '" type="button" role="tab" aria-controls="' . $term->name . '" ' . $tab_aria . '>' . strtoupper($term->name) . '</button></li>';
-					}
-					$term_tabs .= '</ul>';
-					echo $term_tabs;
-
-					$i = 0;
-					$tab_content = '<div class="mt-3"><div class="tab-content" id="myTabContent">';
-					foreach ($terms as $term) {
-						$i++;
-						if ($i == 1) {
-							$tab_pane_class = ' show active';
-						} else {
-							$tab_pane_class = '';
-						};
-						$tab_content .= '<div class="tab-pane fade' . $tab_pane_class . '" id="' . $term->slug . '" role="tabpanel" aria-labelledby="' . $term->slug . '-tab"><ul>';
-
-						$topicItems = get_posts(
-							array(
-								'post_type' => 'topic_item',
-								'numberposts' => -1,
-								'tax_query' => array(
-									array(
-										'taxonomy' => 'topic-alpha',
-										'field'    => 'slug',
-										'terms'    => $term->slug,
-									),
-								),
-							),
-						);
-						foreach ($topicItems as $topicItem) :
-							$tab_content .= '<li><a href="' . esc_url(get_permalink($topicItem)) . '" >' . $topicItem->post_title . '</a></li>';
-						endforeach;
-						$tab_content .= '</ul></div>';
-					}
-					$tab_content .= '</div></div>';
-					echo $tab_content;
-				} ?>
+				?>
 
 			</div><!-- .entry-content -->
 			<footer class="entry-footer">
