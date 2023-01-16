@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The sidebar containing the main widget area
  *
@@ -6,8 +7,8 @@
  *
  * @package Hounslow_Intranet
  */
- ?>
- <!-- Sidebar  -->
- <nav id="sidebar" data-swiftype-index="false">
-   <?php get_template_part('template-parts/navigation', 'menu'); ?>
- </nav>
+?>
+<!-- Sidebar  -->
+<nav id="sidebar" data-swiftype-index="false">
+  <?php get_template_part('template-parts/navigation', 'menu'); ?>
+</nav>
