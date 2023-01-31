@@ -112,7 +112,7 @@
 <div class="row" style="background:#fafafa;padding:20px;">
 <div class="col-lg-12">
 <h5>Sharepoint download</h5>
-<a style="color:white;" href="<?php echo rwmb_meta( 'lbh_draft_sharepoint' ); ?>"><button class="btn btn-dark">Download File</button></a>
+<a href="<?php echo rwmb_meta( 'lbh_draft_sharepoint' ); ?>" class="btn btn-dark" target="_blank">Download File</a>
 </div>
 
 </div>
