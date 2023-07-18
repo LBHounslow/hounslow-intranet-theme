@@ -10,7 +10,7 @@
 
 if (!defined('HOUNSLOW_INTRANET_THEME_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('HOUNSLOW_INTRANET_THEME_VERSION', '1.3');
+	define('HOUNSLOW_INTRANET_THEME_VERSION', '1.3.1');
 }
 
 if (!function_exists('hounslow_intranet_setup')) :
@@ -55,7 +55,7 @@ if (!function_exists('hounslow_intranet_setup')) :
 		 */
 		add_post_type_support('page', 'excerpt');
 
-		if ( is_main_site() && function_exists('hounslow_intranet_network_nav_menu')  ) :
+		if (is_main_site() && function_exists('hounslow_intranet_network_nav_menu')) :
 			register_nav_menus(
 				array(
 					'network' => esc_html__('Network Navigation', 'hounslow-intranet'),
@@ -69,7 +69,7 @@ if (!function_exists('hounslow_intranet_setup')) :
 		else :
 			register_nav_menus(
 				array(
-					'main' => esc_html__( 'Main Navigation', 'hounslow-intranet' ),
+					'main' => esc_html__('Main Navigation', 'hounslow-intranet'),
 				)
 			);
 		endif;
