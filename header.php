@@ -21,9 +21,11 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<?php wp_body_open(); ?>
 	<a class="visually-hidden-focusable" href="#primary" data-swiftype-index="false"><?php esc_html_e('Skip to content', 'hounslow-intranet-theme'); ?></a>
+
+
 	<div id="before-page" data-swiftype-index="false">
-		<?php wp_body_open(); ?>
 		<div class="status-bar">
 			<btn class="btn selector"><?php echo do_shortcode('[gtranslate]'); ?></btn>
 			<a id="desktop" class="btn btn-light status-btn" href="/submit-a-new-intranet-page">Add a Page</a>
