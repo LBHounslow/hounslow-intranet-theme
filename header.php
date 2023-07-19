@@ -21,6 +21,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<a class="visually-hidden-focusable" href="#primary" data-swiftype-index="false"><?php esc_html_e('Skip to content', 'hounslow-intranet-theme'); ?></a>
 	<div id="before-page" data-swiftype-index="false">
 		<?php wp_body_open(); ?>
 		<div class="status-bar">
@@ -30,7 +31,6 @@
 		</div>
 	</div>
 	<div id="page" class="site">
-		<a class="visually-hidden-focusable" href="#primary" data-swiftype-index="false"><?php esc_html_e('Skip to content', 'hounslow-intranet-theme'); ?></a>
 		<header id="masthead" class="site-header" data-swiftype-index="false">
 			<div class="container-fluid">
 				<div class="row align-items-center">
