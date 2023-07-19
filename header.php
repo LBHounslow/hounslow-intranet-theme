@@ -28,7 +28,7 @@
 		<a id="desktop" class="btn btn-light status-btn" href="/submit-a-new-intranet-page">Add a Page</a>
 		<a id="desktop" class="btn btn-light status-btn" href="/event-submission-form/?action=edit">Add an Event</a>
 	</div>
-	<div id="header" class="site-header" data-swiftype-index="false">
+	<div id="header" data-swiftype-index="false">
 		<div class="container-fluid">
 			<div class="row align-items-center">
 				<div class="col-lg-2 align-self-center site-branding">
