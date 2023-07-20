@@ -7,3 +7,5 @@
  *
  * @package Hounslow_Intranet
  */
+?>
+</div><!-- #content -->
