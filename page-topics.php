@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the list of all topics.
  *
@@ -10,7 +11,6 @@
  * @package Hounslow_Intranet
  */
 get_header();
-get_sidebar();
 ?>
 <div id="content">
   <main id="primary" class="site-main">
@@ -18,4 +18,5 @@ get_sidebar();
   </main><!-- #primary .site-main -->
 </div><!-- #content -->
 <?php
+get_sidebar();
 get_footer();

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying 404 pages (not found)
  *
@@ -8,7 +9,6 @@
  */
 
 get_header();
-get_sidebar();
 ?>
 <div class="container">
 	<div class="row">
@@ -26,8 +26,9 @@ get_sidebar();
 						<p>&nbsp;</p>
 					</div><!-- .page-content -->
 
-				</section><!-- .error-404 -->
-			</main><!-- #main -->
+		</section><!-- .error-404 -->
+		</main><!-- #main -->
 		</section><!-- #primary -->
-<?php
-get_footer();
+		<?php
+		get_sidebar();
+		get_footer();

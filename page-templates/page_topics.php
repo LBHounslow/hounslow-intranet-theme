@@ -1,13 +1,12 @@
 <?php
 
- /**
-  * TEMPLATE NAME: Topics
-  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
-  *
-  * @package LBH_Intranet
-  */
+/**
+ * TEMPLATE NAME: Topics
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package LBH_Intranet
+ */
 get_header();
-get_sidebar();
 ?>
 <div id="content">
   <main id="primary" class="site-main">
@@ -15,4 +14,5 @@ get_sidebar();
   </main><!-- #primary .site-main -->
 </div><!-- #content -->
 <?php
+get_sidebar();
 get_footer();

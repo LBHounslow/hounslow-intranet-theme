@@ -1,4 +1,5 @@
 <?php
+
 /**
  * TEMPLATE NAME: Events
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
@@ -7,7 +8,6 @@
  */
 
 get_header();
-get_sidebar();
 ?>
 <!-- Page Content  -->
 <div id="content">
@@ -16,4 +16,5 @@ get_sidebar();
   </main><!-- #primary .site-main -->
 </div><!-- #content -->
 <?php
+get_sidebar();
 get_footer();

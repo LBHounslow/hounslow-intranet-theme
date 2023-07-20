@@ -87,3 +87,7 @@
 		</div><!-- #header-row-01 .row -->
 	</div><!-- #header .container  -->
 	<div class="wrapper">
+		<!-- Sidebar (navigation) -->
+		<nav id="sidebar" data-swiftype-index="false">
+			<?php get_template_part('template-parts/navigation', 'menu'); ?>
+		</nav>

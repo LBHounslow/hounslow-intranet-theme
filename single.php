@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all single posts
  *
@@ -8,21 +9,21 @@
  */
 
 get_header();
-get_sidebar();
 ?>
 <!-- Page Content  -->
 <div id="content">
   <main id="primary" class="site-main">
     <?php
-		while ( have_posts() ) :
+    while (have_posts()) :
       the_post();
-      get_template_part( 'template-parts/content', hounslow_intranet_get_post_type() );
+      get_template_part('template-parts/content', hounslow_intranet_get_post_type());
     endwhile; // End of the loop.
-		?>
+    ?>
     <div class="suggested">
-    	<?php get_template_part('templates/suggested-posts'); ?>
+      <?php get_template_part('templates/suggested-posts'); ?>
     </div>
   </main><!-- #primary .site-main -->
 </div><!-- #content -->
 <?php
+get_sidebar();
 get_footer();
