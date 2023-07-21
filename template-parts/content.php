@@ -78,18 +78,19 @@
 				<p><?php hounslow_intranet_entry_footer(); ?></p>
 				<?php hounslow_intranet_entry_meta(); ?>
 			</footer><!-- #entry-footer -->
+			<!-- Comments -->
+			<div id="comments-container">
+				<?php
+				// If comments are open or we have at least one comment, load up the comment template.
+				if (comments_open() || get_comments_number()) :
+					comments_template();
+				endif;
+				?>
+			</div>
+
 		</div>
 		<div class="col-lg-5">
 			<div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');min-height:100vh;background-size:cover;background-position:center;"></div>
-		</div>
-		<!-- Comments -->
-		<div id="comments-container" class="col-lg-7" style="background:white;">
-			<?php
-			// If comments are open or we have at least one comment, load up the comment template.
-			if (comments_open() || get_comments_number()) :
-				comments_template();
-			endif;
-			?>
 		</div>
 	</div>
 </article><!-- #post-<?php the_ID(); ?> -->
