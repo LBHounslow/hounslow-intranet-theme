@@ -12,10 +12,11 @@
  *
  * @package LBH_Intranet
  */
-get_header();
 $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+get_header();
 ?>
-<main id="primary" class="site-main">
+<!-- Body Main Content -->
+<div id="primary" class="site-main">
   <?php
   while (have_posts()) :
     the_post();
@@ -26,7 +27,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     }
   endwhile; // End of the loop.
   ?>
-</main><!-- #primary .site-main -->
+</div><!-- #primary .site-main -->
 <?php
 get_sidebar();
 get_footer();
