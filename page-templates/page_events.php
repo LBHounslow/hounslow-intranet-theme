@@ -9,12 +9,10 @@
 
 get_header();
 ?>
-<!-- Page Content  -->
-<div id="content">
-  <main id="primary" class="site-main">
-    <?php get_template_part('template-parts/page-template', 'events'); ?>
-  </main><!-- #primary .site-main -->
-</div><!-- #content -->
+<!-- Body Main Content -->
+<div id="primary" class="site-main">
+  <?php get_template_part('template-parts/page-template', 'events'); ?>
+</div><!-- #primary .site-main -->
 <?php
 get_sidebar();
 get_footer();
