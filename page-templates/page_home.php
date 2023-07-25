@@ -13,7 +13,7 @@ get_header();
 ?>
 <!-- Body Main Content -->
 <div id="primary" class="site-main">
-  <?php get_template_part('templates/homepage-template', 'homepage'); ?>
+  <?php get_template_part('template-parts/page', 'home'); ?>
 </div><!-- #primary .site-main -->
 <?php
 get_sidebar();
