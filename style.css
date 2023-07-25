@@ -60,12 +60,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	display: none;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
@@ -13361,21 +13355,7 @@ h6,
 
 /* --------------------------------------------------- */
 
-/* Borders */
-#comments {
-	border-top: 1px solid #ccc;
-}
-
-.entry-content {
-	border-bottom: 1px solid #ccc;
-}
-
 /* Margins */
-.entry-content,
-.entry-footer {
-	margin-bottom: 1.5em;
-}
-
 #comments,
 .entry-footer {
 	padding-top: 1em;
@@ -14018,20 +13998,12 @@ div.css-search div.em-search-main .em-search-submit {
 	margin: 0 !important;
 }
 
-#secondary {
-	display: none;
-}
-
 .side-bar-menu {
 	border-bottom: 2px solid gainsboro;
 }
 
 .navbar {
 	box-shadow: none !important;
-}
-
-.site-branding {
-	background: white;
 }
 
 .logo-inner {

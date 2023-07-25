@@ -7,11 +7,12 @@
  *
  * @package Hounslow_Intranet
  */
+
 ?>
 <!-- Content Article -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="row">
-		<div id="entry-container" class="col-lg-7" style="background:white;">
+		<div id="entry-container" class="col-lg-7 bg-white">
 			<!-- Content Header -->
 			<header id="entry-header" class="row">
 				<!-- Content Title -->
@@ -36,7 +37,7 @@
 			</header><!-- .entry-header -->
 			<!-- Content Navigation -->
 			<!-- Content -->
-			<main id="entry-content" class="entry-content">
+			<main id="entry-content" class="entry-content pb-3 border-bottom">
 				<?php
 				the_content(
 					sprintf(
@@ -63,23 +64,19 @@
 			</main><!-- .entry-content -->
 
 			<!-- Supplementary Content -->
-			<aside id="entry-supplementary-content" class="">
-				<?php hounslow_intranet_entry_related_links(); ?>
-			</aside>
+			<?php hounslow_intranet_entry_related_links(); ?>
 			<!-- Content Footer -->
-			<footer id="entry-footer" class="entry-footer">
+			<footer id="entry-footer" class="entry-footer pb-3">
 				<p><?php hounslow_intranet_entry_footer(); ?></p>
 				<?php hounslow_intranet_entry_meta(); ?>
 			</footer><!-- #entry-footer -->
 			<!-- Comments -->
-			<div id="comments-container">
-				<?php
-				// If comments are open or we have at least one comment, load up the comment template.
-				if (comments_open() || get_comments_number()) :
-					comments_template();
-				endif;
-				?>
-			</div>
+			<?php
+			// If comments are open or we have at least one comment, load up the comment template.
+			if (comments_open() || get_comments_number()) :
+				comments_template();
+			endif;
+			?>
 		</div>
 		<div class="col-lg-5">
 			<div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');min-height:100vh;background-size:cover;background-position:center;"></div>
