@@ -1,174 +1,90 @@
 <?php
 
 /**
-
  * Template part for displaying posts
-
  *
-
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
-
  *
-
  * @package Hounslow_Intranet
-
  */
 
 ?>
 
-<div class="row" >
-
-<div class="col-lg-12" style="background:white;">
-
-<?php if ( rwmb_get_value( 'lbh_featured_video' ) ): ?>
-
-	<?php echo rwmb_meta( 'lbh_featured_video' ); ?>
-
-<?php else: ?>
-
-<?php endif; ?>
-
-
+<!-- Content Article -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-	<header class="entry-header">
-
-		<?php
-
-		if ( is_singular() ) :
-
-			the_title( '<h1 class="entry-title">', '</h1>' );
-
-		else :
-
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-
-		endif;
-
-		if ( 'post' === get_post_type() ) :	?>
-		<div class="entry-meta">
-			<?php
-			hounslow_intranet_posted_on();
-			hounslow_intranet_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-
-
-
-
-
-
-	<div class="entry-content">
-
-		<?php
-
-		the_content(
-
-			sprintf(
-
-				wp_kses(
-
-					/* translators: %s: Name of current post. Only visible to screen readers */
-
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'lbh-intranet-v1' ),
-
-					array(
-
-						'span' => array(
-
-							'class' => array(),
-
+	<div class="row">
+		<div id="entry-container" class="col-lg-12 bg-white">
+			<!-- Content Header -->
+			<header id="entry-header" class="row">
+				<!-- Content Title -->
+				<div id="entry-title" class="col-12">
+					<?php
+					if (is_singular()) :
+						the_title('<h1 class="entry-title">', '</h1>');
+					else :
+						the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+					endif;
+					?>
+				</div><!-- #entry-title -->
+				<!-- Content Byline -->
+				<div id="entry-byline" class="col-12 entry-meta">
+					<?php
+					hounslow_intranet_posted_on();
+					hounslow_intranet_posted_by();
+					?>
+				</div><!-- #entry-byline .entry-meta -->
+				<!-- Content Lead -->
+				<div id="entry-lead" class="col-12 entry-summary">
+					<?php hounslow_intranet_entry_lead(); ?>
+				</div><!-- #entry-lead .entry-meta -->
+				<!-- Content Featured Media -->
+				<div id="entry-featured-media" class="col-12 entry-featured-media">
+					<?php hounslow_intranet_entry_featured_video(); ?>
+				</div><!-- #entry-featured-media .entry-featured-media -->
+			</header><!-- .entry-header -->
+			<!-- Content Navigation -->
+			<!-- Content -->
+			<main id="entry-content" class="entry-content pb-3 border-bottom">
+				<?php
+				the_content(
+					sprintf(
+						wp_kses(
+							/* translators: %s: Name of current post. Only visible to screen readers */
+							__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'hounslow-intranet'),
+							array(
+								'span' => array(
+									'class' => array(),
+								),
+							)
 						),
-
+						wp_kses_post(get_the_title())
 					)
+				);
 
-				),
+				wp_link_pages(
+					array(
+						'before' => '<div class="page-links">' . esc_html__('Pages:', 'hounslow-intranet'),
+						'after'  => '</div>',
+					)
+				);
+				?>
+			</main><!-- .entry-content -->
 
-				wp_kses_post( get_the_title() )
+			<!-- Supplementary Content -->
+			<?php hounslow_intranet_entry_related_links(); ?>
 
-			)
-
-		);
-
-
-
-		wp_link_pages(
-
-			array(
-
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lbh-intranet-v1' ),
-
-				'after'  => '</div>',
-
-			)
-
-		);
-
-		?>
-		<?php if ( rwmb_meta( 'lbh_draft_sharepoint' ) ): ?>
-<div class="row" style="background:#fafafa;padding:20px;">
-<div class="col-lg-12">
-<h5>Sharepoint download</h5>
-<a href="<?php echo rwmb_meta( 'lbh_draft_sharepoint' ); ?>" class="btn btn-dark" target="_blank">Download File</a>
-</div>
-
-</div>
-<?php else: // field_name returned false ?>
-
-
-
-
-<?php endif; // end of if field_name logic ?>
-	</div><!-- .entry-content -->
-
-
-<?php
-
-$posttags = get_the_tags();
-
-if ($posttags) {
-
-  foreach($posttags as $tag) {
-
-    echo '<button class="btn btn-dark tag"> <a style="color:white;" href="/tags/'.$tag->slug.'">'.$tag->name . '</a></button> ';
-
-  }
-
-}
-
-?>
-
-</div>
-
-
-
-
-
-</div>
-
-
-
-
-
-<div class="suggested">
-
-<?php get_template_part('templates/suggested-posts'); ?> 
-
-</div>
-
-
-
-
-
-
-
-	<footer class="entry-footer">
-
-		<?php Hounslow_Intranet_entry_footer(); ?>
-
-	</footer><!-- .entry-footer -->
-
+			<!-- Content Footer -->
+			<footer id="entry-footer" class="entry-footer pb-3">
+				<p><?php hounslow_intranet_entry_footer(); ?></p>
+				<?php hounslow_intranet_entry_meta(); ?>
+			</footer><!-- #entry-footer -->
+			<!-- Comments -->
+			<?php
+			// If comments are open or we have at least one comment, load up the comment template.
+			if (comments_open() || get_comments_number()) :
+				comments_template();
+			endif;
+			?>
+		</div>
+	</div>
 </article><!-- #post-<?php the_ID(); ?> -->
