@@ -21,7 +21,7 @@ get_header();
   while (have_posts()) :
     the_post();
     if (strpos($url, 'events/categories/') !== false) {
-      get_template_part('template-parts/content-page', 'event');
+      get_template_part('template-parts/page-events', 'archive');
     } else {
       get_template_part('template-parts/content', 'page');
     }
