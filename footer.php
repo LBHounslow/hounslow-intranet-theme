@@ -11,45 +11,47 @@
  */
 ?>
 </div><!-- .wrapper -->
-<footer id="colophon" class="site-footer bg-secondary2 px-3" data-swiftype-index="false">
-	<div class="container-fluid">
-		<div class="row">
-			<div id="footer-column-one" class="widget-area col-sm">
-				<?php hounslow_intranet_multisite_sidebar('sidebar-fc1') ?>
-			</div>
-			<div id="footer-column-two" class="widget-area col-sm">
-				<?php hounslow_intranet_multisite_sidebar('sidebar-fc2') ?>
-			</div>
-			<div id="footer-column-three" class="widget-area col-sm">
-				<?php hounslow_intranet_multisite_sidebar('sidebar-fc3') ?>
-			</div>
-			<div id="footer-column-four" class="widget-area col-sm">
-				<?php hounslow_intranet_multisite_sidebar('sidebar-fc4') ?>
-			</div>
-		</div><!-- .row -->
-		<div class="row justify-content-center">
-			<div class="col col-md-8 col-lg-6">
-				<?php if (function_exists('hounslow_intranet_network_nav_menu') && is_user_logged_in()) {
-					$social_menu_args = array(
-						'theme_location'    => 'social',
-						'depth'          => 1,
-						'container'      => false,
-						'container_class' => '',
-						'menu_class'     => 'nav justify-content-center',
-						'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
-						'walker'         => new WP_Bootstrap_Navwalker(),
-					);
-					hounslow_intranet_network_nav_menu($social_menu_args);
-				} ?>
-			</div><!-- .col -->
-		</div><!-- .row -->
-		<div class="row">
-			<div class="col text-center">
-				<div class="site-info">Hounslow Intranet &#169; Copyright London Borough of Hounslow</div><!-- .site-info -->
-			</div><!-- .col -->
-		</div><!-- .row -->
-	</div><!-- .container -->
-</footer><!-- #colophon -->
+<!-- Body Footer -->
+<div id="footer" class="site-footer container-fluid" data-swiftype-index="false">
+	<!-- Footer Widgets -->
+	<div id="footer-row-one" class="row">
+		<div id="footer-row-one-column-one" class="widget-area col-sm">
+			<?php hounslow_intranet_multisite_sidebar('sidebar-fc1') ?>
+		</div>
+		<div id="footer-row-one-column-two" class="widget-area col-sm">
+			<?php hounslow_intranet_multisite_sidebar('sidebar-fc2') ?>
+		</div>
+		<div id="footer-row-one-column-three" class="widget-area col-sm">
+			<?php hounslow_intranet_multisite_sidebar('sidebar-fc3') ?>
+		</div>
+		<div id="footer-row-one-column-four" class="widget-area col-sm">
+			<?php hounslow_intranet_multisite_sidebar('sidebar-fc4') ?>
+		</div>
+	</div><!-- .row -->
+	<!-- Footer Navigation -->
+	<div id="footer-row-two" class="row justify-content-center">
+		<div id="footer-row-two-column-one" class="col col-md-8 col-lg-6">
+			<?php if (function_exists('hounslow_intranet_network_nav_menu') && is_user_logged_in()) {
+				$social_menu_args = array(
+					'theme_location'    => 'social',
+					'depth'          => 1,
+					'container'      => false,
+					'container_class' => '',
+					'menu_class'     => 'nav justify-content-center',
+					'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
+					'walker'         => new WP_Bootstrap_Navwalker(),
+				);
+				hounslow_intranet_network_nav_menu($social_menu_args);
+			} ?>
+		</div><!-- .col -->
+	</div><!-- .row -->
+	<!-- Footer Content -->
+	<div id="footer-row-two" class="row">
+		<div class="col text-center">
+			<div class="site-info">Hounslow Intranet &#169; Copyright London Borough of Hounslow</div><!-- .site-info -->
+		</div><!-- .col -->
+	</div><!-- .row -->
+</div><!-- #footer -->
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$('#sidebarCollapse').on('click', function() {
