@@ -13362,41 +13362,23 @@ h6,
 /* --------------------------------------------------- */
 
 /* Borders */
-#comments,
-#colophon {
+#comments {
 	border-top: 1px solid #ccc;
 }
 
-.entry-content,
-#secondary .widget,
-#tertiary .widget {
+.entry-content {
 	border-bottom: 1px solid #ccc;
 }
 
 /* Margins */
-#secondary,
-#tertiary {
-	padding-top: 16px;
-}
-
 .entry-content,
 .entry-footer {
 	margin-bottom: 1.5em;
 }
 
-h1.entry-title,
-.entry-title.h1 {
-	margin-top: 0;
-}
-
 #comments,
 .entry-footer {
 	padding-top: 1em;
-}
-
-#colophon {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
 }
 
 .widget-area ul {
@@ -14040,27 +14022,8 @@ div.css-search div.em-search-main .em-search-submit {
 	display: none;
 }
 
-#colophon {
-	border-top: none !important;
-}
-
-.bg-secondary2 {
-	background: white !important;
-}
-
 .side-bar-menu {
 	border-bottom: 2px solid gainsboro;
-}
-
-.container-fluid,
-.container-sm,
-.container-md,
-.container-lg,
-.container-xl,
-.container-xxl {
-	padding-left: none !important;
-	padding-right: none !important;
-	background: white;
 }
 
 .navbar {

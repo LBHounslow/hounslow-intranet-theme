@@ -12,7 +12,7 @@
 ?>
 </div><!-- .wrapper -->
 <!-- Body Footer -->
-<div id="footer" class="site-footer container-fluid" data-swiftype-index="false">
+<div id="footer" class="site-footer container-fluid bg-white p-3" data-swiftype-index="false">
 	<!-- Footer Widgets -->
 	<div id="footer-row-one" class="row">
 		<div id="footer-row-one-column-one" class="widget-area col-sm">
