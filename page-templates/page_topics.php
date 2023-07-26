@@ -22,7 +22,7 @@ get_header();
   } else if (strpos($url, 'health-and-wellbeing') !== false) {
     get_template_part('templates/topics/health-and-wellbeing-archive', 'haw');
   } else if (strpos($url, 'new-to-lbh') !== false) {
-    get_template_part('templates/topics/new-to-hounslow-archive', 'ns');
+    echo '';
   } else if (strpos($url, 'get-involved') !== false) {
     get_template_part('templates/topics/get-involved-archive', 'gi');
   } else if (strpos($url, 'events') !== false) {
