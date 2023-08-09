@@ -50,27 +50,30 @@ get_header();
 
     if ($section_taxonomy !== 'default') {
       // Display old categories as topics
-      $excluded_categories = array();
+      $excluded_categories = array('featured-content', 'new-starter');
       $oldTopics = get_terms($section_taxonomy, array(
         'orderby' => 'name',
         'order'   => 'ASC',
-        'exclude'  => $excluded_categories,
+        'exclude'  => array(),
       ));
 
       foreach ($oldTopics as $oldTopic) {
-        $topic_url = '/' . $post_slug . '/' . $oldTopic->slug;
+        if (!in_array($oldTopic->slug, $excluded_categories)) {
+          $topic_url = '/' . $post_slug . '/' . $oldTopic->slug;
     ?>
-        <div class="col-lg-3 outer">
-          <div class="inner">
-            <div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;background-position:center;"></div>
-            <div class="post-title" style="padding-top:10px;">
-              <h6><?php echo $oldTopic->name; ?></h6>
-              <p><?php echo $oldTopic->description; ?></p>
+          <div class="col-lg-3 outer">
+            <div class="inner">
+              <div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;background-position:center;"></div>
+              <div class="post-title" style="padding-top:10px;">
+                <h6><?php echo $oldTopic->name; ?></h6>
+                <p><?php echo $oldTopic->description; ?></p>
+              </div>
+              <a style="color:white;" href="<?php echo $topic_url; ?>"><button class="btn btn-dark">Read More</button></a>
             </div>
-            <a style="color:white;" href="<?php echo $topic_url; ?>"><button class="btn btn-dark">Read More</button></a>
           </div>
-        </div>
-      <?php } //endforeach
+        <?php
+        } //endif   
+      } //endforeach
     } //endif
 
     //Display new topics in matching section
@@ -91,7 +94,7 @@ get_header();
     if ($connected->have_posts()) {
       while ($connected->have_posts()) : $connected->the_post();
 
-      ?>
+        ?>
         <div class="col-lg-3 outer">
           <div class="inner">
             <div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;background-position:center;"></div>
