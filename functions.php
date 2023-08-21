@@ -267,7 +267,6 @@ function hounslow_remove_admin_bar()
 
 /** Change excerpt length*/
 
-
 add_filter('excerpt_length', function ($length) {
 	return 30;
 });
@@ -278,6 +277,9 @@ function new_excerpt_more($more)
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
+/** completely remove the archive title prefix */
+
+add_filter('get_the_archive_title_prefix', '__return_empty_string');
 
 /** show template for admin */
 
