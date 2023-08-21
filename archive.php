@@ -13,84 +13,85 @@ get_header();
 ?>
 <!-- Body Main Content -->
 <div id="primary" class="site-main">
+  <!-- Content Article -->
+  <div class="row">
 
-  <!-- 1) Corporate Policies Archive -->
-  <?php if (strpos($url, 'corporate-policies') !== false) { ?>
+    <!-- 1) Corporate Policies Archive -->
+    <?php if (strpos($url, 'corporate-policies') !== false) { ?>
 
-    <div class="bubble-outer">
-      <div class="bubble">
-        <h3 class="page-title">
-          <?php
-          printf(__('%s', ''), '<span>' . single_cat_title('', false) . '</span>');
-          ?>
-        </h3>
-      </div>
-    </div>
-    <div style="padding:20px;background:#83d6c9;margin-bottom:20px;">
-      <div class="row align-items-center justify-content-around">
-        <div class="col-lg-6">
-          <?php echo term_description() ?>
-        </div>
-
-        <div class="col-lg-3">
+      <div class="bubble-outer">
+        <div class="bubble">
+          <h3 class="page-title">
+            <?php
+            printf(__('%s', ''), '<span>' . single_cat_title('', false) . '</span>');
+            ?>
+          </h3>
         </div>
       </div>
-    </div>
-    <div class="bubble-outer">
-      <?php get_template_part('templates/topics-tabs', 'topics-dropdown'); ?>
-    </div>
+      <div style="padding:20px;background:#83d6c9;margin-bottom:20px;">
+        <div class="row align-items-center justify-content-around">
+          <div class="col-lg-6">
+            <?php echo term_description() ?>
+          </div>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="row">
-          <?php
-          while (have_posts()) :
-            the_post();
-
-            get_template_part('template-parts/content-post-policy', get_post_type());
-
-          endwhile; // End of the loop.
-          ?>
+          <div class="col-lg-3">
+          </div>
         </div>
       </div>
-    </div>
-
-
-  <?php } else { ?>
-    <!-- 1) All Other Archives -->
-
-    <?php if (have_posts()) : ?>
-
-      <?php get_template_part('templates/topics-tabs', 'topics-dropdown'); ?>
-
-      <header class="page-header">
-        <?php
-        the_archive_title('<h1 class="page-title">', '</h1>');
-        the_archive_description('<div class="archive-description">', '</div>');
-        ?>
-      </header><!-- .page-header -->
+      <div class="bubble-outer">
+        <?php get_template_part('templates/topics-tabs', 'topics-dropdown'); ?>
+      </div>
 
       <div class="row">
-      <?php
-      while (have_posts()) :
-        the_post();
+        <div class="col-lg-6">
+          <div class="row">
+            <?php
+            while (have_posts()) :
+              the_post();
 
-        get_template_part('template-parts/content-topics', get_post_type());
+              get_template_part('template-parts/content-post-policy', get_post_type());
 
-      endwhile; // End of the loop.
-
-      the_posts_pagination();
-
-    else :
-
-      get_template_part('template-parts/content', 'none');
-
-    endif;
-      ?>
+            endwhile; // End of the loop.
+            ?>
+          </div>
+        </div>
       </div>
-    <?php } //endif 
-    ?>
 
+
+    <?php } else { ?>
+      <!-- 1) All Other Archives -->
+
+      <?php if (have_posts()) : ?>
+
+        <header style="padding:20px;background:#83d6c9;margin-bottom:20px;" class="page-header ">
+          <?php
+
+          the_archive_title('<div class="bubble-outer"><div class="bubble"><h3>', '</h3></div></div>');
+          the_archive_description('<div class="archive-description">', '</div>');
+          ?>
+        </header><!-- .page-header -->
+
+        <div class="row">
+        <?php
+        while (have_posts()) :
+          the_post();
+
+          get_template_part('template-parts/content-topics', get_post_type());
+
+        endwhile; // End of the loop.
+
+        the_posts_pagination();
+
+      else :
+
+        get_template_part('template-parts/content', 'none');
+
+      endif;
+        ?>
+        </div>
+      <?php } //endif 
+      ?>
+  </div><!-- .row -->
 </div><!-- #primary .site-main -->
 <?php
 get_sidebar();
