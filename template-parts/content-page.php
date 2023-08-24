@@ -9,10 +9,10 @@
  */
 
 ?>
-
+<!-- Content Article -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="row">
-		<div id="entry-container" class="col-lg-7" style="background:white;">
+		<div id="entry-container" class="col-lg-7 bg-white">
 			<div id="entry-featured-video">
 				<?php hounslow_intranet_entry_featured_video(); ?>
 			</div>

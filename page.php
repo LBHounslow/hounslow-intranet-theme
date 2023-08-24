@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all pages
  *
@@ -11,24 +12,22 @@
  *
  * @package LBH_Intranet
  */
-get_header();
-get_sidebar();
 $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+get_header();
 ?>
-<!-- Page Content  -->
-<div id="content">
-  <main id="primary" class="site-main">
-    <?php
-    while ( have_posts() ) :
-    	the_post();
-      if (strpos($url,'events/categories/') !== false) {
-        get_template_part( 'template-parts/content-page', 'event' );
-      } else {
-        get_template_part( 'template-parts/content', 'page' );
-      }
-    endwhile; // End of the loop.
-    ?>
-  </main><!-- #primary .site-main -->
-</div><!-- #content -->
+<!-- Body Main Content -->
+<div id="primary" class="site-main">
+  <?php
+  while (have_posts()) :
+    the_post();
+    if (strpos($url, 'events/categories/') !== false) {
+      get_template_part('template-parts/page-events', 'archive');
+    } else {
+      get_template_part('template-parts/content', 'page');
+    }
+  endwhile; // End of the loop.
+  ?>
+</div><!-- #primary .site-main -->
 <?php
+get_sidebar();
 get_footer();

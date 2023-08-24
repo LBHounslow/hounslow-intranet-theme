@@ -10,7 +10,7 @@
 
 if (!defined('HOUNSLOW_INTRANET_THEME_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('HOUNSLOW_INTRANET_THEME_VERSION', '1.3.1');
+	define('HOUNSLOW_INTRANET_THEME_VERSION', '1.3.3');
 }
 
 if (!function_exists('hounslow_intranet_setup')) :
@@ -265,29 +265,7 @@ function hounslow_remove_admin_bar()
 	}
 }
 
-
-
-/** add logo support */
-
-add_theme_support('custom-logo');
-
-function themename_custom_logo_setup()
-{
-	$defaults = array(
-		'height'               => 100,
-		'width'                => 400,
-		'flex-height'          => true,
-		'flex-width'           => true,
-		'header-text'          => array('site-title', 'site-description'),
-		'unlink-homepage-logo' => true,
-	);
-
-	add_theme_support('custom-logo', $defaults);
-}
-
-
 /** Change excerpt length*/
-
 
 add_filter('excerpt_length', function ($length) {
 	return 30;
@@ -299,6 +277,9 @@ function new_excerpt_more($more)
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
+/** completely remove the archive title prefix */
+
+add_filter('get_the_archive_title_prefix', '__return_empty_string');
 
 /** show template for admin */
 
