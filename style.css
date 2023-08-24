@@ -276,7 +276,7 @@ body {
 hr {
 	margin: 1rem 0;
 	color: inherit;
-	background-color: currentColor;
+	background-color: currentcolor;
 	border: 0;
 	opacity: 0.25;
 }
@@ -2263,7 +2263,7 @@ progress {
 
 .table > :not(:first-child),
 .wp-block-table table > :not(:first-child) {
-	border-top: 2px solid currentColor;
+	border-top: 2px solid currentcolor;
 }
 
 .caption-top {
@@ -8241,7 +8241,7 @@ input[type="submit"] .badge {
 	width: 2rem;
 	height: 2rem;
 	vertical-align: -0.125em;
-	border: 0.25em solid currentColor;
+	border: 0.25em solid currentcolor;
 	border-right-color: transparent;
 	border-radius: 50%;
 	animation: 0.75s linear infinite spinner-border;
@@ -8270,7 +8270,7 @@ input[type="submit"] .badge {
 	width: 2rem;
 	height: 2rem;
 	vertical-align: -0.125em;
-	background-color: currentColor;
+	background-color: currentcolor;
 	border-radius: 50%;
 	opacity: 0;
 	animation: 0.75s linear infinite spinner-grow;
@@ -8397,7 +8397,7 @@ input[type="submit"] .badge {
 	min-height: 1em;
 	vertical-align: middle;
 	cursor: wait;
-	background-color: currentColor;
+	background-color: currentcolor;
 	opacity: 0.5;
 }
 
@@ -8674,7 +8674,7 @@ input.placeholder[type="submit"]::before {
 	align-self: stretch;
 	width: 1px;
 	min-height: 1em;
-	background-color: currentColor;
+	background-color: currentcolor;
 	opacity: 0.25;
 }
 
@@ -13527,7 +13527,7 @@ figure.wp-block-image {
 }
 
 .st-ui-type-detail-bold {
-	font-weight: bold !important;
+	font-weight: 700 !important;
 }
 
 .post-title-list {
@@ -13591,7 +13591,7 @@ figure.wp-block-image {
 
 .topic-title a {
 	color: hotpink;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 .post-title-carousel {
