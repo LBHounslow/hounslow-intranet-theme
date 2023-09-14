@@ -42,58 +42,28 @@
           else :
           endif;
 
-          if (rwmb_get_value('lbh_guide_section_one_heading')) :
-            echo '<h3>' . rwmb_meta('lbh_guide_section_one_heading') . '</h3>';
-          else :
-          endif;
-
-          if (rwmb_get_value('lbh_guide_section_one_content')) :
-            $value = rwmb_meta('lbh_guide_section_one_content');
-            echo do_shortcode(wpautop($value));
-          else :
-          endif;
-
-          if (rwmb_get_value('lbh_guide_section_two_heading')) :
-            echo '<h3>' . rwmb_meta('lbh_guide_section_two_heading') . '</h3>';
-          else :
-          endif;
-
-          if (rwmb_get_value('lbh_guide_section_two_content')) :
-            $value = rwmb_meta('lbh_guide_section_two_content');
-            echo do_shortcode(wpautop($value));
-          else :
-          endif;
-
-          if (rwmb_get_value('lbh_guide_section_three_heading')) :
-            echo '<h3>' . rwmb_meta('lbh_guide_section_three_heading') . '</h3>';
-          else :
-          endif;
-
-          if (rwmb_get_value('lbh_guide_section_three_content')) :
-            $value = rwmb_meta('lbh_guide_section_three_content');
-            echo do_shortcode(wpautop($value));
-          else :
-          endif;
-
-          if (rwmb_get_value('lbh_guide_section_four_heading')) :
-            echo '<h3>' . rwmb_meta('lbh_guide_section_four_heading') . '</h3>';
-          else :
-          endif;
-
-          if (rwmb_get_value('lbh_guide_section_four_content')) :
-            $value = rwmb_meta('lbh_guide_section_four_content');
-            echo do_shortcode(wpautop($value));
-          else :
-          endif;
-
-          if (rwmb_get_value('lbh_guide_section_five_heading')) :
-            echo '<h3>' . rwmb_meta('lbh_guide_section_five_heading') . '</h3>';
-          else :
-          endif;
-
-          if (rwmb_get_value('lbh_guide_section_five_content')) :
-            $value = rwmb_meta('lbh_guide_section_five_content');
-            echo do_shortcode(wpautop($value));
+          if (rwmb_get_value('lbh_guide_sections')) :
+            $layout = rwmb_meta('lbh_guide_sections_layout');
+            if ($layout == 'faq') :
+              echo '<div class="accordion accordion-flush" id="accordionExample">';
+              $sections = rwmb_meta('lbh_guide_sections') ?: [];
+              $iS = 0;
+              foreach ($sections as $section) {
+                $iS++;
+                echo '<div class="accordion-item">';
+                echo '<h3 class="accordion-header" id="section' . $iS . '" ><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' . $iS . '" aria-expanded="true" aria-controls="collapse' . $iS . '">' . $section['section_heading'] . '</button></h3>';
+                echo  '<div id="collapse' . $iS . '" class="accordion-collapse collapse" aria-labelledby="section' . $iS . '" data-bs-parent="#accordionExample"><div class="accordion-body">';
+                echo do_shortcode(wpautop($section['section_content']));
+                echo '</div></div></div>';
+              }
+              echo '</div>';
+            else :
+              $sections = rwmb_meta('lbh_guide_sections') ?: [];
+              foreach ($sections as $section) {
+                echo '<h3>' . $section['section_heading'] . '</h3>';
+                echo do_shortcode(wpautop($section['section_content']));
+              }
+            endif;
           else :
           endif;
 
