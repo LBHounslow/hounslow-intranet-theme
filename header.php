@@ -30,11 +30,11 @@
 				<?php get_template_part('template-parts/header', 'branding'); ?>
 			</div><!-- #header-row-01-col-01 -->
 			<!-- Utility Navigation -->
-			<div id="header-row-01-col-02" class="col-6 col-lg-5  order-lg-last">
+			<div id="header-row-01-col-02" class="col-6 col-lg-4 order-lg-last">
 				<?php get_template_part('template-parts/header', 'utilitynav'); ?>
 			</div><!-- #header-row-01-col-02 -->
-			<!-- Utility Navigation -->
-			<div id="header-row-01-col-03" class="col-12 col-lg-5">
+			<!-- Search -->
+			<div id="header-row-01-col-03" class="col-12 col-lg-6">
 				<?php get_search_form(); ?>
 			</div><!-- #header-row-01-col-03 -->
 		</div><!-- #header-row-01 .row -->
