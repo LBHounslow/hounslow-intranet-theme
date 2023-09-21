@@ -35,7 +35,6 @@
 			<div id="header-row-01-col-02" class="col-lg-10">
 				<nav class="navbar navbar-expand-lg navbar-dark">
 					<div class="container-fluid">
-						<button type="button" id="sidebarCollapse" class="btn btn-dark"><i class="fas fa-align-left"></i><span></span></button>
 						<?php if (function_exists('hounslow_intranet_network_nav_menu') && is_user_logged_in()) :
 
 							$network_menu_args = array(

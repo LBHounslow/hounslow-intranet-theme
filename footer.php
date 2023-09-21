@@ -52,13 +52,6 @@
 		</div><!-- .col -->
 	</div><!-- .row -->
 </div><!-- #footer -->
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$('#sidebarCollapse').on('click', function() {
-			$('#sidebar').toggleClass('active');
-		});
-	});
-</script>
 <!-- Swiftype Search -->
 <script type="text/javascript">
 	(function(w, d, t, u, n, s, e) {
