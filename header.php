@@ -26,13 +26,17 @@
 	<div id="header" class="container-fluid bg-white border-top border-primary" style="border-top-width:12px!important" data-swiftype-index="false">
 		<div id="header-row-01" class="row">
 			<!-- Branding and Network Home -->
-			<div id="header-row-01-col-01" class="col-lg-2 align-self-center">
+			<div id="header-row-01-col-01" class="col-6 col-lg-2 align-self-center">
 				<?php get_template_part('template-parts/header', 'branding'); ?>
 			</div><!-- #header-row-01-col-01 -->
 			<!-- Utility Navigation -->
-			<div id="header-row-01-col-02" class="col-lg-10">
+			<div id="header-row-01-col-02" class="col-6 col-lg-5  order-lg-last">
 				<?php get_template_part('template-parts/header', 'utilitynav'); ?>
 			</div><!-- #header-row-01-col-02 -->
+			<!-- Utility Navigation -->
+			<div id="header-row-01-col-03" class="col-12 col-lg-5">
+				<?php get_search_form(); ?>
+			</div><!-- #header-row-01-col-03 -->
 		</div><!-- #header-row-01 .row -->
 	</div><!-- #header .container  -->
 	<div class="wrapper">

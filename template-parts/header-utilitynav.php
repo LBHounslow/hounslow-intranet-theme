@@ -32,7 +32,6 @@
                     </li>
                 </ul>
             </div><!-- .utility-menu -->
-        <?php endif;
-        get_search_form(); ?>
+        <?php endif; ?>
     </div>
 </nav>
