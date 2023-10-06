@@ -9,14 +9,14 @@
 
 global $post;
 global $blog_id;
-$origin_id = 1;
+$origin_id = 1; // ID of main site
 $show_advanced_search = true;
-$current_blog_id = get_current_blog_id();
 
 if (!is_multisite() || $origin_id != $blog_id) {
     $show_advanced_search = false;
 }
 
+// Advanced Network Search 
 if (true === $show_advanced_search) {
 
     // Retrieve applicable query parameters.
@@ -26,20 +26,23 @@ if (true === $show_advanced_search) {
     $search_news  = isset($_GET['searchNews']) ? sanitize_text_field($_GET['searchNews']) : 'true';
     $search_blogs  = isset($_GET['searchBlogs']) ? sanitize_text_field($_GET['searchBlogs']) : 'false';
 
-    $checked_standard = '';
-    $checked_news = '';
-    $checked_blogs = '';
-
-    // Select sites to be searched
+    // Select sites to be searched based on search options
     $sitesSearched = array();
+
+    // I. Search standard content: site ID 1
+    $checked_standard = '';
     if ($search_standard == 'true') {
         array_push($sitesSearched, 1);
         $checked_standard = 'checked';
     }
+    // II. Search news articles: site ID 2
+    $checked_news = '';
     if ($search_news == 'true') {
         array_push($sitesSearched, 2);
         $checked_news = 'checked';
     }
+    // III. Search blog posts: site ID 4 (more can be added here)
+    $checked_blogs = '';
     if ($search_blogs == 'true') {
         array_push($sitesSearched, 4);
         $checked_blogs = 'checked';
@@ -67,10 +70,12 @@ get_header();
 <div id="primary" class="site-main">
     <div class="row">
         <div id="entry-container" class="col-lg-7 bg-white">
-            <?php if (true === $show_advanced_search) { ?>
+            <?php if (true === $show_advanced_search) { // Display advanced search 
+            ?>
                 <header>
                     <h1 class="page-title visually-hidden-focusable">Advanced Search</h1>
                 </header>
+                <!--- Advanced Search Form -->
                 <div class="container my-4">
                     <div class="row">
                         <form id="advancedSearchForm" class="col d-inline-flex" role="search" method="get" action="<?php echo site_url('/search'); ?>">
@@ -82,6 +87,7 @@ get_header();
                         </form>
                     </div>
                 </div>
+                <!--- Advanced Search Options -->
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <p class="mx-4 my-2">Search for:</p>
                     <div class="form-check form-switch form-check-inline">
@@ -99,19 +105,15 @@ get_header();
                 </nav>
                 <hr />
 
+                <!-- Search Results -->
                 <?php if (!is_null($search_query)) { ?>
-
                     <h2>Search Results</h2>
-
                     <?php if (!empty($search_query) && !empty($search_results)) : ?>
-
                         <?php if (!empty($search_query)) :
                             printf(__('<p>We found the following results for &#8220;%s&#8221;.</p>'), esc_html($search_query));
                         endif; ?>
                         <hr />
-
                         <?php foreach ($search_results as $search_result) : ?>
-
                             <?php
                             // Track whether we switched sites for this result.
                             $switched_site = false;
@@ -148,31 +150,29 @@ get_header();
                                 <hr />
                             </article>
 
-
                         <?php wp_reset_postdata();
-
 
                             if (true == $switched_site) {
                                 restore_current_blog();
                             }
                         endforeach; ?>
 
-
-
+                        <!-- Paged search navigation -->
                         <?php if ($searchwp_query->max_num_pages > 1) : ?>
                             <nav class="navigation search-navigation" role="navigation" aria-label="Search results">
                                 <h2 class="screen-reader-text">Search results navigation</h2>
                                 <?php echo bootstrap_search_pagination($searchwp_query); ?>
                             </nav>
                         <?php endif; ?>
-                    <?php elseif (!empty($search_query)) : ?>
+
+                    <?php elseif (!empty($search_query)) : // No results 
+                    ?>
                         <p>No results found, please search again.</p>
                         <hr />
                     <?php endif; ?>
 
-
                 <?php } else { ?>
-
+                    <!-- List of alternative search tools -->
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <p class="mx-4 my-2">Other search tools:</p>
                         <ul class="nav">
@@ -181,10 +181,10 @@ get_header();
                             </li>
                         </ul>
                     </nav>
-
                 <?php } ?>
 
-            <?php } else { ?>
+            <?php } else { // Display standard site search 
+            ?>
                 <header class="entry-header">
                     <h1 class="page-title">
                         Search <?php echo get_bloginfo('name'); ?>
@@ -193,14 +193,12 @@ get_header();
                 <?php get_search_form(); ?>
 
             <?php } ?>
-
         </div>
         <div class="col-lg-5">
             <div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');min-height:100vh;background-size:cover;background-position:center;"></div>
         </div>
     </div>
     </article><!-- #post-<?php the_ID(); ?> -->
-
 </div><!-- #primary .site-main -->
 <?php
 get_sidebar();
