@@ -6,6 +6,19 @@
  * @package Hounslow_Intranet
  */
 
+if (!function_exists('wp_body_open')) :
+    /**
+     * Shim for sites older than 5.2.
+     *
+     * @link https://core.trac.wordpress.org/ticket/12563
+     */
+    function wp_body_open()
+    {
+        do_action('wp_body_open');
+    }
+endif;
+
+
 if (!function_exists('hounslow_intranet_get_post_type')) :
     /**
      * Outputs the featured video.
