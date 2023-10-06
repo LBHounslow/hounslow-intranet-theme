@@ -36,12 +36,6 @@ if (true === $show_advanced_search) {
         ]);
 
         $search_results = $searchwp_query->get_results();
-
-        $search_pagination = paginate_links(array(
-            'format'  => '?swppg=%#%',
-            'current' => $search_page,
-            'total'   => $searchwp_query->max_num_pages,
-        ));
     }
 }
 
@@ -119,10 +113,10 @@ get_header();
                         endforeach; ?>
 
                         <?php if ($searchwp_query->max_num_pages > 1) : ?>
-                            <div class="navigation pagination" role="navigation">
-                                <h2 class="screen-reader-text">Results navigation</h2>
-                                <div class="nav-links"><?php echo wp_kses_post($search_pagination); ?></div>
-                            </div>
+                            <nav class="navigation search-navigation" role="navigation" aria-label="Search results">
+                                <h2 class="screen-reader-text">Search results navigation</h2>
+                                <?php echo bootstrap_search_pagination($searchwp_query); ?>
+                            </nav>
                         <?php endif; ?>
                     <?php elseif (!empty($search_query)) : ?>
                         <p>No results found, please search again.</p>

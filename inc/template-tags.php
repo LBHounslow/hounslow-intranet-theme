@@ -856,7 +856,6 @@ $add_args[ 'sort' ] = (string)$_GET[ 'sort' ];
 
 function bootstrap_search_pagination(\SearchWP\Query $wp_query = null, $echo = true, $params = [])
 {
-	echo 'pagination here';
 	if (null === $wp_query) {
 		global $wp_query;
 	}
@@ -868,18 +867,13 @@ function bootstrap_search_pagination(\SearchWP\Query $wp_query = null, $echo = t
 		$add_args[ 'sort' ] = (string)$_GET[ 'sort' ];
 	}*/
 
-	if (is_page_template()) {
-		$current = get_query_var('page');
-	} else {
-		$current = get_query_var('paged');
-	}
+	$search_page  = isset($_GET['swppg']) ? absint($_GET['swppg']) : 1;
 
 	$pages = paginate_links(
 		array_merge([
-			'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-			'format'       => '?paged=%#%',
-			'current'      => max(1, $current),
-			'total'        => $wp_query->max_num_pages,
+			'format'  => '?swppg=%#%',
+			'current' => $search_page,
+			'total'   => $wp_query->max_num_pages,
 			'type'         => 'array',
 			'show_all'     => false,
 			'end_size'     => 3,
