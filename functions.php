@@ -234,11 +234,6 @@ require get_template_directory() . '/inc/hounslow-intranet-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
  * SEO functions.
  */
 require get_template_directory() . '/inc/seo-functions.php';
