@@ -71,7 +71,12 @@ if (!function_exists('hounslow_intranet_post_type_identifier')) :
 
         switch ($post_type) {
             case 'post':
-                $output = '';
+                $news_blog_id = 2;
+                if (get_current_blog_id() == $news_blog_id) {
+                    $output = '<i class="fas fa-newspaper"></i> News Article';
+                } else {
+                    $output = '<i class="fas fa-blog"></i> Blog Post';
+                }
                 break;
             case 'page':
                 $output = '';

@@ -35,7 +35,7 @@
 			</div><!-- #header-row-01-col-02 -->
 			<!-- Search -->
 			<div id="header-row-01-col-03" class="col-12 col-lg-6">
-				<?php get_search_form(); ?>
+				<?php hounslow_intranet_network_get_search_form(); ?>
 			</div><!-- #header-row-01-col-03 -->
 		</div><!-- #header-row-01 .row -->
 	</div><!-- #header .container  -->
