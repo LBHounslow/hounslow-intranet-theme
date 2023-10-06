@@ -22,6 +22,28 @@ if (true === $show_advanced_search) {
     // Retrieve applicable query parameters.
     $search_query = isset($_GET['searchwp']) ? sanitize_text_field($_GET['searchwp']) : null;
     $search_page  = isset($_GET['swppg']) ? absint($_GET['swppg']) : 1;
+    $search_standard  = isset($_GET['searchStandard']) ? sanitize_text_field($_GET['searchStandard']) : 'true';
+    $search_news  = isset($_GET['searchNews']) ? sanitize_text_field($_GET['searchNews']) : 'true';
+    $search_blogs  = isset($_GET['searchBlogs']) ? sanitize_text_field($_GET['searchBlogs']) : 'false';
+
+    $checked_standard = '';
+    $checked_news = '';
+    $checked_blogs = '';
+
+    // Select sites to be searched
+    $sitesSearched = array();
+    if ($search_standard == 'true') {
+        array_push($sitesSearched, 1);
+        $checked_standard = 'checked';
+    }
+    if ($search_news == 'true') {
+        array_push($sitesSearched, 2);
+        $checked_news = 'checked';
+    }
+    if ($search_blogs == 'true') {
+        array_push($sitesSearched, 4);
+        $checked_blogs = 'checked';
+    }
 
     // Perform the search.
     $search_results    = [];
@@ -31,7 +53,7 @@ if (true === $show_advanced_search) {
         $searchwp_query = new \SearchWP\Query($search_query, [
             'engine' => 'supplemental', // The Engine name.
             'fields' => 'default',      // Retain site ID info with results.
-            'site'   => [1, 2, 4],          // Search all sites.
+            'site'   => $sitesSearched,          // Search selected sites.
             'page'   => $search_page,
         ]);
 
@@ -47,29 +69,45 @@ get_header();
         <div id="entry-container" class="col-lg-7 bg-white">
             <?php if (true === $show_advanced_search) { ?>
                 <header>
-                    <h1 class="page-title">Advanced Search</h1>
+                    <h1 class="page-title visually-hidden-focusable">Advanced Search</h1>
                 </header>
-                <form role="search" method="get" class="search-form" action="<?php echo site_url('/search'); ?>">
-                    <label>
-                        <span class="screen-reader-text">
-                            <?php echo _x('Search for:', 'label') ?>
-                        </span>
-                        <input type="search" class="search-field" name="searchwp" placeholder="<?php echo esc_attr_x('Search...', 'placeholder') ?>" value="<?php echo isset($_GET['searchwp']) ? esc_attr($_GET['searchwp']) : '' ?>" title="<?php echo esc_attr_x('Search for:', 'label') ?>" />
-                    </label>
-                    <input type="submit" class="search-submit" value="<?php echo esc_attr_x('Search', 'submit button') ?>" />
-                </form>
-
+                <nav class="navbar navbar-expand-lg navbar-light mt-4">
+                    <form id="advancedSearchForm" class="container-fluid" role="search" method="get" action="<?php echo site_url('/search'); ?>">
+                        <input type="search" class="search-field form-control me-2" name="searchwp" placeholder="<?php echo esc_attr_x('Search...', 'placeholder') ?>" value="<?php echo isset($_GET['searchwp']) ? esc_attr($_GET['searchwp']) : '' ?>" title="<?php echo esc_attr_x('Search for:', 'label') ?>" />
+                        <button class="btn btn-primary me-2" type="submit" value="<?php echo esc_attr_x('Search', 'submit button') ?>"><i class="fa fa-search"></i></button>
+                        <input type="hidden" id="searchStandard" name="searchStandard" value="<?php echo $search_standard; ?>">
+                        <input type="hidden" id="searchNews" name="searchNews" value="<?php echo $search_news; ?>">
+                        <input type="hidden" id="searchBlogs" name="searchBlogs" value="<?php echo $search_blogs; ?>">
+                    </form>
+                </nav>
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <p class="mx-4 my-2">Search for:</p>
+                    <div class="form-check form-switch form-check-inline">
+                        <input class="form-check-input" type="checkbox" role="switch" id="searchStandardSwitch" <?php echo $checked_standard; ?>>
+                        <label class="form-check-label" for="searchStandardSwitch">Standard content</label>
+                    </div>
+                    <div class="form-check form-switch form-check-inline">
+                        <input class="form-check-input" type="checkbox" role="switch" id="searchNewsSwitch" <?php echo $checked_news; ?>>
+                        <label class="form-check-label" for="searchNewsSwitch">News articles</label>
+                    </div>
+                    <div class="form-check form-switch form-check-inline">
+                        <input class="form-check-input" type="checkbox" role="switch" id="searchBlogsSwitch" <?php echo $checked_blogs; ?>>
+                        <label class="form-check-label" for="searchBlogsSwitch">Blog posts</label>
+                    </div>
+                </nav>
                 <hr />
 
                 <?php if (!is_null($search_query)) { ?>
 
-                    <h2>
-                        <?php if (!empty($search_query)) :
-                            printf(__('Search Results for: %s'), esc_html($search_query));
-                        endif; ?>
-                    </h2>
+                    <h2>Search Results</h2>
 
                     <?php if (!empty($search_query) && !empty($search_results)) : ?>
+
+                        <?php if (!empty($search_query)) :
+                            printf(__('<p>We found the following results for &#8220;%s&#8221;.</p>'), esc_html($search_query));
+                        endif; ?>
+                        <hr />
+
                         <?php foreach ($search_results as $search_result) : ?>
 
                             <?php
@@ -89,6 +127,11 @@ get_header();
                                     <div class="row">
                                         <div class="col-10">
                                             <?php the_title('<h3 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h3>'); ?>
+                                            <div class="mb-2">
+                                                <?php if (hounslow_intranet_get_post_type() == 'post') {
+                                                    hounslow_intranet_posted_on();
+                                                } ?>
+                                            </div>
                                         </div>
                                         <div class="col-2 p-2 d-flex justify-content-center">
                                             <span><?php echo hounslow_intranet_post_type_identifier(); ?></span>
@@ -112,6 +155,8 @@ get_header();
                             }
                         endforeach; ?>
 
+
+
                         <?php if ($searchwp_query->max_num_pages > 1) : ?>
                             <nav class="navigation search-navigation" role="navigation" aria-label="Search results">
                                 <h2 class="screen-reader-text">Search results navigation</h2>
@@ -120,12 +165,22 @@ get_header();
                         <?php endif; ?>
                     <?php elseif (!empty($search_query)) : ?>
                         <p>No results found, please search again.</p>
+                        <hr />
                     <?php endif; ?>
 
 
+                <?php } else { ?>
+
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <p class="mx-4 my-2">Other search tools:</p>
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/address-book-search/">Address Book Search</a>
+                            </li>
+                        </ul>
+                    </nav>
+
                 <?php } ?>
-
-
 
             <?php } else { ?>
                 <header class="entry-header">
