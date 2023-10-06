@@ -71,15 +71,17 @@ get_header();
                 <header>
                     <h1 class="page-title visually-hidden-focusable">Advanced Search</h1>
                 </header>
-                <nav class="navbar navbar-expand-lg navbar-light mt-4">
-                    <form id="advancedSearchForm" class="container-fluid" role="search" method="get" action="<?php echo site_url('/search'); ?>">
-                        <input type="search" class="search-field form-control me-2" name="searchwp" placeholder="<?php echo esc_attr_x('Search...', 'placeholder') ?>" value="<?php echo isset($_GET['searchwp']) ? esc_attr($_GET['searchwp']) : '' ?>" title="<?php echo esc_attr_x('Search for:', 'label') ?>" />
-                        <button class="btn btn-primary me-2" type="submit" value="<?php echo esc_attr_x('Search', 'submit button') ?>"><i class="fa fa-search"></i></button>
-                        <input type="hidden" id="searchStandard" name="searchStandard" value="<?php echo $search_standard; ?>">
-                        <input type="hidden" id="searchNews" name="searchNews" value="<?php echo $search_news; ?>">
-                        <input type="hidden" id="searchBlogs" name="searchBlogs" value="<?php echo $search_blogs; ?>">
-                    </form>
-                </nav>
+                <div class="container my-4">
+                    <div class="row">
+                        <form id="advancedSearchForm" class="col d-inline-flex" role="search" method="get" action="<?php echo site_url('/search'); ?>">
+                            <input class="me-2" type="search" placeholder="<?php echo esc_attr_x('Search...', 'placeholder') ?>" aria-label="Search" value="<?php echo isset($_GET['searchwp']) ? esc_attr($_GET['searchwp']) : '' ?>" name="searchwp" title="<?php echo esc_attr_x('Search for:', 'label') ?>">
+                            <button class="btn btn-primary me-2" type="submit" value="<?php echo esc_attr_x('Search', 'submit button') ?>"><i class="fa fa-search"></i></button>
+                            <input type="hidden" id="searchStandard" name="searchStandard" value="<?php echo $search_standard; ?>">
+                            <input type="hidden" id="searchNews" name="searchNews" value="<?php echo $search_news; ?>">
+                            <input type="hidden" id="searchBlogs" name="searchBlogs" value="<?php echo $search_blogs; ?>">
+                        </form>
+                    </div>
+                </div>
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <p class="mx-4 my-2">Search for:</p>
                     <div class="form-check form-switch form-check-inline">

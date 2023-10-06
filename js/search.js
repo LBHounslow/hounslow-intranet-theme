@@ -4,6 +4,7 @@ window.onload = searchInit;
 
 function searchInit() {
 	searchForm = document.querySelector('#networkSearchForm');
+    searchForm.classList.remove("d-inline-flex");
     searchForm.style.display = "none";
 
     let inputStandard = document.querySelector("#searchStandard");
