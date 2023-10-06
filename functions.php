@@ -206,6 +206,10 @@ function hounslow_intranet_scripts()
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
+
+	if (is_page_template('page-templates/page_search.php')) {
+		wp_enqueue_script('hounslow-intranet-search', get_template_directory_uri() . '/js/search.js', array(), HOUNSLOW_INTRANET_THEME_VERSION, true);
+	}
 }
 add_action('wp_enqueue_scripts', 'hounslow_intranet_scripts');
 
