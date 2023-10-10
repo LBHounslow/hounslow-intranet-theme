@@ -160,7 +160,19 @@ if (!function_exists('hounslow_intranet_topic_link')) :
     }
 endif;
 
+function hounslow_intranet_get_greeting()
+{
 
+    $greeting = wp_get_current_user()->display_name;
+    if (empty($greeting)) {
+        $greeting = wp_get_current_user()->user_nicename;
+    }
+    if (empty($greeting)) {
+        $greeting = wp_get_current_user()->user_email;
+    }
+
+    return $greeting;
+}
 
 
 
