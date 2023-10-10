@@ -113,67 +113,6 @@ ul.pagination {
     content: "\2014 \00A0";
 }
 
- /* Styling for menus in widgets */
-
-.widget_nav_menu,
-.better-section-nav {
-  padding-bottom: 1.5em;
-}
-
-.widget_nav_menu ul,
-.bsn-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  border-radius: .25rem;
-}
-
-.widget_nav_menu li,
-.bsn-list li {
-  padding: .75rem 1.25rem;
-  border: 1px solid rgba(0,0,0,.125);
-}
-
-.widget_nav_menu li li,
-.bsn-list li li {
-  border: 0;
-}
-
-.widget_nav_menu li:first-child,
-.bsn-list li:first-child {
-  border-top-left-radius: .25rem;
-  border-top-right-radius: .25rem;
-}
-
-.widget_nav_menu li:last-child,
-.bsn-list li:last-child {
-  border-bottom-left-radius: .25rem;
-  border-top-right-radius: .25em;
-}
-
-.widget_nav_menu .nav-link {
-  padding: 0;
-}
-
-.menu-item+.menu-item,
-.bsn-list .page_item+.page_item {
-  border-top-width: 0;
-}
-
-.wp-block-table table {
-    @extend .table;
-}
-.wp-block-table.hounslow-table-grid table {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hounslow-table-grid table td,
-.hounslow-table-grid table th {
-  border-width: 1px;
-}
-
  /* Styling for Swiftype search */
 .st-default-search-input {
   background: none !important;
