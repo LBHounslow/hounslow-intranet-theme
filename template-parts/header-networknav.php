@@ -11,7 +11,7 @@ if (has_nav_menu('network') && function_exists('hounslow_intranet_network_nav_me
         'walker'            => new WP_Bootstrap_Navwalker()
     );
 ?>
-    <nav id="network-navigation" class="mt-3 pt-3 pb-3 border-top" role="navigation">
+    <nav id="network-navigation" class="mt-1 pt-2 pb-2 border-top" role="navigation">
         <?php hounslow_intranet_network_nav_menu($network_menu_args); ?>
     </nav>
 <?php endif; ?>
