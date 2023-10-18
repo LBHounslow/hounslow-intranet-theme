@@ -38,6 +38,11 @@
 				<?php hounslow_intranet_network_get_search_form(); ?>
 			</div><!-- #header-row-01-col-03 -->
 		</div><!-- #header-row-01 .row -->
+		<div id="header-row-02" class="row">
+			<div id="header-row-01-co2-01" class="col">
+				<?php get_template_part('template-parts/header', 'networknav'); ?>
+			</div>
+		</div>
 	</div><!-- #header .container  -->
 	<div class="wrapper">
 		<!-- Sidebar (navigation) -->
