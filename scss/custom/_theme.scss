@@ -59,6 +59,11 @@ h1, h2, h3, h4, h5, h6 {
   color: lighten($utility-nav-link-color, 15%)
 }
 
+/* Network Navigation */
+#network-navigation a[aria-expanded=true] {
+  color: #fff;
+  background: #D70787;
+}
 
 /* Paginated Navigation */
 

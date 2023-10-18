@@ -640,16 +640,12 @@ a:focus {
   font-size: 1em;
   display: block;
 }
-
-
-
-
 #sidebar ul li a:hover {
   color: #fff;
   background: #83D6C9;
 }
 
-#sidebar ul li.active > a, a[aria-expanded=true] {
+#sidebar ul li.active > a, #sidebar a[aria-expanded=true] {
   color: #fff;
   background: #D70787;
 }

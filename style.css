@@ -13401,6 +13401,12 @@ h6,
 	color: #a6a6a6;
 }
 
+/* Network Navigation */
+#network-navigation a[aria-expanded="true"] {
+	color: #fff;
+	background: #d70787;
+}
+
 /* Paginated Navigation */
 ul.pagination {
 	margin-left: 0;
@@ -14111,7 +14117,7 @@ a:focus {
 }
 
 #sidebar ul li.active > a,
-a[aria-expanded="true"] {
+#sidebar a[aria-expanded="true"] {
 	color: #fff;
 	background: #d70787;
 }
