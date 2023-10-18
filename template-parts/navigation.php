@@ -7,8 +7,8 @@
 	<nav id="side-bar" class="side-bar-menu">
 		<?php
 		$network_menu_args = array(
-			'theme_location'    => 'network',
-			'fallback_cb'				=> false,
+			'theme_location'    => 'engage',
+			'fallback_cb'		=> false,
 		);
 		hounslow_intranet_network_nav_menu($network_menu_args);
 		?>

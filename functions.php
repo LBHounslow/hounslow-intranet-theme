@@ -59,6 +59,7 @@ if (!function_exists('hounslow_intranet_setup')) :
 			register_nav_menus(
 				array(
 					'network' => esc_html__('Network Navigation', 'hounslow-intranet'),
+					'engage' => esc_html__('Engage Sections', 'hounslow-intranet'),
 					'popular' => esc_html__('Popular Links', 'hounslow-intranet'),
 					'support' => esc_html__('Support Links', 'hounslow-intranet'),
 					'external' => esc_html__('External Links', 'hounslow-intranet'),
