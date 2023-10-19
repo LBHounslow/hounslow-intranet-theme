@@ -12,7 +12,7 @@
 ?>
 </div><!-- .wrapper -->
 <!-- Body Footer -->
-<div id="footer" class="site-footer container-fluid bg-white p-3" data-swiftype-index="false">
+<div id="footer" class="site-footer container-fluid bg-white p-3">
 	<!-- Footer Widgets -->
 	<div id="footer-row-one" class="row">
 		<div id="footer-row-one-column-one" class="widget-area col-sm">
@@ -52,22 +52,6 @@
 		</div><!-- .col -->
 	</div><!-- .row -->
 </div><!-- #footer -->
-<!-- Swiftype Search -->
-<script type="text/javascript">
-	(function(w, d, t, u, n, s, e) {
-		w['SwiftypeObject'] = n;
-		w[n] = w[n] || function() {
-			(w[n].q = w[n].q || []).push(arguments);
-		};
-		s = d.createElement(t);
-		e = d.getElementsByTagName(t)[0];
-		s.async = 1;
-		s.src = u;
-		e.parentNode.insertBefore(s, e);
-	})(window, document, 'script', '//s.swiftypecdn.com/install/v2/st.js', '_st');
-
-	_st('install', '_DkzPVuz5eyykUsibtix', '2.0.0');
-</script>
 <?php wp_footer(); ?>
 </body>
 

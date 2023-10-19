@@ -13459,21 +13459,6 @@ figure.wp-block-image {
 	content: "— ";
 }
 
-/* Styling for Swiftype search */
-.st-default-search-input {
-	background: none !important;
-	background-color: #fff !important;
-	min-height: 1.5rem !important;
-}
-
-.st-ui-type-heading {
-	font-size: 17px !important;
-}
-
-.st-ui-type-detail-bold {
-	font-weight: 700 !important;
-}
-
 .post-title-list {
 	min-height: 50px;
 }

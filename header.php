@@ -22,8 +22,8 @@
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
-	<a class="visually-hidden-focusable" href="#primary" data-swiftype-index="false"><?php esc_html_e('Skip to content', 'hounslow-intranet-theme'); ?></a>
-	<div id="header" class="container-fluid bg-white border-top border-primary" style="border-top-width:12px!important" data-swiftype-index="false">
+	<a class="visually-hidden-focusable" href="#primary"><?php esc_html_e('Skip to content', 'hounslow-intranet-theme'); ?></a>
+	<div id="header" class="container-fluid bg-white border-top border-primary" style="border-top-width:12px!important">
 		<div id="header-row-01" class="row">
 			<!-- Branding and Network Home -->
 			<div id="header-row-01-col-01" class="col-6 col-lg-2 align-self-center">
@@ -46,7 +46,7 @@
 	</div><!-- #header .container  -->
 	<div class="wrapper">
 		<!-- Sidebar (navigation) -->
-		<nav id="sidebar" data-swiftype-index="false">
+		<nav id="sidebar">
 			<?php get_template_part('template-parts/navigation', 'menu'); ?>
 		</nav>
 		<!-- Page Content  -->
