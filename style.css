@@ -13827,7 +13827,8 @@ div.css-search div.em-search-main .em-search-submit {
 .banner-sm img {
 	border-top-left-radius: 210px;
 	min-height: 200px;
-	max-height: 300px;
+	max-height: 250px;
+	object-fit: cover;
 }
 
 .bubble {
@@ -14183,6 +14184,65 @@ a[data-toggle="collapse"] {
 
 .avatar {
 	border-radius: 100px;
+}
+
+/* New print styles */
+@media print {
+
+	body {
+		background: #fff none !important;
+		color: #000 !important;
+	}
+
+	.wp-block-columns {
+		display: none !important;
+	}
+
+	.easy-notification-bar {
+		display: none !important;
+	}
+
+	.status-bar {
+		display: none !important;
+	}
+
+	.site-branding {
+		display: none !important;
+	}
+
+	.navbar {
+		display: none !important;
+	}
+
+	.c-accordion__content {
+		display: block !important;
+	}
+
+	.wp-block-pb-accordion-item .c-accordion__item .js-accordion-item {
+		overflow: auto;
+		display: block;
+		max-height: none;
+	}
+
+	.noprint {
+		display: none !important;
+	}
+
+	.entry-footer {
+		display: none !important;
+	}
+
+	#colophon {
+		display: none !important;
+	}
+
+	.col-lg-5 {
+		display: none !important;
+	}
+
+	.c-accordion__title::after {
+		display: none !important;
+	}
 }
 
 .kb-caption {
