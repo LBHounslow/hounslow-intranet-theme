@@ -205,7 +205,7 @@ if (!function_exists('hounslow_intranet_excerpt')) :
       $output = 'A password is required to view this post.';
     } else if (empty($post->post_excerpt)) {
       if (rwmb_get_value('lbh_entry_summary')) {
-        $output = rwmb_get_value('lbh_entry_summary', '', get_the_ID());
+        $output = wpautop(rwmb_get_value('lbh_entry_summary', '', get_the_ID()));
       } else {
         $output = get_the_excerpt();
       }
