@@ -10,7 +10,7 @@
 
 if (!defined('HOUNSLOW_INTRANET_THEME_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('HOUNSLOW_INTRANET_THEME_VERSION', '1.3.4');
+	define('HOUNSLOW_INTRANET_THEME_VERSION', '1.4');
 }
 
 if (!function_exists('hounslow_intranet_setup')) :
@@ -59,6 +59,7 @@ if (!function_exists('hounslow_intranet_setup')) :
 			register_nav_menus(
 				array(
 					'network' => esc_html__('Network Navigation', 'hounslow-intranet'),
+					'engage' => esc_html__('Engage Sections', 'hounslow-intranet'),
 					'popular' => esc_html__('Popular Links', 'hounslow-intranet'),
 					'support' => esc_html__('Support Links', 'hounslow-intranet'),
 					'external' => esc_html__('External Links', 'hounslow-intranet'),
@@ -206,6 +207,10 @@ function hounslow_intranet_scripts()
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
+
+	if (is_page_template('page-templates/page_search.php')) {
+		wp_enqueue_script('hounslow-intranet-search', get_template_directory_uri() . '/js/search.js', array(), HOUNSLOW_INTRANET_THEME_VERSION, true);
+	}
 }
 add_action('wp_enqueue_scripts', 'hounslow_intranet_scripts');
 
@@ -213,11 +218,6 @@ add_action('wp_enqueue_scripts', 'hounslow_intranet_scripts');
  * Utility functions for this theme.
  */
 require get_template_directory() . '/inc/utility-functions.php';
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -235,21 +235,9 @@ require get_template_directory() . '/inc/hounslow-intranet-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
  * SEO functions.
  */
 require get_template_directory() . '/inc/seo-functions.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-if (defined('JETPACK__VERSION')) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
 
 /**
  * Gravity Forms functions for this theme.

@@ -75,14 +75,14 @@ get_header();
 
 </div><!-- #primary .site-main -->
 
-<section id="secondary" class="widget-area col-sm-12 col-lg-3" data-swiftype-index="false">
+<section id="secondary" class="widget-area col-sm-12 col-lg-3">
 	<?php
 	if (is_active_sidebar('sidebar-homepage')) {
 		dynamic_sidebar('sidebar-homepage');
 	} ?>
 </section><!-- #secondary -->
 
-<aside id="tertiary" class="widget-area col-sm-12 col-lg-3" data-swiftype-index="false">
+<aside id="tertiary" class="widget-area col-sm-12 col-lg-3">
 	<?php
 	if (is_active_sidebar('sidebar-network')) {
 		dynamic_sidebar('sidebar-network');

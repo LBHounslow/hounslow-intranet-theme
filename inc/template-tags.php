@@ -339,28 +339,6 @@ if (!function_exists('hounslow_intranet_link_thumbnail')) :
 	}
 endif;
 
-
-
-
-
-
-
-
-
-
-if (!function_exists('wp_body_open')) :
-	/**
-	 * Shim for sites older than 5.2.
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/12563
-	 */
-	function wp_body_open()
-	{
-		do_action('wp_body_open');
-	}
-endif;
-
-
 if (!function_exists('hounslow_intranet_breadcrumbs')) :
 	/**
 	 * Displays the breadcrummb navigation.
@@ -669,40 +647,45 @@ if (!function_exists('hounslow_intranet_display_child_pages')) :
 	}
 endif;
 
-function hounslow_intranet_get_child_pages($post_id)
-{
+if (!function_exists('hounslow_intranet_get_child_pages')) :
+	/**
+	 * Gets the children of a page.
+	 *
+	 * Description..
+	 * ...
+	 */
+	function hounslow_intranet_get_child_pages($post_id)
+	{
+		if (is_front_page()) {
+			$args = array(
+				'parent' => 0,
+				'sort_order' => 'ASC',
+				'sort_column' => 'menu_order',
+			);
 
-	if (is_front_page()) {
+			$childpages = get_pages($args);
+		} else {
 
-		$args = array(
-			'parent' => 0,
-			'sort_order' => 'ASC',
-			'sort_column' => 'menu_order',
-		);
+			$args = array(
+				'order'          => 'ASC',
+				'post_parent'    => $post_id,
+				'post_type'      => 'page',
+			);
 
-		$childpages = get_pages($args);
-	} else {
+			$childpages = apply_filters('get_pages', get_children($args));
+		}
 
-		$args = array(
-			'order'          => 'ASC',
-			'post_parent'    => $post_id,
-			'post_type'      => 'page',
-		);
-
-		$childpages = apply_filters('get_pages', get_children($args));
+		return $childpages;
 	}
-
-	return $childpages;
-}
+endif;
 
 function hounslow_intranet_child_page_list_item($child)
 {
-	?><li><a href="<?php echo esc_url(get_permalink($child->ID)); ?>"><?php echo esc_html(get_the_title($child->ID)); ?></a></li><?php
-																																}
+	echo '<li><a href="' . esc_url(get_permalink($child->ID)) . '">' . esc_html(get_the_title($child->ID)) . '</a></li>';
+}
 
-																																function hounslow_intranet_child_page_media_item($child)
-																																{
-																																	?><div class="media">
+function hounslow_intranet_child_page_media_item($child)
+{ ?><div class="media">
 		<a href="<?php echo esc_url(get_permalink($child->ID)); ?>">
 			<svg class="bi bi-file-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z" />
@@ -713,15 +696,16 @@ function hounslow_intranet_child_page_list_item($child)
 			<h5 class="mt-0"><a href="<?php echo esc_url(get_permalink($child->ID)); ?>"><?php echo esc_html(get_the_title($child->ID)); ?></a></h5>
 			<?php echo apply_filters('the_excerpt', get_the_excerpt($child->ID)); ?>
 		</div>
-	</div><?php
-																																}
+	</div>
+<?php
+}
 
-																																function hounslow_intranet_child_page_card_item($child)
-																																{
-			?><div class="col-sm-6 col-lg-4">
+function hounslow_intranet_child_page_card_item($child)
+{
+?><div class="col-sm-6 col-lg-4">
 		<div class="card mb-2">
 
-			<?php if (has_post_thumbnail($child->ID)) :	?>
+			<?php if (has_post_thumbnail($child->ID)) :    ?>
 				<a class="post-thumbnail" href="<?php the_permalink($child->ID); ?>" aria-hidden="true" tabindex="-1">
 
 					<?php echo get_the_post_thumbnail($child->ID, 'large'); ?>
@@ -738,134 +722,186 @@ function hounslow_intranet_child_page_list_item($child)
 				<a class="btn btn-primary" href="<?php echo esc_url(get_permalink($child->ID)); ?>">Read more&hellip;</a>
 			</div>
 		</div>
-	</div><?php
-																																}
+	</div>
+	<?php
+}
 
-																																function hounslow_intranet_child_page_image_item($child)
-																																{
-																																	echo '<div class="col-sm-6 col-lg-4">';
-																																	echo '<figure class="wp-block-image size-large">';
-																																	hounslow_intranet_link_thumbnail($child);
-																																	echo '</figure></div>';
-																																}
+function hounslow_intranet_child_page_image_item($child)
+{
+	echo '<div class="col-sm-6 col-lg-4">';
+	echo '<figure class="wp-block-image size-large">';
+	hounslow_intranet_link_thumbnail($child);
+	echo '</figure></div>';
+}
 
-
-																																if (!function_exists('hounslow_intranet_paged_posts_navigation')) :
-																																	/**
-																																	 * Prints a paginated navigation element.
-																																	 * Used on post index and archive pages.
-																																	 */
-																																	function hounslow_intranet_paged_posts_navigation($query = null, $screen_reader_text = 'Posts navigation', $aria_label = 'Posts', $class = 'posts-navigation')
-																																	{
-
-			?><nav class="navigation <?php echo $class ?>" role="navigation" aria-label="<?php echo $aria_label ?>">
+if (!function_exists('hounslow_intranet_paged_posts_navigation')) :
+	/**
+	 * Prints a paginated navigation element.
+	 * Used on post index and archive pages.
+	 */
+	function hounslow_intranet_paged_posts_navigation($query = null, $screen_reader_text = 'Posts navigation', $aria_label = 'Posts', $class = 'posts-navigation')
+	{ ?><nav class="navigation <?php echo $class ?>" role="navigation" aria-label="<?php echo $aria_label ?>">
 			<h2 class="screen-reader-text"><?php echo $screen_reader_text ?></h2>
 			<?php echo bootstrap_pagination($query); ?>
-		</nav><?php
-																																	}
-																																endif;
+		</nav>
+<?php
+	}
+endif;
 
-																																/**
-																																 * @param WP_Query|null $wp_query
-																																 * @param bool $echo
-																																 * @param array $params
-																																 *
-																																 * @return string|null
-																																 *
-																																 * Accepts a WP_Query instance to build pagination (for custom wp_query()),
-																																 * or nothing to use the current global $wp_query (eg: taxonomy term page)
-																																 * - Tested on WP 5.4.1
-																																 * - Tested with Bootstrap 4.4
-																																 * - Tested on Sage 9.0.9
-																																 *
-																																 * SOURCE:
-																																 * https://gist.github.com/mtx-z/f95af6cc6fb562eb1a1540ca715ed928
-																																 *
-																																 * Modified to work with custon post queries on static pages
-																																 *
-																																 * USAGE:
-																																 *     <?php echo bootstrap_pagination(); ?> //uses global $wp_query
-																																 * or with custom WP_Query():
-																																 *     <?php
-																																 *      $query = new \WP_Query($args);
-																																 *       ... while(have_posts()), $query->posts stuff ... endwhile() ...
-																																 *       echo bootstrap_pagination($query);
-																																 *     ?>
-																																 */
-																																function bootstrap_pagination(\WP_Query $wp_query = null, $echo = true, $params = [])
-																																{
-																																	if (null === $wp_query) {
-																																		global $wp_query;
-																																	}
+/**
+ * @param WP_Query|null $wp_query
+ * @param bool $echo
+ * @param array $params
+ *
+ * @return string|null
+ *
+ * Accepts a WP_Query instance to build pagination (for custom wp_query()),
+ * or nothing to use the current global $wp_query (eg: taxonomy term page)
+ * - Tested on WP 5.4.1
+ * - Tested with Bootstrap 4.4
+ * - Tested on Sage 9.0.9
+ *
+ * SOURCE:
+ * https://gist.github.com/mtx-z/f95af6cc6fb562eb1a1540ca715ed928
+ *
+ * Modified to work with custon post queries on static pages
+ *
+ * USAGE:
+ *     <?php echo bootstrap_pagination(); ?> //uses global $wp_query
+ * or with custom WP_Query():
+ *     <?php
+ *      $query = new \WP_Query($args);
+ *       ... while(have_posts()), $query->posts stuff ... endwhile() ...
+ *       echo bootstrap_pagination($query);
+ *     ?>
+ */
+function bootstrap_pagination(\WP_Query $wp_query = null, $echo = true, $params = [])
+{
+	if (null === $wp_query) {
+		global $wp_query;
+	}
 
-																																	$add_args = [];
+	$add_args = [];
 
-																																	//add query (GET) parameters to generated page URLs
-																																	/*if (isset($_GET[ 'sort' ])) {
-        $add_args[ 'sort' ] = (string)$_GET[ 'sort' ];
-    }*/
+	//add query (GET) parameters to generated page URLs
+	/*if (isset($_GET[ 'sort' ])) {
+$add_args[ 'sort' ] = (string)$_GET[ 'sort' ];
+}*/
 
-																																	if (is_page_template()) {
-																																		$current = get_query_var('page');
-																																	} else {
-																																		$current = get_query_var('paged');
-																																	}
+	if (is_page_template()) {
+		$current = get_query_var('page');
+	} else {
+		$current = get_query_var('paged');
+	}
 
-																																	$pages = paginate_links(
-																																		array_merge([
-																																			'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-																																			'format'       => '?paged=%#%',
-																																			'current'      => max(1, $current),
-																																			'total'        => $wp_query->max_num_pages,
-																																			'type'         => 'array',
-																																			'show_all'     => false,
-																																			'end_size'     => 3,
-																																			'mid_size'     => 1,
-																																			'prev_next'    => true,
-																																			'prev_text'    => __('« Prev'),
-																																			'next_text'    => __('Next »'),
-																																			'add_args'     => $add_args,
-																																			'add_fragment' => ''
-																																		], $params)
-																																	);
+	$pages = paginate_links(
+		array_merge([
+			'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+			'format'       => '?paged=%#%',
+			'current'      => max(1, $current),
+			'total'        => $wp_query->max_num_pages,
+			'type'         => 'array',
+			'show_all'     => false,
+			'end_size'     => 3,
+			'mid_size'     => 1,
+			'prev_next'    => true,
+			'prev_text'    => __('« Prev'),
+			'next_text'    => __('Next »'),
+			'add_args'     => $add_args,
+			'add_fragment' => ''
+		], $params)
+	);
 
-																																	if (is_array($pages)) {
-																																		//$current_page = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
-																																		$pagination = '<div class="pagination justify-content-center"><ul class="pagination">';
+	if (is_array($pages)) {
+		//$current_page = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
+		$pagination = '<div class="pagination justify-content-center"><ul class="pagination">';
 
-																																		foreach ($pages as $page) {
-																																			$pagination .= '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '') . '"> ' . str_replace('page-numbers', 'page-link', $page) . '</li>';
-																																		}
+		foreach ($pages as $page) {
+			$pagination .= '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '') . '"> ' . str_replace('page-numbers', 'page-link', $page) . '</li>';
+		}
 
-																																		$pagination .= '</ul></div>';
+		$pagination .= '</ul></div>';
 
-																																		if ($echo) {
-																																			echo $pagination;
-																																		} else {
-																																			return $pagination;
-																																		}
-																																	}
+		if ($echo) {
+			echo $pagination;
+		} else {
+			return $pagination;
+		}
+	}
 
-																																	return null;
-																																}
+	return null;
+}
 
-																																/**
-																																 * Notes:
-																																 * AJAX:
-																																 * - When used with wp_ajax (generate pagination HTML from ajax) you'll need to provide base URL (or it'll be admin-ajax URL)
-																																 * - Example for a term page: bootstrap_pagination( $query, false, ['base' => get_term_link($term) . '?paged=%#%'] )
-																																 *
-																																 * Images as next/prev:
-																																 * - You can use image as next/prev buttons
-																																 * - Example: 'prev_text' => '<img src="' . get_stylesheet_directory_uri() . '/assets/images/prev-arrow.svg">',
-																																 *
-																																 * Add query parameters to page URLs
-																																 * - If you need custom URL parameters on your page URLS, use the "add_args" attribute
-																																 * - Example (before paginate_links() call):
-																																 * $arg = [];
-																																 * if (isset($_GET[ 'sort' ])) {
-																																 *  $args[ 'sort' ] = (string)$_GET[ 'sort' ];
-																																 * }
-																																 * ...
-																																 * 'add_args'     => $args,
-																																 */
+/**
+ * Notes:
+ * AJAX:
+ * - When used with wp_ajax (generate pagination HTML from ajax) you'll need to provide base URL (or it'll be admin-ajax URL)
+ * - Example for a term page: bootstrap_pagination( $query, false, ['base' => get_term_link($term) . '?paged=%#%'] )
+ *
+ * Images as next/prev:
+ * - You can use image as next/prev buttons
+ * - Example: 'prev_text' => '<img src="' . get_stylesheet_directory_uri() . '/assets/images/prev-arrow.svg">',
+ *
+ * Add query parameters to page URLs
+ * - If you need custom URL parameters on your page URLS, use the "add_args" attribute
+ * - Example (before paginate_links() call):
+ * $arg = [];
+ * if (isset($_GET[ 'sort' ])) {
+ *  $args[ 'sort' ] = (string)$_GET[ 'sort' ];
+ * }
+ * ...
+ * 'add_args'     => $args,
+ */
+
+
+function bootstrap_search_pagination(\SearchWP\Query $wp_query = null, $echo = true, $params = [])
+{
+	if (null === $wp_query) {
+		global $wp_query;
+	}
+
+	$add_args = [];
+
+	//add query (GET) parameters to generated page URLs
+	/*if (isset($_GET[ 'sort' ])) {
+		$add_args[ 'sort' ] = (string)$_GET[ 'sort' ];
+	}*/
+
+	$search_page  = isset($_GET['swppg']) ? absint($_GET['swppg']) : 1;
+
+	$pages = paginate_links(
+		array_merge([
+			'format'  => '?swppg=%#%',
+			'current' => $search_page,
+			'total'   => $wp_query->max_num_pages,
+			'type'         => 'array',
+			'show_all'     => false,
+			'end_size'     => 3,
+			'mid_size'     => 1,
+			'prev_next'    => true,
+			'prev_text'    => __('« Prev'),
+			'next_text'    => __('Next »'),
+			'add_args'     => $add_args,
+			'add_fragment' => ''
+		], $params)
+	);
+
+	if (is_array($pages)) {
+		//$current_page = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
+		$pagination = '<div class="pagination justify-content-center"><ul class="pagination">';
+
+		foreach ($pages as $page) {
+			$pagination .= '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '') . '"> ' . str_replace('page-numbers', 'page-link', $page) . '</li>';
+		}
+
+		$pagination .= '</ul></div>';
+
+		if ($echo) {
+			echo $pagination;
+		} else {
+			return $pagination;
+		}
+	}
+
+	return null;
+}
