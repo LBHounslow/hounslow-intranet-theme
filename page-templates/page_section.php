@@ -63,7 +63,8 @@ get_header();
     ?>
           <div class="col-lg-3 outer">
             <div class="inner">
-              <div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;background-position:center;"></div>
+              <!-- <div style="background:url('<?php //echo get_the_post_thumbnail_url(); 
+                                                ?>');height:200px;background-size:cover;background-position:center;"></div> -->
               <div class="post-title" style="padding-top:10px;">
                 <h6><?php echo $oldTopic->name; ?></h6>
                 <p><?php echo $oldTopic->description; ?></p>
@@ -97,7 +98,8 @@ get_header();
         ?>
         <div class="col-lg-3 outer">
           <div class="inner">
-            <div style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');height:200px;background-size:cover;background-position:center;"></div>
+            <!-- <div style="background:url('<?php //echo get_the_post_thumbnail_url(); 
+                                              ?>');height:200px;background-size:cover;background-position:center;"></div> -->
             <div class="post-title" style="padding-top:10px;">
               <h6><?php the_title(); ?></h6>
               <p><?php hounslow_intranet_excerpt(); ?></p>
