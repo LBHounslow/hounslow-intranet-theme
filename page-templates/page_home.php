@@ -24,6 +24,7 @@ $news_site_id = 2;
       <?php get_template_part('template-parts/page', 'home-news'); ?>
     </div>
     <div class="col-lg-3">
+       <?php get_template_part('template-parts/page', 'home-feedback'); ?>
        <?php get_template_part('template-parts/page', 'home-events'); ?> 
     </div>
   </div>
