@@ -12,6 +12,10 @@ global $blog_id;
 $origin_id = 1; // ID of main site
 $show_advanced_search = true;
 
+if ( !is_login() && !is_user_logged_in()) :
+  get_template_part('template-parts/denied/denied', 'page');
+else: 
+
 if (!is_multisite() || $origin_id != $blog_id) {
     $show_advanced_search = false;
 }
@@ -203,3 +207,5 @@ get_header();
 <?php
 get_sidebar();
 get_footer();
+endif;
+?>

@@ -9,7 +9,9 @@
  *
  * @package Hounslow_Intranet
  */
-
+if ( !is_login() && !is_user_logged_in()) :
+  get_template_part('template-parts/denied/denied', 'page');
+else: 
 get_header();
 ?>
 <!-- Body Main Content -->
@@ -26,3 +28,5 @@ get_header();
 <?php
 get_sidebar();
 get_footer();
+endif;
+?>

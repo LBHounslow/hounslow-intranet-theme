@@ -9,6 +9,9 @@
  *
  * @package LBH_Intranet
  */
+if ( !is_login() && !is_user_logged_in()) :
+  get_template_part('template-parts/denied/denied', 'page');
+else: 
 get_header();
 $news_site_id = 2;
 ?>
@@ -32,3 +35,5 @@ $news_site_id = 2;
 <?php
 get_sidebar();
 get_footer();
+endif;
+?>
